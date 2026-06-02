@@ -132,6 +132,35 @@
   .onfail .brick-warn{color:var(--blood)}
   .chip.have{border-color:var(--verd-bright)!important;background:rgba(70,160,90,.18)!important;
     box-shadow:0 0 8px rgba(70,160,90,.2)}
+  /* starting-item panel */
+  .start-toggle{margin-top:14px;font-size:12.5px;color:var(--verisium-bright);cursor:pointer;
+    user-select:none;padding:7px 0;border-top:1px solid rgba(58,40,23,.4);font-weight:500}
+  .start-toggle:hover{color:var(--gold-bright)}
+  .start-box{margin-top:4px;padding:0;border:1px solid var(--edge);border-radius:6px;
+    background:rgba(0,0,0,.22);overflow:hidden}
+  .start-step{padding:13px 14px}
+  .start-step-head{font-family:'Cinzel',serif;font-size:13px;color:var(--parchment);
+    letter-spacing:.03em;margin-bottom:9px;display:flex;align-items:center;gap:8px}
+  .step-num{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;
+    border-radius:50%;background:var(--verisium-bright);color:#08110f;font-family:'JetBrains Mono',monospace;
+    font-size:11px;font-weight:700;flex:none}
+  .start-hint{font-family:inherit;font-size:10px;color:var(--verd-bright);font-style:italic;letter-spacing:0}
+  .start-box textarea{width:100%;font-size:12px;font-family:'JetBrains Mono',monospace;resize:vertical;
+    background:rgba(0,0,0,.32);color:var(--parchment);border:1px solid var(--edge);border-radius:4px;
+    padding:8px;box-sizing:border-box}
+  .start-box textarea:focus{outline:none;border-color:var(--verisium-bright)}
+  .forge-btn.alt{margin-top:8px;padding:9px;font-size:12.5px;
+    background:linear-gradient(135deg,#1d3b36,#16302c)}
+  .parse-result{font-size:11px;margin-top:9px;line-height:1.55}
+  .start-or{text-align:center;font-size:10.5px;color:var(--ash-dim);letter-spacing:.08em;
+    text-transform:uppercase;padding:3px 0;background:rgba(0,0,0,.15)}
+  .start-tip{font-size:11px;color:var(--ash);margin-top:10px;line-height:1.5}
+  .have-eg{color:var(--verd-bright);white-space:nowrap}
+  .junk-row{display:flex;gap:10px;margin-top:10px}
+  .junk-row>div{flex:1}
+  .start-box label.mini{margin-top:0;margin-bottom:3px;font-size:10px}
+  .start-box input[type=number]{font-size:13px}
+  .start-note{font-size:10px;color:var(--ash-dim);margin-top:9px;line-height:1.45}
   .disclaimer{margin-top:28px;font-size:11px;color:var(--ash-dim);text-align:center;font-family:'JetBrains Mono',monospace;line-height:1.7}
   .disclaimer b{color:var(--ash)}
   .empty{color:var(--ash-dim);font-style:italic;text-align:center;padding:20px;font-size:13px}
@@ -160,32 +189,32 @@
       <input id="ilvl" type="number" value="81" min="1" max="100">
       <label>Budget (Exalted Orbs, optional)</label>
       <input id="budget" type="number" placeholder="blank = none">
-      <div id="startToggle" style="margin-top:12px;font-size:12px;color:var(--verisium-bright);cursor:pointer;user-select:none">▸ Crafting from an existing item?</div>
-      <div id="startBox" style="display:none;margin-top:10px;padding:11px;border:1px solid var(--edge);border-radius:4px;background:rgba(0,0,0,.2)">
-        <label style="margin-top:0">Paste item (in-game Ctrl+C or trade)</label>
-        <textarea id="pasteBox" rows="4" placeholder="Ctrl+C an item in-game, then paste here..." style="width:100%;font-size:12px;font-family:'JetBrains Mono',monospace;resize:vertical;background:rgba(0,0,0,.3);color:var(--parchment);border:1px solid var(--edge);border-radius:3px;padding:7px"></textarea>
-        <button class="forge-btn" id="parseBtn" style="margin-top:7px;padding:9px;font-size:13px">⤵ Parse pasted item</button>
-        <div id="parseResult" style="font-size:11px;margin-top:7px;line-height:1.5"></div>
-        <div style="border-top:1px solid var(--edge);margin:11px 0 9px"></div>
-        <label style="margin-top:0">Current rarity</label>
-        <select id="startRarity">
-          <option value="Normal">Normal (white — no mods)</option>
-          <option value="Magic">Magic (max 1 prefix / 1 suffix)</option>
-          <option value="Rare">Rare (max 3 prefix / 3 suffix)</option>
-        </select>
-        <div style="font-size:11px;color:var(--ash);margin-top:9px;line-height:1.5">
-          Mark target mods you <b>already have</b> by clicking them twice in the
-          mod list (once = want, twice = already on item). Then set how many
-          <i>unwanted</i> mods occupy slots:</div>
-        <div style="display:flex;gap:8px;margin-top:8px">
-          <div style="flex:1"><label style="margin-top:0">Junk prefixes</label>
-            <input id="junkPre" type="number" value="0" min="0" max="3" style="font-size:13px"></div>
-          <div style="flex:1"><label style="margin-top:0">Junk suffixes</label>
-            <input id="junkSuf" type="number" value="0" min="0" max="3" style="font-size:13px"></div>
+      <div id="startToggle" class="start-toggle">▸ Crafting from an existing item?</div>
+      <div id="startBox" class="start-box" style="display:none">
+        <div class="start-step">
+          <div class="start-step-head"><span class="step-num">1</span> Paste your item <span class="start-hint">(fastest)</span></div>
+          <textarea id="pasteBox" rows="3" placeholder="Ctrl+C an item in-game (or copy from trade), paste here, then Parse."></textarea>
+          <button class="forge-btn alt" id="parseBtn">⤵ Parse pasted item</button>
+          <div id="parseResult" class="parse-result"></div>
         </div>
-        <div style="font-size:10px;color:var(--ash-dim);margin-top:8px;line-height:1.4">
-          Note: junk mods are tracked by count, not identity (the solver assumes
-          they don't collide with a target mod's group).</div>
+        <div class="start-or">— or set it manually —</div>
+        <div class="start-step">
+          <div class="start-step-head"><span class="step-num">2</span> Describe the item</div>
+          <label class="mini">Current rarity</label>
+          <select id="startRarity">
+            <option value="Normal">Normal — no mods yet</option>
+            <option value="Magic">Magic — up to 1 prefix + 1 suffix</option>
+            <option value="Rare">Rare — up to 3 prefix + 3 suffix</option>
+          </select>
+          <div class="start-tip">Click a target mod's chip below to mark it <span class="have-eg">✓ already have</span>.</div>
+          <div class="junk-row">
+            <div><label class="mini">Junk prefixes</label>
+              <input id="junkPre" type="number" value="0" min="0" max="3"></div>
+            <div><label class="mini">Junk suffixes</label>
+              <input id="junkSuf" type="number" value="0" min="0" max="3"></div>
+          </div>
+          <div class="start-note">Junk = unwanted mods filling slots. Tracked by count, not identity.</div>
+        </div>
       </div>
       <button class="forge-btn" id="forge">⚒ Divine the Path</button>
       <button class="forge-btn" id="pricecheck" style="margin-top:8px;background:linear-gradient(135deg,#2a3a5a,#1a2a4a)">⚖ Check Market Price</button>

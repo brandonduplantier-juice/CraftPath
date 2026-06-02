@@ -87,10 +87,17 @@ def parse_item(raw: str, pool_mods):
         # skip obvious non-mod metadata lines
         low = ln.lower()
         if any(low.startswith(p) for p in (
-            "item class:", "rarity:", "requirements:", "level:", "str:", "dex:",
-            "int:", "sockets:", "item level:", "quality:", "armour:", "evasion:",
-            "energy shield:", "ward:", "{ ", "note:", "price ", "corrupted",
-            "unidentified")):
+            "item class:", "rarity:", "requirements:", "requires:", "level:",
+            "str:", "dex:", "int:", "sockets:", "item level:", "quality:",
+            "armour:", "evasion:", "energy shield:", "ward:", "{ ", "note:",
+            "price ", "corrupted", "unidentified", "~price", "~b/o", "exact price",
+            "listed ", "online", "offline", "ign:")):
+            continue
+        # trade-site stat junk like "Armour16Energy Shield7" (concatenated stats,
+        # no spaces between word and number) - not a real mod line
+        if re.match(r'^(armour|evasion|energy\s*shield|ward)\d', low.replace(' ', '')):
+            continue
+        if re.match(r'^\s*(armour|evasion|energy shield|ward)\d+', low):
             continue
         # try to match this line as a mod
         key = _norm(ln)
@@ -119,9 +126,25 @@ def parse_item(raw: str, pool_mods):
             if _NUM.search(ln) or '%' in ln:
                 unmatched.append(ln.strip())
 
+    # If the format had no explicit Rarity line (common in trade copies), infer
+    # it from the matched mod counts. More than 1 prefix or 1 suffix => Rare;
+    # otherwise default to Rare anyway (multi-mod pasted items are ~always rare,
+    # and Rare is the safe superset - the user can correct it in the dropdown).
+    if rarity is None:
+        n_pre = sum(1 for m in matched if m["affix_type"] == "Prefix")
+        n_suf = sum(1 for m in matched if m["affix_type"] == "Suffix")
+        if n_pre > 1 or n_suf > 1 or (n_pre + n_suf) > 2:
+            rarity = "Rare"
+        elif (n_pre + n_suf) >= 1:
+            rarity = "Rare"   # safe default; user can switch to Magic if needed
+        rarity_inferred = True
+    else:
+        rarity_inferred = False
+
     return {
         "ok": True,
         "rarity": rarity,
+        "rarity_inferred": rarity_inferred,
         "item_level": item_level,
         "matched": matched,
         "unmatched": unmatched,
