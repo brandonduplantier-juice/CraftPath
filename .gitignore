@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+Thumbs.db
+.venv/
+venv/
+.env
+RUN_DESKTOP.bat
+*.session
+poesessid*.txt
