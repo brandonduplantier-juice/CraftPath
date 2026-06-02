@@ -155,31 +155,43 @@ def parse_item(raw: str, pool_mods):
         if il:
             item_level = int(il.group(1))
             continue
-        # skip obvious non-mod metadata lines
-        low = ln.lower()
-        if ln.lstrip().startswith('{'):
+        # skip obvious non-mod metadata lines (strip leading space first!)
+        low = ln.strip().lower()
+        if low.startswith('{'):
             continue  # advanced-format annotation: { Prefix Modifier ... }
+        # any line carrying a profile URL or markdown account link is trade cruft
+        if 'pathofexile.com/account' in low or 'view-profile' in low or '](http' in low:
+            continue
         if any(low.startswith(p) for p in (
             "item class:", "rarity:", "requirements:", "requires:", "level:",
             "str:", "dex:", "int:", "sockets:", "item level:", "quality:",
             "armour:", "evasion:", "energy shield:", "ward:", "{", "note:",
-            "price ", "corrupted", "unidentified", "~price", "~b/o", "exact price",
+            "price ", "corrupted", "unidentified", "~price", "~b/o", "~", "exact price",
             "listed ", "online", "offline", "ign:",
+            # trade listing cruft
+            "asking price", "acc:", "account:", "fee:", "buyout", "b/o",
+            "verified", "travel to", "ignore player", "whisper", "showing ",
             # weapon properties (not mods)
             "physical damage:", "elemental damage:", "chaos damage:",
             "critical hit chance:", "critical strike chance:", "attacks per second:",
             "weapon range:", "reload time:", "spirit:", "block chance:", "stack size:",
             "radius:", "limited to:", "tags:", "allocates", "grants skill")):
             continue
+        # "listed N minutes/hours/days ago" anywhere in the line
+        if re.search(r'listed .* ago', low) or re.search(r'\d+ (minute|hour|day|second)s? ago', low):
+            continue
         # runic enchant lines copied as "... (rune)" / "... (implicit)" / "(crafted)"
-        if low.rstrip().endswith('(rune)') or low.rstrip().endswith('(implicit)') \
-           or low.rstrip().endswith('(crafted)') or low.rstrip().endswith('(enchant)'):
+        if low.endswith('(rune)') or low.endswith('(implicit)') \
+           or low.endswith('(crafted)') or low.endswith('(enchant)'):
             continue
         # trade-site stat junk like "Armour16Energy Shield7" (concatenated stats,
         # no spaces between word and number) - not a real mod line
         if re.match(r'^(armour|evasion|energy\s*shield|ward)\d', low.replace(' ', '')):
             continue
         if re.match(r'^\s*(armour|evasion|energy shield|ward)\d+', low):
+            continue
+        # "X at max Quality: N" trade display lines
+        if 'at max quality' in low:
             continue
         # try to match this line as a mod
         key = _norm(ln)
@@ -219,6 +231,8 @@ def parse_item(raw: str, pool_mods):
             rarity = "Rare"
         elif (n_pre + n_suf) >= 1:
             rarity = "Rare"   # safe default; user can switch to Magic if needed
+        else:
+            rarity = "Normal"  # no mods at all => white base
         rarity_inferred = True
     else:
         rarity_inferred = False
