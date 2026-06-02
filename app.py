@@ -586,6 +586,12 @@ def api_data_summary():
     return jsonify(datastore.summary())
 
 
+@app.route("/data")
+def data_dashboard():
+    """Visual refinement dashboard — renders the collected aggregate data."""
+    return send_from_directory("templates", "data.html")
+
+
 @app.route("/api/solve", methods=["POST"])
 def api_solve():
     body = request.get_json(force=True)
@@ -618,19 +624,27 @@ def api_solve():
     if start_rarity not in ("Normal", "Magic", "Rare"):
         return jsonify({"status": "invalid",
                         "msg": "Starting rarity must be Normal, Magic, or Rare."}), 400
-    # consistency: total mods on each affix side can't exceed the rarity cap
-    cap = {"Normal": 0, "Magic": 1, "Rare": 3}[start_rarity]
+    # The starting rarity is just the item's CURRENT state, not a cap on the
+    # target — the solver upgrades Normal->Magic->Rare as it crafts. So if the
+    # described starting mods imply a higher rarity than stated (e.g. a paste
+    # had mods but no Rarity line), upgrade the starting rarity to fit rather
+    # than rejecting. Only a true over-cap (more than Rare allows) is invalid.
     tot_pre = len(have_pre) + junk_pre
     tot_suf = len(have_suf) + junk_suf
-    if tot_pre > cap or tot_suf > cap:
+    if tot_pre > 3 or tot_suf > 3:
         return jsonify({"status": "invalid",
-                        "msg": f"A {start_rarity} item allows max {cap} prefix(es) "
-                               f"and {cap} suffix(es); your starting item describes "
-                               f"{tot_pre} prefix / {tot_suf} suffix."}), 400
-    if start_rarity == "Normal" and (have_pre or have_suf or junk_pre or junk_suf):
-        return jsonify({"status": "invalid",
-                        "msg": "A Normal (white) item has no mods. Set rarity to "
-                               "Magic or Rare if it already has mods."}), 400
+                        "msg": f"An item can hold at most 3 prefixes and 3 suffixes; "
+                               f"your starting item describes {tot_pre} prefix / "
+                               f"{tot_suf} suffix. Re-check the kept/removed mods."}), 400
+    # auto-promote starting rarity to the minimum that fits the described mods
+    n_mods = tot_pre + tot_suf
+    if n_mods == 0:
+        start_rarity = "Normal"
+    elif tot_pre <= 1 and tot_suf <= 1 and n_mods <= 2 and start_rarity != "Rare":
+        # fits Magic; respect an explicit Rare if the user/paste said so
+        start_rarity = "Magic" if start_rarity == "Normal" else start_rarity
+    else:
+        start_rarity = "Rare"
 
     # Early viability gate: targeting 4+ specific mods by random orb-slamming is
     # astronomically expensive no matter which mods (which is exactly why

@@ -1,0 +1,121 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CraftPath — Data Refinement</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0e0d; --ink:#101614; --edge:#2a3a36; --parchment:#d8cdb8;
+  --ash:#8a9b96; --ash-dim:#5a6b66; --verisium:#2ec5c0; --verisium-bright:#3fd9d4;
+  --verd-bright:#5fc98a; --gold-bright:#f0cf7a; --blood:#c8503a;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--parchment);font-family:'Spectral',serif;margin:0;
+  padding:34px 20px 60px;
+  background-image:radial-gradient(ellipse 80% 50% at 50% -10%, rgba(46,197,192,.06), transparent 60%)}
+h1{font-family:'Cinzel',serif;text-align:center;letter-spacing:.05em;font-size:30px;margin:0 0 4px}
+h1 .b{color:var(--verisium-bright)}
+.sub{text-align:center;font-style:italic;color:var(--ash);margin-bottom:6px}
+.back{display:block;text-align:center;color:var(--ash-dim);font-size:12px;margin-bottom:30px;text-decoration:none}
+.back:hover{color:var(--verisium-bright)}
+.wrap{max-width:920px;margin:0 auto}
+.panel{border:1px solid var(--edge);border-radius:6px;background:var(--ink);padding:20px 22px;margin-bottom:22px}
+.panel h2{font-family:'Cinzel',serif;font-size:16px;letter-spacing:.06em;margin:0 0 4px;color:var(--parchment)}
+.panel .desc{font-size:12px;color:var(--ash-dim);margin-bottom:16px;line-height:1.5}
+.storage-tag{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 8px;border-radius:3px;
+  border:1px solid var(--edge);color:var(--ash);float:right}
+.storage-tag.sqlite{color:var(--gold-bright);border-color:#5a4a2a}
+.storage-tag.postgres{color:var(--verd-bright);border-color:#2a5a3a}
+.row{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid rgba(42,58,54,.4);font-size:13px}
+.row:last-child{border-bottom:none}
+.rank{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ash-dim);width:24px;flex:none}
+.txt{flex:1;color:var(--parchment)}
+.txt .base{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ash-dim);margin-left:6px}
+.count{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--verisium-bright);flex:none}
+.bar-wrap{flex:none;width:120px;height:8px;background:rgba(0,0,0,.35);border-radius:4px;overflow:hidden}
+.bar{height:100%;background:linear-gradient(90deg,var(--verisium),var(--verd-bright))}
+.empty{color:var(--ash-dim);font-style:italic;font-size:13px;padding:6px 0}
+.health-grid{display:flex;align-items:flex-end;gap:5px;height:130px;margin-top:8px}
+.hbar{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;min-width:0}
+.hbar .b{width:100%;background:linear-gradient(180deg,var(--verisium),#1a7a76);border-radius:3px 3px 0 0;
+  min-height:2px;transition:height .4s}
+.hbar .day{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--ash-dim);white-space:nowrap;
+  transform:rotate(-45deg);transform-origin:center;margin-top:6px}
+.hbar .rate{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--ash)}
+.loading{text-align:center;color:var(--ash);padding:40px;font-style:italic}
+.err{text-align:center;color:var(--blood);padding:30px}
+.note{font-size:11px;color:var(--ash-dim);text-align:center;line-height:1.6;margin-top:8px}
+</style></head>
+<body>
+<h1><span>CRAFT</span><span class="b">PATH</span></h1>
+<div class="sub">data refinement</div>
+<a class="back" href="/">← back to the forge</a>
+
+<div class="wrap" id="wrap">
+  <div class="loading">Loading collected data…</div>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+function esc(s){ const d=document.createElement('div'); d.textContent=s==null?'':String(s); return d.innerHTML; }
+
+async function load(){
+  let j;
+  try{ const r = await fetch('/api/data-summary'); j = await r.json(); }
+  catch(e){ $('#wrap').innerHTML = '<div class="err">Could not load data.</div>'; return; }
+  if(!j.ok){ $('#wrap').innerHTML = '<div class="err">'+esc(j.error||'No data yet.')+'</div>'; return; }
+
+  const mods = j.top_missing_mods||[], bases = j.unsupported_bases||[], health = (j.health||[]).slice().reverse();
+  const maxMod = mods.length ? mods[0].count : 1;
+  const maxBase = bases.length ? bases[0].count : 1;
+
+  let html = '';
+
+  // health trend
+  html += '<div class="panel"><span class="storage-tag '+esc(j.storage)+'">'+esc(j.storage)+'</span>'+
+    '<h2>Match-rate health</h2><div class="desc">Share of pasted mod lines the parser recognized, per day. Rising = the data is improving.</div>';
+  if(health.length){
+    html += '<div class="health-grid">';
+    health.forEach(h=>{
+      const rate = h.match_rate==null?0:h.match_rate;
+      html += '<div class="hbar"><span class="rate">'+(h.match_rate==null?'–':Math.round(rate*100)+'%')+'</span>'+
+        '<div class="b" style="height:'+Math.max(2, rate*100)+'%"></div>'+
+        '<span class="day">'+esc(h.day)+'</span></div>';
+    });
+    html += '</div>';
+  } else { html += '<div class="empty">No pastes recorded yet.</div>'; }
+  html += '</div>';
+
+  // top missing mods
+  html += '<div class="panel"><h2>Top missing mods</h2>'+
+    '<div class="desc">Mod text the parser couldn\u2019t match, ranked by frequency. These are the highest-value additions to the mod-pool data.</div>';
+  if(mods.length){
+    mods.forEach((m,i)=>{
+      html += '<div class="row"><span class="rank">#'+(i+1)+'</span>'+
+        '<span class="txt">'+esc(m.text)+'<span class="base">'+esc(m.base||'')+'</span></span>'+
+        '<span class="bar-wrap"><span class="bar" style="width:'+(100*m.count/maxMod)+'%"></span></span>'+
+        '<span class="count">'+m.count+'</span></div>';
+    });
+  } else { html += '<div class="empty">Nothing unmatched yet — the parser is catching everything.</div>'; }
+  html += '</div>';
+
+  // unsupported bases
+  html += '<div class="panel"><h2>Most-requested unsupported bases</h2>'+
+    '<div class="desc">Base types people pasted that CraftPath has no mod pool for yet, ranked by demand.</div>';
+  if(bases.length){
+    bases.forEach((b,i)=>{
+      html += '<div class="row"><span class="rank">#'+(i+1)+'</span>'+
+        '<span class="txt">'+esc(b.base)+'</span>'+
+        '<span class="bar-wrap"><span class="bar" style="width:'+(100*b.count/maxBase)+'%"></span></span>'+
+        '<span class="count">'+b.count+'</span></div>';
+    });
+  } else { html += '<div class="empty">No unsupported bases requested yet.</div>'; }
+  html += '</div>';
+
+  html += '<div class="note">All data is aggregate and privacy-safe — no account names, prices, or trade info is ever stored.'+
+    (j.storage==='sqlite'?'<br>Storage is local SQLite (resets on redeploy). Set a <b>DATABASE_URL</b> for persistent Postgres.':'')+'</div>';
+
+  $('#wrap').innerHTML = html;
+}
+load();
+</script>
+</body></html>

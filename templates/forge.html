@@ -335,6 +335,7 @@
       </div>
     </div>
     <div class="next-bar">
+      <button class="ghost-btn" id="startOver1">↺ Start over</button>
       <button class="next-btn" id="toStep2">Next: choose target →</button>
     </div>
   </section>
@@ -357,6 +358,7 @@
     </div>
     <div class="next-bar">
       <button class="ghost-btn" id="backTo1">← Back</button>
+      <button class="ghost-btn" id="startOver2">↺ Start over</button>
       <button class="next-btn" id="toStep3">⚒ Divine the path →</button>
     </div>
   </section>
@@ -554,7 +556,7 @@ async function init(){
     solve();
   };
   $('#backTo2').onclick = ()=> gotoStep(2);
-  $('#startOver').onclick = ()=>{
+  const doStartOver = ()=>{
     chosenPre=[]; chosenSuf=[]; ITEM_MODS=[]; ITEM_UNMATCHED=[];
     $('#pasteBox').value=''; $('#parseResult').innerHTML='';
     $('#itemCard').style.display='none'; $('#pasteZone').style.display='block';
@@ -562,6 +564,9 @@ async function init(){
     $('#results').innerHTML='';
     gotoStep(1);
   };
+  $('#startOver').onclick = doStartOver;
+  $('#startOver1').onclick = doStartOver;
+  $('#startOver2').onclick = doStartOver;
 
   $('#parseBtn').onclick = async ()=>{
     const raw=$('#pasteBox').value.trim();
@@ -629,10 +634,17 @@ function renderOneList(el, mods, chosen, isPre){
       (blocked?' <span style="color:var(--blood-bright);font-size:9px">· group taken</span>':'')+`</span>`+
       `<span class="src ${m.source}">${m.source}</span>`;
     if(!blocked){
-      row.onclick=()=>{ const cap=isPre?chosenPre:chosenSuf; if(cap.length>=3) return; cap.push(m.id); renderChips(); renderLists(); };
+      row.onclick=()=>{ const cap=isPre?chosenPre:chosenSuf;
+        if(cap.length + keptCount(isPre) >= 3) return;   // kept mods use slots too
+        cap.push(m.id); renderChips(); renderLists(); };
     }
     el.appendChild(row);
   });
+}
+// how many slots are already used by KEPT mods on a side (prefix/suffix)
+function keptCount(isPre){
+  const aff = isPre?'Prefix':'Suffix';
+  return ITEM_MODS.filter(m=>m.state==='keep' && m.affix===aff).length;
 }
 function renderLists(){
   renderOneList($('#listPre'), MODS.prefixes, chosenPre, true);
@@ -652,8 +664,10 @@ function renderChips(){
   };
   mk(chosenPre,$('#chipPre'),'pre'); mk(chosenSuf,$('#chipSuf'),'suf');
   const cp=$('#capPre'), cs=$('#capSuf');
-  cp.textContent=`${chosenPre.length} / 3`; cp.className='cap'+(chosenPre.length>=3?' full':'');
-  cs.textContent=`${chosenSuf.length} / 3`; cs.className='cap'+(chosenSuf.length>=3?' full':'');
+  const kp=keptCount(true), ks=keptCount(false);
+  const usedP=chosenPre.length+kp, usedS=chosenSuf.length+ks;
+  cp.textContent=`${usedP} / 3`+(kp?` (${kp} kept)`:''); cp.className='cap'+(usedP>=3?' full':'');
+  cs.textContent=`${usedS} / 3`+(ks?` (${ks} kept)`:''); cs.className='cap'+(usedS>=3?' full':'');
 }
 const fmt = x => x==null?'∞' : x>=1e6 ? x.toExponential(2) : x>=1000 ? Math.round(x).toLocaleString() : x.toFixed(2);
 async function solve(){
@@ -663,20 +677,27 @@ async function solve(){
   }
   $('#forge').disabled=true; $('#forge').classList.add('loading');
   results.innerHTML='<div class="verdict"><div class="spinner"></div><div class="loading-msg">Divining the path</div><div class="sub loading-sub">solving the optimal craft sequence</div></div>';
-  const body={base:$('#base').value, item_level:+$('#ilvl').value||81, prefixes:chosenPre, suffixes:chosenSuf, budget: $('#budget').value? +$('#budget').value : null};
-  // starting-item state from the wizard's parsed item (if any mods were kept/removed)
-  if(ITEM_MODS.length || ITEM_UNMATCHED.length){
-    body.start_rarity = $('#startRarity').value || 'Normal';
+  const body={base:$('#base').value, item_level:+$('#ilvl').value||81, prefixes:chosenPre.slice(), suffixes:chosenSuf.slice(), budget: $('#budget').value? +$('#budget').value : null};
+  // kept mods are secured targets too — include them in the target sets
+  ITEM_MODS.forEach(m=>{
+    if(m.state==='keep'){
+      const arr = m.affix==='Prefix'?body.prefixes:body.suffixes;
+      if(!arr.includes(m.mod_id)) arr.push(m.mod_id);
+    }
+  });
+  // starting-item state from the wizard's parsed item
+  if(ITEM_MODS.length){
+    // KEEP = the mod stays on the final item (a secured mod, counts toward caps).
+    // REMOVE = junk to be crafted away.
     const havePre=[], haveSuf=[]; let junkPre=0, junkSuf=0;
     ITEM_MODS.forEach(m=>{
-      const isTarget = chosenPre.includes(m.mod_id)||chosenSuf.includes(m.mod_id);
-      if(m.state==='keep' && isTarget){
+      if(m.state==='keep'){
         (m.affix==='Prefix'?havePre:haveSuf).push(m.mod_id);
       } else {
         if(m.affix==='Prefix') junkPre++; else junkSuf++;
       }
     });
-    ITEM_UNMATCHED.forEach(()=>{ junkSuf++; });
+    body.start_rarity = $('#startRarity').value || 'Normal';
     body.have_prefixes = havePre;
     body.have_suffixes = haveSuf;
     body.junk_prefixes = junkPre;
