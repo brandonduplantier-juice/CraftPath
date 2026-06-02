@@ -34,7 +34,49 @@ from essences import parse_essences, essences_for_class
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "data")
+
+# --- Optional error tracking (Sentry) -------------------------------------
+# Only activates if a SENTRY_DSN env var is set (on the hosted instance).
+# Local/desktop runs without it are completely unaffected. Captures unhandled
+# exceptions with full context so real user-hit bugs surface automatically.
+def _init_sentry():
+    dsn = os.environ.get("SENTRY_DSN", "").strip()
+    if not dsn:
+        return
+    try:
+        import sentry_sdk
+        from sentry_sdk.integrations.flask import FlaskIntegration
+        sentry_sdk.init(
+            dsn=dsn,
+            integrations=[FlaskIntegration()],
+            traces_sample_rate=0.0,          # errors only, no perf overhead
+            send_default_pii=False,          # never send user IP / cookies
+            release=os.environ.get("RENDER_GIT_COMMIT", "craftpath@dev"),
+        )
+    except Exception:
+        pass  # tracking must never break the app
+
+_init_sentry()
+
 app = Flask(__name__, template_folder="templates", static_folder="static")
+
+
+@app.errorhandler(500)
+@app.errorhandler(Exception)
+def _handle_unexpected(err):
+    # Return clean JSON for API routes so the frontend never tries to parse an
+    # HTML error page (that caused the 'Unexpected token <' failures). Sentry,
+    # if configured, has already captured the exception with full context.
+    from werkzeug.exceptions import HTTPException
+    if isinstance(err, HTTPException) and err.code != 500:
+        return err  # let normal 404s etc. behave normally
+    if request.path.startswith("/api/"):
+        return jsonify({
+            "error": "Something went wrong on our end.",
+            "report": "If this keeps happening, please report it: "
+                      "https://github.com/brandonduplantier-juice/CraftPath/issues",
+        }), 500
+    return err
 
 # ---------------------------------------------------------------------------
 # MARKET ACCESS GATE (premium features: price-check + profit scanners)
