@@ -42,6 +42,65 @@ _RARITY_RE = re.compile(r'^\s*rarity:\s*(normal|magic|rare|unique)\s*$', re.I)
 _ILVL_RE = re.compile(r'item\s*level:\s*(\d+)', re.I)
 
 
+def _attr_suffix(has_ar, has_ev, has_es):
+    # STR=Armour, DEX=Evasion, INT=Energy Shield; tokens use order str,dex,int
+    parts = []
+    if has_ar: parts.append("str")
+    if has_ev: parts.append("dex")
+    if has_es: parts.append("int")
+    return "_".join(parts) if parts else None
+
+_ARMOUR_SLOTS = {
+    "gloves": "gloves", "glove": "gloves",
+    "boots": "boots", "boot": "boots",
+    "helmet": "helmet", "helm": "helmet", "helmets": "helmet",
+    "body armour": "body", "body armours": "body",
+    "shield": "shield", "shields": "shield",
+}
+_DIRECT_CLASS = {
+    "amulet": "amulet", "amulets": "amulet", "belt": "belt", "belts": "belt",
+    "ring": "ring", "rings": "ring", "quiver": "quiver", "quivers": "quiver",
+    "focus": "focus", "foci": "focus", "talisman": "talisman", "talismans": "talisman",
+    "claw": "claw", "claws": "claw", "dagger": "dagger", "daggers": "dagger",
+    "flail": "flail", "flails": "flail", "spear": "spear", "spears": "spear",
+    "bow": "bow", "bows": "bow", "crossbow": "crossbow", "crossbows": "crossbow",
+    "staff": "staff", "staves": "staff", "sceptre": "sceptre", "sceptres": "sceptre",
+    "wand": "wand", "wands": "wand",
+    "one hand axe": "one_hand_axe", "one hand mace": "one_hand_mace",
+    "one hand sword": "one_hand_sword", "two hand axe": "two_hand_axe",
+    "two hand mace": "two_hand_mace", "two hand sword": "two_hand_sword",
+}
+
+def detect_base(raw, valid_tokens):
+    """Best-effort detect the CraftPath base token from pasted item text.
+    Uses item-class / base-type name + defence stats to pick attribute variants.
+    Returns a token in valid_tokens or None."""
+    if not raw:
+        return None
+    low = raw.lower()
+    lines = [l.strip() for l in low.replace('\r','').split('\n') if l.strip()]
+    has_ar = 'armour' in low
+    has_ev = 'evasion' in low
+    has_es = 'energy shield' in low
+    cls_line = next((l for l in lines if l.startswith('item class:')), None)
+    cls = cls_line.split(':',1)[1].strip() if cls_line else None
+    search_space = cls if cls else " ".join(lines[:6])
+    for word, slot in _ARMOUR_SLOTS.items():
+        if re.search(r'\b'+re.escape(word)+r'\b', search_space):
+            suf = _attr_suffix(has_ar, has_ev, has_es)
+            if suf:
+                tok = f"{slot}_{suf}"
+                if tok in valid_tokens:
+                    return tok
+            cand = next((t for t in valid_tokens if t.startswith(slot+"_")), None)
+            if cand:
+                return cand
+    for word, tok in _DIRECT_CLASS.items():
+        if re.search(r'\b'+re.escape(word)+r'\b', search_space) and tok in valid_tokens:
+            return tok
+    return None
+
+
 def parse_item(raw: str, pool_mods):
     """
     raw: the pasted item text.

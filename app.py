@@ -518,20 +518,30 @@ def api_price_check(base):
 
 @app.route("/api/parse-item", methods=["POST"])
 def api_parse_item():
-    """Parse a pasted PoE item into a starting-item spec. Best-effort: matches
-    mod lines to the base's pool, infers prefix/suffix, flags unmatched lines."""
+    """Parse a pasted PoE item into a starting-item spec. Auto-detects the base
+    type from the paste, then matches mod lines to that base's pool, infers
+    prefix/suffix, and flags unmatched lines."""
     body = request.get_json(force=True)
     base = body.get("base", "")
     raw = body.get("text", "")
+    import item_parser
+    # auto-detect the base from the pasted text; fall back to the sent base
+    _idx_path = os.path.join(DATA, "bases_index.json")
+    valid = set()
+    if os.path.exists(_idx_path):
+        valid = {b["token"] for b in json.load(open(_idx_path))}
+    detected = item_parser.detect_base(raw, valid)
+    used_base = detected or base
     try:
-        mods, _ = _load_mod_pool(base)
+        mods, _ = _load_mod_pool(used_base)
     except FileNotFoundError as e:
         return jsonify({"ok": False, "error": str(e)}), 404
-    import item_parser
     pool = [{"mod_id": m.mod_id, "affix_type": m.affix_type,
              "group": getattr(m, "group", None),
              "text": m.text} for m in mods]
     result = item_parser.parse_item(raw, pool)
+    result["detected_base"] = detected          # token or None
+    result["used_base"] = used_base
     # Log unmatched mod lines to Sentry (if configured) so the dev sees real
     # text that failed to match and can extend the data files. Low severity.
     if result.get("unmatched"):
@@ -539,7 +549,7 @@ def api_parse_item():
             import sentry_sdk
             sentry_sdk.capture_message(
                 "CraftPath unmatched mod lines (base=%s): %s"
-                % (base, " | ".join(result["unmatched"][:20])),
+                % (used_base, " | ".join(result["unmatched"][:20])),
                 level="info")
         except Exception:
             pass

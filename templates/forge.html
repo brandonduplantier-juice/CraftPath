@@ -565,6 +565,12 @@ async function init(){
         body:JSON.stringify({base:$('#base').value, text:raw})});
       if(!j.ok){ out.innerHTML=`<span style="color:var(--blood)">${j.error||'parse failed'}</span>`; }
       else {
+        // auto-select the detected base type, if any, and reload its mod pool
+        if(j.detected_base && j.detected_base !== $('#base').value){
+          $('#base').value = j.detected_base;
+          $('#baseVisible').value = j.detected_base;
+          await loadBase();
+        }
         if(j.rarity){ $('#startRarity').value=j.rarity; ITEM_META.rarity=j.rarity; }
         if(j.item_level){ $('#ilvl').value=j.item_level; $('#ilvlVisible').value=j.item_level; }
         ITEM_MODS = j.matched.map(m=>({ mod_id:m.mod_id, text:m.text, affix:m.affix_type,
@@ -575,7 +581,8 @@ async function init(){
         $('#pasteZone').style.display='none';
         $('#itemCard').style.display='block';
         renderItemCard(false); renderOwnMods();
-        out.innerHTML='';
+        const bl=($('#baseVisible').selectedOptions[0]||{}).text||'';
+        out.innerHTML = j.detected_base ? `<span style="color:var(--verd-bright)">✓ detected ${bl}</span>` : '';
       }
     }catch(e){ out.innerHTML=`<span style="color:var(--blood)">error: ${e}</span>`; }
     $('#parseBtn').classList.remove('loading'); $('#parseBtn').disabled=false;
