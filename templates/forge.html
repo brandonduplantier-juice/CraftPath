@@ -587,7 +587,7 @@ async function init(){
         if(j.rarity){ $('#startRarity').value=j.rarity; ITEM_META.rarity=j.rarity; }
         if(j.item_level){ $('#ilvl').value=j.item_level; $('#ilvlVisible').value=j.item_level; }
         ITEM_MODS = j.matched.map(m=>({ mod_id:m.mod_id, text:m.text, affix:m.affix_type,
-          state: (chosenPre.includes(m.mod_id)||chosenSuf.includes(m.mod_id)) ? 'keep' : 'remove' }));
+          state: 'keep' }));   // default to KEEP — strike out the ones you don't want
         ITEM_UNMATCHED = j.unmatched.slice();
         ITEM_META.name = j.name || 'Crafted Item';
         // reveal the card + flanking mods (animated), hide the paste zone
