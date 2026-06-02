@@ -19,20 +19,27 @@ import re
 # normalize a mod line: lowercase, strip rolled numbers/ranges to a placeholder
 _NUM = re.compile(r'[+\-]?\d+(?:\.\d+)?')
 _RANGE = re.compile(r'\((\d+)-(\d+)\)')
+# advanced copy format glues the rolled value to its range: "163(155-169)",
+# "97(73-97)", "8.62(8-8.9)". Collapse the whole token to one placeholder.
+_VAL_RANGE = re.compile(r'\d+(?:\.\d+)?\((\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)\)')
 
 def _first_number(text: str):
-    # first standalone number in a line, used to pick the right tier
+    # first standalone number in a line, used to pick the right tier.
+    # In advanced format "163(155-169)" the FIRST number is the rolled value.
     m = re.search(r'(\d+(?:\.\d+)?)', text)
     return float(m.group(1)) if m else None
 
 def _norm(text: str) -> str:
     t = text.strip().lower()
+    t = _VAL_RANGE.sub('#', t)      # "163(155-169)" -> "#"  (advanced format)
     t = _RANGE.sub('#', t)          # "(5-8)" -> "#"
     t = _NUM.sub('#', t)            # "+7" / "42" -> "#"
     # collapse any sign that survived in front of the placeholder so pasted
     # "+22" and pool "+(5-8)" normalize identically
     t = re.sub(r'[+\-]\s*#', '#', t)
     t = t.replace('+#', '#').replace('-#', '#')
+    # collapse repeated placeholders ("# #" or "##") from multi-number rolls
+    t = re.sub(r'#[\s#]*#', '#', t)
     t = re.sub(r'\s+', ' ', t)
     t = t.strip(' .')
     return t
@@ -98,6 +105,11 @@ def detect_base(raw, valid_tokens):
     for word, tok in _DIRECT_CLASS.items():
         if re.search(r'\b'+re.escape(word)+r'\b', search_space) and tok in valid_tokens:
             return tok
+    # known item classes CraftPath has no data for yet — return a sentinel so the
+    # caller can tell the user honestly rather than silently mismatching.
+    for word in ("quarterstaff", "quarterstaves"):
+        if word in search_space:
+            return "__unsupported__quarterstaff"
     return None
 
 
@@ -145,12 +157,23 @@ def parse_item(raw: str, pool_mods):
             continue
         # skip obvious non-mod metadata lines
         low = ln.lower()
+        if ln.lstrip().startswith('{'):
+            continue  # advanced-format annotation: { Prefix Modifier ... }
         if any(low.startswith(p) for p in (
             "item class:", "rarity:", "requirements:", "requires:", "level:",
             "str:", "dex:", "int:", "sockets:", "item level:", "quality:",
-            "armour:", "evasion:", "energy shield:", "ward:", "{ ", "note:",
+            "armour:", "evasion:", "energy shield:", "ward:", "{", "note:",
             "price ", "corrupted", "unidentified", "~price", "~b/o", "exact price",
-            "listed ", "online", "offline", "ign:")):
+            "listed ", "online", "offline", "ign:",
+            # weapon properties (not mods)
+            "physical damage:", "elemental damage:", "chaos damage:",
+            "critical hit chance:", "critical strike chance:", "attacks per second:",
+            "weapon range:", "reload time:", "spirit:", "block chance:", "stack size:",
+            "radius:", "limited to:", "tags:", "allocates", "grants skill")):
+            continue
+        # runic enchant lines copied as "... (rune)" / "... (implicit)" / "(crafted)"
+        if low.rstrip().endswith('(rune)') or low.rstrip().endswith('(implicit)') \
+           or low.rstrip().endswith('(crafted)') or low.rstrip().endswith('(enchant)'):
             continue
         # trade-site stat junk like "Armour16Energy Shield7" (concatenated stats,
         # no spaces between word and number) - not a real mod line

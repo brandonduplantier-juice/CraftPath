@@ -531,6 +531,14 @@ def api_parse_item():
     if os.path.exists(_idx_path):
         valid = {b["token"] for b in json.load(open(_idx_path))}
     detected = item_parser.detect_base(raw, valid)
+    # known-but-unsupported base (e.g. quarterstaff has no mod pool yet)
+    if detected and detected.startswith("__unsupported__"):
+        cls = detected.replace("__unsupported__", "")
+        return jsonify({"ok": False,
+            "error": f"{cls.capitalize()} isn't in CraftPath's mod pool yet, so it "
+                     f"can't be parsed accurately. Supported: armour pieces, "
+                     f"jewellery, and most weapons.",
+            "unsupported_base": cls}), 200
     used_base = detected or base
     try:
         mods, _ = _load_mod_pool(used_base)
