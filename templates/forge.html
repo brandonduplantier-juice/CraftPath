@@ -169,6 +169,31 @@
   .start-box label.mini{margin-top:0;margin-bottom:5px;font-size:11px}
   .start-box input[type=number]{font-size:14px}
   .start-note{font-size:10.5px;color:var(--ash-dim);margin-top:11px;line-height:1.5}
+  /* item-view: clickable keep/remove mod rows */
+  .iv-rarity{display:flex;align-items:center;gap:9px;margin:10px 0 12px;font-size:12px;color:var(--ash)}
+  .iv-rarity select{width:auto;flex:1;padding:6px 9px;font-size:13px}
+  .mod-rows{display:flex;flex-direction:column;gap:5px}
+  .mod-toggle{display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:5px;
+    cursor:pointer;border:1px solid var(--edge);background:rgba(0,0,0,.25);transition:all .12s;
+    font-size:12.5px}
+  .mod-toggle.skip{cursor:default;opacity:.5}
+  .mod-toggle:not(.skip):hover{border-color:var(--ash)}
+  .mod-toggle.keep{border-color:var(--verd-bright);background:rgba(70,160,90,.13)}
+  .mod-toggle.remove{border-color:rgba(139,37,25,.6);background:rgba(139,37,25,.1)}
+  .mt-aff{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;width:18px;height:18px;
+    border-radius:3px;display:inline-flex;align-items:center;justify-content:center;flex:none;
+    background:rgba(255,255,255,.07);color:var(--ash)}
+  .mt-aff.pre{color:#7fb3ff}.mt-aff.suf{color:#f0cf7a}
+  .mt-text{flex:1;color:var(--parchment);line-height:1.35}
+  .mt-state{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.04em;flex:none;
+    white-space:nowrap}
+  .mod-toggle.keep .mt-state{color:var(--verd-bright)}
+  .mod-toggle.remove .mt-state{color:var(--blood)}
+  .mod-toggle.skip .mt-state{color:var(--ash-dim)}
+  .iv-legend{font-size:10px;color:var(--ash-dim);margin-top:11px;line-height:1.6}
+  .iv-legend .iv-k{color:var(--verd-bright)}
+  .iv-legend .iv-r{color:var(--blood)}
+  .iv-legend .iv-i{color:var(--ash)}
   .disclaimer{margin-top:28px;font-size:11px;color:var(--ash-dim);text-align:center;font-family:'JetBrains Mono',monospace;line-height:1.7}
   .disclaimer b{color:var(--ash)}
   .empty{color:var(--ash-dim);font-style:italic;text-align:center;padding:20px;font-size:13px}
@@ -199,29 +224,26 @@
       <input id="budget" type="number" placeholder="blank = none">
       <div id="startToggle" class="start-toggle">▸ Crafting from an existing item?</div>
       <div id="startBox" class="start-box" style="display:none">
-        <div class="start-step">
-          <div class="start-step-head"><span class="step-num">1</span> Paste your item <span class="start-hint">(fastest)</span></div>
-          <textarea id="pasteBox" rows="3" placeholder="Ctrl+C an item in-game (or copy from trade), paste here, then Parse."></textarea>
-          <button class="forge-btn alt" id="parseBtn">⤵ Parse pasted item</button>
-          <div id="parseResult" class="parse-result"></div>
-        </div>
-        <div class="start-or">— or set it manually —</div>
-        <div class="start-step">
-          <div class="start-step-head"><span class="step-num">2</span> Describe the item</div>
-          <label class="mini">Current rarity</label>
-          <select id="startRarity">
-            <option value="Normal">Normal — no mods yet</option>
-            <option value="Magic">Magic — up to 1 prefix + 1 suffix</option>
-            <option value="Rare">Rare — up to 3 prefix + 3 suffix</option>
-          </select>
-          <div class="start-tip">Click a target mod's chip below to mark it <span class="have-eg">✓ already have</span>.</div>
-          <div class="junk-row">
-            <div><label class="mini">Junk prefixes</label>
-              <input id="junkPre" type="number" value="0" min="0" max="3"></div>
-            <div><label class="mini">Junk suffixes</label>
-              <input id="junkSuf" type="number" value="0" min="0" max="3"></div>
+        <div class="start-step-head"><span class="step-num">1</span> Paste your item</div>
+        <textarea id="pasteBox" rows="3" placeholder="Ctrl+C an item in-game (or copy from trade), paste here, then Parse."></textarea>
+        <button class="forge-btn alt" id="parseBtn">⤵ Parse item</button>
+        <div id="parseResult" class="parse-result"></div>
+        <div id="itemView" style="display:none">
+          <div class="start-step-head" style="margin-top:16px"><span class="step-num">2</span> Keep or remove each mod</div>
+          <div class="iv-rarity">
+            <span>Rarity:</span>
+            <select id="startRarity">
+              <option value="Normal">Normal</option>
+              <option value="Magic">Magic</option>
+              <option value="Rare">Rare</option>
+            </select>
           </div>
-          <div class="start-note">Junk = unwanted mods filling slots. Tracked by count, not identity.</div>
+          <div id="modRows" class="mod-rows"></div>
+          <div class="iv-legend">
+            <span class="iv-k">✓ Keep</span> = a mod you want to preserve ·
+            <span class="iv-r">✕ Remove</span> = junk to craft away ·
+            <span class="iv-i">– skip</span> = not modeled
+          </div>
         </div>
       </div>
       <button class="forge-btn" id="forge">⚒ Divine the Path</button>
@@ -268,6 +290,34 @@ const $ = s => document.querySelector(s);
 let MODS = {prefixes:[], suffixes:[]};
 let chosenPre = [], chosenSuf = [];
 let HAVE = new Set();   // target mod ids the user already has on their item
+let ITEM_MODS = [];     // parsed item mods: {mod_id, text, affix, state: keep|remove}
+let ITEM_UNMATCHED = []; // unmatched lines (shown, not modeled)
+
+function renderModRows(){
+  const el = $('#modRows');
+  if(!el) return;
+  let html = '';
+  ITEM_MODS.forEach((m,i)=>{
+    const aff = m.affix==='Prefix'?'P':'S';
+    html += `<div class="mod-toggle ${m.state}" data-i="${i}">
+      <span class="mt-aff ${m.affix==='Prefix'?'pre':'suf'}">${aff}</span>
+      <span class="mt-text">${m.text}</span>
+      <span class="mt-state">${m.state==='keep'?'✓ keep':'✕ remove'}</span>
+    </div>`;
+  });
+  ITEM_UNMATCHED.forEach(u=>{
+    html += `<div class="mod-toggle skip"><span class="mt-aff">–</span>
+      <span class="mt-text">${u}</span><span class="mt-state">not modeled</span></div>`;
+  });
+  el.innerHTML = html;
+  el.querySelectorAll('.mod-toggle[data-i]').forEach(row=>{
+    row.onclick = ()=>{
+      const i=+row.dataset.i;
+      ITEM_MODS[i].state = ITEM_MODS[i].state==='keep'?'remove':'keep';
+      renderModRows();
+    };
+  });
+}
 let byId = {};
 async function api(path, opts){ const r = await fetch(path, opts); return r.json(); }
 function updateSessionStatus(live){
@@ -323,7 +373,7 @@ async function init(){
     const box=$('#startBox'), open=box.style.display!=='none';
     box.style.display = open?'none':'block';
     $('#startToggle').textContent = (open?'▸':'▾')+' Crafting from an existing item?';
-    if(open){ HAVE.clear(); renderChips(); }  // collapsing resets have-marks
+    if(open){ ITEM_MODS=[]; ITEM_UNMATCHED=[]; $('#itemView').style.display='none'; $('#pasteBox').value=''; $('#parseResult').innerHTML=''; }
   };
   $('#parseBtn').onclick = async ()=>{
     const raw=$('#pasteBox').value.trim();
@@ -333,24 +383,21 @@ async function init(){
     try{
       const j=await api('/api/parse-item',{method:'POST',headers:{'Content-Type':'application/json'},
         body:JSON.stringify({base:$('#base').value, text:raw})});
-      if(!j.ok){ out.innerHTML=`<span style="color:var(--blood)">${j.error||'parse failed'}</span>`; }
+      if(!j.ok){ out.innerHTML=`<span style="color:var(--blood)">${j.error||'parse failed'}</span>`; $('#itemView').style.display='none'; }
       else {
-        // fill rarity + ilvl
         if(j.rarity){ $('#startRarity').value=j.rarity; }
         if(j.item_level){ $('#ilvl').value=j.item_level; }
-        // add matched mods as chips, marked as 'have'
-        let added=0;
-        j.matched.forEach(m=>{
-          const arr = m.affix_type==='Prefix'?chosenPre:chosenSuf;
-          if(!arr.includes(m.mod_id) && arr.length<3){ arr.push(m.mod_id); HAVE.add(m.mod_id); added++; }
-        });
-        renderChips(); renderLists();
-        let msg=`<span style="color:var(--verd-bright)">✓ matched ${j.n_matched} mod(s)</span>, added ${added} as "already have".`;
-        if(j.unmatched.length){
-          msg+=`<br><span style="color:var(--gold-bright)">⚠ ${j.unmatched.length} line(s) couldn't be matched</span> (enter manually if wanted):<br>`+
-               j.unmatched.map(u=>`<span style="color:var(--ash);font-family:monospace;font-size:10px">- ${u}</span>`).join('<br>');
-        }
-        out.innerHTML=msg;
+        // build the editable mod list: matched mods (toggleable) + unmatched (skip-only)
+        ITEM_MODS = j.matched.map(m=>({
+          mod_id:m.mod_id, text:m.text, affix:m.affix_type,
+          // default: target mods -> keep, others -> remove
+          state: (chosenPre.includes(m.mod_id)||chosenSuf.includes(m.mod_id)) ? 'keep' : 'remove'
+        }));
+        ITEM_UNMATCHED = j.unmatched.slice();
+        renderModRows();
+        $('#itemView').style.display='block';
+        out.innerHTML = `<span style="color:var(--verd-bright)">✓ read ${j.n_matched} mod(s)</span>`+
+          (j.n_unmatched?` · <span style="color:var(--gold-bright)">${j.n_unmatched} not recognized</span>`:'');
       }
     }catch(e){ out.innerHTML=`<span style="color:var(--blood)">error: ${e}</span>`; }
     $('#parseBtn').classList.remove('loading'); $('#parseBtn').disabled=false;
@@ -430,13 +477,27 @@ async function solve(){
   $('#forge').disabled=true; $('#forge').classList.add('loading');
   results.innerHTML='<div class="verdict"><div class="spinner"></div><div class="loading-msg">Divining the path</div><div class="sub loading-sub">solving the optimal craft sequence</div></div>';
   const body={base:$('#base').value, item_level:+$('#ilvl').value||81, prefixes:chosenPre, suffixes:chosenSuf, budget: $('#budget').value? +$('#budget').value : null};
-  // starting-item state (only when the user opened the panel)
-  if($('#startBox').style.display!=='none'){
+  // starting-item state (only when the user opened the panel and parsed an item)
+  if($('#startBox').style.display!=='none' && (ITEM_MODS.length || ITEM_UNMATCHED.length)){
     body.start_rarity = $('#startRarity').value;
-    body.have_prefixes = chosenPre.filter(id=>HAVE.has(id));
-    body.have_suffixes = chosenSuf.filter(id=>HAVE.has(id));
-    body.junk_prefixes = +$('#junkPre').value||0;
-    body.junk_suffixes = +$('#junkSuf').value||0;
+    // KEEP on a target mod => already secured. KEEP on a non-target, or REMOVE,
+    // or unmatched => occupies a slot as junk (counted by affix side).
+    const havePre=[], haveSuf=[]; let junkPre=0, junkSuf=0;
+    ITEM_MODS.forEach(m=>{
+      const isTarget = chosenPre.includes(m.mod_id)||chosenSuf.includes(m.mod_id);
+      if(m.state==='keep' && isTarget){
+        (m.affix==='Prefix'?havePre:haveSuf).push(m.mod_id);
+      } else {
+        if(m.affix==='Prefix') junkPre++; else junkSuf++;
+      }
+    });
+    // unmatched lines occupy slots too, but we don't know prefix/suffix — split
+    // them conservatively into whichever side has room (assume suffix first).
+    ITEM_UNMATCHED.forEach(()=>{ junkSuf++; });
+    body.have_prefixes = havePre;
+    body.have_suffixes = haveSuf;
+    body.junk_prefixes = junkPre;
+    body.junk_suffixes = junkSuf;
   }
   let j;
   try{ j=await api('/api/solve',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}); }
