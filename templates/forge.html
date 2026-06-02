@@ -311,7 +311,7 @@
 
   <!-- STEP 1: paste your current item, keep/remove its mods -->
   <section class="wiz-stage" id="step1">
-    <div class="stage-instr">Crafting from scratch? Just hit <b>Skip — fresh item</b>. Otherwise paste your current item; its mods appear on either side — <b>click to keep</b> or strike out to remove.</div>
+    <div class="stage-instr">Paste your item — a white base, a magic, or a rare. CraftPath reads the <b>base type, item level, and any mods</b> for you. On existing mods, <b>click to keep</b> or strike out to remove.</div>
     <div class="stage-row">
       <div class="side-col" id="s1pre">
         <div class="col-label pre">Prefixes</div>
@@ -335,7 +335,6 @@
       </div>
     </div>
     <div class="next-bar">
-      <button class="ghost-btn" id="skipFresh">Skip — fresh item</button>
       <button class="next-btn" id="toStep2">Next: choose target →</button>
     </div>
   </section>
@@ -532,8 +531,17 @@ async function init(){
   $('#forge').onclick = solve;
 
   // ---- wizard navigation ----
-  $('#toStep2').onclick = ()=>{ renderItemCard(false); gotoStep(2); };
-  $('#skipFresh').onclick = ()=>{ ITEM_MODS=[]; ITEM_UNMATCHED=[]; $('#startRarity').value='Normal'; gotoStep(2); };
+  $('#toStep2').onclick = ()=>{
+    // require a pasted/parsed item first — the paste carries base + ilvl
+    if($('#itemCard').style.display==='none'){
+      const pz=$('#pasteBox');
+      pz.style.borderColor='var(--blood)';
+      $('#parseResult').innerHTML='<span style="color:var(--blood)">Paste your item and hit Parse first — even a fresh white base. It sets the base type and item level for you.</span>';
+      setTimeout(()=>{pz.style.borderColor='';},2000);
+      return;
+    }
+    renderItemCard(false); gotoStep(2);
+  };
   $('#backTo1').onclick = ()=> gotoStep(1);
   $('#toStep3').onclick = ()=>{
     if(!chosenPre.length && !chosenSuf.length){
