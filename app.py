@@ -534,6 +534,18 @@ def api_solve():
     if not wanted:
         return jsonify({"status": "invalid", "msg": "No target mods specified."}), 400
 
+    # Early viability gate: targeting 4+ specific mods by random orb-slamming is
+    # astronomically expensive no matter which mods (which is exactly why
+    # putrefaction/desecration exist). Short-circuit here BEFORE the expensive
+    # MDP solve, so these heavy queries return instantly instead of timing out.
+    if len(wanted) >= 4:
+        return jsonify({
+            "not_viable_by_slamming": True,
+            "msg": "Targeting this many specific mods by orb-slamming isn't "
+                   "cost-viable (expected cost is astronomical). This is why "
+                   "putrefaction exists - check the Putrefaction odds for this "
+                   "base, which roll multiple desecrated mods at once."})
+
     try:
         mods, wsource = _load_mod_pool(base)
     except FileNotFoundError as e:

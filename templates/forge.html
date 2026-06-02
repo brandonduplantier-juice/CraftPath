@@ -248,7 +248,11 @@ async function init(){
   $('#pricecheck').onclick = priceCheck;
   $('#disc').innerHTML = '<b>Honest notes:</b> mod pool from Path of Building · '+
     'weights from Craft of Exile (extrapolated estimate, not game data) when loaded, else flat placeholder · '+
-    'essence/desecrated modeled where data exists; Alloys, Distilled Emotions, rune modpools & Runes-of-Aldur craft unsupported (no reliable odds yet).';
+    'essence/desecrated modeled where data exists. '+
+    '<b>Alloys</b> (13 types, 0.5): replace one random mod on a <i>rare</i> with a specific guaranteed mod, '+
+    'sharing the single crafted-mod slot with essences — modeled as unsupported for now (per-alloy mods not yet datamined). '+
+    'Distilled Emotions, rune modpools & Runes-of-Aldur rune-craft also unsupported (no reliable odds yet).'+
+    '<br><br>Found a bug? <a href="https://github.com/brandonduplantier-juice/CraftPath/issues" target="_blank" rel="noopener" style="color:var(--verisium-bright)">Report it on GitHub</a>.';
 }
 async function loadBase(){
   MODS = await api('/api/mods/'+$('#base').value);
@@ -312,6 +316,7 @@ async function solve(){
   try{ j=await api('/api/solve',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}); }
   catch(e){ results.innerHTML='<div class="verdict warn"><div class="big">Error</div><div class="sub">'+e+'</div></div>'; $('#forge').disabled=false; $('#forge').classList.remove('loading'); return; }
   $('#forge').disabled=false; $('#forge').classList.remove('loading');
+  if(j.error){ results.innerHTML=`<div class="verdict warn"><div class="big">Something went wrong</div><div class="sub">${j.report?('If this keeps happening, please <a href="https://github.com/brandonduplantier-juice/CraftPath/issues" target="_blank" rel="noopener" style="color:var(--verisium-bright)">report it</a>.'):j.error}</div></div>`; return; }
   if(j.status==='invalid'){ results.innerHTML=`<div class="verdict warn"><div class="big">Invalid</div><div class="sub">${j.msg}</div></div>`; return; }
   if(j.bricked){ results.innerHTML=`<div class="verdict warn"><div class="big">Bricked / Unreachable</div><div class="sub">${j.msg||'No path under modeled methods.'}</div></div>`; return; }
   if(j.not_viable_by_slamming){ results.innerHTML=`<div class="verdict warn"><div class="big">Not viable by orb-slamming</div><div class="sub">${j.msg||'Use putrefaction for multi-mod targets.'}</div></div>`; return; }
