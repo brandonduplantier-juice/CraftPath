@@ -542,7 +542,9 @@ async function init(){
       setTimeout(()=>{pz.style.borderColor='';},2000);
       return;
     }
-    renderItemCard(false); gotoStep(2);
+    renderItemCard(false);
+    renderChips(); renderLists();   // refresh caps/blocking to reflect kept mods
+    gotoStep(2);
   };
   $('#backTo1').onclick = ()=> gotoStep(1);
   $('#toStep3').onclick = ()=>{
@@ -622,7 +624,11 @@ async function loadBase(){
 function renderOneList(el, mods, chosen, isPre){
   const q = $('#search').value.trim().toLowerCase();
   // groups already occupied by a chosen mod (same-group mods can't coexist)
-  const takenGroups = new Set([...chosenPre, ...chosenSuf].map(id => byId[id] && byId[id].group).filter(Boolean));
+  // groups already occupied: by chosen TARGETS and by KEPT mods from step 1.
+  // A mod can't roll if its group is already taken by either.
+  const keptIds = ITEM_MODS.filter(m=>m.state==='keep').map(m=>m.mod_id);
+  const takenGroups = new Set([...chosenPre, ...chosenSuf, ...keptIds]
+    .map(id => byId[id] && byId[id].group).filter(Boolean));
   const hits = mods.filter(m=>!chosen.includes(m.id))
     .filter(m=> !q || m.text.toLowerCase().includes(q) || m.id.toLowerCase().includes(q)).slice(0,60);
   if(!hits.length){ el.innerHTML='<div class="empty">'+(q?'no matches':'—')+'</div>'; return; }
