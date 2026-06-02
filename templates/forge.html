@@ -197,6 +197,96 @@
   .disclaimer{margin-top:28px;font-size:11px;color:var(--ash-dim);text-align:center;font-family:'JetBrains Mono',monospace;line-height:1.7}
   .disclaimer b{color:var(--ash)}
   .empty{color:var(--ash-dim);font-style:italic;text-align:center;padding:20px;font-size:13px}
+  /* ===== WIZARD ===== */
+  .wiz-steps{display:flex;justify-content:center;gap:0;margin:8px auto 26px;max-width:520px}
+  .wiz-steps .ws{flex:1;text-align:center;position:relative;font-size:11px;letter-spacing:.04em;
+    color:var(--ash-dim);font-family:'JetBrains Mono',monospace}
+  .wiz-steps .dot{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--edge);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 7px;font-size:13px;
+    background:var(--ink);color:var(--ash);transition:all .4s cubic-bezier(.4,0,.2,1)}
+  .wiz-steps .ws.active{color:var(--verisium-bright)}
+  .wiz-steps .ws.active .dot{border-color:var(--verisium-bright);background:rgba(46,197,192,.12);
+    color:var(--verisium-bright);box-shadow:0 0 16px rgba(46,197,192,.3);transform:scale(1.08)}
+  .wiz-steps .ws.done{color:var(--verd-bright)}
+  .wiz-steps .ws.done .dot{border-color:var(--verd-bright);color:var(--verd-bright)}
+  .wiz-steps .ws:not(:last-child):after{content:"";position:absolute;top:15px;left:62%;width:76%;height:1.5px;
+    background:var(--edge);transition:background .5s ease}
+  .wiz-steps .ws.done:not(:last-child):after{background:var(--verd-bright)}
+
+  .wiz-stage{max-width:1080px;margin:0 auto;animation:stageIn .45s cubic-bezier(.16,1,.3,1)}
+  @keyframes stageIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .wiz-stage.leaving{animation:stageOut .3s ease forwards}
+  @keyframes stageOut{to{opacity:0;transform:translateY(-12px)}}
+  .stage-instr{text-align:center;color:var(--ash);font-size:13px;margin-bottom:20px;line-height:1.6;
+    max-width:640px;margin-left:auto;margin-right:auto}
+  .stage-instr b{color:var(--parchment)}
+  .stage-row{display:grid;grid-template-columns:1fr 370px 1fr;gap:20px;align-items:start}
+  .stage-row.two{grid-template-columns:1fr 1fr;max-width:760px;margin:0 auto}
+  .stage-row.plan{grid-template-columns:1fr;max-width:420px;margin:0 auto}
+  @media(max-width:880px){.stage-row,.stage-row.two{grid-template-columns:1fr}}
+
+  .col-label{font-family:'Cinzel',serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+    margin-bottom:12px;text-align:center}
+  .col-label.pre{color:#7fb3ff}.col-label.suf{color:var(--gold-bright)}
+  .base-pick{display:flex;gap:10px;margin-bottom:12px}
+  .base-pick>div{flex:1}
+  .base-pick label.mini{margin:0 0 4px;font-size:10px}
+
+  /* item tooltip card */
+  .item-card{border:1px solid #4a3a6a;border-radius:5px;overflow:hidden;
+    background:linear-gradient(180deg,#0c0a14,#0a0810);
+    box-shadow:0 8px 30px rgba(0,0,0,.6),inset 0 0 60px rgba(60,40,90,.15);
+    animation:cardIn .5s cubic-bezier(.16,1,.3,1)}
+  @keyframes cardIn{from{opacity:0;transform:scale(.94) translateY(8px)}to{opacity:1;transform:none}}
+  .item-card.target{border-color:#6a5a3a;box-shadow:0 8px 30px rgba(0,0,0,.6),inset 0 0 60px rgba(120,90,40,.15)}
+  .item-head{text-align:center;padding:11px 10px;border-bottom:1px solid #3a2e54;
+    background:linear-gradient(180deg,rgba(74,58,106,.4),rgba(40,30,60,.25))}
+  .item-card.target .item-head{border-bottom-color:#54462e;background:linear-gradient(180deg,rgba(106,90,58,.35),rgba(60,48,30,.22))}
+  .item-name{font-family:'Cinzel',serif;font-size:16px;color:#e6c87a;letter-spacing:.04em;line-height:1.25}
+  .item-base{font-size:12px;color:#c9a85a;margin-top:1px}
+  .item-body{padding:12px 14px 14px}
+  .item-prop{font-size:12.5px;color:var(--ash);text-align:center;line-height:1.6}
+  .item-prop .pmod{color:#8a9bd8;display:block}
+  .item-prop .pmod.suf{color:#d8c187}
+  .item-sep{height:1px;background:linear-gradient(90deg,transparent,#3a2e54,transparent);margin:9px 0}
+  .item-card.target .item-sep{background:linear-gradient(90deg,transparent,#54462e,transparent)}
+  .item-ilvl{font-size:11px;color:var(--ash-dim);text-align:center}
+
+  .paste-zone textarea{width:100%;height:96px;background:rgba(0,0,0,.32);border:1px dashed var(--edge);
+    border-radius:5px;color:var(--parchment);font-family:'JetBrains Mono',monospace;font-size:11px;
+    padding:9px;resize:none;line-height:1.5}
+  .paste-zone textarea:focus{outline:none;border-color:var(--verisium)}
+
+  .mod-col{display:flex;flex-direction:column;gap:7px}
+  .mc-row{display:flex;align-items:center;gap:9px;padding:10px 12px;border-radius:5px;cursor:pointer;
+    border:1px solid var(--edge);background:rgba(0,0,0,.22);font-size:12.5px;line-height:1.35;
+    transition:border-color .15s,background .15s,opacity .25s,transform .15s;
+    animation:modIn .4s backwards}
+  @keyframes modIn{from{opacity:0;transform:translateX(var(--mdir,0))}to{opacity:1;transform:none}}
+  .mc-row:hover{border-color:var(--ash)}
+  .mc-row.keep{border-color:var(--verd-bright);background:rgba(70,160,90,.14);
+    box-shadow:0 0 10px rgba(70,160,90,.12)}
+  .mc-row.remove{opacity:.48}
+  .mc-row.remove .mc-text{text-decoration:line-through;text-decoration-color:var(--blood);color:var(--ash)}
+  .mc-text{flex:1}
+  .mc-tag{font-family:'JetBrains Mono',monospace;font-size:9px;padding:1px 6px;border-radius:3px;flex:none;
+    transition:all .15s}
+  .mc-row.keep .mc-tag{background:rgba(70,160,90,.2);color:var(--verd-bright)}
+  .mc-row.remove .mc-tag{background:rgba(139,37,25,.18);color:var(--blood)}
+  .mc-row.skip{opacity:.4;cursor:default}
+  .mc-row.skip .mc-tag{background:rgba(255,255,255,.06);color:var(--ash-dim)}
+
+  .next-bar{text-align:center;margin:28px auto 0;display:flex;gap:12px;justify-content:center;align-items:center}
+  .next-btn{font-family:'Cinzel',serif;font-size:14px;letter-spacing:.06em;padding:12px 32px;border:none;
+    border-radius:5px;background:linear-gradient(135deg,var(--verisium),#1e9b97);color:#06100f;cursor:pointer;
+    font-weight:600;box-shadow:0 4px 16px rgba(46,197,192,.28);transition:filter .15s,transform .15s}
+  .next-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+  .next-btn:active{transform:translateY(0)}
+  .ghost-btn{font-family:'Spectral',serif;font-size:13px;padding:11px 20px;border:1px solid var(--edge);
+    border-radius:5px;background:transparent;color:var(--ash);cursor:pointer;transition:all .15s}
+  .ghost-btn:hover{border-color:var(--ash);color:var(--parchment)}
+  .wiz-search{max-width:760px;margin:0 auto 16px;display:block}
+  .side-col.wide .mod-list{height:300px}
 </style>
 </head>
 <body>
@@ -213,77 +303,99 @@
     </div>
     <a class="donate" href="https://ko-fi.com/juice6121" target="_blank" rel="noopener">♥ Support CraftPath</a>
   </header>
-  <div class="grid">
-    <div class="panel">
-      <h2>The Item</h2>
-      <label>Base</label>
-      <select id="base"></select>
-      <label>Item level</label>
-      <input id="ilvl" type="number" value="81" min="1" max="100">
-      <label>Budget <span style="color:var(--ash-dim);font-weight:400">— exalted orbs, optional</span></label>
-      <input id="budget" type="number" placeholder="blank = none">
-      <div id="startToggle" class="start-toggle">▸ Crafting from an existing item?</div>
-      <div id="startBox" class="start-box" style="display:none">
-        <div class="start-step-head"><span class="step-num">1</span> Paste your item</div>
-        <textarea id="pasteBox" rows="3" placeholder="Ctrl+C an item in-game (or copy from trade), paste here, then Parse."></textarea>
-        <button class="forge-btn alt" id="parseBtn">⤵ Parse item</button>
-        <div id="parseResult" class="parse-result"></div>
-        <div id="itemView" style="display:none">
-          <div class="start-step-head" style="margin-top:16px"><span class="step-num">2</span> Keep or remove each mod</div>
-          <div class="iv-rarity">
-            <span>Rarity:</span>
-            <select id="startRarity">
-              <option value="Normal">Normal</option>
-              <option value="Magic">Magic</option>
-              <option value="Rare">Rare</option>
-            </select>
-          </div>
-          <div id="modRows" class="mod-rows"></div>
-          <div class="iv-legend">
-            <span class="iv-k">✓ Keep</span> = a mod you want to preserve ·
-            <span class="iv-r">✕ Remove</span> = junk to craft away ·
-            <span class="iv-i">– skip</span> = not modeled
-          </div>
-        </div>
-      </div>
-      <button class="forge-btn" id="forge">⚒ Divine the Path</button>
-      <button class="forge-btn" id="pricecheck" style="margin-top:8px;background:linear-gradient(135deg,#2a3a5a,#1a2a4a)">⚖ Check Market Price</button>
-      <div id="sessionBox" style="display:none;margin-top:14px;padding:12px;border:1px solid var(--edge);border-radius:4px;background:rgba(0,0,0,.25)">
-        <label style="margin-top:0">PoE Session (POESESSID) — for live market pricing</label>
-        <div id="sessionStatus" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ash);margin:4px 0 8px">not set — market features off</div>
-        <input id="sessionInput" type="password" placeholder="paste your POESESSID" autocomplete="off" style="font-size:13px">
-        <button class="forge-btn" id="saveSession" style="margin-top:8px;padding:9px;font-size:13px">Save session</button>
-        <div style="font-size:10px;color:var(--ash-dim);margin-top:8px;line-height:1.5">
-          Stays on your machine — sent only to pathofexile.com, like Path of Building.<br>
-          <b style="color:var(--ash)">How to find your POESESSID:</b><br>
-          1. Go to <b>pathofexile.com</b> and log in.<br>
-          2. Press <b>F12</b> to open developer tools.<br>
-          3. Click the <b>Application</b> tab (Chrome/Edge) or <b>Storage</b> tab (Firefox).<br>
-          4. In the left sidebar, expand <b>Cookies</b> → click <b>pathofexile.com</b>.<br>
-          5. Find the row named <b>POESESSID</b> and copy its <b>Value</b> (a long string).<br>
-          6. Paste it above and click Save.</div>
-      </div>
-    </div>
-    <div class="panel">
-      <h2>Desired Mods</h2>
-      <label>Search affixes</label>
-      <input id="search" type="text" placeholder="type 'fire', 'attack speed', 'life'…" autocomplete="off">
-      <div class="two-col" style="margin-top:14px">
-        <div>
-          <div class="col-head pre"><span>Prefixes</span><span class="cap" id="capPre">0 / 3</span></div>
-          <div class="mod-list" id="listPre"></div>
-          <div class="chips" id="chipPre"></div>
-        </div>
-        <div>
-          <div class="col-head suf"><span>Suffixes</span><span class="cap" id="capSuf">0 / 3</span></div>
-          <div class="mod-list" id="listSuf"></div>
-          <div class="chips" id="chipSuf"></div>
-        </div>
-      </div>
-    </div>
+  <div class="wiz-steps" id="wizSteps">
+    <div class="ws active" data-step="1"><div class="dot">1</div><span>Your item</span></div>
+    <div class="ws" data-step="2"><div class="dot">2</div><span>Your target</span></div>
+    <div class="ws" data-step="3"><div class="dot">3</div><span>The plan</span></div>
   </div>
-  <div class="results" id="results"></div>
+
+  <!-- STEP 1: paste your current item, keep/remove its mods -->
+  <section class="wiz-stage" id="step1">
+    <div class="stage-instr">Crafting from scratch? Just hit <b>Skip — fresh item</b>. Otherwise paste your current item; its mods appear on either side — <b>click to keep</b> or strike out to remove.</div>
+    <div class="stage-row">
+      <div class="side-col" id="s1pre">
+        <div class="col-label pre">Prefixes</div>
+        <div class="mod-col" id="ownPre"></div>
+      </div>
+      <div class="center-col">
+        <div class="base-pick">
+          <div><label class="mini">Item base</label><select id="baseVisible"></select></div>
+          <div style="flex:none;width:78px"><label class="mini">iLvl</label><input id="ilvlVisible" type="number" value="81" min="1" max="100"></div>
+        </div>
+        <div id="pasteZone" class="paste-zone">
+          <textarea id="pasteBox" placeholder="Ctrl+C an item in-game (or copy from trade), paste here…"></textarea>
+          <button class="forge-btn alt" id="parseBtn">⤵ Parse item</button>
+          <div id="parseResult" class="parse-result"></div>
+        </div>
+        <div id="itemCard" class="item-card" style="display:none"></div>
+      </div>
+      <div class="side-col" id="s1suf">
+        <div class="col-label suf">Suffixes</div>
+        <div class="mod-col" id="ownSuf"></div>
+      </div>
+    </div>
+    <div class="next-bar">
+      <button class="ghost-btn" id="skipFresh">Skip — fresh item</button>
+      <button class="next-btn" id="toStep2">Next: choose target →</button>
+    </div>
+  </section>
+
+  <!-- STEP 2: choose your target mods -->
+  <section class="wiz-stage" id="step2" style="display:none">
+    <div class="stage-instr">Pick the mods you want on the finished item. <b>Search</b> or scroll, click to add.</div>
+    <input id="search" type="text" placeholder="type 'fire', 'attack speed', 'life'…" autocomplete="off" class="wiz-search">
+    <div class="stage-row two">
+      <div class="side-col wide">
+        <div class="col-head pre"><span>Prefixes</span><span class="cap" id="capPre">0 / 3</span></div>
+        <div class="mod-list" id="listPre"></div>
+        <div class="chips" id="chipPre"></div>
+      </div>
+      <div class="side-col wide">
+        <div class="col-head suf"><span>Suffixes</span><span class="cap" id="capSuf">0 / 3</span></div>
+        <div class="mod-list" id="listSuf"></div>
+        <div class="chips" id="chipSuf"></div>
+      </div>
+    </div>
+    <div class="next-bar">
+      <button class="ghost-btn" id="backTo1">← Back</button>
+      <button class="next-btn" id="toStep3">⚒ Divine the path →</button>
+    </div>
+  </section>
+
+  <!-- STEP 3: the plan -->
+  <section class="wiz-stage" id="step3" style="display:none">
+    <div class="stage-row plan">
+      <div class="center-col wide">
+        <div id="planItemCard" class="item-card target"></div>
+      </div>
+    </div>
+    <div class="results" id="results"></div>
+    <div class="next-bar">
+      <button class="ghost-btn" id="backTo2">← Adjust target</button>
+      <button class="ghost-btn" id="startOver">↺ Start over</button>
+    </div>
+  </section>
+
+  <!-- hidden inputs preserved for logic compatibility -->
+  <div style="display:none">
+    <select id="base"></select>
+    <input id="ilvl" type="number" value="81">
+    <input id="budget" type="number">
+    <select id="startRarity"><option value="Normal">Normal</option><option value="Magic">Magic</option><option value="Rare">Rare</option></select>
+    <button id="forge"></button>
+    <button id="pricecheck"></button>
+  </div>
   <div class="disclaimer" id="disc"></div>
+
+  <div id="sessionBox" style="display:none;max-width:560px;margin:18px auto 0;padding:12px;border:1px solid var(--edge);border-radius:4px;background:rgba(0,0,0,.25)">
+    <label style="margin-top:0">PoE Session (POESESSID) — for live market pricing</label>
+    <div id="sessionStatus" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ash);margin:4px 0 8px">not set — market features off</div>
+    <input id="sessionInput" type="password" placeholder="paste your POESESSID" autocomplete="off" style="font-size:13px">
+    <button class="forge-btn" id="saveSession" style="margin-top:8px;padding:9px;font-size:13px">Save session</button>
+    <div style="font-size:10px;color:var(--ash-dim);margin-top:8px;line-height:1.5">
+      Stays on your machine — sent only to pathofexile.com, like Path of Building.<br>
+      <b style="color:var(--ash)">How to find your POESESSID:</b> log in at pathofexile.com → F12 → Application/Storage tab → Cookies → pathofexile.com → copy the <b>POESESSID</b> value → paste above → Save.</div>
+  </div>
 </div>
 <script>
 const $ = s => document.querySelector(s);
@@ -292,31 +404,75 @@ let chosenPre = [], chosenSuf = [];
 let HAVE = new Set();   // target mod ids the user already has on their item
 let ITEM_MODS = [];     // parsed item mods: {mod_id, text, affix, state: keep|remove}
 let ITEM_UNMATCHED = []; // unmatched lines (shown, not modeled)
+let ITEM_META = {name:'', base:'', rarity:'Normal', ilvl:81};
+let WIZ_STEP = 1;
 
-function renderModRows(){
-  const el = $('#modRows');
-  if(!el) return;
-  let html = '';
-  ITEM_MODS.forEach((m,i)=>{
-    const aff = m.affix==='Prefix'?'P':'S';
-    html += `<div class="mod-toggle ${m.state}" data-i="${i}">
-      <span class="mt-aff ${m.affix==='Prefix'?'pre':'suf'}">${aff}</span>
-      <span class="mt-text">${m.text}</span>
-      <span class="mt-state">${m.state==='keep'?'✓ keep':'✕ remove'}</span>
+// render the item tooltip card (center) from current parse + meta
+function renderItemCard(targetMode){
+  const card = $(targetMode ? '#planItemCard' : '#itemCard');
+  if(!card) return;
+  let mods;
+  if(targetMode){
+    // step 3: show the chosen target mods
+    mods = [...chosenPre.map(id=>({text:byId[id]?byId[id].text:id, suf:false})),
+            ...chosenSuf.map(id=>({text:byId[id]?byId[id].text:id, suf:true}))];
+  } else {
+    mods = ITEM_MODS.map(m=>({text:m.text, suf:m.affix==='Suffix', state:m.state}))
+      .concat(ITEM_UNMATCHED.map(u=>({text:u, suf:false, state:'skip'})));
+  }
+  const rarity = $('#startRarity').value || ITEM_META.rarity;
+  const nm = ITEM_META.name || (targetMode ? 'Your Target' : 'Crafted Item');
+  const baseLabel = ($('#baseVisible').selectedOptions[0]||{}).text || '';
+  card.innerHTML = `
+    <div class="item-head"><div class="item-name">${nm}</div><div class="item-base">${baseLabel}</div></div>
+    <div class="item-body">
+      <div class="item-prop"><b style="color:${rarity==='Rare'?'#e6c87a':rarity==='Magic'?'#8a9bd8':'#c8c8c8'}">${rarity}</b></div>
+      <div class="item-sep"></div>
+      <div class="item-prop">${mods.length?mods.map(m=>`<span class="pmod ${m.suf?'suf':''}" style="${m.state==='remove'?'text-decoration:line-through;opacity:.5':m.state==='skip'?'opacity:.4':''}">${m.text}</span>`).join(''):'<span style="opacity:.5">no mods yet</span>'}</div>
+      <div class="item-sep"></div>
+      <div class="item-ilvl">Item Level: ${$('#ilvl').value||81}</div>
     </div>`;
+}
+
+// render the keep/remove rows in the flanking columns (step 1)
+function renderOwnMods(){
+  const pre=$('#ownPre'), suf=$('#ownSuf');
+  if(!pre||!suf) return;
+  pre.innerHTML=''; suf.innerHTML='';
+  ITEM_MODS.forEach((m,i)=>{
+    const col = m.affix==='Prefix'?pre:suf;
+    const dir = m.affix==='Prefix'?'-12px':'12px';
+    const row=document.createElement('div');
+    row.className='mc-row '+m.state;
+    row.style.setProperty('--mdir',dir);
+    row.style.animationDelay=(i*0.05)+'s';
+    row.innerHTML=`<span class="mc-text">${m.text}</span><span class="mc-tag">${m.state==='keep'?'✓ keep':'remove'}</span>`;
+    row.onclick=()=>{ m.state = m.state==='keep'?'remove':'keep'; renderOwnMods(); renderItemCard(false); };
+    col.appendChild(row);
   });
+  // unmatched -> shown as skip rows under suffixes (we don't know side)
   ITEM_UNMATCHED.forEach(u=>{
-    html += `<div class="mod-toggle skip"><span class="mt-aff">–</span>
-      <span class="mt-text">${u}</span><span class="mt-state">not modeled</span></div>`;
+    const row=document.createElement('div');
+    row.className='mc-row skip';
+    row.innerHTML=`<span class="mc-text">${u}</span><span class="mc-tag">not modeled</span>`;
+    suf.appendChild(row);
   });
-  el.innerHTML = html;
-  el.querySelectorAll('.mod-toggle[data-i]').forEach(row=>{
-    row.onclick = ()=>{
-      const i=+row.dataset.i;
-      ITEM_MODS[i].state = ITEM_MODS[i].state==='keep'?'remove':'keep';
-      renderModRows();
-    };
+}
+
+function gotoStep(n){
+  const cur=$('#step'+WIZ_STEP), next=$('#step'+n);
+  if(cur===next){ return; }
+  // update stepper
+  document.querySelectorAll('.wiz-steps .ws').forEach(ws=>{
+    const s=+ws.dataset.step;
+    ws.classList.toggle('active', s===n);
+    ws.classList.toggle('done', s<n);
   });
+  if(cur){
+    cur.classList.add('leaving');
+    setTimeout(()=>{ cur.style.display='none'; cur.classList.remove('leaving'); 
+      next.style.display='block'; void next.offsetWidth; WIZ_STEP=n; }, 300);
+  } else { next.style.display='block'; WIZ_STEP=n; }
 }
 let byId = {};
 async function api(path, opts){ const r = await fetch(path, opts); return r.json(); }
@@ -364,17 +520,41 @@ async function init(){
     };
   }
   const bases = await api('/api/bases');
-  $('#base').innerHTML = bases.map(b=>`<option value="${b.token}">${b.label}</option>`).join('');
+  const baseOpts = bases.map(b=>`<option value="${b.token}">${b.label}</option>`).join('');
+  $('#base').innerHTML = baseOpts;
+  $('#baseVisible').innerHTML = baseOpts;
+  // sync visible base/ilvl pickers to the hidden inputs the logic uses
+  $('#baseVisible').onchange = ()=>{ $('#base').value=$('#baseVisible').value; loadBase(); };
+  $('#ilvlVisible').oninput = ()=>{ $('#ilvl').value=$('#ilvlVisible').value; };
   await loadBase();
   $('#base').onchange = loadBase;
   $('#search').addEventListener('input', renderLists);
   $('#forge').onclick = solve;
-  $('#startToggle').onclick = ()=>{
-    const box=$('#startBox'), open=box.style.display!=='none';
-    box.style.display = open?'none':'block';
-    $('#startToggle').textContent = (open?'▸':'▾')+' Crafting from an existing item?';
-    if(open){ ITEM_MODS=[]; ITEM_UNMATCHED=[]; $('#itemView').style.display='none'; $('#pasteBox').value=''; $('#parseResult').innerHTML=''; }
+
+  // ---- wizard navigation ----
+  $('#toStep2').onclick = ()=>{ renderItemCard(false); gotoStep(2); };
+  $('#skipFresh').onclick = ()=>{ ITEM_MODS=[]; ITEM_UNMATCHED=[]; $('#startRarity').value='Normal'; gotoStep(2); };
+  $('#backTo1').onclick = ()=> gotoStep(1);
+  $('#toStep3').onclick = ()=>{
+    if(!chosenPre.length && !chosenSuf.length){
+      // brief inline nudge
+      const s=$('#search'); s.placeholder='⚠ pick at least one prefix or suffix first…';
+      s.style.borderColor='var(--blood)'; setTimeout(()=>{s.style.borderColor='';},1500); return;
+    }
+    renderItemCard(true);
+    gotoStep(3);
+    solve();
   };
+  $('#backTo2').onclick = ()=> gotoStep(2);
+  $('#startOver').onclick = ()=>{
+    chosenPre=[]; chosenSuf=[]; ITEM_MODS=[]; ITEM_UNMATCHED=[];
+    $('#pasteBox').value=''; $('#parseResult').innerHTML='';
+    $('#itemCard').style.display='none'; $('#pasteZone').style.display='block';
+    $('#startRarity').value='Normal'; renderChips(); renderLists(); renderOwnMods();
+    $('#results').innerHTML='';
+    gotoStep(1);
+  };
+
   $('#parseBtn').onclick = async ()=>{
     const raw=$('#pasteBox').value.trim();
     const out=$('#parseResult');
@@ -383,21 +563,19 @@ async function init(){
     try{
       const j=await api('/api/parse-item',{method:'POST',headers:{'Content-Type':'application/json'},
         body:JSON.stringify({base:$('#base').value, text:raw})});
-      if(!j.ok){ out.innerHTML=`<span style="color:var(--blood)">${j.error||'parse failed'}</span>`; $('#itemView').style.display='none'; }
+      if(!j.ok){ out.innerHTML=`<span style="color:var(--blood)">${j.error||'parse failed'}</span>`; }
       else {
-        if(j.rarity){ $('#startRarity').value=j.rarity; }
-        if(j.item_level){ $('#ilvl').value=j.item_level; }
-        // build the editable mod list: matched mods (toggleable) + unmatched (skip-only)
-        ITEM_MODS = j.matched.map(m=>({
-          mod_id:m.mod_id, text:m.text, affix:m.affix_type,
-          // default: target mods -> keep, others -> remove
-          state: (chosenPre.includes(m.mod_id)||chosenSuf.includes(m.mod_id)) ? 'keep' : 'remove'
-        }));
+        if(j.rarity){ $('#startRarity').value=j.rarity; ITEM_META.rarity=j.rarity; }
+        if(j.item_level){ $('#ilvl').value=j.item_level; $('#ilvlVisible').value=j.item_level; }
+        ITEM_MODS = j.matched.map(m=>({ mod_id:m.mod_id, text:m.text, affix:m.affix_type,
+          state: (chosenPre.includes(m.mod_id)||chosenSuf.includes(m.mod_id)) ? 'keep' : 'remove' }));
         ITEM_UNMATCHED = j.unmatched.slice();
-        renderModRows();
-        $('#itemView').style.display='block';
-        out.innerHTML = `<span style="color:var(--verd-bright)">✓ read ${j.n_matched} mod(s)</span>`+
-          (j.n_unmatched?` · <span style="color:var(--gold-bright)">${j.n_unmatched} not recognized</span>`:'');
+        ITEM_META.name = j.name || 'Crafted Item';
+        // reveal the card + flanking mods (animated), hide the paste zone
+        $('#pasteZone').style.display='none';
+        $('#itemCard').style.display='block';
+        renderItemCard(false); renderOwnMods();
+        out.innerHTML='';
       }
     }catch(e){ out.innerHTML=`<span style="color:var(--blood)">error: ${e}</span>`; }
     $('#parseBtn').classList.remove('loading'); $('#parseBtn').disabled=false;
@@ -449,15 +627,9 @@ function renderChips(){
   const mk=(arr,el,cls)=>{
     el.innerHTML = arr.length ? '' : '<span class="empty" style="padding:4px">none</span>';
     arr.forEach(id=>{
-      const have = HAVE.has(id);
-      const c=document.createElement('span'); c.className='chip '+cls+(have?' have':'');
-      c.innerHTML=`${have?'✓ ':''}${byId[id].text} <button>×</button>`;
-      c.title = have ? 'Already on your item — click text to unmark' : 'Target mod — click text to mark as already on your item';
-      // click the chip body (not the ×) toggles have-state, only meaningful when startBox open
-      c.onclick=(e)=>{ if(e.target.tagName==='BUTTON') return;
-        if(HAVE.has(id)) HAVE.delete(id); else HAVE.add(id); renderChips(); };
+      const c=document.createElement('span'); c.className='chip '+cls;
+      c.innerHTML=`${byId[id].text} <button>×</button>`;
       c.querySelector('button').onclick=(e)=>{ e.stopPropagation();
-        HAVE.delete(id);
         if(cls==='pre') chosenPre=chosenPre.filter(x=>x!==id); else chosenSuf=chosenSuf.filter(x=>x!==id);
         renderChips(); renderLists(); };
       el.appendChild(c);
@@ -477,11 +649,9 @@ async function solve(){
   $('#forge').disabled=true; $('#forge').classList.add('loading');
   results.innerHTML='<div class="verdict"><div class="spinner"></div><div class="loading-msg">Divining the path</div><div class="sub loading-sub">solving the optimal craft sequence</div></div>';
   const body={base:$('#base').value, item_level:+$('#ilvl').value||81, prefixes:chosenPre, suffixes:chosenSuf, budget: $('#budget').value? +$('#budget').value : null};
-  // starting-item state (only when the user opened the panel and parsed an item)
-  if($('#startBox').style.display!=='none' && (ITEM_MODS.length || ITEM_UNMATCHED.length)){
-    body.start_rarity = $('#startRarity').value;
-    // KEEP on a target mod => already secured. KEEP on a non-target, or REMOVE,
-    // or unmatched => occupies a slot as junk (counted by affix side).
+  // starting-item state from the wizard's parsed item (if any mods were kept/removed)
+  if(ITEM_MODS.length || ITEM_UNMATCHED.length){
+    body.start_rarity = $('#startRarity').value || 'Normal';
     const havePre=[], haveSuf=[]; let junkPre=0, junkSuf=0;
     ITEM_MODS.forEach(m=>{
       const isTarget = chosenPre.includes(m.mod_id)||chosenSuf.includes(m.mod_id);
@@ -491,8 +661,6 @@ async function solve(){
         if(m.affix==='Prefix') junkPre++; else junkSuf++;
       }
     });
-    // unmatched lines occupy slots too, but we don't know prefix/suffix — split
-    // them conservatively into whichever side has room (assume suffix first).
     ITEM_UNMATCHED.forEach(()=>{ junkSuf++; });
     body.have_prefixes = havePre;
     body.have_suffixes = haveSuf;
