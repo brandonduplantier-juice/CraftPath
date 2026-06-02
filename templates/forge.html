@@ -68,8 +68,9 @@
   .panel h2{font-family:'Cinzel',serif;font-weight:700;font-size:14px;letter-spacing:.16em;text-transform:uppercase;
     color:var(--verisium-bright);margin-bottom:16px;display:flex;align-items:center;gap:10px}
   .panel h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--edge2),transparent)}
-  label{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ash);
-    margin:12px 0 6px;font-family:'JetBrains Mono',monospace}
+  label{display:block;font-size:11.5px;letter-spacing:.02em;color:var(--ash);
+    margin:16px 0 6px;font-family:'Spectral',serif;font-weight:500}
+  label:first-child{margin-top:0}
   input,select{width:100%;background:var(--ink);border:1px solid var(--edge);color:var(--parchment);
     padding:9px 11px;border-radius:3px;font-family:'Spectral',serif;font-size:15px}
   input:focus,select:focus{outline:none;border-color:var(--verisium);box-shadow:0 0 0 3px rgba(46,197,192,.15)}
@@ -133,34 +134,41 @@
   .chip.have{border-color:var(--verd-bright)!important;background:rgba(70,160,90,.18)!important;
     box-shadow:0 0 8px rgba(70,160,90,.2)}
   /* starting-item panel */
-  .start-toggle{margin-top:14px;font-size:12.5px;color:var(--verisium-bright);cursor:pointer;
-    user-select:none;padding:7px 0;border-top:1px solid rgba(58,40,23,.4);font-weight:500}
+  .start-toggle{margin-top:18px;font-size:13px;color:var(--verisium-bright);cursor:pointer;
+    user-select:none;padding:10px 0;border-top:1px solid rgba(58,40,23,.4);font-weight:500;
+    font-family:'Spectral',serif}
   .start-toggle:hover{color:var(--gold-bright)}
-  .start-box{margin-top:4px;padding:0;border:1px solid var(--edge);border-radius:6px;
-    background:rgba(0,0,0,.22);overflow:hidden}
-  .start-step{padding:13px 14px}
-  .start-step-head{font-family:'Cinzel',serif;font-size:13px;color:var(--parchment);
-    letter-spacing:.03em;margin-bottom:9px;display:flex;align-items:center;gap:8px}
-  .step-num{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;
+  .start-box{margin-top:8px;padding:16px;border:1px solid var(--edge);border-radius:6px;
+    background:rgba(0,0,0,.18)}
+  .start-step{padding:0}
+  .start-step + .start-step{margin-top:0}
+  .start-step-head{font-family:'Spectral',serif;font-size:13.5px;font-weight:600;color:var(--parchment);
+    letter-spacing:.01em;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+  .step-num{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;
     border-radius:50%;background:var(--verisium-bright);color:#08110f;font-family:'JetBrains Mono',monospace;
     font-size:11px;font-weight:700;flex:none}
-  .start-hint{font-family:inherit;font-size:10px;color:var(--verd-bright);font-style:italic;letter-spacing:0}
+  .start-hint{font-family:inherit;font-size:11px;color:var(--verd-bright);font-style:italic;
+    letter-spacing:0;font-weight:400}
   .start-box textarea{width:100%;font-size:12px;font-family:'JetBrains Mono',monospace;resize:vertical;
-    background:rgba(0,0,0,.32);color:var(--parchment);border:1px solid var(--edge);border-radius:4px;
-    padding:8px;box-sizing:border-box}
+    background:rgba(0,0,0,.3);color:var(--parchment);border:1px solid var(--edge);border-radius:4px;
+    padding:9px;box-sizing:border-box;line-height:1.5}
   .start-box textarea:focus{outline:none;border-color:var(--verisium-bright)}
-  .forge-btn.alt{margin-top:8px;padding:9px;font-size:12.5px;
+  .forge-btn.alt{margin-top:10px;padding:10px;font-size:12.5px;
     background:linear-gradient(135deg,#1d3b36,#16302c)}
-  .parse-result{font-size:11px;margin-top:9px;line-height:1.55}
-  .start-or{text-align:center;font-size:10.5px;color:var(--ash-dim);letter-spacing:.08em;
-    text-transform:uppercase;padding:3px 0;background:rgba(0,0,0,.15)}
-  .start-tip{font-size:11px;color:var(--ash);margin-top:10px;line-height:1.5}
-  .have-eg{color:var(--verd-bright);white-space:nowrap}
-  .junk-row{display:flex;gap:10px;margin-top:10px}
+  .parse-result{font-size:11.5px;margin-top:11px;line-height:1.6}
+  .start-or{text-align:center;font-size:10.5px;color:var(--ash-dim);letter-spacing:.1em;
+    text-transform:uppercase;margin:22px 0;position:relative}
+  .start-or:before,.start-or:after{content:"";position:absolute;top:50%;width:34%;height:1px;
+    background:rgba(58,40,23,.5)}
+  .start-or:before{left:0}.start-or:after{right:0}
+  .start-tip{font-size:11.5px;color:var(--ash);margin-top:12px;line-height:1.55}
+  .have-eg{color:var(--verd-bright);white-space:nowrap;font-weight:600}
+  .junk-row{display:flex;gap:12px;margin-top:14px}
   .junk-row>div{flex:1}
-  .start-box label.mini{margin-top:0;margin-bottom:3px;font-size:10px}
-  .start-box input[type=number]{font-size:13px}
-  .start-note{font-size:10px;color:var(--ash-dim);margin-top:9px;line-height:1.45}
+  .start-box label{margin-top:14px}
+  .start-box label.mini{margin-top:0;margin-bottom:5px;font-size:11px}
+  .start-box input[type=number]{font-size:14px}
+  .start-note{font-size:10.5px;color:var(--ash-dim);margin-top:11px;line-height:1.5}
   .disclaimer{margin-top:28px;font-size:11px;color:var(--ash-dim);text-align:center;font-family:'JetBrains Mono',monospace;line-height:1.7}
   .disclaimer b{color:var(--ash)}
   .empty{color:var(--ash-dim);font-style:italic;text-align:center;padding:20px;font-size:13px}
@@ -185,9 +193,9 @@
       <h2>The Item</h2>
       <label>Base</label>
       <select id="base"></select>
-      <label>Item Level</label>
+      <label>Item level</label>
       <input id="ilvl" type="number" value="81" min="1" max="100">
-      <label>Budget (Exalted Orbs, optional)</label>
+      <label>Budget <span style="color:var(--ash-dim);font-weight:400">— exalted orbs, optional</span></label>
       <input id="budget" type="number" placeholder="blank = none">
       <div id="startToggle" class="start-toggle">▸ Crafting from an existing item?</div>
       <div id="startBox" class="start-box" style="display:none">
