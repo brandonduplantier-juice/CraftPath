@@ -1,0 +1,306 @@
+{
+  "_comment": "Per-base desecrated pool sizes. KEY MODEL CORRECTION: 'no desecrated prefixes' on armour means there are no armour-EXCLUSIVE (lord) desecrated prefix mods \u2014 but Omen of Putrefaction still creates 3 prefix slots, and on armour those prefix REVEALS draw from the NORMAL prefix pool (e.g. boots reveal Movement Speed/Life as desecrated prefixes). So 'desec_prefix_from_normal' marks bases whose putrefaction prefix slots roll the normal prefix pool. Suffix slots draw from the small desecrated/lord suffix pool. Verified bases read from PoE2DB per-base pages; run verify_desecrated.py to confirm others.",
+  "_facts_confirmed": "PoE2 wiki (current): Omen of Putrefaction replaces all mods with up to 6 unrevealed desecrated mods (5 if fractured) and corrupts. Lord pools (Ulaman/Amanamu/Kurgal) are LARGE (~60-70 mods each, mixed archetypes); lord-forcing restricts reveals to one lord's pool but that pool is still big \u2014 the per-base RELEVANT subset is what matters. ilvl 65+ and Preserved+ bones required for lord mods. 0.5: desecrated Instant Leech can no longer roll.",
+  "_rules": {
+    "armour_no_prefix": [
+      "body",
+      "gloves",
+      "boots",
+      "helmet"
+    ],
+    "no_desecrated": [
+      "sceptre"
+    ],
+    "lord_pools_weapon_quiver_only": true,
+    "ilvl_floor": 65
+  },
+  "bases": {
+    "body": {
+      "prefix": 0,
+      "suffix": 16,
+      "desec_prefix_from_normal": true,
+      "source": "anchored:boots_verified",
+      "verified_suffixes": [
+        "earlier body-str fetch showed 8 but was likely truncated; boots page shows full 16-mod armour suffix pool"
+      ],
+      "note": "armour shares the 16-suffix desecrated pool verified on boots; re-confirm exact body count via Body page"
+    },
+    "gloves": {
+      "prefix": 0,
+      "suffix": 16,
+      "desec_prefix_from_normal": true,
+      "source": "anchored:boots_verified",
+      "note": "armour shares the desecrated suffix pool (16, verified on boots); confirm exact via Gloves page"
+    },
+    "boots": {
+      "prefix": 0,
+      "suffix": 16,
+      "desec_prefix_from_normal": true,
+      "source": "verified:Boots_page",
+      "verified_suffixes": [
+        "fire+chaos res",
+        "str+int",
+        "str+dex",
+        "dodge roll distance",
+        "reduced slow potency",
+        "reduced ignite duration",
+        "cold+chaos res",
+        "dex+int",
+        "reduced bleed duration",
+        "reduced poison duration",
+        "mana cost eff if dodge rolled",
+        "mana regen stationary",
+        "lightning+chaos res",
+        "corrupted blood immune",
+        "life regen moving",
+        "reduced MS penalty from skills"
+      ],
+      "note": "exact 16 suffixes read from PoE2DB Boots page; 0 desec prefixes confirmed; prefix slots roll normal prefixes (MS/life/ES/evasion)"
+    },
+    "helmet": {
+      "prefix": 0,
+      "suffix": 16,
+      "desec_prefix_from_normal": true,
+      "source": "anchored:boots_verified",
+      "note": "armour shares the desecrated suffix pool (16, verified on boots); confirm exact via Helmet page"
+    },
+    "bow": {
+      "prefix": 8,
+      "suffix": 9,
+      "source": "verified:Bow_page",
+      "verified_prefixes": [
+        "AoE for attacks (ama)",
+        "companion damage (ama)",
+        "pen fire res (ama)",
+        "chain from terrain (kur)",
+        "quiver bonuses (kur)",
+        "pen cold res (kur)",
+        "pen lightning res (ula)",
+        "proj dmg vs far (ula)"
+      ],
+      "verified_suffixes": [
+        "pierce (ama)",
+        "attack speed+companion (ama)",
+        "spirit reservation (ama)",
+        "immobilisation (kur)",
+        "proj crit vs far (kur)",
+        "attack cost eff (kur)",
+        "mana to life cost (ula)",
+        "proj fire 2 extra moving (ula)",
+        "attack speed+companion (ula)"
+      ],
+      "note": "exact counts from PoE2DB Bow page; 2 suffixes are attack speed (ama+ula) so AS targeting via lord-forcing is strong",
+      "lord_split": {
+        "amanamu": [
+          3,
+          3
+        ],
+        "kurgal": [
+          3,
+          3
+        ],
+        "ulaman": [
+          2,
+          3
+        ]
+      }
+    },
+    "crossbow": {
+      "prefix": 7,
+      "suffix": 8,
+      "source": "verified:Crossbow_page",
+      "note": "reload-immediate counts 2; pen cold/lightning, ballista, grenade",
+      "lord_split": {
+        "amanamu": [
+          3,
+          2
+        ],
+        "kurgal": [
+          2,
+          3
+        ],
+        "ulaman": [
+          2,
+          3
+        ]
+      }
+    },
+    "quiver": {
+      "prefix": 3,
+      "suffix": 5,
+      "source": "verified:Quiver_page",
+      "note": "projectile-focused; small pool",
+      "lord_split": {
+        "amanamu": [
+          1,
+          2
+        ],
+        "kurgal": [
+          1,
+          2
+        ],
+        "ulaman": [
+          1,
+          1
+        ]
+      }
+    },
+    "dagger": {
+      "prefix": 0,
+      "suffix": 0,
+      "source": "verified:Dagger_page",
+      "note": "NO desecrated mods \u2014 putrefaction only reveals normal pool"
+    },
+    "claw": {
+      "prefix": 0,
+      "suffix": 0,
+      "source": "verified:Claw_page",
+      "note": "NO desecrated mods \u2014 putrefaction only reveals normal pool"
+    },
+    "wand": {
+      "prefix": 6,
+      "suffix": 8,
+      "source": "verified:Wand_page",
+      "note": "spell/caster; hindered-dmg 3, cast speed 2, break armour 2",
+      "lord_split": {
+        "amanamu": [
+          3,
+          3
+        ],
+        "kurgal": [
+          1,
+          2
+        ],
+        "ulaman": [
+          2,
+          3
+        ]
+      }
+    },
+    "staff": {
+      "prefix": 6,
+      "suffix": 6,
+      "source": "verified:Staff_page",
+      "note": "spell-dmg-per counts 3; spirit, infusions, ailment mag",
+      "lord_split": {
+        "amanamu": [
+          2,
+          3
+        ],
+        "kurgal": [
+          2,
+          1
+        ],
+        "ulaman": [
+          2,
+          2
+        ]
+      }
+    },
+    "spear": {
+      "prefix": 8,
+      "suffix": 9,
+      "source": "verified:Spear_page",
+      "note": "mirrors bow structure; 2 attack-speed suffixes (ama+ula)",
+      "lord_split": {
+        "amanamu": [
+          3,
+          3
+        ],
+        "kurgal": [
+          3,
+          3
+        ],
+        "ulaman": [
+          2,
+          3
+        ]
+      }
+    },
+    "amulet": {
+      "prefix": 11,
+      "suffix": 20,
+      "source": "verified:Amulet_page",
+      "note": "large jewellery pool; many res/attr suffixes",
+      "lord_split": {
+        "amanamu": [
+          4,
+          8
+        ],
+        "kurgal": [
+          3,
+          7
+        ],
+        "ulaman": [
+          4,
+          5
+        ]
+      }
+    },
+    "ring": {
+      "prefix": 7,
+      "suffix": 15,
+      "source": "verified:Ring_page",
+      "note": "charge-ailment prefix counts 3; res/attr/leech suffixes",
+      "lord_split": {
+        "amanamu": [
+          3,
+          5
+        ],
+        "kurgal": [
+          2,
+          6
+        ],
+        "ulaman": [
+          2,
+          4
+        ]
+      }
+    },
+    "belt": {
+      "prefix": 8,
+      "suffix": 12,
+      "source": "verified:Belt_page",
+      "note": "charm/flask prefixes; res/attr/ailment suffixes",
+      "lord_split": {
+        "amanamu": [
+          4,
+          5
+        ],
+        "kurgal": [
+          2,
+          4
+        ],
+        "ulaman": [
+          2,
+          3
+        ]
+      }
+    },
+    "sceptre": {
+      "prefix": 0,
+      "suffix": 0,
+      "source": "rule:no_desecrated"
+    },
+    "quarterstaff": {
+      "prefix": 6,
+      "suffix": 6,
+      "source": "verified:Quarterstaff_page",
+      "note": "elemental dmg prefixes per lord; combo recover counts 2",
+      "lord_split": {
+        "amanamu": [
+          2,
+          2
+        ],
+        "kurgal": [
+          2,
+          2
+        ],
+        "ulaman": [
+          2,
+          2
+        ]
+      }
+    }
+  }
+}

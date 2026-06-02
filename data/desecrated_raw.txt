@@ -1,0 +1,205 @@
+Amanamu's	65	Prefix	Charms gain (0.1—0.2) charges per Second Charm amanamu
+Amanamu's	65	Prefix	2 to 4 Fire Thorns damage per 100 maximum Life amanamu Elemental Fire
+Amanamu's	65	Prefix	(10—18)% chance for Charms you use to not consume Charges Charm amanamu
+Amanamu's	65	Prefix	(8—16)% increased Curse Magnitudes amanamu Caster Curse
+Amanamu's	65	Prefix	Offering Skills have (12—20)% increased Buff effect amanamu
+Amanamu's	65	Prefix	Projectiles deal (20—30)% increased Damage with Hits against Enemies within 2m amanamu Damage
+Amanamu's	65	Prefix	Remnants you create have (8—15)% increased effect amanamu
+Amanamu's	65	Prefix	Minions deal (15—25)% increased Damage if you've Hit Recently amanamu Damage Minion
+Amanamu's	65	Prefix	(20—30)% increased Magnitude of Ignite if you've consumed an Endurance Charge Recently amanamu Ailment
+Amanamu's	65	Prefix	(35—50)% increased Armour from Equipped Body Armour amanamu Armour
+Amanamu's	65	Prefix	(15—25)% increased Global Armour, Evasion and Energy Shield amanamu
+Amanamu's	65	Prefix	(148—178)% increased Spell Damage with Spells that cost Life amanamu
+Amanamu's	65	Prefix	+(35—50) to Spirit amanamu
+Amanamu's	65	Prefix	(74—89)% increased Elemental Damage amanamu Damage Elemental Fire Cold Lightning
+Amanamu's	65	Prefix	(55—64)% increased Spell Damage
+Minions deal (55—64)% increased Damage amanamu Caster Minion
+Amanamu's	65	Prefix	(74—89)% increased Spell Damage with Spells that cost Life amanamu
+Amanamu's	65	Prefix	Attacks with this Weapon Penetrate (15—25)% Fire Resistance amanamu Damage Elemental Fire Attack
+Amanamu's	65	Prefix	(41—59)% increased Damage against Enemies with Fully Broken Armour amanamu Damage
+Amanamu's	65	Prefix	(86—99)% increased Damage against Enemies with Fully Broken Armour amanamu Damage
+Amanamu's	65	Prefix	(86—99)% increased Fire Damage
+(14—23)% increased Ignite Magnitude amanamu Elemental Fire Ailment
+Amanamu's	65	Prefix	Grenade Skills have +1 Cooldown Use amanamu
+Amanamu's	65	Prefix	(101—121)% increased Grenade Damage
+(20—30)% increased Grenade Duration amanamu Damage
+Amanamu's	65	Prefix	Companions deal (40—59)% increased Damage
+(40—59)% increased Damage while your Companion is in your Presence amanamu
+Amanamu's	65	Prefix	(12—23)% increased Area of Effect for Attacks amanamu Attack
+Amanamu's	65	Prefix	Minions deal (60—79)% increased Damage if you've Hit Recently amanamu Damage Minion
+Kurgal's	65	Prefix	Mana Flasks gain (0.1—0.2) charges per Second kurgal
+Kurgal's	65	Prefix	Gain (6—12)% of Maximum Mana as Armour kurgal Mana Armour
+Kurgal's	65	Prefix	(10—15)% chance for Flasks you use to not consume Charges kurgal
+Kurgal's	65	Prefix	Invocated Spells deal (61—79)% increased Damage kurgal Caster
+Kurgal's	65	Prefix	Spell Skills have (10—20)% increased Area of Effect kurgal Caster
+Kurgal's	65	Prefix	Projectiles deal (20—30)% increased Damage with Hits against Enemies further than 6m kurgal
+Kurgal's	65	Prefix	(15—25)% increased Spell Damage while on Full Energy Shield kurgal Damage Caster
+Kurgal's	65	Prefix	(20—30)% increased Freeze Buildup if you've consumed an Power Charge Recently kurgal Ailment
+Kurgal's	65	Prefix	(35—50)% increased Energy Shield from Equipped Body Armour kurgal Energy Shield
+Kurgal's	65	Prefix	Invocated Spells have (10—20)% chance to consume half as much Energy kurgal Caster
+Kurgal's	65	Prefix	(4—5)% increased Spell Damage per 100 maximum Mana kurgal Mana Damage Caster
+Kurgal's	65	Prefix	+(1—2) to maximum number of Elemental Infusions kurgal Elemental
+Kurgal's	65	Prefix	Invocated Spells deal (75—89)% increased Damage kurgal Caster
+Kurgal's	65	Prefix	Attacks with this Weapon Penetrate (15—25)% Cold Resistance kurgal Damage Elemental Cold Attack
+Kurgal's	65	Prefix	(110—154)% increased Physical Damage
+15% reduced Attack Speed kurgal Physical Attack Speed
+Kurgal's	65	Prefix	Empowered Attacks deal (41—59)% increased Damage kurgal Damage Attack
+Kurgal's	65	Prefix	Empowered Attacks deal (86—99)% increased Damage kurgal Damage Attack
+Kurgal's	65	Prefix	(86—99)% increased Cold Damage
+(14—23)% increased Freeze Buildup kurgal Elemental Cold Ailment
+Kurgal's	65	Prefix	Projectiles deal (85—109)% increased Damage with Hits against Enemies within 2m kurgal Damage
+Kurgal's	65	Prefix	Projectiles have (25—35)% chance to Chain an additional time from terrain kurgal
+Kurgal's	65	Prefix	(30—40)% increased bonuses gained from Equipped Quiver kurgal
+Kurgal's	65	Prefix	(60—79)% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds kurgal
+Kurgal's	65	Prefix	Warcries Empower an additional Attack kurgal Attack
+Ulaman's	65	Prefix	Life Flasks gain (0.1—0.2) charges per Second ulaman
+Ulaman's	65	Prefix	(10—18)% chance for Flasks you use to not consume Charges ulaman
+Ulaman's	65	Prefix	(20—30)% increased Life Regeneration rate during Effect of any Life Flask ulaman
+Ulaman's	65	Prefix	Spell Skills have +1 to maximum number of Summoned Totems ulaman Caster
+Ulaman's	65	Prefix	(61—79)% increased Spell Damage while wielding a Melee Weapon ulaman Caster
+Ulaman's	65	Prefix	Increases and Reductions to Projectile Speed also apply to Damage with Bows ulaman
+Ulaman's	65	Prefix	(15—25)% increased Attack Damage while on Low Life ulaman
+Ulaman's	65	Prefix	(20—30)% increased Magnitude of Shock if you've consumed a Frenzy Charge Recently ulaman Ailment
+Ulaman's	65	Prefix	(35—50)% increased Evasion Rating from Equipped Body Armour ulaman Evasion
+Ulaman's	65	Prefix	(10—20)% increased Deflection Rating ulaman Evasion
+Ulaman's	65	Prefix	(20—30)% chance for Skills to retain 40% of Glory on use ulaman
+Ulaman's	65	Prefix	(4—5)% increased Spell Damage per 100 Maximum Life ulaman Life Damage Caster
+Ulaman's	65	Prefix	(40—64)% increased Magnitude of Damaging Ailments you inflict ulaman Ailment
+Ulaman's	65	Prefix	Gain (21—25)% of Damage as Extra Physical Damage ulaman Damage Physical
+Ulaman's	65	Prefix	(27—38)% increased Magnitude of Bleeding you inflict ulaman Damage Physical Attack Ailment
+Ulaman's	65	Prefix	Attacks with this Weapon Penetrate (15—25)% Lightning Resistance ulaman Damage Elemental Lightning Attack
+Ulaman's	65	Prefix	Melee Attack Skills have +1 to maximum number of Summoned Totems ulaman
+Ulaman's	65	Prefix	(41—59)% increased Damage while you have a Totem ulaman Damage
+Ulaman's	65	Prefix	(86—99)% increased Damage while you have a Totem ulaman Damage
+Ulaman's	65	Prefix	(86—99)% increased Lightning Damage
+(14—23)% increased Magnitude of Shock you inflict ulaman Elemental Lightning Ailment
+Ulaman's	65	Prefix	+1 to maximum number of Summoned Ballista Totems ulaman
+Ulaman's	65	Prefix	Projectiles deal (60—79)% increased Damage with Hits against Enemies further than 6m ulaman
+of Amanamu	65	Suffix	+(13—17)% to Fire and Chaos Resistances amanamu Elemental Fire Chaos Resistance
+of Amanamu	65	Suffix	+(9—15) to Strength and Intelligence amanamu Attribute
+of Amanamu	65	Suffix	(4—8)% increased Spirit Reservation Efficiency of Skills amanamu
+of Amanamu	65	Suffix	(10—20)% increased Glory generation amanamu
+of Amanamu	65	Suffix	(25—35)% increased Presence Area of Effect amanamu Aura
+of Amanamu	65	Suffix	(12—20)% increased Area of Effect of Curses amanamu Caster Curse
+of Amanamu	65	Suffix	(10—20)% chance to Daze on Hit amanamu
+of Amanamu	65	Suffix	(8—15)% of Leech is Instant amanamu
+of Amanamu	65	Suffix	(10—20)% increased Immobilisation buildup amanamu
+of Amanamu	65	Suffix	(20—30)% reduced Ignite Duration on you amanamu Elemental Fire Ailment
+of Amanamu	65	Suffix	(12—20)% reduced Slowing Potency of Debuffs on You amanamu
+of Amanamu	65	Suffix	+(0.1—0.2) metres to Dodge Roll distance amanamu
+of Amanamu	65	Suffix	+(2—4)% to Thorns Critical Hit Chance amanamu Damage Critical
+of Amanamu	65	Suffix	(10—20)% of Damage taken Recouped as Life amanamu Life
+of Amanamu	65	Suffix	(25—35)% reduced effect of Curses on you amanamu Caster Curse
+of Amanamu	65	Suffix	(6—12)% increased Spirit Reservation Efficiency of Skills amanamu
+of Amanamu	65	Suffix	Hits with Shield Skills which Heavy Stun enemies break fully Break Armour amanamu
+of Amanamu	65	Suffix	Your Heavy Stun buildup empties (30—40)% faster amanamu
+of Amanamu	65	Suffix	+1% to all maximum Resistances amanamu Resistance
+of Amanamu	65	Suffix	+(1—2) to Level of all Minion Skills amanamu Minion Gem
+of Amanamu	65	Suffix	(10—20)% faster Curse Activation amanamu Caster Curse
+of Amanamu	65	Suffix	Projectiles have (18—26)% increased Critical Damage Bonus against Enemies within 2m amanamu
+of Amanamu	65	Suffix	(8—12)% increased Skill Effect Duration amanamu
+of Amanamu	65	Suffix	Remnants can be collected from (20—30)% further away amanamu
+of Amanamu	65	Suffix	(12—20)% increased amount of Life Leeched amanamu Life
+of Amanamu	65	Suffix	Equipment and Skill Gems have (10—15)% reduced Attribute Requirements amanamu
+of Amanamu	65	Suffix	Aura Skills have (8—16)% increased Magnitudes amanamu
+of Amanamu	65	Suffix	(25—35)% of Spell Mana Cost Converted to Life Cost amanamu Life Caster
+of Amanamu	65	Suffix	(25—35)% increased Archon Buff duration amanamu
+of Amanamu	65	Suffix	+(12—16)% to Block chance amanamu
+of Amanamu	65	Suffix	Spell Skills have (8—16)% increased Area of Effect amanamu Caster
+of Amanamu	65	Suffix	(5—10)% increased Cost Efficiency
+(15—25)% of Spell Mana Cost Converted to Life Cost amanamu Life Caster
+of Amanamu	65	Suffix	Enemies Hindered by you take (4—7)% increased Elemental Damage amanamu
+of Amanamu	65	Suffix	(5—10)% increased Spirit Reservation Efficiency of Skills amanamu
+of Amanamu	65	Suffix	Break Armour equal to (2—4)% of Physical Damage dealt amanamu Damage Physical
+of Amanamu	65	Suffix	Skills which create Fissures have a (15—25)% chance to create an additional Fissure amanamu Attack
+of Amanamu	65	Suffix	(10—16)% chance for Mace Slam Skills you use yourself to cause an additional Aftershock amanamu Attack
+of Amanamu	65	Suffix	Break Armour equal to (4—7)% of Physical Damage dealt amanamu Damage Physical
+of Amanamu	65	Suffix	Skills which create Fissures have a (25—31)% chance to create an additional Fissure amanamu Attack
+of Amanamu	65	Suffix	(16—23)% chance for Mace Slam Skills you use yourself to cause an additional Aftershock amanamu Attack
+of Amanamu	65	Suffix	(25—40)% chance to build an additional Combo on Hit amanamu
+of Amanamu	65	Suffix	Grenades have (15—25)% chance to activate a second time amanamu
+of Amanamu	65	Suffix	(12—18)% increased Attack Speed
+Companions have (12—18)% increased Attack Speed amanamu
+of Amanamu	65	Suffix	(40—60)% chance to Pierce an Enemy amanamu
+of Kurgal	65	Suffix	+(13—17)% to Cold and Chaos Resistances kurgal Elemental Cold Chaos Resistance
+of Kurgal	65	Suffix	+(9—15) to Dexterity and Intelligence kurgal Attribute
+of Kurgal	65	Suffix	(6—10)% increased Mana Cost Efficiency kurgal Mana
+of Kurgal	65	Suffix	(20—30)% increased effect of Arcane Surge on you kurgal Mana Caster
+of Kurgal	65	Suffix	(10—15)% chance to Gain Arcane Surge when you deal a Critical Hit kurgal Critical
+of Kurgal	65	Suffix	(8—15)% increased Cast Speed when on Full Life kurgal Caster Speed
+of Kurgal	65	Suffix	(20—30)% reduced Duration of Bleeding on You kurgal Physical Ailment
+of Kurgal	65	Suffix	(8—12)% increased Mana Cost Efficiency if you have Dodge Rolled Recently kurgal Mana
+of Kurgal	65	Suffix	(40—50)% increased Mana Regeneration Rate while stationary kurgal Mana
+of Kurgal	65	Suffix	(30—40)% increased Mana Regeneration Rate kurgal Mana
+of Kurgal	65	Suffix	(10—20)% of Damage taken Recouped as Mana kurgal Life Mana
+of Kurgal	65	Suffix	(10—20)% of Elemental Damage taken Recouped as Energy Shield kurgal
+of Kurgal	65	Suffix	+(23—31)% of Armour also applies to Chaos Damage kurgal
+of Kurgal	65	Suffix	(10—20)% of Damage is taken from Mana before Life kurgal Life Mana
+of Kurgal	65	Suffix	(6—12) Mana gained when you Block kurgal Mana
+of Kurgal	65	Suffix	(40—50)% increased Energy Shield Recharge Rate if you've Blocked Recently kurgal Energy Shield
+of Kurgal	65	Suffix	(15—25)% chance when collecting an Elemental Infusion to gain an additional Elemental Infusion of the same type kurgal
+of Kurgal	65	Suffix	Projectiles have (18—26)% increased Critical Hit Chance against Enemies further than 6m kurgal
+of Kurgal	65	Suffix	(10—15)% increased Exposure Effect kurgal Elemental Fire Cold Lightning
+of Kurgal	65	Suffix	(8—12)% increased Cooldown Recovery Rate kurgal
+of Kurgal	65	Suffix	Recover (2—3)% of maximum Mana on Kill kurgal Mana
+of Kurgal	65	Suffix	(12—20)% increased amount of Mana Leeched kurgal Mana
+of Kurgal	65	Suffix	Minions have (12—20)% increased Cooldown Recovery Rate kurgal Minion
+of Kurgal	65	Suffix	(8—16)% of Damage is taken from Mana before Life kurgal Life Mana
+of Kurgal	65	Suffix	+(3—5)% to Quality of all Skills kurgal Gem
+of Kurgal	65	Suffix	Archon recovery period expires (25—35)% faster kurgal
+of Kurgal	65	Suffix	(26—36)% increased Cast Speed while on Full Mana kurgal Mana Caster Speed
+of Kurgal	65	Suffix	(3—5)% increased Cast Speed for each different Non-Instant Spell you've Cast Recently kurgal
+of Kurgal	65	Suffix	Enemies Hindered by you take (4—7)% increased Chaos Damage kurgal
+of Kurgal	65	Suffix	(8—15)% increased Cost Efficiency of Attacks kurgal Attack
+of Kurgal	65	Suffix	(17—25)% increased Warcry Cooldown Recovery Rate kurgal
+of Kurgal	65	Suffix	(25—31)% increased Warcry Cooldown Recovery Rate kurgal
+of Kurgal	65	Suffix	Recover (4—6)% of Maximum Mana when you expend at least 10 Combo kurgal Mana
+of Kurgal	65	Suffix	(17—25)% increased Reload Speed kurgal Attack Speed
+of Kurgal	65	Suffix	(15—20)% chance when you Reload a Crossbow to be immediate kurgal
+of Kurgal	65	Suffix	Projectiles have (25—34)% increased Critical Hit Chance against Enemies further than 6m kurgal
+of Kurgal	65	Suffix	(25—34)% increased Immobilisation buildup kurgal
+of Kurgal	65	Suffix	(39—51)% increased Critical Hit Chance against Marked Enemies kurgal Critical
+of Ulaman	65	Suffix	+(13—17)% to Lightning and Chaos Resistances ulaman Elemental Lightning Chaos Resistance
+of Ulaman	65	Suffix	+(9—15) to Strength and Dexterity ulaman Attribute
+of Ulaman	65	Suffix	Enemies you Mark take (4—8)% increased Damage ulaman
+of Ulaman	65	Suffix	(13—20)% increased Critical Damage Bonus ulaman Damage Critical
+of Ulaman	65	Suffix	(8—12)% increased Life Cost Efficiency ulaman Life
+of Ulaman	65	Suffix	(10—20)% increased Magnitude of Ailments you inflict ulaman Damage Ailment
+of Ulaman	65	Suffix	(20—30)% increased chance to Poison ulaman
+of Ulaman	65	Suffix	(20—30)% increased chance to inflict Bleeding ulaman
+of Ulaman	65	Suffix	(15—25)% chance for Attack Hits to apply Incision ulaman Physical Ailment
+of Ulaman	65	Suffix	(8—12)% increased Skill Speed if you've consumed a Frenzy Charge Recently ulaman Speed
+of Ulaman	65	Suffix	(20—30)% reduced Poison Duration on you ulaman Chaos Ailment
+of Ulaman	65	Suffix	Corrupted Blood cannot be inflicted on you ulaman Physical Ailment
+of Ulaman	65	Suffix	(6—10)% reduced Movement Speed Penalty from using Skills while moving ulaman Speed
+of Ulaman	65	Suffix	(17—25)% reduced Slowing Potency of Debuffs on You if you've used a Charm Recently Charm ulaman
+of Ulaman	65	Suffix	Hits have (17—25)% reduced Critical Hit Chance against you ulaman Critical
+of Ulaman	65	Suffix	Prevent +(3—5)% of Damage from Deflected Hits ulaman
+of Ulaman	65	Suffix	(12—18)% increased Reservation Efficiency of Companion Skills ulaman
+of Ulaman	65	Suffix	+(1—2)% to maximum Block chance ulaman
+of Ulaman	65	Suffix	(20—30)% increased Parried Debuff Magnitude ulaman
+of Ulaman	65	Suffix	(25—35)% increased Parried Debuff Duration ulaman
+of Ulaman	65	Suffix	(10—20)% of Spell Mana Cost Converted to Life Cost ulaman Life Caster
+of Ulaman	65	Suffix	(10—16)% chance for Spell Skills to fire 2 additional Projectiles ulaman Caster
+of Ulaman	65	Suffix	Projectile Attacks have a (8—12)% chance to fire two additional Projectiles while moving ulaman
+of Ulaman	65	Suffix	(10—14)% of Skill Mana Costs Converted to Life Costs ulaman Life
+of Ulaman	65	Suffix	(3—6)% increased Skill Speed ulaman Speed
+of Ulaman	65	Suffix	Recover (2—3)% of maximum Life on Kill ulaman Life
+of Ulaman	65	Suffix	(10—20)% increased Reservation Efficiency of Herald Skills ulaman
+of Ulaman	65	Suffix	+1 to Level of all Skills ulaman Gem
+of Ulaman	65	Suffix	(30—40)% increased Cast Speed when on Low Life ulaman Caster Speed
+of Ulaman	65	Suffix	(25—35)% chance for Spell Skills to fire 2 additional Projectiles ulaman Caster
+of Ulaman	65	Suffix	Break (31—39)% increased Armour ulaman
+of Ulaman	65	Suffix	Break Armour on Critical Hit with Spells equal to (11—18)% of Physical Damage dealt ulaman Caster Critical
+of Ulaman	65	Suffix	Enemies Hindered by you take (4—7)% increased Physical Damage ulaman
+of Ulaman	65	Suffix	(15—20)% of Skill Mana Costs Converted to Life Costs ulaman Life
+of Ulaman	65	Suffix	(17—25)% increased Totem Placement speed ulaman Speed
+of Ulaman	65	Suffix	(25—31)% increased Totem Placement speed ulaman Speed
+of Ulaman	65	Suffix	Recover (6—12)% of Maximum Life when you expend at least 10 Combo ulaman Life
+of Ulaman	65	Suffix	Attacks Chain an additional time ulaman
+of Ulaman	65	Suffix	Projectiles have (27—38)% increased Critical Damage Bonus against Enemies within 2m ulaman
+of Ulaman	65	Suffix	Projectile Attacks have a (10—18)% chance to fire two additional Projectiles while moving ulaman
+of Ulaman	65	Suffix	(8—13)% increased Attack Speed
+(8—13)% increased Attack Speed while your Companion is in your Presence ulaman
+of Ulaman	65	Suffix	Gain (3—6) Rage on Melee Hit kurgal Attack
+of Ulaman	65	Suffix	(40—50)% increased Life Regeneration Rate while moving ulaman Life

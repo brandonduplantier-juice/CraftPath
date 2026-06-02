@@ -1,0 +1,308 @@
+[
+  {
+    "token": "amulet",
+    "label": "Amulet",
+    "count": 209,
+    "desecrated": 0
+  },
+  {
+    "token": "belt",
+    "label": "Belt",
+    "count": 135,
+    "desecrated": 0
+  },
+  {
+    "token": "ring",
+    "label": "Ring",
+    "count": 203,
+    "desecrated": 0
+  },
+  {
+    "token": "quiver",
+    "label": "Quiver",
+    "count": 100,
+    "desecrated": 0
+  },
+  {
+    "token": "focus",
+    "label": "Focus",
+    "count": 140,
+    "desecrated": 0
+  },
+  {
+    "token": "claw",
+    "label": "Claw",
+    "count": 150,
+    "desecrated": 0
+  },
+  {
+    "token": "dagger",
+    "label": "Dagger",
+    "count": 158,
+    "desecrated": 0
+  },
+  {
+    "token": "flail",
+    "label": "Flail",
+    "count": 158,
+    "desecrated": 0
+  },
+  {
+    "token": "spear",
+    "label": "Spear",
+    "count": 162,
+    "desecrated": 0
+  },
+  {
+    "token": "bow",
+    "label": "Bow",
+    "count": 140,
+    "desecrated": 0
+  },
+  {
+    "token": "crossbow",
+    "label": "Crossbow",
+    "count": 154,
+    "desecrated": 0
+  },
+  {
+    "token": "staff",
+    "label": "Staff",
+    "count": 234,
+    "desecrated": 0
+  },
+  {
+    "token": "talisman",
+    "label": "Talisman",
+    "count": 158,
+    "desecrated": 0
+  },
+  {
+    "token": "one_hand_axe",
+    "label": "One Hand Axe",
+    "count": 150,
+    "desecrated": 0
+  },
+  {
+    "token": "one_hand_mace",
+    "label": "One Hand Mace",
+    "count": 150,
+    "desecrated": 0
+  },
+  {
+    "token": "one_hand_sword",
+    "label": "One Hand Sword",
+    "count": 158,
+    "desecrated": 0
+  },
+  {
+    "token": "two_hand_axe",
+    "label": "Two Hand Axe",
+    "count": 150,
+    "desecrated": 0
+  },
+  {
+    "token": "two_hand_mace",
+    "label": "Two Hand Mace",
+    "count": 150,
+    "desecrated": 0
+  },
+  {
+    "token": "two_hand_sword",
+    "label": "Two Hand Sword",
+    "count": 158,
+    "desecrated": 0
+  },
+  {
+    "token": "sceptre",
+    "label": "Sceptre",
+    "count": 150,
+    "desecrated": 0
+  },
+  {
+    "token": "wand",
+    "label": "Wand",
+    "count": 105,
+    "desecrated": 0
+  },
+  {
+    "token": "body_str",
+    "label": "Body Armour (STR)",
+    "count": 222,
+    "desecrated": 0
+  },
+  {
+    "token": "body_dex",
+    "label": "Body Armour (DEX)",
+    "count": 222,
+    "desecrated": 0
+  },
+  {
+    "token": "body_int",
+    "label": "Body Armour (INT)",
+    "count": 222,
+    "desecrated": 0
+  },
+  {
+    "token": "body_str_dex",
+    "label": "Body Armour (STR/DEX)",
+    "count": 260,
+    "desecrated": 0
+  },
+  {
+    "token": "body_str_int",
+    "label": "Body Armour (STR/INT)",
+    "count": 260,
+    "desecrated": 0
+  },
+  {
+    "token": "body_dex_int",
+    "label": "Body Armour (DEX/INT)",
+    "count": 260,
+    "desecrated": 0
+  },
+  {
+    "token": "boots_str",
+    "label": "Boots (STR)",
+    "count": 185,
+    "desecrated": 0
+  },
+  {
+    "token": "boots_dex",
+    "label": "Boots (DEX)",
+    "count": 185,
+    "desecrated": 0
+  },
+  {
+    "token": "boots_int",
+    "label": "Boots (INT)",
+    "count": 185,
+    "desecrated": 0
+  },
+  {
+    "token": "boots_str_dex",
+    "label": "Boots (STR/DEX)",
+    "count": 211,
+    "desecrated": 0
+  },
+  {
+    "token": "boots_str_int",
+    "label": "Boots (STR/INT)",
+    "count": 211,
+    "desecrated": 0
+  },
+  {
+    "token": "boots_dex_int",
+    "label": "Boots (DEX/INT)",
+    "count": 211,
+    "desecrated": 0
+  },
+  {
+    "token": "gloves_str",
+    "label": "Gloves (STR)",
+    "count": 230,
+    "desecrated": 0
+  },
+  {
+    "token": "gloves_dex",
+    "label": "Gloves (DEX)",
+    "count": 230,
+    "desecrated": 0
+  },
+  {
+    "token": "gloves_int",
+    "label": "Gloves (INT)",
+    "count": 230,
+    "desecrated": 0
+  },
+  {
+    "token": "gloves_str_dex",
+    "label": "Gloves (STR/DEX)",
+    "count": 256,
+    "desecrated": 0
+  },
+  {
+    "token": "gloves_str_int",
+    "label": "Gloves (STR/INT)",
+    "count": 256,
+    "desecrated": 0
+  },
+  {
+    "token": "gloves_dex_int",
+    "label": "Gloves (DEX/INT)",
+    "count": 256,
+    "desecrated": 0
+  },
+  {
+    "token": "helmet_str",
+    "label": "Helmet (STR)",
+    "count": 190,
+    "desecrated": 0
+  },
+  {
+    "token": "helmet_dex",
+    "label": "Helmet (DEX)",
+    "count": 190,
+    "desecrated": 0
+  },
+  {
+    "token": "helmet_int",
+    "label": "Helmet (INT)",
+    "count": 190,
+    "desecrated": 0
+  },
+  {
+    "token": "helmet_str_dex",
+    "label": "Helmet (STR/DEX)",
+    "count": 228,
+    "desecrated": 0
+  },
+  {
+    "token": "helmet_str_int",
+    "label": "Helmet (STR/INT)",
+    "count": 228,
+    "desecrated": 0
+  },
+  {
+    "token": "helmet_dex_int",
+    "label": "Helmet (DEX/INT)",
+    "count": 228,
+    "desecrated": 0
+  },
+  {
+    "token": "shield_str",
+    "label": "Shield (STR)",
+    "count": 191,
+    "desecrated": 0
+  },
+  {
+    "token": "shield_dex",
+    "label": "Shield (DEX)",
+    "count": 191,
+    "desecrated": 0
+  },
+  {
+    "token": "shield_int",
+    "label": "Shield (INT)",
+    "count": 191,
+    "desecrated": 0
+  },
+  {
+    "token": "shield_str_dex",
+    "label": "Shield (STR/DEX)",
+    "count": 217,
+    "desecrated": 0
+  },
+  {
+    "token": "shield_str_int",
+    "label": "Shield (STR/INT)",
+    "count": 217,
+    "desecrated": 0
+  },
+  {
+    "token": "shield_dex_int",
+    "label": "Shield (DEX/INT)",
+    "count": 217,
+    "desecrated": 0
+  }
+]

@@ -1,0 +1,15 @@
+# Local cruft
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+Thumbs.db
+.venv/
+venv/
+.env
+
+# The user's filled-in launcher contains their session cookie — never commit it.
+# The repo ships RUN_DESKTOP.bat.template instead; users copy it to RUN_DESKTOP.bat.
+RUN_DESKTOP.bat
+*.session
+poesessid*.txt

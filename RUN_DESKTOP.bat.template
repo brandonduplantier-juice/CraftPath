@@ -1,0 +1,11 @@
+@echo off
+REM ===== CraftPath Desktop =====
+REM Just double-click this to start. No cookie editing needed —
+REM enter your POESESSID inside the app's settings panel (like Path of Building).
+
+set POE_LEAGUE=Runes of Aldur
+echo Starting CraftPath Desktop...
+echo Open http://127.0.0.1:5000 in your browser.
+echo Enter your PoE session in the app's settings to enable live market pricing.
+python app.py
+pause

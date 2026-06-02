@@ -1,0 +1,31 @@
+CraftPath — PoE2 Crafting Optimizer
+====================================
+
+TWO WAYS TO USE IT:
+
+1) ONLINE (no setup) — the free crafting optimizer
+   If someone hosts CraftPath, just visit the URL. You get the full crafting
+   path optimizer: cheapest route to your target mods, odds, costs, and
+   desecration/putrefaction modeling. No login, no cookie, nothing to install.
+
+2) DESKTOP (this download) — optimizer PLUS live market pricing
+   Runs on your machine with your own PoE session, like Path of Building.
+   Live price-check and profit scanning work here because your session cookie
+   stays on your computer and never touches anyone's server.
+
+   FIRST TIME SETUP:
+   a) Install Python 3.12+ from python.org (check "Add to PATH" during install)
+   b) Open this folder in a terminal and run:  pip install -r requirements.txt
+   c) Get your session cookie: log in at pathofexile.com, press F12,
+      Application > Cookies > pathofexile.com > copy the POESESSID value.
+   d) Open RUN_DESKTOP.bat in Notepad, paste your cookie after POESESSID=,
+      save, then double-click RUN_DESKTOP.bat.
+   e) Open http://127.0.0.1:5000
+
+   Your cookie is account-equivalent — never paste it into a website, chat, or
+   share it. It only belongs in RUN_DESKTOP.bat on your own machine.
+
+   To refresh currency prices anytime:  python prices.py
+   (then re-run RUN_DESKTOP.bat)
+
+Support: ko-fi.com/juice6121
