@@ -534,6 +534,11 @@ def api_parse_item():
     # known-but-unsupported base (e.g. quarterstaff has no mod pool yet)
     if detected and detected.startswith("__unsupported__"):
         cls = detected.replace("__unsupported__", "")
+        try:
+            import datastore
+            datastore.record_paste(cls, 0, 0, [], unsupported_base=cls)
+        except Exception:
+            pass
         return jsonify({"ok": False,
             "error": f"{cls.capitalize()} isn't in CraftPath's mod pool yet, so it "
                      f"can't be parsed accurately. Supported: armour pieces, "
@@ -561,7 +566,24 @@ def api_parse_item():
                 level="info")
         except Exception:
             pass
+    # Record aggregate, privacy-safe data for refining the mod pool over time.
+    try:
+        import datastore
+        n_matched = result.get("n_matched", 0)
+        n_unmatched = result.get("n_unmatched", 0)
+        datastore.record_paste(used_base, n_matched + n_unmatched, n_matched,
+                               result.get("unmatched", []))
+    except Exception:
+        pass
     return jsonify(result)
+
+
+@app.route("/api/data-summary")
+def api_data_summary():
+    """Refinement dashboard: most-requested missing mods, unsupported bases,
+    and match-rate health over time. Read-only, aggregate, privacy-safe."""
+    import datastore
+    return jsonify(datastore.summary())
 
 
 @app.route("/api/solve", methods=["POST"])
