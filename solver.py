@@ -105,6 +105,7 @@ class Solver:
             # always include the explicitly requested mod
             members.add(wid)
             self.wanted_group_members[g] = members
+        self._action_cache = {}
         self._prep_pool()
 
     def _prep_pool(self):
@@ -213,6 +214,17 @@ class Solver:
 
     # ---- enumerate applicable (action, cost, outcomes) ------------------
     def actions(self, s: State):
+        # Cache: a state's action set never changes, but value iteration asks
+        # for it thousands of times. Compute once, reuse. (Pure memoization —
+        # identical results, far less work; critical on slow/low-CPU hosts.)
+        cached = self._action_cache.get(s)
+        if cached is not None:
+            return cached
+        result = self._compute_actions(s)
+        self._action_cache[s] = result
+        return result
+
+    def _compute_actions(self, s: State):
         open_pre, open_suf, sec_pre, sec_suf = self._slots(s)
         acts = []
         # Restart: abandon this item, buy a fresh white base, start from Normal.
