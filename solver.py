@@ -231,13 +231,15 @@ class Solver:
         # Available from any non-pristine state. This is the realistic cheap path
         # for single-mod crafts (transmute, and if you miss, just try a new base)
         # — without it the solver overpays by annul-cycling a ruined item.
+        # NOTE: we offer restart even when wanted mods are already secured. The
+        # value iteration only picks it if it's genuinely cheaper than finishing
+        # the current item — which honestly reflects that a partly-done item is
+        # sometimes worse than a fresh base (you'd scrap it). It never forces a
+        # restart that loses progress unless that's truly the cheaper expectation.
         if s.rarity != "Normal" or s.junk_pre or s.junk_suf:
-            # only worth offering if we haven't already secured wanted mods we'd lose
-            secured_wanted = len(s.secured & self.wanted)
-            if secured_wanted == 0:
-                fresh = State("Normal", frozenset(), 0, 0)
-                if fresh != s:
-                    acts.append(("Restart (fresh base)", self.base_cost, [(1.0, fresh)]))
+            fresh = State("Normal", frozenset(), 0, 0)
+            if fresh != s:
+                acts.append(("Restart (fresh base)", self.base_cost, [(1.0, fresh)]))
         if s.rarity == "Normal":
             # Essence: deterministically force a wanted mod, Normal -> Magic.
             # Only useful for still-missing wanted mods this class can force.

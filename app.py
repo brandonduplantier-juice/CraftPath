@@ -516,6 +516,36 @@ def api_price_check(base):
         return jsonify({"base": base, "market_wired": True, "error": str(e)}), 502
 
 
+@app.route("/api/parse-item", methods=["POST"])
+def api_parse_item():
+    """Parse a pasted PoE item into a starting-item spec. Best-effort: matches
+    mod lines to the base's pool, infers prefix/suffix, flags unmatched lines."""
+    body = request.get_json(force=True)
+    base = body.get("base", "")
+    raw = body.get("text", "")
+    try:
+        mods, _ = _load_mod_pool(base)
+    except FileNotFoundError as e:
+        return jsonify({"ok": False, "error": str(e)}), 404
+    import item_parser
+    pool = [{"mod_id": m.mod_id, "affix_type": m.affix_type,
+             "group": getattr(m, "group", None),
+             "text": m.text} for m in mods]
+    result = item_parser.parse_item(raw, pool)
+    # Log unmatched mod lines to Sentry (if configured) so the dev sees real
+    # text that failed to match and can extend the data files. Low severity.
+    if result.get("unmatched"):
+        try:
+            import sentry_sdk
+            sentry_sdk.capture_message(
+                "CraftPath unmatched mod lines (base=%s): %s"
+                % (base, " | ".join(result["unmatched"][:20])),
+                level="info")
+        except Exception:
+            pass
+    return jsonify(result)
+
+
 @app.route("/api/solve", methods=["POST"])
 def api_solve():
     body = request.get_json(force=True)
@@ -533,6 +563,34 @@ def api_solve():
                                f"you asked for {len(prefixes)}P / {len(suffixes)}S."}), 400
     if not wanted:
         return jsonify({"status": "invalid", "msg": "No target mods specified."}), 400
+
+    # --- Starting item state (crafting from gear that already has mods) ---
+    # The user can describe their current item: its rarity, which of the TARGET
+    # mods are already on it, and how many JUNK (unwanted) prefixes/suffixes
+    # occupy slots. Honesty note: the solver tracks junk by COUNT, not identity
+    # (see solver.py docstring), so we accept counts, not specific junk mods.
+    start_rarity = (body.get("start_rarity") or "Normal").capitalize()
+    have_pre = [m for m in body.get("have_prefixes", []) if m in prefixes]
+    have_suf = [m for m in body.get("have_suffixes", []) if m in suffixes]
+    junk_pre = int(body.get("junk_prefixes", 0) or 0)
+    junk_suf = int(body.get("junk_suffixes", 0) or 0)
+
+    if start_rarity not in ("Normal", "Magic", "Rare"):
+        return jsonify({"status": "invalid",
+                        "msg": "Starting rarity must be Normal, Magic, or Rare."}), 400
+    # consistency: total mods on each affix side can't exceed the rarity cap
+    cap = {"Normal": 0, "Magic": 1, "Rare": 3}[start_rarity]
+    tot_pre = len(have_pre) + junk_pre
+    tot_suf = len(have_suf) + junk_suf
+    if tot_pre > cap or tot_suf > cap:
+        return jsonify({"status": "invalid",
+                        "msg": f"A {start_rarity} item allows max {cap} prefix(es) "
+                               f"and {cap} suffix(es); your starting item describes "
+                               f"{tot_pre} prefix / {tot_suf} suffix."}), 400
+    if start_rarity == "Normal" and (have_pre or have_suf or junk_pre or junk_suf):
+        return jsonify({"status": "invalid",
+                        "msg": "A Normal (white) item has no mods. Set rarity to "
+                               "Magic or Rare if it already has mods."}), 400
 
     # Early viability gate: targeting 4+ specific mods by random orb-slamming is
     # astronomically expensive no matter which mods (which is exactly why
@@ -562,7 +620,9 @@ def api_solve():
 
     sv = Solver(mods, base, ilvl, wanted, prices,
                 essences=essences, item_class=item_class, essence_prices=ess_prices)
-    start = State("Normal", frozenset(), 0, 0)
+    start = State(start_rarity,
+                  frozenset(have_pre + have_suf),
+                  junk_pre, junk_suf)
     E_, pol = sv.solve(start)
     total = E_[start]
 
@@ -611,6 +671,52 @@ def api_solve():
                                "text": by_id[mid].text[0] if by_id[mid].text else mid,
                                "p": round(p, 4)})
                 p_use += p
+
+        # --- Honest failure analysis: what happens if this step does NOT secure
+        # a wanted mod. We group the non-progress outcomes and report what the
+        # solver's own policy says to do from there, with the real recovery cost
+        # (E_[failure_state]) - no invented advice. ---
+        success_state = max(outs, key=lambda po: po[0])[1]
+        fail_mass = 0.0
+        worst_recovery = None         # highest expected recovery cost among fail branches
+        fail_next_action = None       # what the policy does from the (most likely) fail state
+        bricked_mass = 0.0            # probability this step dead-ends the item
+        for p, ns in outs:
+            secured_new = ns.secured - s.secured
+            if secured_new:
+                continue              # this outcome made progress - not a failure
+            fail_mass += p
+            rec = E_.get(ns, float("inf"))
+            if rec == float("inf"):
+                bricked_mass += p     # no path forward from here = bricked
+            else:
+                if worst_recovery is None or rec > worst_recovery:
+                    worst_recovery = rec
+                    fail_next_action = pol.get(ns)
+        on_fail = None
+        if fail_mass > 1e-9 and not action.startswith("Restart"):
+            if bricked_mass > 1e-9 and worst_recovery is None:
+                on_fail = {
+                    "p": round(fail_mass, 4),
+                    "outcome": "bricked",
+                    "advice": "If this fails here the item is bricked (no modeled "
+                              "path forward) - start over with a fresh base."}
+            else:
+                on_fail = {
+                    "p": round(fail_mass, 4),
+                    "outcome": "recoverable",
+                    "next_action": fail_next_action,
+                    "recovery_cost": (round(worst_recovery, 2)
+                                      if worst_recovery is not None else None),
+                    "bricked_p": (round(bricked_mass, 4) if bricked_mass > 1e-9 else 0),
+                    "advice": (f"If you don't hit a wanted mod (~{round(fail_mass*100)}% "
+                               f"chance), the optimal next move is "
+                               f"'{fail_next_action}'." +
+                               (f" Some failure branches brick the item "
+                                f"(~{round(bricked_mass*100)}% of the time) - "
+                                f"those need a fresh base."
+                                if bricked_mass > 1e-9 else ""))}
+
         result["steps"].append({
             "n": step, "rarity": s.rarity, "action": action,
             "cost_each": round(cost, 4),
@@ -619,8 +725,9 @@ def api_solve():
             "expected_remaining": round(E_[s], 2),
             "secures": useful,
             "is_essence": action.startswith("Essence"),
+            "on_fail": on_fail,
         })
-        s = max(outs, key=lambda po: po[0])[1]
+        s = success_state
     return jsonify(result)
 
 
