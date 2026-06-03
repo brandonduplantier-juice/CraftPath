@@ -741,13 +741,14 @@ function wireControls(){
 
   // ---- wizard navigation ----
   $('#toStep2').onclick = ()=>{
-    // require a pasted/parsed item first; the paste carries base + ilvl
+    // If no item was pasted/parsed, treat it as a fresh white base of the type
+    // selected in the dropdown. No paste should be required just to design a
+    // target from scratch; pasting is only needed to carry existing mods.
     if($('#itemCard').style.display==='none'){
-      const pz=$('#pasteBox');
-      pz.style.borderColor='var(--blood)';
-      $('#parseResult').innerHTML='<span style="color:var(--blood)">Paste your item and hit Parse first, even a fresh white base. It sets the base type and item level for you.</span>';
-      setTimeout(()=>{pz.style.borderColor='';},2000);
-      return;
+      ITEM_MODS = []; ITEM_UNMATCHED = [];
+      ITEM_META.rarity = $('#startRarity') ? ($('#startRarity').value||'Normal') : 'Normal';
+      const bl=($('#baseVisible').selectedOptions[0]||{}).text||'';
+      ITEM_META.name = bl || 'Fresh Base';
     }
     renderItemCard(false);
     renderChips(); renderLists();   // refresh caps/blocking to reflect kept mods
@@ -888,7 +889,7 @@ function renderOneList(el, mods, chosen, isPre){
     else if(mblock) tag=' <span style="color:#d0a060;font-size:9px">· method can\'t make this</span>';
     // positive indicator: when Essence is checked, mark mods an essence CAN force
     // (and which tier), so the player sees their essence options at a glance.
-    else if(useEss && m.essence_ok){
+    else if(($('#mfEssence') && $('#mfEssence').checked) && m.essence_ok){
       const tiers=(m.essence_tiers||[]).join('/');
       tag=' <span style="color:#7cd9c8;font-size:9px" title="An essence can guarantee this mod">⚗ essence'+(tiers?' ('+tiers+')':'')+'</span>';
     }
