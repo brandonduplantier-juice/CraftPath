@@ -701,6 +701,12 @@ const fmt = x => x==null?'∞' : x>=1e6 ? x.toExponential(2) : x>=1000 ? Math.ro
 // short how/when note for special crafting methods
 function methodNote(action){
   const a=(action||'').toLowerCase();
+  if(a.includes('sinistral exaltation')){
+    return `<div class="method-note">✦ <b>How:</b> right-click an <b>Omen of Sinistral Exaltation</b> to activate it, then use an <b>Exalted Orb</b> — it adds only a <b>prefix</b> this time instead of a random side. <span class="est">Ritual-only omen; cost varies — treat as estimate.</span></div>`;
+  }
+  if(a.includes('dextral exaltation')){
+    return `<div class="method-note">✦ <b>How:</b> right-click an <b>Omen of Dextral Exaltation</b> to activate it, then use an <b>Exalted Orb</b> — it adds only a <b>suffix</b> this time instead of a random side. <span class="est">Ritual-only omen; cost varies — treat as estimate.</span></div>`;
+  }
   if(a.includes('desecrate')){
     const suf=a.includes('suffix');
     return `<div class="method-note">🦴 <b>How:</b> on the item, apply a <b>Bone</b> (Jawbone/Collarbone) with an <b>Omen of ${suf?'Dextral':'Sinistral'} Necromancy</b> in your inventory. This adds an unrevealed ${suf?'suffix':'prefix'} from the Well of Souls pool, then you reveal it. <span class="est">Reveal odds are unpublished — modeled flat, treat as an estimate.</span></div>`;

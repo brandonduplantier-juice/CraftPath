@@ -50,7 +50,8 @@ class State:
 class Solver:
     def __init__(self, mods, base_token, item_level, wanted_ids, prices,
                  essences=None, item_class=None, essence_prices=None,
-                 desecrated=None, bone_cost=None, sinistral_omen_cost=None):
+                 desecrated=None, bone_cost=None, sinistral_omen_cost=None,
+                 exalt_omen_cost=None):
         self.base = base_token
         self.ilvl = item_level
         self.mods = {m.mod_id: m for m in mods}
@@ -77,6 +78,9 @@ class Solver:
         self.desecrated = desecrated or []          # list of mod-like dicts
         self.bone_cost = bone_cost if bone_cost is not None else 1e9
         self.sin_omen_cost = sinistral_omen_cost if sinistral_omen_cost is not None else 1e9
+        # cost of a Sinistral/Dextral Exaltation omen (steers next Exalt to one
+        # side). None -> feature off (omen not priced/available).
+        self.exalt_omen_cost = exalt_omen_cost
         # cost to abandon the current item and start fresh from a new white base.
         # White bases are cheap (vendor/drop); default 0.5 ex covers buying one.
         self.base_cost = self.prices.get("White Base", 0.5)
@@ -282,6 +286,22 @@ class Solver:
                 outs = self._add_outcomes(s, open_pre, open_suf)
                 if outs:
                     acts.append(("Exalted Orb", self._cost("Exalted Orb"), outs))
+            # Sinistral/Dextral Exaltation: an omen steers the next Exalted Orb to
+            # add ONLY a prefix (Sinistral) or ONLY a suffix (Dextral). Worth it
+            # when one side still has a wanted mod and the other side is full or
+            # would waste the exalt. Cost = exalt + omen.
+            if self.exalt_omen_cost is not None:
+                ecost = self._cost("Exalted Orb") + self.exalt_omen_cost
+                if open_pre > 0:
+                    souts = self._add_outcomes(s, open_pre, 0)   # prefix only
+                    if souts:
+                        acts.append(("Exalted Orb + Omen of Sinistral Exaltation",
+                                     ecost, souts))
+                if open_suf > 0:
+                    douts = self._add_outcomes(s, 0, open_suf)   # suffix only
+                    if douts:
+                        acts.append(("Exalted Orb + Omen of Dextral Exaltation",
+                                     ecost, douts))
             aouts = self._annul_outcomes(s, sec_pre, sec_suf)
             if aouts:
                 acts.append(("Orb of Annulment", self._cost("Orb of Annulment"), aouts))

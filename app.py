@@ -699,10 +699,23 @@ def api_solve():
     except Exception:
         desecrated_pool = []
 
+    # Sinistral/Dextral Exaltation omen cost (steers next Exalt to one side).
+    # Use the real price if present; otherwise a flagged placeholder so the
+    # method is still offered (Ritual-only omen, often not on currency market).
+    _exalt_omen = None
+    _exalt_omen_estimated = False
+    for k, v in prices.items():
+        if "exaltation" in k.lower() and "greater" not in k.lower():
+            _exalt_omen = v if _exalt_omen is None else min(_exalt_omen, v)
+    if _exalt_omen is None:
+        _exalt_omen = 10.0   # placeholder — Ritual omen, price varies
+        _exalt_omen_estimated = True
+
     sv = Solver(mods, base, ilvl, wanted, prices,
                 essences=essences, item_class=item_class, essence_prices=ess_prices,
                 desecrated=desecrated_pool or None,
-                bone_cost=bone_cost, sinistral_omen_cost=omen_cost)
+                bone_cost=bone_cost, sinistral_omen_cost=omen_cost,
+                exalt_omen_cost=_exalt_omen)
     start = State(start_rarity,
                   frozenset(have_pre + have_suf),
                   junk_pre, junk_suf)
@@ -770,6 +783,7 @@ def api_solve():
                             "Hold an Omen of Putrefaction + a Bone (Rib=armour, Jawbone=weapon/quiver, Collarbone=jewellery)" + (", plus the lord omen below to narrow the pool" if any(r["lord_omen"] for r in recs) else "") + ".",
                             "Use the Bone: it replaces ALL mods with up to 6 unrevealed desecrated mods (3 prefix + 3 suffix) and corrupts the item.",
                             "Reveal at the Well of Souls one slot at a time (prefixes first, then suffixes). Pick your target from the options shown; save high-value mods for the last slot of that type, since taking a mod blocks its group on later reveals.",
+                            "Optional: if a reveal shows no good options, an Omen of Abyssal Echoes rerolls the options for that reveal once (pricey, ~99 ex). Useful only when the slot is critical.",
                         ],
                         "estimate_flag": "Reveal odds are unpublished by GGG — modeled flat (uniform) and are estimates. The METHOD is reliable; the attempt count is a ballpark."}
             except Exception:
