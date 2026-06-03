@@ -80,3 +80,11 @@ Newest items near the top of each section. Status: ☐ todo · ◐ in progress �
   one-add-one), annul omens. Exact deterministic policy-iteration solver.
 - ☑ Item-art slot + GGG credit (placeholder silhouettes).
 - ☑ Viability gate counts only NEW mods, not kept ones.
+
+## QA
+- ☑ **Solver test harness (test_crafts.py).** Generates diverse crafts across all base
+  categories × method sets × random tiers and checks for crashes, negative costs,
+  non-convergence, absurd costs, empty plans, and unreachable goals. 1,620 crafts across
+  3 seeds: ZERO real violations. Optimality spot-checks confirm smart path selection
+  (essence when cheapest, slam when no essence reaches the tier, omens when enabled,
+  graceful fallback under method constraints). Re-run anytime: python test_crafts.py [N].
