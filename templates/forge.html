@@ -268,6 +268,10 @@
   .desec-list{max-height:240px;overflow-y:auto}
   .desec-row{cursor:default;opacity:.85}
   .desec-row .mr-meta{font-size:9px;color:var(--amanamu,#a98bd0);opacity:.7}
+  .desec-row.selectable{cursor:pointer}
+  .desec-row.selectable:hover{background:rgba(120,90,160,.18);border-color:var(--amanamu,#a98bd0)}
+  .desec-row.chosen{background:rgba(90,140,200,.15);border-color:var(--verisium,#5ad)}
+  .chip.desec{background:rgba(120,90,160,.25);border-color:var(--amanamu,#a98bd0)}
   .onfail-removal{margin-top:6px;font-size:11px;line-height:1.5;color:#e6b89a;opacity:.92;border-left:2px solid #6a4a3a;padding-left:8px}
   .method-filters{max-width:760px;margin:0 auto 12px}
   .mf-hint{font-size:11px;color:var(--ash-dim);opacity:.75;text-align:center;margin-bottom:8px}
@@ -685,6 +689,7 @@ async function init(){
   ['#mfEssence','#mfTiered','#mfDesec'].forEach(id=>{
     const el=$(id); if(el) el.addEventListener('change', ()=>{
       renderLists();
+      renderDesec($('#desecSearch')?$('#desecSearch').value:'');
       // checking "Bones & Omens" auto-opens the desecration pool so targets are visible
       if(id==='#mfDesec' && el.checked){
         const body=$('#desecBody'); if(body && body.style.display==='none') $('#desecToggle').click();
@@ -883,6 +888,12 @@ async function loadDesecRef(){
   try{
     const r=await api('/api/desecrated/'+base);
     _desecData={pre:r.prefixes||[], suf:r.suffixes||[], available:r.available};
+    // register desecrated mods in byId so they can be chosen as targets + render
+    // as chips. Tag them so the solver/UI knows they route via desecration.
+    [..._desecData.pre, ..._desecData.suf].forEach(m=>{
+      byId[m.id]={id:m.id, text:m.text, group:m.id, level:m.level,
+                  source:'desecrated', desecrated:true, affix:m.type};
+    });
     renderDesec('');
     const sb=$('#desecSearch');
     if(sb && !sb._wired){ sb._wired=true; sb.oninput=()=>renderDesec(sb.value); }
@@ -900,13 +911,32 @@ function renderDesec(q){
     $('#desecCapPre').textContent='0'; $('#desecCapSuf').textContent='0';
     return;
   }
+  // selectable ONLY when Bones & Omens is checked; otherwise read-only reference
+  const selectable = $('#mfDesec') && $('#mfDesec').checked;
   const ql=(q||'').trim().toLowerCase();
   const match=m=>!ql || (m.text||'').toLowerCase().includes(ql);
   const fp=_desecData.pre.filter(match), fs=_desecData.suf.filter(match);
-  const row=m=>`<div class="mod-row desec-row"><span class="mr-text">${m.text}</span>`+
-               `<span class="mr-meta">${m.lord||''} · L${m.level||'?'}</span></div>`;
-  pre.innerHTML=fp.map(row).join('')||'<div class="mc-empty">no match</div>';
-  suf.innerHTML=fs.map(row).join('')||'<div class="mc-empty">no match</div>';
+  const build=(list, container, isPre)=>{
+    container.innerHTML='';
+    if(!list.length){ container.innerHTML='<div class="mc-empty">no match</div>'; return; }
+    list.forEach(m=>{
+      const chosen=(isPre?chosenPre:chosenSuf).includes(m.id);
+      const row=document.createElement('div');
+      row.className='mod-row desec-row'+(selectable?' selectable':'')+(chosen?' chosen':'');
+      row.innerHTML=`<span class="mr-text">${m.text}${chosen?' <span style="color:var(--verisium-bright,#7cf);font-size:9px">· target ✓</span>':''}</span>`+
+                    `<span class="mr-meta">${m.lord||''} · L${m.level||'?'}</span>`;
+      if(selectable){
+        row.onclick=()=>{
+          const cap=isPre?chosenPre:chosenSuf;
+          if(chosen){ if(isPre) chosenPre=chosenPre.filter(x=>x!==m.id); else chosenSuf=chosenSuf.filter(x=>x!==m.id); }
+          else { if(cap.length + keptCount(isPre) >= 3){ showMethodPopup(m,"that side is full (max 3)"); return; } cap.push(m.id); }
+          renderChips(); renderLists(); renderDesec($('#desecSearch')?$('#desecSearch').value:'');
+        };
+      }
+      container.appendChild(row);
+    });
+  };
+  build(fp, pre, true); build(fs, suf, false);
   $('#desecCapPre').textContent=ql?`${fp.length}/${_desecData.pre.length}`:_desecData.pre.length;
   $('#desecCapSuf').textContent=ql?`${fs.length}/${_desecData.suf.length}`:_desecData.suf.length;
 }
@@ -914,11 +944,12 @@ function renderChips(){
   const mk=(arr,el,cls)=>{
     el.innerHTML = arr.length ? '' : '<span class="empty" style="padding:4px">none</span>';
     arr.forEach(id=>{
-      const c=document.createElement('span'); c.className='chip '+cls;
-      c.innerHTML=`${byId[id].text} <button>×</button>`;
+      const isDesec = byId[id] && byId[id].desecrated;
+      const c=document.createElement('span'); c.className='chip '+cls+(isDesec?' desec':'');
+      c.innerHTML=`${isDesec?'🦴 ':''}${byId[id].text} <button>×</button>`;
       c.querySelector('button').onclick=(e)=>{ e.stopPropagation();
         if(cls==='pre') chosenPre=chosenPre.filter(x=>x!==id); else chosenSuf=chosenSuf.filter(x=>x!==id);
-        renderChips(); renderLists(); };
+        renderChips(); renderLists(); renderDesec($('#desecSearch')?$('#desecSearch').value:''); };
       el.appendChild(c);
     });
   };

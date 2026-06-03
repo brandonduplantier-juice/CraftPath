@@ -18,14 +18,13 @@ Newest items near the top of each section. Status: ☐ todo · ◐ in progress �
   Slots can be built behind a config flag and stay off until approved.
 
 ## Functionality
-- ◐ **Method-filter checkboxes (Step 2).** DONE: Essence / Greater-Perfect / Bones&Omens
-  checkboxes above the search grey out mods a checked method can't make, with a popup
-  explaining why + info tooltips. DONE: checked methods now CONSTRAIN the solver's plan
-  (enabled_methods → basic orbs always + only checked optional methods; nothing checked
-  = all methods). "Bones & Omens" enables the Exaltation/Annulment steering omens.
-  REMAINING: make desecrated mods directly SELECTABLE as targets when Bones&Omens is
-  checked (currently they're a reference list + grey regular mods); the 'omens' mapping
-  covers steering omens but not desecration-as-target.
+- ☑ **Method-filter checkboxes (Step 2).** Essence / Greater-Perfect / Bones&Omens
+  checkboxes above the search grey out mods a checked method can't make (popup explains
+  why) + info tooltips. Checked methods CONSTRAIN the solver's plan (enabled_methods →
+  basic orbs always + only checked optional methods; nothing checked = all). Bones &
+  Omens enables the Exaltation/Annulment steering omens AND makes desecrated mods
+  directly selectable as targets — clicking one adds a 🦴-marked chip; any desecrated
+  target routes the plan to the Putrefaction (Well of Souls) how-to guide.
 - ☐ **Conditional path / decision-tree view.** Present the plan as explicit branches:
   "if this → continue, if that → remove and roll again, if this → brick." The solver
   already computes failure-recovery per step; this is a presentation/UX layer on top.
