@@ -620,15 +620,99 @@
   {
    "title": "Magic base flipping (white to magic, for resale)",
    "when": "Low on currency, or you want to mass-produce sellable magic bases instead of buying them.",
-   "base": "A white (Normal) base at the right item level. For gold amulets, ilvl 75+ reaches the sought tier-1 mods; ilvl 82 is required for tier-1 elemental resistances, which also dilutes the pool.",
-   "ilvl": "75+ (82 for T1 resists)",
+   "base": "A white (Normal) base at the right item level. Item level caps the tiers, so buy ilvl 82 bases when you want tier-1 mods (note that ilvl 82 also unlocks T1 elemental resistances, which dilutes the roll pool).",
+   "ilvl": "82 for top tiers (75+ is enough for many chase mods)",
    "steps": [
-    "Perfect Orb of Transmutation: rolls one modifier with minimum modifier level 70, biasing toward high tiers.",
-    "Then a Greater or Perfect Orb of Augmentation adds the second mod. Perfect biases higher tiers but is expensive; Greater is far cheaper and still reaches tier-1 for many mods, so it is the volume-friendly choice.",
-    "Sell magic bases that rolled a desirable prefix + suffix (for amulets: +3 to a skill type, spirit, high rarity). Reforge or Orb-of-Annulment-spam the misses to re-roll cheaply."
+    "Perfect Orb of Transmutation: adds one modifier with minimum modifier level 70, so it biases the FIRST mod toward high tiers. This is the tool for landing a high +skill, movement speed, spell damage, resistance or life roll.",
+    "Then a Greater or Perfect Orb of Augmentation adds the second mod. Perfect biases higher tiers but is expensive; Greater is far cheaper and still reaches high tiers for many mods, so it is the volume-friendly choice.",
+    "Keep magic bases that rolled a desirable prefix + suffix pair (see per-piece combos below). Orb-of-Annulment-spam or re-roll the misses cheaply."
    ],
-   "est_cost": "a few ex per base; profit is from volume, not any single roll",
-   "source": "public 0.5 base-flipping guide (transcript)"
+   "est_cost": "a few orbs per base; profit is from volume, not any single roll",
+   "mechanics_note": "Orb minimum modifier levels: the standard Orb of Transmutation has no minimum (low tiers possible); the Greater Orb is minimum level 55 per the wiki, though a 0.5.0 currency guide reports it was lowered to 44 this patch (unconfirmed, verify on a live source); the Perfect Orb is minimum level 70. Mods whose top tier sits below 70 (for example Increased Rarity, or Spirit on an amulet) still roll under Perfect Transmutation, but only at their highest tier. Note: the Recombinator was removed for the Runes of Aldur league, so 2-mod magic bases, essences and desecration are the main targeted-crafting routes right now.",
+   "profit_note": "Profitability is economy-dependent and I am not quoting prices. The original transcript's example values (such as +3-skill amulets selling for tens of divines) are a past league snapshot, not current 0.5 numbers. Rank targets by demand and rarity below, then check live trade for the current price. Mod availability and levels are read from CraftPath's own pools.",
+   "pieces": [
+    {
+     "slot": "Amulet",
+     "ilvl": "75+ for chase mods; 82 for T1 resists",
+     "chase_prefixes": "Spirit (tops out around mod level 54); % increased Spell Damage (to ~75); Increased Rarity",
+     "chase_suffixes": "+levels to all melee / projectile / spell / minion skills (to ~75), the headline seller; Increased Rarity; a strong attribute or resistance",
+     "top_combos": "+skill levels + Spirit; +skill levels + Rarity; Spirit + Rarity; +skill levels + a resistance/attribute",
+     "note": "Highest-value flip slot. Perfect Transmute can hit a high +skill suffix directly; Spirit caps below 70 so it rolls at its top tier."
+    },
+    {
+     "slot": "Ring",
+     "ilvl": "82 for T1 resists; Iron Ring adds a flat-physical implicit",
+     "chase_prefixes": "Adds flat elemental damage to attacks (to ~75); Adds flat physical to attacks; Increased Rarity",
+     "chase_suffixes": "High single/double resistance; Attributes; Increased Rarity",
+     "top_combos": "Flat added elemental + a resistance; Flat added damage + attribute; Life + a high resistance",
+     "note": "No +skills or spirit on rings. Value is flat added damage for attack builds plus clean resistance/attribute rolls."
+    },
+    {
+     "slot": "Belt",
+     "ilvl": "82 for T1 resists",
+     "chase_prefixes": "High maximum Life",
+     "chase_suffixes": "High single/double resistance; Attributes",
+     "top_combos": "Life + resistance; Life + attribute",
+     "note": "No attack/cast speed, skills or spirit, so flip value is modest. Volume play: a high life prefix with a strong resistance/attribute suffix."
+    },
+    {
+     "slot": "Body armour",
+     "ilvl": "82 for T1 resists; Spirit reaches ~mod level 78",
+     "chase_prefixes": "Spirit (high, to ~78); High maximum Life (to ~80)",
+     "chase_suffixes": "High resistance; Attributes",
+     "top_combos": "Spirit + resistance; Life + resistance",
+     "note": "Body Spirit goes high, so a Perfect-Transmute spirit roll on a good defence base is a strong flip for spirit-stacking builds."
+    },
+    {
+     "slot": "Helmet",
+     "ilvl": "82 for T1 resists",
+     "chase_prefixes": "High maximum Life; Increased Rarity",
+     "chase_suffixes": "+levels to all skills (caps low, ~41); High resistance; Crit chance; Increased Rarity",
+     "top_combos": "Life + resistance; Rarity + resistance; Life + crit chance",
+     "note": "Helmet +skills caps at a low tier, so it is a minor chase. Life + resistance and rarity bases are the reliable flips."
+    },
+    {
+     "slot": "Gloves",
+     "ilvl": "82 for T1 resists",
+     "chase_prefixes": "Adds flat elemental/physical to attacks (to ~75); High maximum Life",
+     "chase_suffixes": "Attack Speed (to ~60); High resistance; +levels to all skills (caps ~41)",
+     "top_combos": "Flat added damage + attack speed; Life + resistance; Flat added damage + resistance",
+     "note": "Attack builds pay for flat added damage + attack speed gloves. +skills caps low here."
+    },
+    {
+     "slot": "Boots",
+     "ilvl": "82 for T1 resists; Movement Speed reaches mod level 82",
+     "chase_prefixes": "Movement Speed (the chase, to 82); High maximum Life",
+     "chase_suffixes": "High single/double resistance; Attributes",
+     "top_combos": "Movement Speed + resistance; Movement Speed + attribute",
+     "note": "Movement Speed and Life are both prefixes, so a magic boot carries only one. The universal sellable boot is high Movement Speed + a resistance/attribute suffix."
+    },
+    {
+     "slot": "Weapon (quarterstaff / mace / bow / crossbow)",
+     "ilvl": "82 for top tiers",
+     "chase_prefixes": "% increased Physical Damage (to 82); Adds flat physical / elemental to attacks (to ~81)",
+     "chase_suffixes": "+levels to all melee/projectile skills (to ~81), the big suffix; Attack Speed; Crit chance",
+     "top_combos": "Phys% + +skill levels; Flat added elemental + attack speed; Flat added + crit chance",
+     "note": "Weapon +skill levels (to ~81) is a prime Perfect-Transmute target. Pair with a phys% or flat-damage prefix."
+    },
+    {
+     "slot": "Caster weapon / focus (wand / sceptre / focus)",
+     "ilvl": "82 for top tiers",
+     "chase_prefixes": "% increased Spell Damage (focus, to ~60); flat added spell damage of your element",
+     "chase_suffixes": "+levels to all (spell) skills (to ~81 on wand/sceptre); Cast Speed; spell Crit",
+     "top_combos": "+spell-skill levels + cast speed; Spell Damage + cast speed; +skill levels + spell crit",
+     "note": "+skill levels (suffix) is the headline. Sceptres are additionally valued for Spirit and minion mods on some builds; confirm against the specific base before flipping."
+    },
+    {
+     "slot": "Quiver (offhand, bow builds)",
+     "ilvl": "82 for top tiers",
+     "chase_prefixes": "Adds flat physical / elemental to attacks (to ~75)",
+     "chase_suffixes": "Attack Speed; Crit chance; Attributes",
+     "top_combos": "Flat added damage + attack speed; Flat added damage + crit chance",
+     "note": "Pure attack-stat slot for bow builds: flat added damage prefix + an attack-speed or crit suffix."
+    }
+   ],
+   "source": "Method from public 0.5 base-flipping transcript; orb levels from poe2wiki + a 0.5.0 currency guide; per-piece mod availability/levels from CraftPath's own pools"
   }
  ],
  "meta_warning": "Patch 0.5 Runes of Aldur launched May 29, 2026. The endgame meta is only days old and unsettled: community build guides are still being optimized and several new interactions are unconfirmed. The entries below are common target mods plus a reasonable crafting route, inferred from current guides and stable slot priorities. They are NOT verified best-in-slot. Verify on a current build guide before committing large currency."

@@ -80,6 +80,16 @@
   details.guide-ref li{font-size:13px;color:var(--ash);margin:4px 0;line-height:1.45}
   .guide-warning{border:1px solid #6b5a2a;border-radius:8px;background:rgba(120,90,20,.14);
     color:var(--gold-bright);font-size:13px;line-height:1.5;padding:13px 18px;margin:0 0 12px}
+  .flip-piece{border:1px solid var(--edge);border-radius:6px;padding:10px 13px;margin:8px 0;background:rgba(20,26,38,.4)}
+  .flip-piece .fp-slot{font-size:13px;color:var(--verisium-bright);letter-spacing:.04em;margin-bottom:6px}
+  .flip-piece .fp-ilvl{font-size:11px;color:var(--ash-dim)}
+  .flip-piece .fp-row{font-size:12.5px;color:var(--ash);line-height:1.45;margin:3px 0}
+  .flip-piece .fp-tag{display:inline-block;min-width:74px;font-size:10px;text-transform:uppercase;letter-spacing:.06em;
+    padding:1px 6px;border-radius:3px;margin-right:6px;border:1px solid var(--edge)}
+  .flip-piece .fp-tag.pre{color:#8a9bd8}
+  .flip-piece .fp-tag.suf{color:#d8a86a}
+  .flip-piece .fp-tag.combo{color:var(--verisium-bright)}
+  .flip-piece .fp-note{font-size:11.5px;color:var(--ash-dim);margin-top:5px;font-style:italic}
   .budget-tabs{display:flex;gap:8px;margin-bottom:16px}
   .budget-tab{padding:7px 16px;border:1px solid var(--edge);border-radius:5px;cursor:pointer;
     font-size:12px;letter-spacing:.06em;color:var(--ash);background:rgba(40,50,70,.2);transition:all .14s}
@@ -849,6 +859,16 @@ function renderGuideReference(){
     (m.base?'<div class="recipe-base"><b>Base:</b> '+m.base+'</div>':'')+
     (m.ilvl?'<div class="recipe-ilvl"><b>Item level:</b> '+m.ilvl+' <span style="color:var(--ash)">(caps the mod tiers you can roll)</span></div>':'')+
     (m.steps?'<ol class="recipe-steps">'+m.steps.map(s=>'<li>'+s+'</li>').join('')+'</ol>':'')+
+    (m.mechanics_note?'<p><b>Mechanics:</b> '+m.mechanics_note+'</p>':'')+
+    (m.pieces?'<div class="gr-h">Per-piece chase mods and best combos</div>'+
+      m.pieces.map(p=>'<div class="flip-piece"><div class="fp-slot">'+p.slot+
+        (p.ilvl?' <span class="fp-ilvl">ilvl '+p.ilvl+'</span>':'')+'</div>'+
+        (p.chase_prefixes?'<div class="fp-row"><span class="fp-tag pre">prefixes</span> '+p.chase_prefixes+'</div>':'')+
+        (p.chase_suffixes?'<div class="fp-row"><span class="fp-tag suf">suffixes</span> '+p.chase_suffixes+'</div>':'')+
+        (p.top_combos?'<div class="fp-row"><span class="fp-tag combo">best combos</span> '+p.top_combos+'</div>':'')+
+        (p.note?'<div class="fp-note">'+p.note+'</div>':'')+
+      '</div>').join(''):'')+
+    (m.profit_note?'<p style="color:var(--ash)"><b>Profit:</b> '+m.profit_note+'</p>':'')+
     (m.est_cost?'<div class="recipe-cost"><b>Rough cost:</b> '+m.est_cost+'</div>':'')+
     (m.source?'<div class="recipe-src">Adapted from: '+m.source+'</div>':'')+
     '</div></details>').join('');
