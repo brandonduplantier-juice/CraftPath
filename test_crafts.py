@@ -110,6 +110,9 @@ def check(base, body, mods_index):
 def run(per_base=4):
     total = 0
     failures = []
+    from collections import Counter
+    census = Counter()        # action-category -> times it appeared in a plan
+    rarities_seen = Counter()  # start rarities exercised
     for base in BASES:
         m = c.get(f"/api/mods/{base}").get_json()
         if "error" in m:
@@ -131,9 +134,11 @@ def run(per_base=4):
             ts = random.sample(rollable_suf, min(nsuf, len(rollable_suf)))
             if not tp and not ts:
                 tp = rollable_pre[:1]
+            start = random.choice(["Normal", "Normal", "Magic", "Rare"])
+            rarities_seen[start] += 1
             body = {
                 "base": base, "item_level": random.choice([80, 81, 82, 84]),
-                "start_rarity": "Normal",
+                "start_rarity": start,
                 "prefixes": [x["id"] for x in tp],
                 "suffixes": [x["id"] for x in ts],
             }
@@ -143,17 +148,117 @@ def run(per_base=4):
             viol = check(base, body, midx)
             if viol:
                 failures.append((base, f"{len(tp)}p/{len(ts)}s m={methods}", viol))
-    return total, failures
+            # census: categorize each action in the returned plan
+            try:
+                r = c.post("/api/solve", json=body).get_json()
+                for st in (r.get("steps") or []):
+                    census[_action_category(st["action"])] += 1
+                if r.get("putrefaction"):
+                    census["desecration/putrefaction (guide)"] += 1
+            except Exception:
+                pass
+    return total, failures, census, rarities_seen
+
+
+def _action_category(action: str) -> str:
+    a = action
+    if a.startswith("Essence"):
+        return "essence"
+    if "Omen of Sinistral Coronation" in a or "Omen of Dextral Coronation" in a:
+        return "omen: coronation (steered regal)"
+    if "Erasure" in a:
+        return "omen: erasure (steered chaos)"
+    if "Exaltation" in a:
+        return "omen: exaltation (steered exalt)"
+    if "Annulment" in a and "Omen" in a:
+        return "omen: annulment (steered annul)"
+    if a.startswith("Perfect"):
+        return "perfect orb (tiered)"
+    if a.startswith("Greater"):
+        return "greater orb (tiered)"
+    if a == "Exalted Orb":
+        return "exalted"
+    if a == "Regal Orb":
+        return "regal"
+    if a == "Transmutation Orb":
+        return "transmutation"
+    if a == "Augmentation Orb":
+        return "augmentation"
+    if a == "Orb of Alchemy":
+        return "alchemy"
+    if a == "Chaos Orb":
+        return "chaos"
+    if a == "Orb of Annulment":
+        return "annulment"
+    if a.startswith("Restart"):
+        return "restart"
+    return "other: " + a
+
+
+def method_reachability():
+    """Targeted checks that each method category CAN be produced by the solver,
+    so we prove nothing is silently missing even if random sampling didn't hit it."""
+    print("\n=== METHOD REACHABILITY (targeted) ===")
+    checks = []
+    m = c.get("/api/mods/quarterstaff").get_json()
+    ess_mod = next((x["id"] for x in m["prefixes"] if x.get("essence_ok")), None)
+    hi_mod = next((x["id"] for x in m["prefixes"] if x["level"] >= 55 and x.get("weight", 0) > 0), None)
+    lo_suf = next((x["id"] for x in m["suffixes"] if x["level"] <= 20 and x.get("weight", 0) > 0), None)
+
+    def has(action_substr, body):
+        r = c.post("/api/solve", json=body).get_json()
+        acts = [s["action"] for s in (r.get("steps") or [])]
+        return any(action_substr.lower() in a.lower() for a in acts)
+
+    if ess_mod:
+        checks.append(("essence used", has("Essence", {"base": "quarterstaff", "item_level": 82,
+            "start_rarity": "Normal", "prefixes": [ess_mod], "suffixes": [], "methods": ["essence"]})))
+    if lo_suf:
+        checks.append(("transmutation used", has("Transmutation", {"base": "quarterstaff",
+            "item_level": 82, "start_rarity": "Normal", "prefixes": [], "suffixes": [lo_suf]})))
+    if hi_mod:
+        checks.append(("greater/perfect orb used", has("Greater", {"base": "quarterstaff",
+            "item_level": 84, "start_rarity": "Normal", "prefixes": [hi_mod], "suffixes": [],
+            "methods": ["tiered"]})))
+    # direct solver probe for omen + chaos + annul availability on a Rare
+    from solver import Solver, State
+    mods, _ = app._load_mod_pool("quarterstaff")
+    prices = app._prices().get("prices", {})
+    pre0 = next(x for x in mods if x.affix_type == "Prefix")
+    sv = Solver(mods, "quarterstaff", 82, [pre0.mod_id], prices,
+                coronation_omen_cost=5.0, erasure_omen_cost=5.0, annul_omen_cost=3.0,
+                exalt_omen_cost=10.0, enabled_methods=["omens", "tiered"])
+    magic_acts = [a[0] for a in sv.actions(State("Magic", frozenset(), 0, 0))]
+    rare_acts = [a[0] for a in sv.actions(State("Rare", frozenset(), 1, 1))]
+    checks.append(("exalted offered", any(a == "Exalted Orb" for a in rare_acts)))
+    checks.append(("greater/perfect exalt offered", any("Greater Exalted" in a or "Perfect Exalted" in a for a in rare_acts)))
+    checks.append(("omen: coronation offered", any("Coronation" in a for a in magic_acts)))
+    checks.append(("omen: erasure offered", any("Erasure" in a for a in rare_acts)))
+    checks.append(("omen: exaltation offered", any("Exaltation" in a for a in rare_acts)))
+    checks.append(("omen: annulment offered", any("Omen of" in a and "Annulment" in a for a in rare_acts)))
+    checks.append(("chaos offered", any(a == "Chaos Orb" for a in rare_acts)))
+    checks.append(("annulment offered", any(a == "Orb of Annulment" for a in rare_acts)))
+    pen = "AbyssModGenWeaponUlamanPrefixLightningPenetration"
+    r = c.post("/api/solve", json={"base": "quarterstaff", "item_level": 83,
+               "start_rarity": "Normal", "prefixes": [pen], "suffixes": [], "methods": ["omens"]}).get_json()
+    checks.append(("desecration/putrefaction guide", bool(r.get("putrefaction"))))
+
+    allok = True
+    for name, ok in checks:
+        print(f"  [{'OK' if ok else 'XX'}] {name}")
+        allok = allok and ok
+    print("  " + ("ALL METHODS REACHABLE" if allok else "SOME METHODS NOT REACHABLE (investigate)"))
+    return allok
 
 
 if __name__ == "__main__":
     per = int(sys.argv[1]) if len(sys.argv) > 1 else 4
-    total, failures = run(per)
+    total, failures, census, rarities = run(per)
     print(f"\nRan {total} crafts across {len(BASES)} bases.")
     if not failures:
-        print("✓ ALL CLEAN; no violations.")
+        print("ALL CLEAN; no violations.")
     else:
-        print(f"✗ {len(failures)} crafts with violations:\n")
+        print(f"{len(failures)} crafts with violations:\n")
         from collections import Counter
         codes = Counter(v[0] for _, _, vs in failures for v in vs)
         print("violation counts:", dict(codes))
@@ -161,3 +266,10 @@ if __name__ == "__main__":
         for base, shape, vs in failures[:25]:
             for code, detail in vs:
                 print(f"  [{code}] {base} {shape}: {detail}")
+    print("\n=== START RARITIES EXERCISED ===")
+    for rar, n in rarities.most_common():
+        print(f"  {rar}: {n}")
+    print("\n=== METHOD CENSUS (how often each action appeared in plans) ===")
+    for cat, n in census.most_common():
+        print(f"  {n:>5}  {cat}")
+    method_reachability()
