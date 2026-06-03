@@ -62,14 +62,8 @@ class Solver:
         self.item_class = item_class
         self.essence_prices = essence_prices or {}
         self.forcers = {}        # wanted_mod_id -> (essence_name, cost)
-        if essences and item_class:
-            for e in essences:
-                fm = e.forced_mod(item_class)
-                if fm in wanted_ids:
-                    cost = self.essence_prices.get(e.name, 1e9)
-                    # keep the cheapest essence that forces this mod
-                    if fm not in self.forcers or cost < self.forcers[fm][1]:
-                        self.forcers[fm] = (e.name, cost)
+        self._essences = essences          # defer forcer mapping until groups built
+        self._item_class = item_class
 
         # desecration support: a separate pool of desecrated mods (each with a
         # 'lord' and affix_type). A Bone + Sinistral/Dextral omen deterministically
@@ -113,6 +107,28 @@ class Solver:
             # always include the explicitly requested mod
             members.add(wid)
             self.wanted_group_members[g] = members
+
+        # Essence forcers: an essence helps if its forced mod is an ACCEPTABLE
+        # member of a wanted group (same "want the stat, not the exact tier"
+        # logic as slamming) — not only an exact mod_id match. We record it
+        # against the wanted mod_id whose group it satisfies.
+        if self._essences and self._item_class:
+            # build reverse map: acceptable mod_id -> the wanted id(s) it secures
+            accept_to_wanted = {}
+            for wid in wanted_ids:
+                if wid not in self.mods:
+                    continue
+                g = self.mods[wid].group
+                for mid in sorted(self.wanted_group_members.get(g, set())):
+                    accept_to_wanted.setdefault(mid, wid)
+            for e in self._essences:
+                fm = e.forced_mod(self._item_class)
+                # exact wanted, or an acceptable same-group member at/above tier
+                target_wid = fm if fm in wanted_ids else accept_to_wanted.get(fm)
+                if target_wid is not None:
+                    cost = self.essence_prices.get(e.name, 1e9)
+                    if target_wid not in self.forcers or cost < self.forcers[target_wid][1]:
+                        self.forcers[target_wid] = (e.name, cost, fm)
         self._action_cache = {}
         self._prep_pool()
 
@@ -261,7 +277,10 @@ class Solver:
             missing = self.wanted - s.secured
             for mid in missing:
                 if mid in self.forcers:
-                    ename, ecost = self.forcers[mid]
+                    f = self.forcers[mid]
+                    ename, ecost = f[0], f[1]
+                    # secure the WANTED mod id (the essence forces an acceptable
+                    # same-group member, which satisfies this wanted stat).
                     ns = State("Magic", s.secured | {mid}, s.junk_pre, s.junk_suf)
                     acts.append((f"Essence: {ename}", ecost, [(1.0, ns)]))
             outs = self._add_outcomes(State("Magic", s.secured, s.junk_pre, s.junk_suf), 1, 1)
@@ -334,8 +353,21 @@ class Solver:
         return v if v is not None else 1e9   # unknown price -> effectively avoid
 
     # ---- value iteration ------------------------------------------------
-    def solve(self, start: State, max_iter=2000, tol=1e-6):
-        # enumerate reachable states by BFS
+    def solve(self, start: State, max_iter=200, tol=1e-9, time_budget=20.0):
+        """Exact solve via POLICY ITERATION.
+
+        The MDP has self-referential cycles (restart returns to a fresh base;
+        annul can remove a secured mod), which make naive value iteration mix
+        very slowly. Policy iteration instead (a) evaluates the current policy
+        EXACTLY by solving the linear system V = c + P V, then (b) improves the
+        policy greedily, and repeats. It converges in a handful of iterations
+        and the answer is exact and deterministic (no sweep-order / hash-seed
+        dependence, no convergence-budget guesswork)."""
+        import numpy as np
+        import time as _time
+        _t0 = _time.time()
+
+        # 1) enumerate reachable states (deterministic order)
         reach, frontier = set(), [start]
         while frontier:
             s = frontier.pop()
@@ -348,32 +380,128 @@ class Solver:
                 for _, ns in outs:
                     if ns not in reach:
                         frontier.append(ns)
-        BIG = 1e12
-        E = {s: (0.0 if self.is_goal(s) else BIG) for s in reach}
-        policy = {}
-        for _ in range(max_iter):
+
+        def _skey(st):
+            return (-len(st.secured), st.rarity, st.junk_pre, st.junk_suf,
+                    tuple(sorted(st.secured)))
+        states = sorted(reach, key=_skey)
+        idx = {s: i for i, s in enumerate(states)}
+        n = len(states)
+        goal = np.array([self.is_goal(s) for s in states])
+
+        # precompute each state's actions once (cached in self._action_cache too)
+        acts_of = {s: self.actions(s) for s in states if not self.is_goal(s)}
+
+        # --- reachability: which states can reach a goal at all? A goal that no
+        # modeled action can produce (e.g. a desecrated-only mod, unreachable by
+        # orb-slamming) must come back as INFINITE cost so the caller routes to
+        # putrefaction, NOT a spurious finite value from the linear solve. ---
+        can_reach = set(s for s in states if self.is_goal(s))
+        changed = True
+        while changed:
             changed = False
-            for s in reach:
-                if self.is_goal(s):
+            for s in states:
+                if s in can_reach or self.is_goal(s):
                     continue
-                best, best_a = BIG, None
-                for name, cost, outs in self.actions(s):
+                for _, _, outs in acts_of[s]:
+                    if any(ns in can_reach for p, ns in outs):
+                        can_reach.add(s); changed = True; break
+        if start not in can_reach:
+            # goal genuinely unreachable under modeled methods -> bricked/infinite
+            E = {s: (0.0 if self.is_goal(s) else float("inf")) for s in states}
+            self.converged = True
+            return E, {}
+
+        # only states that can reach a goal participate in the solve; the rest
+        # are infinite-cost dead ends (their actions are pruned below).
+        unreachable = set(states) - can_reach
+        states = [s for s in states if s in can_reach]
+        idx = {s: i for i, s in enumerate(states)}
+        n = len(states)
+        goal = np.array([self.is_goal(s) for s in states])
+
+        INF = float("inf")
+        # 2) initial proper policy: cheapest single action that has SOME chance
+        #    of leaving the state (avoids degenerate all-self-loop start).
+        policy = {}
+        for s in states:
+            if self.is_goal(s):
+                continue
+            best = None
+            for name, cost, outs in acts_of[s]:
+                # an action that can land in an unreachable dead end is unusable
+                if any(ns in unreachable for p, ns in outs):
+                    continue
+                p_self = sum(p for p, ns in outs if ns == s)
+                if p_self < 1.0 - 1e-12:
+                    if best is None or cost < best[1]:
+                        best = (name, cost, outs)
+            policy[s] = best  # may be None if truly stuck (handled below)
+
+        self.converged = False
+        V = np.zeros(n)
+
+        for _pi in range(max_iter):
+            # --- policy evaluation: solve V = c + P V exactly ---
+            A = np.zeros((n, n))
+            b = np.zeros(n)
+            for i, s in enumerate(states):
+                if goal[i]:
+                    A[i, i] = 1.0
+                    b[i] = 0.0
+                    continue
+                act = policy.get(s)
+                if act is None:
+                    A[i, i] = 1.0
+                    b[i] = 1e12      # stuck -> unreachable cost
+                    continue
+                name, cost, outs = act
+                A[i, i] = 1.0
+                b[i] = cost
+                for p, ns in outs:
+                    A[i, idx[ns]] -= p
+            try:
+                V = np.linalg.solve(A, b)
+            except np.linalg.LinAlgError:
+                V = np.linalg.lstsq(A, b, rcond=None)[0]
+
+            # --- policy improvement: pick the best action given V ---
+            stable = True
+            for i, s in enumerate(states):
+                if goal[i]:
+                    continue
+                best_v, best_a = INF, None
+                for name, cost, outs in acts_of[s]:
+                    if any(ns in unreachable for p, ns in outs):
+                        continue
                     p_self = sum(p for p, ns in outs if ns == s)
-                    other = sum(p * E[ns] for p, ns in outs if ns != s)
                     if p_self >= 1.0 - 1e-12:
                         continue
-                    exp = (cost + other) / (1.0 - p_self)
-                    if exp < best:
-                        best, best_a = exp, name
-                if best_a is not None and best < E[s] - tol:
-                    E[s] = best
+                    other = sum(p * V[idx[ns]] for p, ns in outs if ns != s)
+                    q = (cost + other) / (1.0 - p_self)
+                    if q < best_v - 1e-12:
+                        best_v, best_a = q, (name, cost, outs)
+                if best_a is not None:
+                    prev = policy.get(s)
+                    if prev is None or prev[0] != best_a[0]:
+                        stable = False
                     policy[s] = best_a
-                    changed = True
-            if not changed:
+            if stable:
+                self.converged = True
                 break
-        # anything still pinned near BIG cannot reach the goal under this model
-        E = {s: (float("inf") if v >= BIG * 0.5 else v) for s, v in E.items()}
-        return E, policy
+            if _time.time() - _t0 > time_budget:
+                break
+
+        # build outputs in the legacy dict form the caller expects
+        BIG = 1e12
+        E = {}
+        for i, s in enumerate(states):
+            v = V[i]
+            E[s] = float("inf") if v >= BIG * 0.5 else float(v)
+        for s in unreachable:
+            E[s] = float("inf")
+        pol = {s: act[0] for s, act in policy.items() if act is not None}
+        return E, pol
 
 
 # --------------------------------------------------------------------------

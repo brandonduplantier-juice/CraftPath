@@ -721,6 +721,7 @@ def api_solve():
                   junk_pre, junk_suf)
     E_, pol = sv.solve(start)
     total = E_[start]
+    solve_approx = not getattr(sv, "converged", True)
 
     # Viability ceiling: targeting 3+ specific mods by random orb-slamming is
     # genuinely astronomically expensive in PoE (which is exactly why putrefaction
@@ -745,7 +746,7 @@ def api_solve():
               "not_viable_by_slamming": not_viable,
               "over_budget": (budget is not None and total != float("inf")
                               and not not_viable and total > float(budget)),
-              "budget": budget, "steps": []}
+              "budget": budget, "approximate": solve_approx, "steps": []}
     if total == float("inf") or not_viable:
         # define the putrefaction helper early so both gates can use it
         def _puf_early():
