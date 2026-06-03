@@ -733,14 +733,63 @@ def api_solve():
               "over_budget": (budget is not None and total != float("inf")
                               and not not_viable and total > float(budget)),
               "budget": budget, "steps": []}
-    if total == float("inf"):
-        result["msg"] = "No path to this mod set under modeled methods."
-        return jsonify(result)
-    if not_viable:
-        result["msg"] = ("Targeting this many specific mods by orb-slamming isn't "
-                         "cost-viable (expected cost is astronomical). This is why "
-                         "putrefaction exists — check the Putrefaction odds for this "
-                         "base, which roll multiple desecrated mods at once.")
+    if total == float("inf") or not_viable:
+        # define the putrefaction helper early so both gates can use it
+        def _puf_early():
+            try:
+                wd = [d for d in (desecrated_pool or []) if d["mod_id"] in wanted]
+                if not wd:
+                    return None
+                import putrefaction as PF
+                recs = []
+                for side in ("Prefix", "Suffix"):
+                    st = [d for d in wd if d["affix_type"] == side]
+                    if not st:
+                        continue
+                    lords = {d.get("lord") for d in st}
+                    lord = next(iter(lords)) if len(lords) == 1 else None
+                    ac = (bone_cost or 8) + (prices.get("Omen of Putrefaction", 20))
+                    plan = PF.plan_putrefaction(base, side, target_count=len(st),
+                                                lord=lord, attempt_cost=ac)
+                    if plan:
+                        lo = {"amanamu": "Omen of the Liege", "ulaman": "Omen of the Sovereign",
+                              "kurgal": "Omen of the Blackblooded"}.get(lord)
+                        recs.append({"side": side,
+                                     "targets": [by_id[d["mod_id"]].text[0] if d["mod_id"] in by_id else d.get("text", d["mod_id"]) for d in st],
+                                     "lord": lord, "lord_omen": lo,
+                                     "pool_size": plan.pool_size, "p_hit": round(plan.p_hit, 3),
+                                     "expected_attempts": round(plan.expected_attempts, 1),
+                                     "expected_cost": round(plan.expected_cost, 1),
+                                     "attempt_cost": round(ac, 1), "note": plan.note})
+                if not recs:
+                    return None
+                return {"applies": True, "recs": recs,
+                        "how": [
+                            "Get the item to RARE first (uncorrupted, not already desecrated).",
+                            "Prep now: apply 20% quality + sockets/runes — Putrefaction CORRUPTS the item, so you can't quality or socket it afterward.",
+                            "Hold an Omen of Putrefaction + a Bone (Rib=armour, Jawbone=weapon/quiver, Collarbone=jewellery)" + (", plus the lord omen below to narrow the pool" if any(r["lord_omen"] for r in recs) else "") + ".",
+                            "Use the Bone: it replaces ALL mods with up to 6 unrevealed desecrated mods (3 prefix + 3 suffix) and corrupts the item.",
+                            "Reveal at the Well of Souls one slot at a time (prefixes first, then suffixes). Pick your target from the options shown; save high-value mods for the last slot of that type, since taking a mod blocks its group on later reveals.",
+                        ],
+                        "estimate_flag": "Reveal odds are unpublished by GGG — modeled flat (uniform) and are estimates. The METHOD is reliable; the attempt count is a ballpark."}
+            except Exception:
+                return None
+        puf = _puf_early()
+        if puf:
+            result["putrefaction"] = puf
+        if total == float("inf"):
+            if puf:
+                result["bricked"] = False
+                result["msg"] = ("This mod set can't be reached by orb-slamming — it "
+                                 "needs desecrated mods. Use Putrefaction (below).")
+            else:
+                result["msg"] = "No path to this mod set under modeled methods."
+        else:  # not_viable
+            base_msg = ("Targeting this many specific mods by orb-slamming isn't "
+                        "cost-viable (expected cost is astronomical).")
+            result["msg"] = (base_msg + " Use Putrefaction (below) — it rolls multiple "
+                             "desecrated mods at once." if puf else
+                             base_msg + " This is why putrefaction exists.")
         return jsonify(result)
 
     # walk policy along most-likely outcomes
@@ -819,7 +868,9 @@ def api_solve():
             "on_fail": on_fail,
         })
         s = success_state
+
     return jsonify(result)
+
 
 
 if __name__ == "__main__":

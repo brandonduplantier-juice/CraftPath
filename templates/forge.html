@@ -291,6 +291,24 @@
     border-left:2px solid var(--verisium);border-radius:0 4px 4px 0;padding:7px 10px;margin-top:8px;line-height:1.55}
   .method-note b{color:var(--parchment)}
   .method-note .est{color:var(--gold-bright);font-style:italic;display:block;margin-top:3px;font-size:10.5px}
+  /* putrefaction recommended-method panel */
+  .puf-panel{border:1px solid #6a4a2a;border-radius:6px;background:linear-gradient(180deg,rgba(60,40,20,.25),rgba(30,20,10,.15));
+    padding:16px 18px;margin-top:18px}
+  .puf-head{font-family:'Cinzel',serif;font-size:15px;color:var(--gold-bright);letter-spacing:.04em;margin-bottom:12px}
+  .puf-rec{border-left:2px solid #8a6a3a;padding:8px 0 8px 12px;margin-bottom:10px}
+  .puf-rec-head{font-size:13px;color:var(--parchment);margin-bottom:6px}
+  .puf-targets{color:#e6c87a}
+  .puf-odds{display:flex;flex-wrap:wrap;gap:7px}
+  .puf-tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;padding:2px 8px;border-radius:3px;
+    background:rgba(0,0,0,.3);border:1px solid var(--edge);color:var(--ash)}
+  .puf-tag.lord{border-color:#8a6a3a;color:var(--gold-bright)}
+  .puf-tag.cost{color:var(--verisium-bright);border-color:#2a5a58}
+  .puf-how{margin-top:12px}
+  .puf-how-title{font-size:12px;color:var(--ash);letter-spacing:.04em;margin-bottom:6px;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
+  .puf-how ol{margin:0;padding-left:20px}
+  .puf-how li{font-size:12.5px;color:var(--parchment);line-height:1.6;margin-bottom:6px}
+  .puf-flag{font-size:11px;color:var(--gold-bright);font-style:italic;line-height:1.5;margin-top:12px;
+    padding-top:10px;border-top:1px solid rgba(106,74,42,.4)}
 </style>
 </head>
 <body>
@@ -732,8 +750,8 @@ async function solve(){
   $('#forge').disabled=false; $('#forge').classList.remove('loading');
   if(j.error){ results.innerHTML=`<div class="verdict warn"><div class="big">Something went wrong</div><div class="sub">${j.report?('If this keeps happening, please <a href="https://github.com/brandonduplantier-juice/CraftPath/issues" target="_blank" rel="noopener" style="color:var(--verisium-bright)">report it</a>.'):j.error}</div></div>`; return; }
   if(j.status==='invalid'){ results.innerHTML=`<div class="verdict warn"><div class="big">Invalid</div><div class="sub">${j.msg}</div></div>`; return; }
-  if(j.bricked){ results.innerHTML=`<div class="verdict warn"><div class="big">Bricked / Unreachable</div><div class="sub">${j.msg||'No path under modeled methods.'}</div></div>`; return; }
-  if(j.not_viable_by_slamming){ results.innerHTML=`<div class="verdict warn"><div class="big">Not viable by orb-slamming</div><div class="sub">${j.msg||'Use putrefaction for multi-mod targets.'}</div></div>`; return; }
+  if(j.bricked){ results.innerHTML=`<div class="verdict warn"><div class="big">Bricked / Unreachable</div><div class="sub">${j.msg||'No path under modeled methods.'}</div></div>`+putrefactionHTML(j); results.scrollIntoView({behavior:'smooth',block:'start'}); return; }
+  if(j.not_viable_by_slamming){ results.innerHTML=`<div class="verdict warn"><div class="big">Not viable by orb-slamming</div><div class="sub">${j.msg||'Use putrefaction for multi-mod targets.'}</div></div>`+putrefactionHTML(j); results.scrollIntoView({behavior:'smooth',block:'start'}); return; }
   let html=`<div class="verdict ${j.over_budget?'warn':''}">
     <div class="big">${fmt(j.expected_cost)} ex</div>
     <div class="sub">${j.over_budget? 'exceeds your '+j.budget+' ex budget — buying the finished item is likely cheaper'
@@ -757,7 +775,28 @@ async function solve(){
   });
   html+=`<div class="step done"><div class="step-head"><span class="step-action" style="color:var(--verd-bright)">✓ Target Complete</span></div>
     <div class="step-meta"><span class="step-n">all desired mods secured · Divine to perfect rolls</span></div></div>`;
+  html+=putrefactionHTML(j);
   results.innerHTML=html; results.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// render the putrefaction "recommended method" panel if present
+function putrefactionHTML(j){
+  const p=j.putrefaction; if(!p||!p.applies) return '';
+  let h=`<div class="puf-panel"><div class="puf-head">🦴 Recommended method: Putrefaction</div>`;
+  p.recs.forEach(r=>{
+    h+=`<div class="puf-rec">
+      <div class="puf-rec-head">${r.side} target${r.targets.length>1?'s':''}: <span class="puf-targets">${r.targets.join(' · ')}</span></div>
+      <div class="puf-odds">
+        ${r.lord_omen?`<span class="puf-tag lord">use <b>${r.lord_omen}</b> → pool ${r.pool_size}</span>`:`<span class="puf-tag">open pool ${r.pool_size}</span>`}
+        <span class="puf-tag">~${Math.round(r.p_hit*100)}% per attempt</span>
+        <span class="puf-tag">~${r.expected_attempts} attempts</span>
+        <span class="puf-tag cost">~${fmt(r.expected_cost)} ex total · ${fmt(r.attempt_cost)} ex/try</span>
+      </div></div>`;
+  });
+  h+=`<div class="puf-how"><div class="puf-how-title">How to craft it:</div><ol>`;
+  p.how.forEach(step=>{ h+=`<li>${step}</li>`; });
+  h+=`</ol></div><div class="puf-flag">${p.estimate_flag}</div></div>`;
+  return h;
 }
 
 async function priceCheck(){
