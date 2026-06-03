@@ -38,6 +38,13 @@ from itertools import combinations
 # rarity -> (max_prefixes, max_suffixes)
 CAPS = {"Normal": (0, 0), "Magic": (1, 1), "Rare": (3, 3)}
 
+# Greater/Perfect currency tier floors (minimum modifier LEVEL that can roll).
+# NOTE: these values are PATCH-VOLATILE and disputed across sources. The PoE2
+# wiki lists Greater=35 / Perfect=50; a 0.5.0 (Runes of Aldur) guide reported
+# Greater dropped to 44. Until confirmed in-game, defaulting to wiki values.
+# Edit here if GGG/your testing confirms otherwise — flagged as ESTIMATE in UI.
+TIER_FLOOR = {"greater": 35, "perfect": 50}
+
 
 @dataclass(frozen=True)
 class State:
@@ -51,7 +58,7 @@ class Solver:
     def __init__(self, mods, base_token, item_level, wanted_ids, prices,
                  essences=None, item_class=None, essence_prices=None,
                  desecrated=None, bone_cost=None, sinistral_omen_cost=None,
-                 exalt_omen_cost=None):
+                 exalt_omen_cost=None, annul_omen_cost=None):
         self.base = base_token
         self.ilvl = item_level
         self.mods = {m.mod_id: m for m in mods}
@@ -75,6 +82,7 @@ class Solver:
         # cost of a Sinistral/Dextral Exaltation omen (steers next Exalt to one
         # side). None -> feature off (omen not priced/available).
         self.exalt_omen_cost = exalt_omen_cost
+        self.annul_omen_cost = annul_omen_cost
         # cost to abandon the current item and start fresh from a new white base.
         # White bases are cheap (vendor/drop); default 0.5 ex covers buying one.
         self.base_cost = self.prices.get("White Base", 0.5)
@@ -167,16 +175,35 @@ class Solver:
         return need_desec <= s.secured
 
     # ---- add-action outcome distribution --------------------------------
-    def _add_outcomes(self, s: State, open_pre, open_suf):
+    def _add_outcomes(self, s: State, open_pre, open_suf, min_level=0):
         """Return list of (prob, next_state) for adding one random eligible mod.
         Landing ANY acceptable tier in a still-needed wanted group counts as a
-        hit on that group (crafters want the stat, not one exact tier)."""
+        hit on that group (crafters want the stat, not one exact tier).
+
+        min_level models Greater/Perfect currency: it raises the minimum mod
+        level that can roll (Greater=35, Perfect=50). Per GGG's rule, if ALL
+        tiers of a mod would be excluded by the floor, that mod's HIGHEST tier
+        remains eligible (the floor never excludes a mod type entirely)."""
         secured_groups = {self.mods[i].group for i in s.secured if i in self.mods}
         needed_groups = self.wanted_groups - secured_groups
         # acceptable mod_ids that would secure a still-needed group
         acceptable = set()
         for g in needed_groups:
             acceptable |= self.wanted_group_members.get(g, set())
+        # precompute, per group, the highest-level tier (always stays eligible
+        # under a min_level floor so the mod type is never fully excluded)
+        top_tier_of_group = {}
+        if min_level > 0:
+            for i in list(self.pre_w) + list(self.suf_w):
+                g = self.mods[i].group
+                cur = top_tier_of_group.get(g)
+                if cur is None or self.mods[i].level > self.mods[cur].level:
+                    top_tier_of_group[g] = i
+        def _passes_floor(i):
+            if min_level <= 0 or self.mods[i].level >= min_level:
+                return True
+            # below floor: only allowed if it's the top tier of its group
+            return top_tier_of_group.get(self.mods[i].group) == i
         # eligible weights given which slot types are open and groups free
         elig = {}
         if open_pre > 0:
@@ -187,6 +214,8 @@ class Solver:
                 # a mod in a wanted group that is NOT an acceptable hit -> junk
                 if g in self.wanted_groups and i not in acceptable:
                     continue
+                if not _passes_floor(i):
+                    continue
                 elig[i] = w
         if open_suf > 0:
             for i, w in self.suf_w.items():
@@ -194,6 +223,8 @@ class Solver:
                 if i in s.secured:
                     continue
                 if g in self.wanted_groups and i not in acceptable:
+                    continue
+                if not _passes_floor(i):
                     continue
                 elig[i] = w
         W = sum(elig.values())
@@ -224,24 +255,77 @@ class Solver:
                          State(s.rarity, s.secured, s.junk_pre, s.junk_suf + 1)))
         return outs
 
-    def _annul_outcomes(self, s: State, sec_pre, sec_suf):
-        """Remove one random present mod (cannot target)."""
-        present = len(s.secured) + s.junk_pre + s.junk_suf
+    def _annul_outcomes(self, s: State, sec_pre, sec_suf, side=None):
+        """Remove one random present mod (cannot target which one).
+        side='Prefix'/'Suffix' (annul omen) restricts removal to that side."""
+        # which mods are removable given the side restriction
+        def is_pre(i):
+            return (i in self.mods and self.mods[i].affix_type == "Prefix") \
+                   or i in self.desec_wanted_pre_ids
+        sec_list = list(s.secured)
+        if side == "Prefix":
+            jpre, jsuf = s.junk_pre, 0
+            secs = [i for i in sec_list if is_pre(i)]
+        elif side == "Suffix":
+            jpre, jsuf = 0, s.junk_suf
+            secs = [i for i in sec_list if not is_pre(i)]
+        else:
+            jpre, jsuf = s.junk_pre, s.junk_suf
+            secs = sec_list
+        present = len(secs) + jpre + jsuf
         if present == 0:
             return []
         outs = []
-        # remove a junk prefix / suffix
-        if s.junk_pre > 0:
-            outs.append((s.junk_pre / present,
+        if jpre > 0:
+            outs.append((jpre / present,
                          State(s.rarity, s.secured, s.junk_pre - 1, s.junk_suf)))
-        if s.junk_suf > 0:
-            outs.append((s.junk_suf / present,
+        if jsuf > 0:
+            outs.append((jsuf / present,
                          State(s.rarity, s.secured, s.junk_pre, s.junk_suf - 1)))
-        # remove a secured wanted mod (bad) — each equally likely
-        for i in s.secured:
+        for i in secs:
             outs.append((1 / present,
                          State(s.rarity, s.secured - {i}, s.junk_pre, s.junk_suf)))
         return outs
+
+    def _alchemy_outcomes(self, s: State):
+        """Orb of Alchemy: Normal -> Rare with multiple random mods at once
+        (GGG: 4-6). Modeled as 4 sequential random adds from the Rare state,
+        composing the per-add distribution. Conservative (4, the minimum)."""
+        cur = [(1.0, State("Rare", s.secured, s.junk_pre, s.junk_suf))]
+        for _ in range(4):
+            nxt = {}
+            for p, st in cur:
+                op, osf, _, _ = self._slots(st)
+                if op + osf <= 0:
+                    nxt[st] = nxt.get(st, 0) + p
+                    continue
+                adds = self._add_outcomes(st, op, osf)
+                if not adds:
+                    nxt[st] = nxt.get(st, 0) + p
+                    continue
+                for q, ns in adds:
+                    nxt[ns] = nxt.get(ns, 0) + p * q
+            cur = list(nxt.items())
+            cur = [(p, st) for st, p in nxt.items()]
+        return cur
+
+    def _chaos_outcomes(self, s: State, sec_pre, sec_suf, open_pre, open_suf):
+        """Chaos Orb (PoE2 0.5): removes ONE random mod, then adds ONE new
+        random mod. Composed as annul-distribution followed by add-distribution."""
+        removed = self._annul_outcomes(s, sec_pre, sec_suf)
+        if not removed:
+            return []
+        out = {}
+        for p, st in removed:
+            op, osf, _, _ = self._slots(st)
+            adds = self._add_outcomes(st, op, osf)
+            if not adds:
+                out[st] = out.get(st, 0) + p
+                continue
+            for q, ns in adds:
+                out[ns] = out.get(ns, 0) + p * q
+        return [(p, st) for st, p in out.items()]
+
 
     # ---- enumerate applicable (action, cost, outcomes) ------------------
     def actions(self, s: State):
@@ -283,28 +367,62 @@ class Solver:
                     # same-group member, which satisfies this wanted stat).
                     ns = State("Magic", s.secured | {mid}, s.junk_pre, s.junk_suf)
                     acts.append((f"Essence: {ename}", ecost, [(1.0, ns)]))
-            outs = self._add_outcomes(State("Magic", s.secured, s.junk_pre, s.junk_suf), 1, 1)
-            if outs:
-                acts.append(("Transmutation Orb", self._cost("Transmutation Orb"), outs))
+            # Transmutation + Greater/Perfect variants (tier floor 0/35/50).
+            for label, floor in (("Transmutation Orb", 0),
+                                  ("Greater Orb of Transmutation", TIER_FLOOR["greater"]),
+                                  ("Perfect Orb of Transmutation", TIER_FLOOR["perfect"])):
+                c = self._cost(label)
+                if c >= 1e9:
+                    continue
+                outs = self._add_outcomes(State("Magic", s.secured, s.junk_pre, s.junk_suf),
+                                          1, 1, min_level=floor)
+                if outs:
+                    acts.append((label, c, outs))
+            # Orb of Alchemy: Normal -> Rare with several random mods at once.
+            # GGG: 4-6 mods; modeled as 4 random adds (conservative) in one step.
+            ac = self._cost("Orb of Alchemy")
+            if ac < 1e9:
+                alch = self._alchemy_outcomes(s)
+                if alch:
+                    acts.append(("Orb of Alchemy", ac, alch))
         elif s.rarity == "Magic":
             if (sec_pre + sec_suf + s.junk_pre + s.junk_suf) < 2:
-                outs = self._add_outcomes(s, open_pre, open_suf)
-                if outs:
-                    acts.append(("Augmentation Orb", self._cost("Augmentation Orb"), outs))
-            # Regal -> Rare, then adds one mod at Rare caps
+                for label, floor in (("Augmentation Orb", 0),
+                                     ("Greater Orb of Augmentation", TIER_FLOOR["greater"]),
+                                     ("Perfect Orb of Augmentation", TIER_FLOOR["perfect"])):
+                    c = self._cost(label)
+                    if c >= 1e9:
+                        continue
+                    outs = self._add_outcomes(s, open_pre, open_suf, min_level=floor)
+                    if outs:
+                        acts.append((label, c, outs))
+            # Regal -> Rare (+ Greater/Perfect tier floors), adds one mod at Rare caps
             regal_state = State("Rare", s.secured, s.junk_pre, s.junk_suf)
             rp, rs, _, _ = self._slots(regal_state)
-            routs = self._add_outcomes(regal_state, rp, rs)
-            if routs:
-                acts.append(("Regal Orb", self._cost("Regal Orb"), routs))
+            for label, floor in (("Regal Orb", 0),
+                                  ("Greater Regal Orb", TIER_FLOOR["greater"]),
+                                  ("Perfect Regal Orb", TIER_FLOOR["perfect"])):
+                c = self._cost(label)
+                if c >= 1e9:
+                    continue
+                routs = self._add_outcomes(regal_state, rp, rs, min_level=floor)
+                if routs:
+                    acts.append((label, c, routs))
             aouts = self._annul_outcomes(s, sec_pre, sec_suf)
             if aouts:
                 acts.append(("Orb of Annulment", self._cost("Orb of Annulment"), aouts))
         elif s.rarity == "Rare":
+            # Exalted Orb + Greater/Perfect variants (tier floor 0/35/50)
             if open_pre + open_suf > 0:
-                outs = self._add_outcomes(s, open_pre, open_suf)
-                if outs:
-                    acts.append(("Exalted Orb", self._cost("Exalted Orb"), outs))
+                for label, floor in (("Exalted Orb", 0),
+                                     ("Greater Exalted Orb", TIER_FLOOR["greater"]),
+                                     ("Perfect Exalted Orb", TIER_FLOOR["perfect"])):
+                    c = self._cost(label)
+                    if c >= 1e9:
+                        continue
+                    outs = self._add_outcomes(s, open_pre, open_suf, min_level=floor)
+                    if outs:
+                        acts.append((label, c, outs))
             # Sinistral/Dextral Exaltation: an omen steers the next Exalted Orb to
             # add ONLY a prefix (Sinistral) or ONLY a suffix (Dextral). Worth it
             # when one side still has a wanted mod and the other side is full or
@@ -324,28 +442,29 @@ class Solver:
             aouts = self._annul_outcomes(s, sec_pre, sec_suf)
             if aouts:
                 acts.append(("Orb of Annulment", self._cost("Orb of Annulment"), aouts))
-            # Desecration: Bone + Sinistral omen forces an unrevealed PREFIX, then
-            # reveal draws from the desecrated prefix pool. Only offered if a wanted
-            # desecrated prefix exists and a prefix slot is open. Reveal weights are
-            # unknown -> uniform over the desecrated prefix pool (flagged in output).
-            if open_pre > 0 and self.desec_wanted_pre and self.desecrated:
-                desec_pre_pool = [d for d in self.desecrated if d.get("affix_type") == "Prefix"]
-                npool = len(desec_pre_pool)
-                if npool:
-                    cost = self.bone_cost + self.sin_omen_cost
-                    outs = []
-                    for d in self.desec_wanted_pre:
-                        if d["mod_id"] not in s.secured:
-                            ns = State(s.rarity, s.secured | {d["mod_id"]},
-                                       s.junk_pre, s.junk_suf)
-                            outs.append((1.0 / npool, ns))
-                    # remaining probability lands on a non-wanted desecrated prefix (junk_pre)
-                    p_hit = sum(p for p, _ in outs)
-                    if p_hit < 1.0:
-                        outs.append((1.0 - p_hit,
-                                     State(s.rarity, s.secured, s.junk_pre + 1, s.junk_suf)))
-                    if outs:
-                        acts.append(("Desecrate prefix (Bone + Sinistral Omen)", cost, outs))
+            # Sinistral/Dextral Annulment omens: remove ONLY a prefix / ONLY a
+            # suffix. Useful to surgically drop a junk mod from a known side.
+            if self.annul_omen_cost is not None:
+                acost = self._cost("Orb of Annulment") + self.annul_omen_cost
+                ap = self._annul_outcomes(s, sec_pre, sec_suf, side="Prefix")
+                if ap:
+                    acts.append(("Annul + Omen of Sinistral Annulment", acost, ap))
+                as_ = self._annul_outcomes(s, sec_pre, sec_suf, side="Suffix")
+                if as_:
+                    acts.append(("Annul + Omen of Dextral Annulment", acost, as_))
+            # Chaos Orb (0.5 behaviour): removes ONE random mod and adds ONE new
+            # random mod (NOT a full reroll). Modeled as annul-then-add combined.
+            cc = self._cost("Chaos Orb")
+            if cc < 1e9:
+                ch = self._chaos_outcomes(s, sec_pre, sec_suf, open_pre, open_suf)
+                if ch:
+                    acts.append(("Chaos Orb", cc, ch))
+            # NOTE: desecration (Bone+Omen) is intentionally NOT a solver action.
+            # Its reveal odds are unpublished, and as a low-probability self-
+            # looping action it destabilized the exact linear solve (produced
+            # spurious/negative costs). Desecrated targets are handled by the
+            # dedicated Putrefaction recommendation panel instead, which models
+            # the real method with clearly-flagged estimates.
         return acts
 
     def _cost(self, name):

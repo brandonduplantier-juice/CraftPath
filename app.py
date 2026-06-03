@@ -711,18 +711,27 @@ def api_solve():
     if _exalt_omen is None:
         _exalt_omen = 10.0   # placeholder — Ritual omen, price varies
         _exalt_omen_estimated = True
+    # annul omens (Sinistral/Dextral Annulment) — real price if present
+    _annul_omen = None
+    for k, v in prices.items():
+        if "annulment" in k.lower() and "omen" in k.lower():
+            _annul_omen = v if _annul_omen is None else min(_annul_omen, v)
 
     sv = Solver(mods, base, ilvl, wanted, prices,
                 essences=essences, item_class=item_class, essence_prices=ess_prices,
                 desecrated=desecrated_pool or None,
                 bone_cost=bone_cost, sinistral_omen_cost=omen_cost,
-                exalt_omen_cost=_exalt_omen)
+                exalt_omen_cost=_exalt_omen, annul_omen_cost=_annul_omen)
     start = State(start_rarity,
                   frozenset(have_pre + have_suf),
                   junk_pre, junk_suf)
     E_, pol = sv.solve(start)
     total = E_[start]
     solve_approx = not getattr(sv, "converged", True)
+    # safety: expected cost can never be negative (all actions cost > 0). A
+    # negative value would indicate a numerical degeneracy — treat as unreachable.
+    if total < 0:
+        total = float("inf")
 
     # Viability ceiling: targeting 3+ specific mods by random orb-slamming is
     # genuinely astronomically expensive in PoE (which is exactly why putrefaction
@@ -821,12 +830,16 @@ def api_solve():
         cost = next(c for n, c, o in acts if n == action)
         outs = next(o for n, c, o in acts if n == action)
         useful, p_use = [], 0.0
+        _seen_mods = set()
         for p, ns in outs:
             for mid in (ns.secured - s.secured):
+                p_use += p
+                if mid in _seen_mods:
+                    continue
+                _seen_mods.add(mid)
                 useful.append({"mod": mid,
                                "text": _mod_text(mid),
                                "p": round(p, 4)})
-                p_use += p
 
         # --- Honest failure analysis: what happens if this step does NOT secure
         # a wanted mod. We group the non-progress outcomes and report what the

@@ -757,6 +757,20 @@ function methodNote(action){
     const suf=a.includes('suffix');
     return `<div class="method-note">🦴 <b>How:</b> on the item, apply a <b>Bone</b> (Jawbone/Collarbone) with an <b>Omen of ${suf?'Dextral':'Sinistral'} Necromancy</b> in your inventory. This adds an unrevealed ${suf?'suffix':'prefix'} from the Well of Souls pool, then you reveal it. <span class="est">Reveal odds are unpublished — modeled flat, treat as an estimate.</span></div>`;
   }
+  if(a.includes('greater')||a.includes('perfect')){
+    const tier=a.includes('perfect')?'Perfect':'Greater';
+    return `<div class="method-note">⬆ <b>How:</b> use a <b>${tier}</b> currency — same as the base orb but it guarantees a minimum modifier level (${tier==='Perfect'?'~50':'~35'}), skipping the weakest tiers. <span class="est">Exact tier floor is patch-volatile — treat as estimate.</span></div>`;
+  }
+  if(a.includes('alchemy')){
+    return `<div class="method-note">⚗ <b>How:</b> use an <b>Orb of Alchemy</b> on a white base — it jumps straight to Rare with several random mods at once (modeled as 4).</div>`;
+  }
+  if(a==='chaos orb'||a.includes('chaos orb')){
+    return `<div class="method-note">🌀 <b>How:</b> use a <b>Chaos Orb</b> on a Rare — in 0.5 it removes one random mod and adds one new one (not a full reroll). <span class="est">Outcome is random — used here only when it's the cheapest fix.</span></div>`;
+  }
+  if(a.includes('sinistral annulment')||a.includes('dextral annulment')){
+    const suf=a.includes('dextral');
+    return `<div class="method-note">✦ <b>How:</b> activate an <b>Omen of ${suf?'Dextral':'Sinistral'} Annulment</b>, then use an <b>Orb of Annulment</b> — it removes only a ${suf?'suffix':'prefix'} instead of any random mod. <span class="est">Ritual-only omen; cost varies — estimate.</span></div>`;
+  }
   if(a.startsWith('✦')||a.includes('essence')){
     return `<div class="method-note">✦ <b>How:</b> use this <b>Essence</b> on a white (Normal) base — it guarantees the listed mod and upgrades the item to Magic.</div>`;
   }
