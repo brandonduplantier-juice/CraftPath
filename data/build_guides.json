@@ -1,203 +1,276 @@
 {
-  "_meta": {
-    "note": "Curated, hand-authored crafting recipes for common gear. These are step-by-step guides, NOT solver output, because they use deterministic recipes (rune-forging, fracture-locks, desecration sequences) that fall outside the optimizer's scope. Costs are VOLATILE and given as rough league-snapshot ranges; treat them as estimates, not quotes. Recipes are adapted from public 0.5 (Runes of Aldur) crafting guides and flagged where a step depends on unpublished odds.",
-    "patch": "0.5 Runes of Aldur",
-    "slots": ["weapon", "offhand", "helmet", "body", "gloves", "boots", "belt", "amulet", "ring1", "ring2"],
-    "budget_levels": ["low", "med", "high"]
-  },
-  "classes": {
-    "monk": {
-      "label": "Monk",
-      "weapon_label": "Quarterstaff",
-      "slots": {
-        "weapon": {
-          "low": {
-            "base": "Buy a white (Normal) Quarterstaff, item level 82+, highest %physical-damage implicit you can afford.",
-            "steps": [
-              "Use the optimizer (Step 1-3) for a budget physical + attack-speed staff: it will route you through Transmutation then Augmentation/Regal to add the mods you pick.",
-              "Target: one of %increased Physical Damage (prefix) plus Attack Speed (suffix) to start; add Crit or flat phys later if budget allows.",
-              "This is the cheapest entry: no essences or desecration, just orbs."
-            ],
-            "est_cost": "~5-20 ex",
-            "source": "general optimizer route"
-          },
-          "med": {
-            "base": "Buy a white Quarterstaff ilvl 82+ with a high %phys implicit.",
-            "steps": [
-              "Greater Essence of (your element/attack mod) to guarantee one strong prefix and upgrade to Magic.",
-              "Augmentation / Greater Augmentation to add a second prefix; Regal to Rare when you have your prefixes.",
-              "Use the optimizer with Essence + Greater/Perfect orbs enabled and pick your two prefixes + a suffix; follow its step list.",
-              "Finish with Exalted Orbs (or one Exalted + Omen of Greater Exaltation when you have 2 open slots) to fill remaining suffixes."
-            ],
-            "est_cost": "~30-80 ex",
-            "source": "optimizer route with essences"
-          },
-          "high": {
-            "base": "Rune-forged Duality 'warding' Quarterstaff (deterministic unique-style craft).",
-            "steps": [
-              "This high-end staff is NOT made with orbs/essences. It is rune-forged: buy a Warding Starlet Ore (~30 ex) and forge it at the Verisium Anvil to get a Duality quarterstaff (rolls 200-300% phys, 20-30% crit damage, 12-22% attack speed). Re-roll/buy until you get a high physical + high crit-damage roll.",
-              "Upgrade it with the rune-master recipe: needs ~20 Exceptional Verisium (~3 ex each), an Oloth's Crest of the Sun (price volatile, was ~120 ex), and the upgrade RECIPE which drops from the Runes of Kings March expedition league mechanic (not from the campaign).",
-              "Rune-forging gives one of two outcomes: +50% weapon damage OR +50% crit chance (T1-equivalent crit). Both are excellent.",
-              "Because this is deterministic, the optimizer does not compute it. The value is that an equivalent rare staff costs far more than the materials."
-            ],
-            "est_cost": "~30 ex base + ~180 ex upgrade (volatile)",
-            "source": "rune-forging guide (Duality quarterstaff)",
-            "flag": "Deterministic rune-forge recipe; materials and the expedition recipe are required. Costs highly volatile."
-          }
-        }
-      }
-    },
-    "ranger": {
-      "label": "Ranger",
-      "weapon_label": "Bow",
-      "slots": {
-        "weapon": {
-          "low": {
-            "base": "Buy a Magic Obliterator Bow (or similar high-%phys bow) with ~130%+ increased physical damage, ilvl 82+. ~4-5 div for a good roll.",
-            "steps": [
-              "Greater Essence of Abrasion: guarantees flat physical damage and upgrades toward Rare.",
-              "If you only need physical + attack speed, use the optimizer with Essence enabled, pick flat-phys + attack-speed, and follow its steps.",
-              "Fill the last suffix with a Greater Exalted Orb."
-            ],
-            "est_cost": "~4-10 div (mostly the base)",
-            "source": "JTX bleed-bow guide (entry tier)"
-          },
-          "med": {
-            "base": "Magic Obliterator Bow, ~130-150% phys implicit, ilvl 82+, ideally with a good open prefix.",
-            "steps": [
-              "Greater Essence of Abrasion for guaranteed flat physical (prefix 1).",
-              "Omen of Sinistral Necromancy + Omen of the Liege + Preserved Jawbone: forces a guaranteed PREFIX desecration locked to the Liege (Amon-Amarth) pool. Reveal at the Well of Souls; the companion-damage / 'increased damage while companion present' mods are guaranteed from this pool.",
-              "After your three prefixes are set, use an Omen of Greater Exaltation, then a Greater Exalted Orb, to slam two suffixes at once (saves money vs two exalts when greater exalts are pricey).",
-              "Suffixes are random here: aim for +level of gems, attack speed, or other useful rolls."
-            ],
-            "est_cost": "~15-40 div",
-            "source": "JTX bleed-bow guide (companion bow)",
-            "flag": "Desecration reveal weights are unpublished; the Liege pool guarantees the mod TYPE, the exact reveal among that pool is RNG."
-          }
-        }
-      }
-    },
-    "sorceress": {
-      "label": "Sorceress",
-      "weapon_label": "Wand",
-      "slots": {
-        "weapon": {
-          "high": {
-            "base": "Buy a +5 (to spell skills) Wand base, ilvl 81+. Use +5, not +4: the runes are expensive and not worth it on a cheap base. Prefix doesn't matter (it gets removed).",
-            "steps": [
-              "Socket the wand (Artificer) and insert an Astramentis-style +1-crafted-mod rune (Astrid's Creativity) so the item can hold an extra crafted modifier.",
-              "Apply a crit-chance-for-spells essence (becomes Rare with your guaranteed mod).",
-              "Omen of Sinistral Crystallization + a Transcendent/abyss essence (alloy) to convert toward a prefix while removing an unwanted suffix; this adds the second crafted modifier.",
-              "Add a Jawbone desecration for another prefix; use Omen of Abyssal Echoes when revealing and BLOCK mana (take the mana reveal first so exalts later don't all roll mana).",
-              "Omen of Greater Exaltation + Perfect Exalted Orb on the two open prefixes; re-roll undesired mods with Omen of Light + Annulment.",
-              "Swap the +1-crafted rune for a +1-to-all-spell-skills rune at the very end (replaces the crafted mod cleanly)."
-            ],
-            "est_cost": "~high (runes ~6 div each, alloy ~2 div) - volatile",
-            "source": "wand meta-craft guide (Astrid's Creativity + alloy)",
-            "flag": "Uses rune-based metacrafting (+1 crafted mod) and alloys; deterministic-ish but expensive. Not solver-computed."
-          }
-        }
-      }
-    },
-    "mercenary": {
-      "label": "Mercenary",
-      "weapon_label": "Crossbow",
-      "slots": {}
-    },
-    "warrior": {
-      "label": "Warrior",
-      "weapon_label": "Mace / Two-Hand",
-      "slots": {}
-    },
-    "witch": {
-      "label": "Witch",
-      "weapon_label": "Sceptre / Staff",
-      "slots": {}
+ "_meta": {
+  "note": "Curated, hand-authored crafting recipes for common gear. These are step-by-step guides, NOT solver output, because they use deterministic recipes (rune-forging, fracture-locks, desecration sequences) that fall outside the optimizer's scope. Costs are VOLATILE and given as rough league-snapshot ranges; treat them as estimates, not quotes. Recipes are adapted from public 0.5 (Runes of Aldur) crafting guides and flagged where a step depends on unpublished odds.",
+  "patch": "0.5 Runes of Aldur",
+  "slots": [
+   "weapon",
+   "offhand",
+   "helmet",
+   "body",
+   "gloves",
+   "boots",
+   "belt",
+   "amulet",
+   "ring1",
+   "ring2"
+  ],
+  "budget_levels": [
+   "low",
+   "med",
+   "high"
+  ]
+ },
+ "classes": {
+  "monk": {
+   "label": "Monk",
+   "weapon_label": "Quarterstaff",
+   "slots": {
+    "weapon": {
+     "low": {
+      "base": "Buy a white (Normal) Quarterstaff, item level 82+, highest %physical-damage implicit you can afford.",
+      "steps": [
+       "Use the optimizer (Step 1-3) for a budget physical + attack-speed staff: it will route you through Transmutation then Augmentation/Regal to add the mods you pick.",
+       "Target: one of %increased Physical Damage (prefix) plus Attack Speed (suffix) to start; add Crit or flat phys later if budget allows.",
+       "This is the cheapest entry: no essences or desecration, just orbs."
+      ],
+      "est_cost": "~5-20 ex",
+      "source": "general optimizer route",
+      "ilvl": "82+"
+     },
+     "med": {
+      "base": "Buy a white Quarterstaff ilvl 82+ with a high %phys implicit.",
+      "steps": [
+       "Greater Essence of (your element/attack mod) to guarantee one strong prefix and upgrade to Magic.",
+       "Augmentation / Greater Augmentation to add a second prefix; Regal to Rare when you have your prefixes.",
+       "Use the optimizer with Essence + Greater/Perfect orbs enabled and pick your two prefixes + a suffix; follow its step list.",
+       "Finish with Exalted Orbs (or one Exalted + Omen of Greater Exaltation when you have 2 open slots) to fill remaining suffixes."
+      ],
+      "est_cost": "~30-80 ex",
+      "source": "optimizer route with essences",
+      "ilvl": "82+"
+     },
+     "high": {
+      "base": "Rune-forged Duality 'warding' Quarterstaff (deterministic unique-style craft).",
+      "steps": [
+       "This high-end staff is NOT made with orbs/essences. It is rune-forged: buy a Warding Starlet Ore (~30 ex) and forge it at the Verisium Anvil to get a Duality quarterstaff (rolls 200-300% phys, 20-30% crit damage, 12-22% attack speed). Re-roll/buy until you get a high physical + high crit-damage roll.",
+       "Upgrade it with the rune-master recipe: needs ~20 Exceptional Verisium (~3 ex each), an Oloth's Crest of the Sun (price volatile, was ~120 ex), and the upgrade RECIPE which drops from the Runes of Kings March expedition league mechanic (not from the campaign).",
+       "Rune-forging gives one of two outcomes: +50% weapon damage OR +50% crit chance (T1-equivalent crit). Both are excellent.",
+       "Because this is deterministic, the optimizer does not compute it. The value is that an equivalent rare staff costs far more than the materials."
+      ],
+      "est_cost": "~30 ex base + ~180 ex upgrade (volatile)",
+      "source": "rune-forging guide (Duality quarterstaff)",
+      "flag": "Deterministic rune-forge recipe; materials and the expedition recipe are required. Costs highly volatile."
+     }
     }
+   }
   },
-  "shared_slots": {
-    "_note": "Slot recipes that apply across classes (armour pieces use the same mod pools regardless of class; only the attribute requirement of the base differs).",
-    "boots": {
-      "low": {
-        "base": "Buy a white boots base matching your build's defence (evasion / armour / ES / hybrid), ilvl 75+ (82 for T1 resistances). Movement speed is the key suffix you want.",
-        "steps": [
-          "Use a resistance Essence to guarantee a resistance, then the optimizer to add movement speed + a second resistance.",
-          "For a budget pair you can just buy a Magic base with 30-35% movement speed and a resistance off trade instead of crafting."
-        ],
-        "est_cost": "~1-3 div",
-        "source": "boots upgrade guide (trade-or-craft)"
-      },
-      "med": {
-        "base": "White boots base (preferably an 'exceptional' double-socket base if cheap, under ~1 div), ilvl 82.",
-        "steps": [
-          "Quality + socket the base FIRST (Putrefaction corrupts the item, so you can't quality/socket afterward).",
-          "Greater Essence of (the resistance/attribute you need) to guarantee a useful mod.",
-          "Omen of Sinistral/Dextral Necromancy + Preserved Rib to force a prefix/suffix desecration; reveal at the Well of Souls (hold an Omen of Abyssal Echoes for a second reveal on a valuable pair).",
-          "Omen of Greater Exaltation + Greater Exalted Orb to fill the remaining mods two at a time.",
-          "Target: 35% movement speed, two resistances, and an evasion/ES/life roll matching your defence."
-        ],
-        "est_cost": "~10-30 div",
-        "source": "boots putrefaction guide",
-        "flag": "Desecration reveal odds unpublished; modeled as RNG in CraftPath's putrefaction estimate."
-      }
-    },
-    "helmet": {
-      "med": {
-        "base": "Exceptional white helmet base matching your defence, ilvl 82.",
-        "steps": [
-          "Annul + Augment (or Transmute/Augment) to roll two good mods, e.g. T1 resistance + a %defence or flat-defence roll. Avoid the hybrid roll if you want room for rarity.",
-          "Use a Rarity essence to guarantee increased rarity (in demand this league) and reach three good mods.",
-          "Desecrate for a fourth mod (Rib + necromancy omen), then Divine for the roll if needed.",
-          "If it is a rarity-focused league, fracture a key mod on boots/gloves/helmet so you can keep rolling the rest safely."
-        ],
-        "est_cost": "~10-25 div",
-        "source": "stash-tab crafting guide (rarity helmet)",
-        "flag": "Fracture-and-lock is a manual step; CraftPath does not model fracturing as an optimizer action."
-      }
-    },
-    "amulet": {
-      "low": {
-        "base": "White amulet base (Gold amulet is best but ~3x pricier; Solar is a good second). ilvl 75+ for all T1 mods. An open prefix is worth paying for.",
-        "steps": [
-          "Perfect Augmentation if you have an open prefix (or accept a prefix you can live with).",
-          "Greater Opulence to guarantee a high rarity tier.",
-          "Omen of Sinistral Necromancy + Preserved Collarbone to force a guaranteed PREFIX desecration (the best prefixes are rarity and spirit; even a 'miss' is often a good defensive roll).",
-          "Omen of Greater Exaltation + Greater Exalted Orb to slam suffixes (crit + resistances) two at a time.",
-          "Acceptable prefixes: any life/ES/evasion, spirit, rarity. Acceptable suffixes: crit, resistances."
-        ],
-        "est_cost": "~4-8 div",
-        "source": "amulet crafting guide (budget tier)",
-        "flag": "Jackpot-driven (spirit/rarity desecration hits are high value); desecration reveal odds unpublished."
-      },
-      "med": {
-        "base": "White amulet base, ideally with an open prefix, ilvl 82.",
-        "steps": [
-          "Perfect Augmentation on the open prefix.",
-          "Greater Opulence to guarantee rarity; Omen of Sinistral Necromancy + Collarbone for a guaranteed prefix desecration.",
-          "Fracturing Orb to lock a +3 (to skills) desecrated prefix: with a desecration present you have a ~1-in-3 fracture (the desecrated mod can't be fractured). A fractured +3 amulet is worth a lot.",
-          "Add defensive resistance catalysts (fire or lightning, NOT cold; cold's T4 still rolls at the perfect-exalt level-50 floor), then Omen of Catalyzing Exaltation + Perfect Exalted Orb to bias toward resistances.",
-          "Quality with catalysts before selling so the displayed numbers look higher."
-        ],
-        "est_cost": "~15-30 div",
-        "source": "amulet crafting guide (intermediate tier)",
-        "flag": "Catalyst weighting multipliers are the creator's own testing, unverified. Fracture is a manual lock step, not solver-modeled."
-      }
-    },
-    "body": {
-      "high": {
-        "base": "Magic Vile Robe (or your defence base) ilvl 82 with T1 %energy-shield. Buy a few copies: a 1-in-3 fracture must succeed.",
-        "steps": [
-          "Artificer-socket the base and slot the new soul-mod rune (e.g. Medvit's Tending) up front so a lucky Perfect Regal can hit the mana/spirit mod.",
-          "Perfect Regal Orb hoping for the mana roll (usually misses; that's fine).",
-          "Fracture T1 energy shield: put a Preserved Rib desecration on for a 4th mod (it can't be fractured), giving a 1-in-3 to lock the ES. If it fails, start over with a fresh base.",
-          "Annul down to one mod, Exalt back to set up, then Chaos-spam to roll the 1-20% mana (or spirit) prefix (no published weights; expect ~250+ chaos on average).",
-          "Omen of Sinistral Necromancy + Ancient Rib for a guaranteed prefix desecration -> reveal flat ES (Abyssal Echoes for a 2nd reveal).",
-          "Perfect Exalted Orb + Omen of Greater Exaltation for two suffixes; finish, quality, iron rune, Divine the mana roll."
-        ],
-        "est_cost": "~20-30 div",
-        "source": "mana chestplate guide (best-in-slot mana body)",
-        "flag": "Mana/spirit roll has no published weights (creator estimate ~250 chaos avg). One mandatory 1-in-3 fracture. Not solver-computed."
-      }
+  "ranger": {
+   "label": "Ranger",
+   "weapon_label": "Bow",
+   "slots": {
+    "weapon": {
+     "low": {
+      "base": "Buy a Magic Obliterator Bow (or similar high-%phys bow) with ~130%+ increased physical damage, ilvl 82+. ~4-5 div for a good roll.",
+      "steps": [
+       "Greater Essence of Abrasion: guarantees flat physical damage and upgrades toward Rare.",
+       "If you only need physical + attack speed, use the optimizer with Essence enabled, pick flat-phys + attack-speed, and follow its steps.",
+       "Fill the last suffix with a Greater Exalted Orb."
+      ],
+      "est_cost": "~4-10 div (mostly the base)",
+      "source": "JTX bleed-bow guide (entry tier)",
+      "ilvl": "82+"
+     },
+     "med": {
+      "base": "Magic Obliterator Bow, ~130-150% phys implicit, ilvl 82+, ideally with a good open prefix.",
+      "steps": [
+       "Greater Essence of Abrasion for guaranteed flat physical (prefix 1).",
+       "Omen of Sinistral Necromancy + Omen of the Liege + Preserved Jawbone: forces a guaranteed PREFIX desecration locked to the Liege (Amon-Amarth) pool. Reveal at the Well of Souls; the companion-damage / 'increased damage while companion present' mods are guaranteed from this pool.",
+       "After your three prefixes are set, use an Omen of Greater Exaltation, then a Greater Exalted Orb, to slam two suffixes at once (saves money vs two exalts when greater exalts are pricey).",
+       "Suffixes are random here: aim for +level of gems, attack speed, or other useful rolls."
+      ],
+      "est_cost": "~15-40 div",
+      "source": "JTX bleed-bow guide (companion bow)",
+      "flag": "Desecration reveal weights are unpublished; the Liege pool guarantees the mod TYPE, the exact reveal among that pool is RNG.",
+      "ilvl": "82+"
+     }
     }
+   }
+  },
+  "sorceress": {
+   "label": "Sorceress",
+   "weapon_label": "Wand",
+   "slots": {
+    "weapon": {
+     "high": {
+      "base": "Buy a +5 (to spell skills) Wand base, ilvl 81+. Use +5, not +4: the runes are expensive and not worth it on a cheap base. Prefix doesn't matter (it gets removed).",
+      "steps": [
+       "Socket the wand (Artificer) and insert an Astramentis-style +1-crafted-mod rune (Astrid's Creativity) so the item can hold an extra crafted modifier.",
+       "Apply a crit-chance-for-spells essence (becomes Rare with your guaranteed mod).",
+       "Omen of Sinistral Crystallization + a Transcendent/abyss essence (alloy) to convert toward a prefix while removing an unwanted suffix; this adds the second crafted modifier.",
+       "Add a Jawbone desecration for another prefix; use Omen of Abyssal Echoes when revealing and BLOCK mana (take the mana reveal first so exalts later don't all roll mana).",
+       "Omen of Greater Exaltation + Perfect Exalted Orb on the two open prefixes; re-roll undesired mods with Omen of Light + Annulment.",
+       "Swap the +1-crafted rune for a +1-to-all-spell-skills rune at the very end (replaces the crafted mod cleanly)."
+      ],
+      "est_cost": "~high (runes ~6 div each, alloy ~2 div) - volatile",
+      "source": "wand meta-craft guide (Astrid's Creativity + alloy)",
+      "flag": "Uses rune-based metacrafting (+1 crafted mod) and alloys; deterministic-ish but expensive. Not solver-computed.",
+      "ilvl": "81+"
+     }
+    }
+   }
+  },
+  "mercenary": {
+   "label": "Mercenary",
+   "weapon_label": "Crossbow",
+   "slots": {}
+  },
+  "warrior": {
+   "label": "Warrior",
+   "weapon_label": "Mace / Two-Hand",
+   "slots": {}
+  },
+  "witch": {
+   "label": "Witch",
+   "weapon_label": "Sceptre / Staff",
+   "slots": {}
   }
+ },
+ "shared_slots": {
+  "_note": "Slot recipes that apply across classes (armour pieces use the same mod pools regardless of class; only the attribute requirement of the base differs).",
+  "boots": {
+   "low": {
+    "base": "Buy a white boots base matching your build's defence (evasion / armour / ES / hybrid), ilvl 75+ (82 for T1 resistances). Movement speed is the key suffix you want.",
+    "steps": [
+     "Use a resistance Essence to guarantee a resistance, then the optimizer to add movement speed + a second resistance.",
+     "For a budget pair you can just buy a Magic base with 30-35% movement speed and a resistance off trade instead of crafting."
+    ],
+    "est_cost": "~1-3 div",
+    "source": "boots upgrade guide (trade-or-craft)",
+    "ilvl": "75+"
+   },
+   "med": {
+    "base": "White boots base (preferably an 'exceptional' double-socket base if cheap, under ~1 div), ilvl 82.",
+    "steps": [
+     "Quality + socket the base FIRST (Putrefaction corrupts the item, so you can't quality/socket afterward).",
+     "Greater Essence of (the resistance/attribute you need) to guarantee a useful mod.",
+     "Omen of Sinistral/Dextral Necromancy + Preserved Rib to force a prefix/suffix desecration; reveal at the Well of Souls (hold an Omen of Abyssal Echoes for a second reveal on a valuable pair).",
+     "Omen of Greater Exaltation + Greater Exalted Orb to fill the remaining mods two at a time.",
+     "Target: 35% movement speed, two resistances, and an evasion/ES/life roll matching your defence."
+    ],
+    "est_cost": "~10-30 div",
+    "source": "boots putrefaction guide",
+    "flag": "Desecration reveal odds unpublished; modeled as RNG in CraftPath's putrefaction estimate.",
+    "ilvl": "82"
+   }
+  },
+  "helmet": {
+   "med": {
+    "base": "Exceptional white helmet base matching your defence, ilvl 82.",
+    "steps": [
+     "Annul + Augment (or Transmute/Augment) to roll two good mods, e.g. T1 resistance + a %defence or flat-defence roll. Avoid the hybrid roll if you want room for rarity.",
+     "Use a Rarity essence to guarantee increased rarity (in demand this league) and reach three good mods.",
+     "Desecrate for a fourth mod (Rib + necromancy omen), then Divine for the roll if needed.",
+     "If it is a rarity-focused league, fracture a key mod on boots/gloves/helmet so you can keep rolling the rest safely."
+    ],
+    "est_cost": "~10-25 div",
+    "source": "stash-tab crafting guide (rarity helmet)",
+    "flag": "Fracture-and-lock is a manual step; CraftPath does not model fracturing as an optimizer action.",
+    "ilvl": "82"
+   }
+  },
+  "amulet": {
+   "low": {
+    "base": "White amulet base (Gold amulet is best but ~3x pricier; Solar is a good second). ilvl 75+ for all T1 mods. An open prefix is worth paying for.",
+    "steps": [
+     "Perfect Augmentation if you have an open prefix (or accept a prefix you can live with).",
+     "Greater Opulence to guarantee a high rarity tier.",
+     "Omen of Sinistral Necromancy + Preserved Collarbone to force a guaranteed PREFIX desecration (the best prefixes are rarity and spirit; even a 'miss' is often a good defensive roll).",
+     "Omen of Greater Exaltation + Greater Exalted Orb to slam suffixes (crit + resistances) two at a time.",
+     "Acceptable prefixes: any life/ES/evasion, spirit, rarity. Acceptable suffixes: crit, resistances."
+    ],
+    "est_cost": "~4-8 div",
+    "source": "amulet crafting guide (budget tier)",
+    "flag": "Jackpot-driven (spirit/rarity desecration hits are high value); desecration reveal odds unpublished.",
+    "ilvl": "75+"
+   },
+   "med": {
+    "base": "White amulet base, ideally with an open prefix, ilvl 82.",
+    "steps": [
+     "Perfect Augmentation on the open prefix.",
+     "Greater Opulence to guarantee rarity; Omen of Sinistral Necromancy + Collarbone for a guaranteed prefix desecration.",
+     "Fracturing Orb to lock a +3 (to skills) desecrated prefix: with a desecration present you have a ~1-in-3 fracture (the desecrated mod can't be fractured). A fractured +3 amulet is worth a lot.",
+     "Add defensive resistance catalysts (fire or lightning, NOT cold; cold's T4 still rolls at the perfect-exalt level-50 floor), then Omen of Catalyzing Exaltation + Perfect Exalted Orb to bias toward resistances.",
+     "Quality with catalysts before selling so the displayed numbers look higher."
+    ],
+    "est_cost": "~15-30 div",
+    "source": "amulet crafting guide (intermediate tier)",
+    "flag": "Catalyst weighting multipliers are the creator's own testing, unverified. Fracture is a manual lock step, not solver-modeled.",
+    "ilvl": "82"
+   }
+  },
+  "body": {
+   "high": {
+    "base": "Magic Vile Robe (or your defence base) ilvl 82 with T1 %energy-shield. Buy a few copies: a 1-in-3 fracture must succeed.",
+    "steps": [
+     "Artificer-socket the base and slot the new soul-mod rune (e.g. Medvit's Tending) up front so a lucky Perfect Regal can hit the mana/spirit mod.",
+     "Perfect Regal Orb hoping for the mana roll (usually misses; that's fine).",
+     "Fracture T1 energy shield: put a Preserved Rib desecration on for a 4th mod (it can't be fractured), giving a 1-in-3 to lock the ES. If it fails, start over with a fresh base.",
+     "Annul down to one mod, Exalt back to set up, then Chaos-spam to roll the 1-20% mana (or spirit) prefix (no published weights; expect ~250+ chaos on average).",
+     "Omen of Sinistral Necromancy + Ancient Rib for a guaranteed prefix desecration -> reveal flat ES (Abyssal Echoes for a 2nd reveal).",
+     "Perfect Exalted Orb + Omen of Greater Exaltation for two suffixes; finish, quality, iron rune, Divine the mana roll."
+    ],
+    "est_cost": "~20-30 div",
+    "source": "mana chestplate guide (best-in-slot mana body)",
+    "flag": "Mana/spirit roll has no published weights (creator estimate ~250 chaos avg). One mandatory 1-in-3 fracture. Not solver-computed.",
+    "ilvl": "82"
+   }
+  }
+ },
+ "desecration": {
+  "title": "Desecration / Well of Souls reference",
+  "intro": "Desecration adds an Unrevealed Desecrated modifier that you reveal at the Well of Souls. If the item's affixes are already full, a random existing modifier is removed first. An item that already carries a Desecrated modifier cannot be Desecrated again. A reveal can land a normal base modifier, not only a desecrated one, unless an Omen forces a named (lord) modifier.",
+  "currencies": [
+   "Jawbone (Gnawed / Preserved / Ancient): desecrates a Rare Weapon or Quiver.",
+   "Rib (Gnawed / Preserved / Ancient): desecrates a Rare Armour.",
+   "Collarbone (Gnawed / Preserved / Ancient): desecrates a Rare Amulet, Ring or Belt.",
+   "Preserved Cranium: desecrates a Rare Jewel. Unstable: rising chance to destroy the item each use.",
+   "Preserved Vertebrae: desecrates a Rare Waystone.",
+   "Altered Collarbone: desecrates a Rare Amulet/Ring/Belt with a chance for otherworldly modifiers.",
+   "Bone tier gating: Gnawed = maximum item level 64; Preserved = no cap; Ancient = minimum modifier level 40."
+  ],
+  "omens": [
+   "Omen of the Sovereign: next Weapon/Jewellery desecration guarantees a random Ulaman modifier.",
+   "Omen of the Liege: next Weapon/Jewellery desecration guarantees a random Amanamu modifier.",
+   "Omen of the Blackblooded: next Weapon/Jewellery desecration guarantees a random Kurgal modifier.",
+   "Omen of Abyssal Echoes: reroll the reveal options once.",
+   "Omen of Putrefaction: replace all modifiers, creating up to 6 Unrevealed modifiers, and Corrupt the item.",
+   "Omen of Light: your next Orb of Annulment removes only Desecrated modifiers.",
+   "Omen of Sinistral Necromancy: next desecration adds only prefixes.",
+   "Omen of Dextral Necromancy: next desecration adds only suffixes."
+  ],
+  "rules": [
+   "A reveal may include a normal base modifier unless an omen guarantees a named lord modifier.",
+   "Body Armour, Gloves, Boots and Helmet have no prefix desecrated modifiers (suffix-only).",
+   "Sceptres have no exclusive desecrated modifiers.",
+   "Lich (lord-forcing) omens work only on Weapons and Jewellery.",
+   "Jewel exclusive desecrated modifiers roll only on regular jewels, not Time-Lost jewels."
+  ],
+  "lords": "The three Abyssal Lords are Ulaman, Amanamu and Kurgal; each lord omen guarantees a random modifier from that lord's pool.",
+  "source": "PoE2DB desecrated modifier tables + Well of Souls / Abyss notes (0.5 Runes of Aldur)"
+ },
+ "methods": [
+  {
+   "title": "Magic base flipping (white to magic, for resale)",
+   "when": "Low on currency, or you want to mass-produce sellable magic bases instead of buying them.",
+   "base": "A white (Normal) base at the right item level. For gold amulets, ilvl 75+ reaches the sought tier-1 mods; ilvl 82 is required for tier-1 elemental resistances, which also dilutes the pool.",
+   "ilvl": "75+ (82 for T1 resists)",
+   "steps": [
+    "Perfect Orb of Transmutation: rolls one modifier with minimum modifier level 70, biasing toward high tiers.",
+    "Then a Greater or Perfect Orb of Augmentation adds the second mod. Perfect biases higher tiers but is expensive; Greater is far cheaper and still reaches tier-1 for many mods, so it is the volume-friendly choice.",
+    "Sell magic bases that rolled a desirable prefix + suffix (for amulets: +3 to a skill type, spirit, high rarity). Reforge or Orb-of-Annulment-spam the misses to re-roll cheaply."
+   ],
+   "est_cost": "a few ex per base; profit is from volume, not any single roll",
+   "source": "public 0.5 base-flipping guide (transcript)"
+  }
+ ]
 }

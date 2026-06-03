@@ -68,6 +68,16 @@
   .gear-slot.active{border-color:var(--verisium-bright);background:rgba(46,197,192,.14)}
   .gear-slot .gs-ico{font-size:20px;display:block;margin-bottom:4px}
   .guide-recipe{border:1px solid var(--edge);border-radius:8px;padding:20px;background:rgba(20,26,38,.5);margin-top:6px}
+  .recipe-ilvl{font-size:13px;color:var(--ash);margin:8px 0}
+  details.guide-ref{border:1px solid var(--edge);border-radius:8px;background:rgba(20,26,38,.5);margin:10px 0;padding:0}
+  details.guide-ref>summary{cursor:pointer;padding:13px 18px;font-size:14px;color:var(--gold-bright);letter-spacing:.05em;list-style:none}
+  details.guide-ref>summary::-webkit-details-marker{display:none}
+  details.guide-ref[open]>summary{border-bottom:1px solid var(--edge)}
+  details.guide-ref .gr-body{padding:6px 18px 16px}
+  details.guide-ref .gr-body p{font-size:13px;color:var(--ash);line-height:1.5}
+  details.guide-ref .gr-h{font-size:12px;color:var(--verisium-bright);letter-spacing:.08em;text-transform:uppercase;margin:12px 0 5px}
+  details.guide-ref ul{margin:0;padding-left:18px}
+  details.guide-ref li{font-size:13px;color:var(--ash);margin:4px 0;line-height:1.45}
   .budget-tabs{display:flex;gap:8px;margin-bottom:16px}
   .budget-tab{padding:7px 16px;border:1px solid var(--edge);border-radius:5px;cursor:pointer;
     font-size:12px;letter-spacing:.06em;color:var(--ash);background:rgba(40,50,70,.2);transition:all .14s}
@@ -440,6 +450,7 @@
           <div><label class="mini">Item base</label><select id="baseVisible"></select></div>
           <div style="flex:none;width:78px"><label class="mini">iLvl</label><input id="ilvlVisible" type="number" value="81" min="1" max="100"></div>
         </div>
+        <div class="item-ilvl" style="margin:-2px 0 10px">Item level caps the mod tiers you can roll. 82 reaches every tier-1 mod; lower item levels lock out the top tiers.</div>
         <div id="pasteZone" class="paste-zone">
           <textarea id="pasteBox" placeholder="Ctrl+C an item in-game (or copy from trade), paste here…"></textarea>
           <button class="forge-btn alt" id="parseBtn">⤵ Parse item</button>
@@ -550,6 +561,9 @@
     </div>
     <div id="guidesBody" style="display:none;max-width:920px;margin:14px auto 0">
       <div class="stage-instr" style="text-align:center">Pick your class, choose a gear slot, then a budget. These are hand-written recipes adapted from public 0.5 crafting guides. Costs are rough, volatile estimates, not quotes.</div>
+
+      <!-- desecration reference + general methods (sourced, collapsible) -->
+      <div id="guideReference"></div>
 
       <!-- class picker -->
       <div id="guideClasses" class="guide-classes"></div>
@@ -809,6 +823,33 @@ async function loadGuides(){
   try{ GUIDES = await api('/api/build-guides'); }
   catch(e){ cont.innerHTML='<div class="recipe-none">Could not load guides.</div>'; return; }
   renderGuideClasses();
+  renderGuideReference();
+}
+
+function renderGuideReference(){
+  const host=$('#guideReference'); if(!host || !GUIDES) return;
+  const D=GUIDES.desecration, M=GUIDES.methods||[];
+  const ul=(arr)=>'<ul>'+arr.map(x=>'<li>'+x+'</li>').join('')+'</ul>';
+  let html='';
+  if(D){
+    html+='<details class="guide-ref"><summary>🦴 '+(D.title||'Desecration reference')+'</summary><div class="gr-body">'+
+      (D.intro?'<p>'+D.intro+'</p>':'')+
+      (D.currencies?'<div class="gr-h">Bone currencies</div>'+ul(D.currencies):'')+
+      (D.omens?'<div class="gr-h">Omens</div>'+ul(D.omens):'')+
+      (D.rules?'<div class="gr-h">Rules</div>'+ul(D.rules):'')+
+      (D.lords?'<p>'+D.lords+'</p>':'')+
+      (D.source?'<div class="recipe-src">Source: '+D.source+'</div>':'')+
+      '</div></details>';
+  }
+  html+=M.map(m=>'<details class="guide-ref"><summary>🛠 '+(m.title||'Method')+'</summary><div class="gr-body">'+
+    (m.when?'<p><b>When:</b> '+m.when+'</p>':'')+
+    (m.base?'<div class="recipe-base"><b>Base:</b> '+m.base+'</div>':'')+
+    (m.ilvl?'<div class="recipe-ilvl"><b>Item level:</b> '+m.ilvl+' <span style="color:var(--ash)">(caps the mod tiers you can roll)</span></div>':'')+
+    (m.steps?'<ol class="recipe-steps">'+m.steps.map(s=>'<li>'+s+'</li>').join('')+'</ol>':'')+
+    (m.est_cost?'<div class="recipe-cost"><b>Rough cost:</b> '+m.est_cost+'</div>':'')+
+    (m.source?'<div class="recipe-src">Adapted from: '+m.source+'</div>':'')+
+    '</div></details>').join('');
+  host.innerHTML=html;
 }
 
 function renderGuideClasses(){
@@ -871,6 +912,7 @@ function renderRecipe(classKey, slot, recipes){
     box.innerHTML=
       `<div class="budget-tabs">${tabs}</div>`+
       `<div class="recipe-base"><b>Base:</b> ${r.base||''}</div>`+
+      (r.ilvl?`<div class="recipe-ilvl"><b>Item level:</b> ${r.ilvl} <span style="color:var(--ash)">(caps the mod tiers you can roll)</span></div>`:'')+
       `<ol class="recipe-steps">${(r.steps||[]).map(s=>`<li>${s}</li>`).join('')}</ol>`+
       (r.est_cost?`<div class="recipe-cost"><b>Rough cost:</b> ${r.est_cost} <span style="color:var(--ash)">(volatile estimate, not a quote)</span></div>`:'')+
       (r.flag?`<div class="recipe-flag">⚠ ${r.flag}</div>`:'')+
