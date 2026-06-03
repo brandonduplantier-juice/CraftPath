@@ -257,6 +257,17 @@
   .item-card.target .art-ph{color:#8a7a4a}
   .art-ph svg{width:100%;height:100%}
   .art-credit{font-size:8.5px;letter-spacing:.03em;color:var(--ash-dim);opacity:.65;font-family:'JetBrains Mono',monospace}
+  .mc-row.locked{cursor:default;opacity:.92}
+  .mc-row.locked .mc-tag{color:#e6c87a}
+  .mc-empty{font-size:11px;color:var(--ash-dim);opacity:.5;font-style:italic;padding:8px 4px;text-align:center}
+  .desec-ref{margin:18px auto 0;max-width:1000px}
+  .desec-toggle{cursor:pointer;text-align:center;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.05em;color:var(--amanamu,#a98bd0);padding:8px;border:1px solid #4a3a6a;border-radius:5px;background:rgba(74,58,106,.12);user-select:none}
+  .desec-toggle:hover{background:rgba(74,58,106,.22)}
+  .desec-body{margin-top:12px}
+  .desec-note{font-size:11px;color:var(--ash-dim);opacity:.8;margin-bottom:10px;line-height:1.5;text-align:center}
+  .desec-list{max-height:240px;overflow-y:auto}
+  .desec-row{cursor:default;opacity:.85}
+  .desec-row .mr-meta{font-size:9px;color:var(--amanamu,#a98bd0);opacity:.7}
   .item-ilvl{font-size:11px;color:var(--ash-dim);text-align:center}
 
   .paste-zone textarea{width:100%;height:96px;background:rgba(0,0,0,.32);border:1px dashed var(--edge);
@@ -385,6 +396,22 @@
         <div class="chips" id="chipSuf"></div>
       </div>
     </div>
+    <div class="desec-ref" id="desecRef">
+      <div class="desec-toggle" id="desecToggle">🦴 Desecration mod pool (Well of Souls) — click to view ▾</div>
+      <div class="desec-body" id="desecBody" style="display:none">
+        <div class="desec-note">These are the mods a Bone + Necromancy omen can add, revealed at the Well of Souls. Reveal odds are unpublished, so these are <b>what's possible</b>, not a probability. Sinistral omen forces a prefix; Dextral forces a suffix.</div>
+        <div class="stage-row two">
+          <div class="side-col wide">
+            <div class="col-head pre"><span>Desecrated Prefixes</span><span class="cap" id="desecCapPre">—</span></div>
+            <div class="mod-list desec-list" id="desecPre"></div>
+          </div>
+          <div class="side-col wide">
+            <div class="col-head suf"><span>Desecrated Suffixes</span><span class="cap" id="desecCapSuf">—</span></div>
+            <div class="mod-list desec-list" id="desecSuf"></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="next-bar">
       <button class="ghost-btn" id="backTo1">← Back</button>
       <button class="ghost-btn" id="startOver2">↺ Start over</button>
@@ -395,8 +422,16 @@
   <!-- STEP 3: the plan -->
   <section class="wiz-stage" id="step3" style="display:none">
     <div class="stage-row plan">
+      <div class="side-col" id="s3pre">
+        <div class="col-label pre">Kept Prefixes</div>
+        <div class="mod-col" id="planPre"></div>
+      </div>
       <div class="center-col wide">
         <div id="planItemCard" class="item-card target"></div>
+      </div>
+      <div class="side-col" id="s3suf">
+        <div class="col-label suf">Kept Suffixes</div>
+        <div class="mod-col" id="planSuf"></div>
       </div>
     </div>
     <div class="results" id="results"></div>
@@ -528,7 +563,32 @@ function renderOwnMods(){
   });
 }
 
-function gotoStep(n){
+// render the KEPT mods locked into the flanking columns on step 3 (the plan).
+// These are the mods carried over from the starting item that stay on the
+// final result — shown locked (not clickable) so the plan view matches steps 1-2.
+function renderPlanKept(){
+  const pre=$('#planPre'), suf=$('#planSuf');
+  if(!pre||!suf) return;
+  pre.innerHTML=''; suf.innerHTML='';
+  const kept = ITEM_MODS.filter(m=>m.state==='keep');
+  if(!kept.length){
+    pre.innerHTML='<div class="mc-empty">no kept mods</div>';
+    suf.innerHTML='<div class="mc-empty">no kept mods</div>';
+    return;
+  }
+  kept.forEach((m,i)=>{
+    const col = m.affix==='Prefix'?pre:suf;
+    const dir = m.affix==='Prefix'?'-12px':'12px';
+    const row=document.createElement('div');
+    row.className='mc-row keep locked';
+    row.style.setProperty('--mdir',dir);
+    row.style.animationDelay=(i*0.05)+'s';
+    row.innerHTML=`<span class="mc-text">${m.text}</span><span class="mc-tag">🔒 kept</span>`;
+    col.appendChild(row);
+  });
+  if(!pre.children.length) pre.innerHTML='<div class="mc-empty">none</div>';
+  if(!suf.children.length) suf.innerHTML='<div class="mc-empty">none</div>';
+}
   const cur=$('#step'+WIZ_STEP), next=$('#step'+n);
   if(cur===next){ return; }
   // update stepper
@@ -612,6 +672,7 @@ async function init(){
     }
     renderItemCard(false);
     renderChips(); renderLists();   // refresh caps/blocking to reflect kept mods
+    loadDesecRef();
     gotoStep(2);
   };
   $('#backTo1').onclick = ()=> gotoStep(1);
@@ -622,6 +683,7 @@ async function init(){
       s.style.borderColor='var(--blood)'; setTimeout(()=>{s.style.borderColor='';},1500); return;
     }
     renderItemCard(true);
+    renderPlanKept();
     gotoStep(3);
     solve();
   };
@@ -724,6 +786,43 @@ function renderLists(){
   renderOneList($('#listPre'), MODS.prefixes, chosenPre, true);
   renderOneList($('#listSuf'), MODS.suffixes, chosenSuf, false);
 }
+
+// load + render the desecration mod pool reference for the current base
+let _desecLoaded='';
+async function loadDesecRef(){
+  const base=$('#base').value;
+  const toggle=$('#desecToggle');
+  if(toggle && !toggle._wired){
+    toggle._wired=true;
+    toggle.onclick=()=>{
+      const body=$('#desecBody');
+      const open=body.style.display!=='none';
+      body.style.display=open?'none':'block';
+      toggle.innerHTML='🦴 Desecration mod pool (Well of Souls) — click to view '+(open?'▾':'▴');
+    };
+  }
+  if(_desecLoaded===base) return;   // cache per base
+  _desecLoaded=base;
+  try{
+    const r=await api('/api/desecrated/'+base);
+    const pre=$('#desecPre'), suf=$('#desecSuf');
+    if(!r.available || (!r.prefixes.length && !r.suffixes.length)){
+      pre.innerHTML='<div class="mc-empty">no desecrated pool for this base</div>';
+      suf.innerHTML='<div class="mc-empty">no desecrated pool for this base</div>';
+      $('#desecCapPre').textContent='0'; $('#desecCapSuf').textContent='0';
+      return;
+    }
+    const row=m=>`<div class="mod-row desec-row"><span class="mr-text">${m.text}</span>`+
+                 `<span class="mr-meta">${m.lord||''} · L${m.level||'?'}</span></div>`;
+    pre.innerHTML=r.prefixes.map(row).join('')||'<div class="mc-empty">none</div>';
+    suf.innerHTML=r.suffixes.map(row).join('')||'<div class="mc-empty">none</div>';
+    $('#desecCapPre').textContent=r.prefixes.length;
+    $('#desecCapSuf').textContent=r.suffixes.length;
+  }catch(e){
+    $('#desecPre').innerHTML='<div class="mc-empty">could not load</div>';
+    $('#desecSuf').innerHTML='<div class="mc-empty">could not load</div>';
+  }
+}
 function renderChips(){
   const mk=(arr,el,cls)=>{
     el.innerHTML = arr.length ? '' : '<span class="empty" style="padding:4px">none</span>';
@@ -769,7 +868,10 @@ function methodNote(action){
   }
   if(a.includes('sinistral annulment')||a.includes('dextral annulment')){
     const suf=a.includes('dextral');
-    return `<div class="method-note">✦ <b>How:</b> activate an <b>Omen of ${suf?'Dextral':'Sinistral'} Annulment</b>, then use an <b>Orb of Annulment</b> — it removes only a ${suf?'suffix':'prefix'} instead of any random mod. <span class="est">Ritual-only omen; cost varies — estimate.</span></div>`;
+    return `<div class="method-note">✦ <b>How:</b> activate an <b>Omen of ${suf?'Dextral':'Sinistral'} Annulment</b>, then use an <b>Orb of Annulment</b> — it removes only a ${suf?'suffix':'prefix'} instead of any random mod. This is the <b>safer</b> way to annul: it limits the removal to one side. <span class="est">Ritual-only omen; cost varies — estimate.</span></div>`;
+  }
+  if(a==='orb of annulment'||a.includes('orb of annulment')){
+    return `<div class="method-note">⚠️ <b>How:</b> an <b>Orb of Annulment</b> removes ONE <b>random</b> mod — you can't choose which. <b>Safe</b> when every mod still on the item is junk (you only want to delete junk). <b>UNSAFE</b> when a mod you want to keep is also on the item — annul can hit your good mod instead. If you have keepers on, removing at your own risk; consider a <b>Sinistral/Dextral Annulment omen</b> to restrict removal to the side with the junk. <span class="est">Outcome is random.</span></div>`;
   }
   if(a.startsWith('✦')||a.includes('essence')){
     return `<div class="method-note">✦ <b>How:</b> use this <b>Essence</b> on a white (Normal) base — it guarantees the listed mod and upgrades the item to Magic.</div>`;

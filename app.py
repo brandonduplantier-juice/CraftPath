@@ -789,14 +789,16 @@ def api_solve():
                     return None
                 return {"applies": True, "recs": recs,
                         "how": [
-                            "Get the item to RARE first (uncorrupted, not already desecrated).",
-                            "Prep now: apply 20% quality + sockets/runes — Putrefaction CORRUPTS the item, so you can't quality or socket it afterward.",
-                            "Hold an Omen of Putrefaction + a Bone (Rib=armour, Jawbone=weapon/quiver, Collarbone=jewellery)" + (", plus the lord omen below to narrow the pool" if any(r["lord_omen"] for r in recs) else "") + ".",
-                            "Use the Bone: it replaces ALL mods with up to 6 unrevealed desecrated mods (3 prefix + 3 suffix) and corrupts the item.",
-                            "Reveal at the Well of Souls one slot at a time (prefixes first, then suffixes). Pick your target from the options shown; save high-value mods for the last slot of that type, since taking a mod blocks its group on later reveals.",
-                            "Optional: if a reveal shows no good options, an Omen of Abyssal Echoes rerolls the options for that reveal once (pricey, ~99 ex). Useful only when the slot is critical.",
+                            "BASE: buy a high-item-level MAGIC base with ONE good stat (hold Alt in-game to see item level — higher ilvl = better possible tiers). One clean stat leaves room to craft.",
+                            "ESSENCE (one only): apply a single Greater Essence for a guaranteed strong mod (e.g. Greater Essence of Abrasion = % physical for a phys weapon). Under 0.5 rules you get ONE essence — make it count.",
+                            "⚠️ ACTIVATE THE OMEN: right-click the Omen of Sinistral Necromancy in your inventory to set it ACTIVE — it does nothing unless activated. (Dextral Necromancy forces a suffix instead.) People forget this step constantly.",
+                            "DESECRATE: with the omen active, use a Bone (Preserved Jawbone = weapon, Rib = armour, Collarbone = jewellery). Sinistral forces the new unrevealed mod to be a PREFIX — prefixes carry the big damage rolls, so this is usually what you want.",
+                            "REVEAL at the Well of Souls: travel there and reveal the desecrated mod to see what you got.",
+                            "⭐ ABYSSAL ECHOES (situational, ~99 ex): if the rest of the weapon already rolled high/perfect and this reveal is make-or-break, hold an Omen of Abyssal Echoes for a SECOND chance at the reveal. It's expensive — only worth it on an item already worth saving. Otherwise just reveal and accept the result.",
+                            "FILL REMAINING SLOTS after a good reveal: use Exalted Orbs to add random mods. To skip weak low tiers, use a Greater Exalted (min mod lvl ~35) or Perfect Exalted (~50). Pair a single Perfect Exalted with an Omen of Greater Exaltation to add TWO mods at once — doubling the value of one rare orb.",
+                            "FINISH LAST: quality to 20%, add sockets + runes only at the end.",
                         ],
-                        "estimate_flag": "Reveal odds are unpublished by GGG — modeled flat (uniform) and are estimates. The METHOD is reliable; the attempt count is a ballpark."}
+                        "estimate_flag": "Reveal odds are unpublished by GGG — modeled flat (uniform), so attempt counts are ballpark. The METHOD/sequence is verified from current 0.5 crafting guides; the per-step odds are estimates."}
             except Exception:
                 return None
         puf = _puf_early()
