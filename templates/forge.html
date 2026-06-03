@@ -250,6 +250,13 @@
   .item-prop .pmod.suf{color:#d8c187}
   .item-sep{height:1px;background:linear-gradient(90deg,transparent,#3a2e54,transparent);margin:9px 0}
   .item-card.target .item-sep{background:linear-gradient(90deg,transparent,#54462e,transparent)}
+  /* item art slot */
+  .item-art{display:flex;flex-direction:column;align-items:center;gap:4px;margin:4px 0 10px}
+  .art-img{max-width:96px;max-height:96px;object-fit:contain;image-rendering:auto}
+  .art-ph{width:72px;height:72px;color:#6a5a8a;opacity:.7;display:flex;align-items:center;justify-content:center}
+  .item-card.target .art-ph{color:#8a7a4a}
+  .art-ph svg{width:100%;height:100%}
+  .art-credit{font-size:8.5px;letter-spacing:.03em;color:var(--ash-dim);opacity:.65;font-family:'JetBrains Mono',monospace}
   .item-ilvl{font-size:11px;color:var(--ash-dim);text-align:center}
 
   .paste-zone textarea{width:100%;height:96px;background:rgba(0,0,0,.32);border:1px dashed var(--edge);
@@ -446,15 +453,54 @@ function renderItemCard(targetMode){
   const rarity = $('#startRarity').value || ITEM_META.rarity;
   const nm = ITEM_META.name || (targetMode ? 'Your Target' : 'Crafted Item');
   const baseLabel = ($('#baseVisible').selectedOptions[0]||{}).text || '';
+  const baseToken = $('#base').value || '';
   card.innerHTML = `
     <div class="item-head"><div class="item-name">${nm}</div><div class="item-base">${baseLabel}</div></div>
     <div class="item-body">
+      <div class="item-art">${itemArt(baseToken, baseLabel)}</div>
       <div class="item-prop"><b style="color:${rarity==='Rare'?'#e6c87a':rarity==='Magic'?'#8a9bd8':'#c8c8c8'}">${rarity}</b></div>
       <div class="item-sep"></div>
       <div class="item-prop">${mods.length?mods.map(m=>`<span class="pmod ${m.suf?'suf':''}" style="${m.state==='remove'?'text-decoration:line-through;opacity:.5':m.state==='skip'?'opacity:.4':''}">${m.text}</span>`).join(''):'<span style="opacity:.5">no mods yet</span>'}</div>
       <div class="item-sep"></div>
       <div class="item-ilvl">Item Level: ${$('#ilvl').value||81}</div>
     </div>`;
+}
+
+// BASE_ART: real per-base image URLs go here as they're sourced (e.g. from
+// GGG's official press kit / forum art releases). Key = base token, value =
+// image URL. Empty for now -> the category placeholder below is used instead.
+// Item art is © Grinding Gear Games, used non-commercially with credit.
+const BASE_ART = {
+  // "one_hand_mace": "https://.../one_hand_mace.png",
+};
+// pick a category from the base token for the placeholder silhouette
+function artCategory(token){
+  const t=(token||'').toLowerCase();
+  if(/(axe|mace|sword|dagger|claw|spear|flail|bow|crossbow|wand|staff|sceptre|quarterstaff)/.test(t)) return 'weapon';
+  if(/(ring|amulet|belt)/.test(t)) return 'jewellery';
+  if(/(focus|quiver|shield)/.test(t)) return 'offhand';
+  return 'armour';
+}
+// inline-SVG placeholder silhouettes (no external files, nothing to break)
+const ART_SVG = {
+  weapon:`<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M30 8l10 10-18 18-6-6z"/><path d="M14 30l-6 6 4 4 6-6"/><path d="M30 8l8-2-2 8"/></svg>`,
+  armour:`<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M24 6l14 5v10c0 9-6 16-14 21-8-5-14-12-14-21V11z"/></svg>`,
+  jewellery:`<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><circle cx="24" cy="28" r="12"/><path d="M24 16v-6M18 12h12"/></svg>`,
+  offhand:`<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M24 6c8 4 14 4 14 4v12c0 9-6 14-14 20-8-6-14-11-14-20V10s6 0 14-4z"/><path d="M24 6v40"/></svg>`,
+};
+function itemArt(token, label){
+  const url = BASE_ART[token];
+  if(url){
+    return `<img class="art-img" src="${url}" alt="${label}" loading="lazy"
+              onerror="this.parentElement.innerHTML=itemArtFallback('${token}')">
+            <div class="art-credit">art © Grinding Gear Games</div>`;
+  }
+  return itemArtFallback(token);
+}
+function itemArtFallback(token){
+  const cat = artCategory(token);
+  return `<div class="art-ph" title="${cat} (placeholder art)">${ART_SVG[cat]||ART_SVG.armour}</div>
+          <div class="art-credit">item art © Grinding Gear Games · placeholder</div>`;
 }
 
 // render the keep/remove rows in the flanking columns (step 1)
