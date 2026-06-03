@@ -20,10 +20,12 @@ Newest items near the top of each section. Status: ☐ todo · ◐ in progress �
 ## Functionality
 - ◐ **Method-filter checkboxes (Step 2).** DONE: Essence / Greater-Perfect / Bones&Omens
   checkboxes above the search grey out mods a checked method can't make, with a popup
-  explaining why + info tooltips. REMAINING: wire the checked methods through to
-  CONSTRAIN the solver's plan (so it knows e.g. 1 Perfect Exalt + omen vs 2), not just
-  grey the target list. Also: make desecrated mods directly selectable as targets when
-  Bones&Omens is checked (currently they're a reference list + grey regular mods).
+  explaining why + info tooltips. DONE: checked methods now CONSTRAIN the solver's plan
+  (enabled_methods → basic orbs always + only checked optional methods; nothing checked
+  = all methods). "Bones & Omens" enables the Exaltation/Annulment steering omens.
+  REMAINING: make desecrated mods directly SELECTABLE as targets when Bones&Omens is
+  checked (currently they're a reference list + grey regular mods); the 'omens' mapping
+  covers steering omens but not desecration-as-target.
 - ☐ **Conditional path / decision-tree view.** Present the plan as explicit branches:
   "if this → continue, if that → remove and roll again, if this → brick." The solver
   already computes failure-recovery per step; this is a presentation/UX layer on top.

@@ -974,6 +974,12 @@ async function solve(){
   $('#forge').disabled=true; $('#forge').classList.add('loading');
   results.innerHTML='<div class="verdict"><div class="spinner"></div><div class="loading-msg">Divining the path</div><div class="sub loading-sub">solving the optimal craft sequence</div></div>';
   const body={base:$('#base').value, item_level:+$('#ilvl').value||81, prefixes:chosenPre.slice(), suffixes:chosenSuf.slice(), budget: $('#budget').value? +$('#budget').value : null};
+  // method filters from Step-2 checkboxes -> constrain the plan. Empty -> all on.
+  const methods=[];
+  if($('#mfEssence') && $('#mfEssence').checked) methods.push('essence');
+  if($('#mfTiered') && $('#mfTiered').checked) methods.push('tiered');
+  if($('#mfDesec') && $('#mfDesec').checked) methods.push('omens');
+  if(methods.length) body.methods=methods;
   // kept mods are secured targets too — include them in the target sets
   ITEM_MODS.forEach(m=>{
     if(m.state==='keep'){

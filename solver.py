@@ -58,12 +58,18 @@ class Solver:
     def __init__(self, mods, base_token, item_level, wanted_ids, prices,
                  essences=None, item_class=None, essence_prices=None,
                  desecrated=None, bone_cost=None, sinistral_omen_cost=None,
-                 exalt_omen_cost=None, annul_omen_cost=None):
+                 exalt_omen_cost=None, annul_omen_cost=None,
+                 enabled_methods=None):
         self.base = base_token
         self.ilvl = item_level
         self.mods = {m.mod_id: m for m in mods}
         self.wanted = frozenset(wanted_ids)
         self.prices = prices                      # dict name -> exalted value
+        # enabled_methods: None/empty -> ALL methods on. Otherwise a set of
+        # optional-method keys ('essence','tiered','omens') that are allowed;
+        # basic orbs (transmute/aug/regal/exalt/annul/alchemy/chaos/restart) are
+        # ALWAYS allowed so the item is never unsolvable.
+        self._methods = set(enabled_methods) if enabled_methods else None
 
         # essence support: essences that force a WANTED mod onto this class
         self.item_class = item_class
@@ -375,17 +381,20 @@ class Solver:
                 acts.append(("Restart (fresh base)", self.base_cost, [(1.0, fresh)]))
         if s.rarity == "Normal":
             # Lesser/Normal Essence: Normal -> Magic (+ guaranteed mod).
-            missing = self.wanted - s.secured
-            for mid in missing:
-                key = (mid, "normal")
-                if key in self.forcers:
-                    ename, ecost, _fm = self.forcers[key]
-                    ns = State("Magic", s.secured | {mid}, s.junk_pre, s.junk_suf)
-                    acts.append((f"Essence: {ename}", ecost, [(1.0, ns)]))
-            # Transmutation + Greater/Perfect variants (tier floor 0/35/50).
-            for label, floor in (("Transmutation Orb", 0),
-                                  ("Greater Orb of Transmutation", TIER_FLOOR["greater"]),
-                                  ("Perfect Orb of Transmutation", TIER_FLOOR["perfect"])):
+            if self._on("essence"):
+                missing = self.wanted - s.secured
+                for mid in missing:
+                    key = (mid, "normal")
+                    if key in self.forcers:
+                        ename, ecost, _fm = self.forcers[key]
+                        ns = State("Magic", s.secured | {mid}, s.junk_pre, s.junk_suf)
+                        acts.append((f"Essence: {ename}", ecost, [(1.0, ns)]))
+            # Transmutation (always) + Greater/Perfect variants (gated by 'tiered').
+            tmuts = [("Transmutation Orb", 0)]
+            if self._on("tiered"):
+                tmuts += [("Greater Orb of Transmutation", TIER_FLOOR["greater"]),
+                          ("Perfect Orb of Transmutation", TIER_FLOOR["perfect"])]
+            for label, floor in tmuts:
                 c = self._cost(label)
                 if c >= 1e9:
                     continue
@@ -403,29 +412,34 @@ class Solver:
         elif s.rarity == "Magic":
             # Greater Essence: Magic -> Rare (+ guaranteed mod), keeping existing
             # magic mods. This is the core "buy magic base, essence it" flow.
-            missing = self.wanted - s.secured
-            for mid in missing:
-                key = (mid, "greater")
-                if key in self.forcers:
-                    ename, ecost, _fm = self.forcers[key]
-                    ns = State("Rare", s.secured | {mid}, s.junk_pre, s.junk_suf)
-                    acts.append((f"Essence: {ename}", ecost, [(1.0, ns)]))
+            if self._on("essence"):
+                missing = self.wanted - s.secured
+                for mid in missing:
+                    key = (mid, "greater")
+                    if key in self.forcers:
+                        ename, ecost, _fm = self.forcers[key]
+                        ns = State("Rare", s.secured | {mid}, s.junk_pre, s.junk_suf)
+                        acts.append((f"Essence: {ename}", ecost, [(1.0, ns)]))
             if (sec_pre + sec_suf + s.junk_pre + s.junk_suf) < 2:
-                for label, floor in (("Augmentation Orb", 0),
-                                     ("Greater Orb of Augmentation", TIER_FLOOR["greater"]),
-                                     ("Perfect Orb of Augmentation", TIER_FLOOR["perfect"])):
+                augs = [("Augmentation Orb", 0)]
+                if self._on("tiered"):
+                    augs += [("Greater Orb of Augmentation", TIER_FLOOR["greater"]),
+                             ("Perfect Orb of Augmentation", TIER_FLOOR["perfect"])]
+                for label, floor in augs:
                     c = self._cost(label)
                     if c >= 1e9:
                         continue
                     outs = self._add_outcomes(s, open_pre, open_suf, min_level=floor)
                     if outs:
                         acts.append((label, c, outs))
-            # Regal -> Rare (+ Greater/Perfect tier floors), adds one mod at Rare caps
+            # Regal -> Rare (+ Greater/Perfect tier floors gated by 'tiered')
             regal_state = State("Rare", s.secured, s.junk_pre, s.junk_suf)
             rp, rs, _, _ = self._slots(regal_state)
-            for label, floor in (("Regal Orb", 0),
-                                  ("Greater Regal Orb", TIER_FLOOR["greater"]),
-                                  ("Perfect Regal Orb", TIER_FLOOR["perfect"])):
+            regals = [("Regal Orb", 0)]
+            if self._on("tiered"):
+                regals += [("Greater Regal Orb", TIER_FLOOR["greater"]),
+                           ("Perfect Regal Orb", TIER_FLOOR["perfect"])]
+            for label, floor in regals:
                 c = self._cost(label)
                 if c >= 1e9:
                     continue
@@ -440,26 +454,29 @@ class Solver:
             # guaranteed mod. Models the highest-tier targeted craft. Composed as
             # annul-distribution (random removal) then deterministic add of the
             # forced mod. Only offered for still-missing wanted mods.
-            missing = self.wanted - s.secured
-            for mid in missing:
-                key = (mid, "perfect")
-                if key in self.forcers:
-                    ename, ecost, _fm = self.forcers[key]
-                    rem = self._annul_outcomes(s, sec_pre, sec_suf)
-                    if rem:
-                        outs = []
-                        for p, ns in rem:
-                            outs.append((p, State(ns.rarity, ns.secured | {mid},
-                                                  ns.junk_pre, ns.junk_suf)))
-                    else:
-                        outs = [(1.0, State(s.rarity, s.secured | {mid},
-                                            s.junk_pre, s.junk_suf))]
-                    acts.append((f"Essence: {ename}", ecost, outs))
-            # Exalted Orb + Greater/Perfect variants (tier floor 0/35/50)
+            if self._on("essence"):
+                missing = self.wanted - s.secured
+                for mid in missing:
+                    key = (mid, "perfect")
+                    if key in self.forcers:
+                        ename, ecost, _fm = self.forcers[key]
+                        rem = self._annul_outcomes(s, sec_pre, sec_suf)
+                        if rem:
+                            outs = []
+                            for p, ns in rem:
+                                outs.append((p, State(ns.rarity, ns.secured | {mid},
+                                                      ns.junk_pre, ns.junk_suf)))
+                        else:
+                            outs = [(1.0, State(s.rarity, s.secured | {mid},
+                                                s.junk_pre, s.junk_suf))]
+                        acts.append((f"Essence: {ename}", ecost, outs))
+            # Exalted Orb (always) + Greater/Perfect variants (gated by 'tiered')
             if open_pre + open_suf > 0:
-                for label, floor in (("Exalted Orb", 0),
-                                     ("Greater Exalted Orb", TIER_FLOOR["greater"]),
-                                     ("Perfect Exalted Orb", TIER_FLOOR["perfect"])):
+                exalts = [("Exalted Orb", 0)]
+                if self._on("tiered"):
+                    exalts += [("Greater Exalted Orb", TIER_FLOOR["greater"]),
+                               ("Perfect Exalted Orb", TIER_FLOOR["perfect"])]
+                for label, floor in exalts:
                     c = self._cost(label)
                     if c >= 1e9:
                         continue
@@ -467,10 +484,9 @@ class Solver:
                     if outs:
                         acts.append((label, c, outs))
             # Sinistral/Dextral Exaltation: an omen steers the next Exalted Orb to
-            # add ONLY a prefix (Sinistral) or ONLY a suffix (Dextral). Worth it
-            # when one side still has a wanted mod and the other side is full or
-            # would waste the exalt. Cost = exalt + omen.
-            if self.exalt_omen_cost is not None:
+            # add ONLY a prefix (Sinistral) or ONLY a suffix (Dextral). Gated by
+            # 'omens'. Lets the plan use one steered exalt instead of gambling two.
+            if self._on("omens") and self.exalt_omen_cost is not None:
                 ecost = self._cost("Exalted Orb") + self.exalt_omen_cost
                 if open_pre > 0:
                     souts = self._add_outcomes(s, open_pre, 0)   # prefix only
@@ -486,8 +502,8 @@ class Solver:
             if aouts:
                 acts.append(("Orb of Annulment", self._cost("Orb of Annulment"), aouts))
             # Sinistral/Dextral Annulment omens: remove ONLY a prefix / ONLY a
-            # suffix. Useful to surgically drop a junk mod from a known side.
-            if self.annul_omen_cost is not None:
+            # suffix. Gated by 'omens'. Surgically drop a junk mod from one side.
+            if self._on("omens") and self.annul_omen_cost is not None:
                 acost = self._cost("Orb of Annulment") + self.annul_omen_cost
                 ap = self._annul_outcomes(s, sec_pre, sec_suf, side="Prefix")
                 if ap:
@@ -513,6 +529,10 @@ class Solver:
     def _cost(self, name):
         v = self.prices.get(name)
         return v if v is not None else 1e9   # unknown price -> effectively avoid
+
+    def _on(self, category):
+        """Is an OPTIONAL method category allowed? None -> all on."""
+        return self._methods is None or category in self._methods
 
     # ---- value iteration ------------------------------------------------
     def solve(self, start: State, max_iter=200, tol=1e-9, time_budget=20.0):

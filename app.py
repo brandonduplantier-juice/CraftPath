@@ -625,6 +625,12 @@ def api_solve():
     suffixes = body.get("suffixes", [])
     budget = body.get("budget")
     wanted = list(prefixes) + list(suffixes)
+    # enabled methods from the Step-2 checkboxes. Empty/missing -> all methods on.
+    # Keys: 'essence', 'tiered', 'omens'. Basic orbs always allowed.
+    enabled_methods = body.get("methods") or None
+    if enabled_methods is not None:
+        enabled_methods = [m for m in enabled_methods if m in ("essence", "tiered", "omens")]
+        enabled_methods = enabled_methods or None
 
     # hard validation: PoE2 rare caps at 3 prefixes / 3 suffixes
     if len(prefixes) > 3 or len(suffixes) > 3:
@@ -745,7 +751,8 @@ def api_solve():
                 essences=essences, item_class=item_class, essence_prices=ess_prices,
                 desecrated=desecrated_pool or None,
                 bone_cost=bone_cost, sinistral_omen_cost=omen_cost,
-                exalt_omen_cost=_exalt_omen, annul_omen_cost=_annul_omen)
+                exalt_omen_cost=_exalt_omen, annul_omen_cost=_annul_omen,
+                enabled_methods=enabled_methods)
     start = State(start_rarity,
                   frozenset(have_pre + have_suf),
                   junk_pre, junk_suf)
