@@ -76,6 +76,9 @@ _DIRECT_CLASS = {
     "one hand axe": "one_hand_axe", "one hand mace": "one_hand_mace",
     "one hand sword": "one_hand_sword", "two hand axe": "two_hand_axe",
     "two hand mace": "two_hand_mace", "two hand sword": "two_hand_sword",
+    "one hand axes": "one_hand_axe", "one hand maces": "one_hand_mace",
+    "one hand swords": "one_hand_sword", "two hand axes": "two_hand_axe",
+    "two hand maces": "two_hand_mace", "two hand swords": "two_hand_sword",
 }
 
 def detect_base(raw, valid_tokens):
@@ -192,6 +195,12 @@ def parse_item(raw: str, pool_mods):
             continue
         # "X at max Quality: N" trade display lines
         if 'at max quality' in low:
+            continue
+        # weapon DPS display readouts: "DPS37.7", "Physical DPS12.33",
+        # "Elemental DPS25.38", "DPS: 37.7" — derived stats, never mods.
+        if re.match(r'^(physical |elemental |chaos |total )?dps[:\s]*[\d.]+$', low):
+            continue
+        if 'dps' in low and re.search(r'dps[:\s]*[\d.]+', low) and len(low) < 30:
             continue
         # try to match this line as a mod
         key = _norm(ln)
