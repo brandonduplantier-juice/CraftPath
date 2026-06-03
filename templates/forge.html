@@ -1037,8 +1037,20 @@ async function solve(){
     body.junk_suffixes = junkSuf;
   }
   let j;
-  try{ j=await api('/api/solve',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}); }
-  catch(e){ results.innerHTML='<div class="verdict warn"><div class="big">Error</div><div class="sub">'+e+'</div></div>'; $('#forge').disabled=false; $('#forge').classList.remove('loading'); return; }
+  try{
+    const resp=await fetch('/api/solve',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    const txt=await resp.text();
+    if(!txt.trim()){
+      results.innerHTML='<div class="verdict warn"><div class="big">No response</div><div class="sub">The server returned nothing — on the free host it may be waking up or restarting. Wait a few seconds and press the button again.</div></div>';
+      $('#forge').disabled=false; $('#forge').classList.remove('loading'); return;
+    }
+    try{ j=JSON.parse(txt); }
+    catch(pe){
+      results.innerHTML='<div class="verdict warn"><div class="big">Couldn\'t read the response</div><div class="sub">The server sent something unexpected (it may have timed out). Try again — if it keeps happening, <a href="https://github.com/brandonduplantier-juice/CraftPath/issues" target="_blank" rel="noopener" style="color:var(--verisium-bright)">report it</a>.</div></div>';
+      $('#forge').disabled=false; $('#forge').classList.remove('loading'); return;
+    }
+  }
+  catch(e){ results.innerHTML='<div class="verdict warn"><div class="big">Connection error</div><div class="sub">'+e+'</div></div>'; $('#forge').disabled=false; $('#forge').classList.remove('loading'); return; }
   $('#forge').disabled=false; $('#forge').classList.remove('loading');
   if(j.error){ results.innerHTML=`<div class="verdict warn"><div class="big">Something went wrong</div><div class="sub">${j.report?('If this keeps happening, please <a href="https://github.com/brandonduplantier-juice/CraftPath/issues" target="_blank" rel="noopener" style="color:var(--verisium-bright)">report it</a>.'):j.error}</div></div>`; return; }
   if(j.status==='invalid'){ results.innerHTML=`<div class="verdict warn"><div class="big">Invalid</div><div class="sub">${j.msg}</div></div>`; return; }

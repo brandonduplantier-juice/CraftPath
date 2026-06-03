@@ -34,6 +34,15 @@ Newest items near the top of each section. Status: ☐ todo · ◐ in progress �
   removed 0.5.0; Recombination — removed this league.)
 
 ## Data refresh (run locally — needs network the dev box lacks)
+- ☐ **Desecrated mods are NOT base-type filtered (real accuracy bug).** data/desecrated_mods.json
+  is a flat ~195-mod pool with NO base-type tags, so every base shows the same list —
+  including mods that can't roll on it (e.g. a quarterstaff shows Charm / Curse-magnitude /
+  Spell / Minion mods). can_roll_desecrated only applies slot rules (no prefix-desec on
+  body/gloves/boots/helmet, none on sceptre), not per-mod base validity. FIX: pull
+  poe2db's desecrated mods PER BASE TYPE (or the base-tag per mod) and filter by it. Do
+  NOT guess validity with keyword heuristics — get the real per-base data. Also verify
+  whether the Tecrod / Kulemak lords (seen on the Timeless Jewel) have Well-of-Souls
+  reveal mods or are jewel-only before adding — don't add unverified.
 - ☐ **Essence prices** seeded as TIERED ESTIMATES (Lesser~0.5 / Normal~2 / Greater~8
   / Perfect~25 ex). Run `python prices.py` locally to overwrite with live PoE2 Scout
   values. A few high-demand Greater essences really trade 50+ ex.
