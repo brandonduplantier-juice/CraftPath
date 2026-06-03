@@ -868,6 +868,11 @@ function renderGuideReference(){
         (p.top_combos?'<div class="fp-row"><span class="fp-tag combo">best combos</span> '+p.top_combos+'</div>':'')+
         (p.note?'<div class="fp-note">'+p.note+'</div>':'')+
       '</div>').join(''):'')+
+    (m.targets?'<div class="gr-h">Chance targets</div>'+
+      m.targets.map(t=>'<div class="flip-piece"><div class="fp-slot">'+t.base+
+        (t.unique?' <span class="fp-ilvl">to '+t.unique+(t.tier?' ('+t.tier+')':'')+'</span>':'')+'</div>'+
+        (t.note?'<div class="fp-note">'+t.note+'</div>':'')+
+      '</div>').join(''):'')+
     (m.profit_note?'<p style="color:var(--ash)"><b>Profit:</b> '+m.profit_note+'</p>':'')+
     (m.est_cost?'<div class="recipe-cost"><b>Rough cost:</b> '+m.est_cost+'</div>':'')+
     (m.source?'<div class="recipe-src">Adapted from: '+m.source+'</div>':'')+

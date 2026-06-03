@@ -713,6 +713,40 @@
     }
    ],
    "source": "Method from public 0.5 base-flipping transcript; orb levels from poe2wiki + a 0.5.0 currency guide; per-piece mod availability/levels from CraftPath's own pools"
+  },
+  {
+   "title": "White-base chancing flip (sell bases to Orb-of-Chance gamblers)",
+   "when": "You can find or buy clean white bases that correspond to a high-demand unique. Selling the base to gamblers is the low-risk play; chancing it yourself is the high-risk play.",
+   "base": "A Normal (white), unmodded base of the correct type and item level. Orb of Chance only works on Normal items, and PoE2 has no Orb of Scouring, so a failed chance permanently turns the base into a magic/rare (or destroys it). Gamblers therefore burn a fresh white base per attempt, which is exactly why these bases sell.",
+   "ilvl": "Match the unique's requirement (e.g. Heavy Belt for Headhunter needs item level 50+)",
+   "steps": [
+    "Identify bases that chance into an in-demand unique (see targets below). Confirm the exact base type and any minimum item level on poe2db before stocking.",
+    "Low-risk play: sell clean white bases to gamblers on trade. High-risk play: chance them yourself, accepting that most attempts brick the base into a magic/rare.",
+    "Stellar Amulets and Heavy Belts are also strong craft or raw-sell bases, so weigh selling-as-a-chance-base against just crafting them."
+   ],
+   "mechanics_note": "Orb of Chance upgrades a Normal item into a magic, rare, or (rarely) unique of the same base type, or bricks it. Most outcomes are magic/rare, not the unique. Some uniques require a minimum base item level. Odds for chase uniques are tiny (community estimates put Headhunter near 0.3% per attempt, roughly 1 in 300).",
+   "targets": [
+    {
+     "base": "Stellar Amulet (white, high item level)",
+     "unique": "Astramentis",
+     "tier": "Tier 0 longshot",
+     "note": "The +all-attributes implicit base. No consolation uniques, so this is a true mega-gamble. The white base is also valuable to craft or resell, so weigh the opportunity cost before deleting it."
+    },
+    {
+     "base": "Heavy Belt (white, item level 50+)",
+     "unique": "Headhunter",
+     "tier": "Tier 0",
+     "note": "Roughly 0.3% per attempt by community estimate. Consolation heavy-belt uniques include Waistgate and Zerphi's Genesis. Bricks on failure, so each try needs a fresh white base, which is why these bases sell well."
+    },
+    {
+     "base": "Lower-tier targets (various bows, belts, resistance rings)",
+     "unique": "common uniques",
+     "tier": "friendlier odds",
+     "note": "Far higher hit rates than Tier 0 chases and the sane place to start. I have not pinned exact 0.5 targets here because the list shifts; check a maintained chance list for the current set and odds."
+    }
+   ],
+   "profit_note": "The chance-target list and unique prices shift with the patch and meta. Treat the targets above as a starting point and verify against a live, maintained chance list (for example Maxroll's 0.5.0 'Best Unique Items to Chance' at maxroll.gg/poe2/meta/best-unique-items-to-chance) and current trade prices before committing.",
+   "source": "0.5.0: Maxroll chance list; Game8 / Fextralife Headhunter Heavy Belt; Orb of Chance mechanics from community 0.5 guides"
   }
  ],
  "meta_warning": "Patch 0.5 Runes of Aldur launched May 29, 2026. The endgame meta is only days old and unsettled: community build guides are still being optimized and several new interactions are unconfirmed. The entries below are common target mods plus a reasonable crafting route, inferred from current guides and stable slot priorities. They are NOT verified best-in-slot. Verify on a current build guide before committing large currency."
