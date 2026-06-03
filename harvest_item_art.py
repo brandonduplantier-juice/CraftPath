@@ -61,12 +61,23 @@ def find_art_url(slug: str) -> str | None:
         print(f"  ! {slug}: fetch failed ({type(e).__name__})")
         return None
     soup = BeautifulSoup(r.text, "html.parser")
-    # poecdn art images live in <img src="https://web.poecdn.com/.../*.png">
+    # poe2db item icons are served from web.poecdn.com, but the path is a hash
+    # (often NO .png extension) and may be lazy-loaded in data-src/data-original.
+    # Accept any poecdn image URL from src OR common lazy-load attributes.
+    def candidate(img):
+        for attr in ("src", "data-src", "data-original", "data-lazy-src"):
+            v = img.get(attr, "")
+            if "poecdn.com" in v and ("/image/" in v or "/gen/" in v):
+                return v
+        return None
     for img in soup.find_all("img"):
-        src = img.get("src", "")
-        if "web.poecdn.com" in src and src.lower().endswith(".png"):
-            return src
-    return None
+        u = candidate(img)
+        if u:
+            return u
+    # fallback: any poecdn image URL anywhere in the raw HTML (inline styles, JSON)
+    import re as _re
+    m = _re.search(r'https://web\.poecdn\.com/(?:gen/)?image/[^\s"\'<>)]+', r.text)
+    return m.group(0) if m else None
 
 
 def main():

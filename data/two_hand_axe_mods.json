@@ -1,7 +1,7 @@
 {
  "base": "two_hand_axe",
  "token": "two_hand_axe",
- "count": 180,
+ "count": 186,
  "weights_source": "pob_real",
  "weights_note": "Complete per-base mod pool + real spawn weights from Path of Building (ModItem.lua). Only mods that can roll on this base are included.",
  "mods": [
@@ -1995,6 +1995,72 @@
    ],
    "weight": 1,
    "source": "base"
+  },
+  {
+   "mod_id": "EssenceDamageasExtraPhysical2H",
+   "affix_type": "Prefix",
+   "group": "DamageasExtraPhysical",
+   "level": 72,
+   "text": [
+    "Gain (25-33)% of Damage as Extra Physical Damage"
+   ],
+   "weight": 0,
+   "source": "essence_only"
+  },
+  {
+   "mod_id": "EssenceDamageasExtraFire2H",
+   "affix_type": "Prefix",
+   "group": "DamageasExtraFire",
+   "level": 72,
+   "text": [
+    "Gain (25-33)% of Damage as Extra Fire Damage"
+   ],
+   "weight": 0,
+   "source": "essence_only"
+  },
+  {
+   "mod_id": "EssenceDamageasExtraCold2H",
+   "affix_type": "Prefix",
+   "group": "DamageasExtraCold",
+   "level": 72,
+   "text": [
+    "Gain (25-33)% of Damage as Extra Cold Damage"
+   ],
+   "weight": 0,
+   "source": "essence_only"
+  },
+  {
+   "mod_id": "EssenceDamageasExtraLightning2H",
+   "affix_type": "Prefix",
+   "group": "DamageasExtraLightning",
+   "level": 72,
+   "text": [
+    "Gain (25-33)% of Damage as Extra Lightning Damage"
+   ],
+   "weight": 0,
+   "source": "essence_only"
+  },
+  {
+   "mod_id": "EssenceAttackSkillLevel2H1",
+   "affix_type": "Suffix",
+   "group": "EssenceAttackSkillLevel",
+   "level": 72,
+   "text": [
+    "+3 to Level of all Attack Skills"
+   ],
+   "weight": 0,
+   "source": "essence_only"
+  },
+  {
+   "mod_id": "EssenceOnslaughtonKill1",
+   "affix_type": "Suffix",
+   "group": "EssenceOnslaughtonKill",
+   "level": 72,
+   "text": [
+    "(20-25)% chance to gain Onslaught on Killing Hits with this Weapon"
+   ],
+   "weight": 0,
+   "source": "essence_only"
   }
  ]
 }

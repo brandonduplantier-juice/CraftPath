@@ -1,7 +1,7 @@
 {
  "base": "wand",
  "token": "wand",
- "count": 276,
+ "count": 278,
  "weights_source": "pob_real",
  "weights_note": "Complete per-base mod pool + real spawn weights from Path of Building (ModItem.lua). Only mods that can roll on this base are included.",
  "mods": [
@@ -3061,6 +3061,28 @@
    ],
    "weight": 1,
    "source": "base"
+  },
+  {
+   "mod_id": "EssenceSpellSkillLevel1H1",
+   "affix_type": "Suffix",
+   "group": "EssenceSpellSkillLevel",
+   "level": 72,
+   "text": [
+    "+3 to Level of all Spell Skills"
+   ],
+   "weight": 0,
+   "source": "essence_only"
+  },
+  {
+   "mod_id": "EssenceManaCostReduction",
+   "affix_type": "Suffix",
+   "group": "ManaCostEfficiency",
+   "level": 72,
+   "text": [
+    "(18-20)% increased Mana Cost Efficiency"
+   ],
+   "weight": 0,
+   "source": "essence_only"
   }
  ]
 }

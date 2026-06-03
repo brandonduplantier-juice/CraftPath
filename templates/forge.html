@@ -411,7 +411,7 @@
         <label class="mf-box"><input type="checkbox" id="mfEssence"><span>⚗ Use Essence</span>
           <span class="mf-info" title="Essences guarantee one specific mod type at a fixed tier. Greys out mods no essence can force (e.g. the very top tiers).">ⓘ</span></label>
         <label class="mf-box"><input type="checkbox" id="mfTiered"><span>⬆ Greater / Perfect orbs</span>
-          <span class="mf-info" title="These add a RANDOM mod but skip the weakest tiers (min mod level ~35 Greater / ~50 Perfect). Greys out low-tier mods below that floor.">ⓘ</span></label>
+          <span class="mf-info" title="These add a RANDOM mod but skip the weakest tiers (min mod level 44 Greater / ~50 Perfect). Greys out low-tier mods below that floor.">ⓘ</span></label>
         <label class="mf-box"><input type="checkbox" id="mfDesec"><span>🦴 Bones &amp; Omens</span>
           <span class="mf-info" title="Desecration: a Bone + Necromancy omen adds a special mod from the Well of Souls. Lets you target the desecrated pool. Sinistral omen = prefix, Dextral = suffix.">ⓘ</span></label>
       </div>
@@ -997,7 +997,7 @@ function methodNote(action){
   }
   if(a.includes('greater')||a.includes('perfect')){
     const tier=a.includes('perfect')?'Perfect':'Greater';
-    return `<div class="method-note">⬆ <b>How:</b> use a <b>${tier}</b> currency — same as the base orb but it guarantees a minimum modifier level (${tier==='Perfect'?'~50':'~35'}), skipping the weakest tiers. <span class="est">Exact tier floor is patch-volatile — treat as estimate.</span></div>`;
+    return `<div class="method-note">⬆ <b>How:</b> use a <b>${tier}</b> currency — same as the base orb but it guarantees a minimum modifier level (${tier==='Perfect'?'~50':'44'}), skipping the weakest tiers. <span class="est">Exact tier floor is patch-volatile — treat as estimate.</span></div>`;
   }
   if(a.includes('alchemy')){
     return `<div class="method-note">⚗ <b>How:</b> use an <b>Orb of Alchemy</b> on a white base — it jumps straight to Rare with several random mods at once (modeled as 4).</div>`;
@@ -1098,7 +1098,7 @@ async function solve(){
         <span class="onfail-label">${s.on_fail.outcome==='bricked'?'⚠ if this fails':'↻ if this fails'}</span>
         ${s.on_fail.outcome==='bricked'
           ? `<span>item is bricked — start over with a fresh base</span>`
-          : `<span>~${Math.round(s.on_fail.p*100)}% chance · next move: <b>${s.on_fail.next_action||'continue'}</b>${s.on_fail.recovery_cost!=null?` · ~${fmt(s.on_fail.recovery_cost)} ex to recover`:''}${s.on_fail.bricked_p?` · <span class="brick-warn">${Math.round(s.on_fail.bricked_p*100)}% brick risk</span>`:''}</span>${s.on_fail.is_removal?`<div class="onfail-removal">⚠️ Removing a mod: an <b>Orb of Annulment</b> deletes a RANDOM mod — safe only when all mods on the item are junk. If you have a keeper on, you risk losing it (use a Sinistral/Dextral Annulment omen to limit removal to one side).</div>`:''}`}
+          : `<span>~${Math.round(s.on_fail.p*100)}% chance · next move: <b>${s.on_fail.next_action||'continue'}</b>${s.on_fail.recovery_cost!=null?` · ~${fmt(s.on_fail.recovery_cost)} ex to recover`:''}${s.on_fail.bricked_p?` · <span class="brick-warn">${Math.round(s.on_fail.bricked_p*100)}% brick risk</span>`:''}</span>${s.on_fail.is_removal?`<div class="onfail-removal">⚠️ Removing a mod: an <b>Orb of Annulment</b> deletes a RANDOM mod — safe only when all mods on the item are junk. If you have a keeper on, you risk losing it (use a Sinistral/Dextral Annulment omen to limit removal to one side).<br>💡 If the mod you want gone is the <b>lowest-level</b> modifier on the item, an <b>Omen of Whittling + Chaos Orb</b> removes exactly that one (it targets the lowest required-level mod, not the lowest tier) and adds a new random mod in its place.</div>`:''}`}
       </div>`:''}
     </div>`;
   });

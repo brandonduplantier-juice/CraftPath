@@ -1,7 +1,7 @@
 {
  "base": "amulet",
  "token": "amulet",
- "count": 209,
+ "count": 210,
  "weights_source": "pob_real",
  "weights_note": "Complete per-base mod pool + real spawn weights from Path of Building (ModItem.lua). Only mods that can roll on this base are included.",
  "mods": [
@@ -2303,6 +2303,17 @@
    ],
    "weight": 1,
    "source": "base"
+  },
+  {
+   "mod_id": "EssenceGlobalDefences1",
+   "affix_type": "Prefix",
+   "group": "AllDefences",
+   "level": 72,
+   "text": [
+    "(20-30)% increased Global Armour, Evasion and Energy Shield"
+   ],
+   "weight": 0,
+   "source": "essence_only"
   }
  ]
 }

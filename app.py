@@ -299,7 +299,7 @@ def api_mods(base):
     pre = [row(m) for m in mods if m.affix_type == "Prefix"]
     suf = [row(m) for m in mods if m.affix_type == "Suffix"]
     return jsonify({"base": base, "weights_source": wsource,
-                    "tier_floor": {"greater": 35, "perfect": 50},
+                    "tier_floor": {"greater": 44, "perfect": 50},
                     "prefixes": sorted(pre, key=lambda r: r["text"]),
                     "suffixes": sorted(suf, key=lambda r: r["text"])})
 

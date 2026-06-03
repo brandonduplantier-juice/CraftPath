@@ -39,8 +39,9 @@ Newest items near the top of each section. Status: ☐ todo · ◐ in progress �
   adds only prefix/suffix) and Sinistral/Dextral Erasure (next Chaos removes only
   prefix/suffix then adds), both gated by the omens checkbox, with plan method-notes.
   Costs are flagged 5ex placeholders (Ritual-only omens, not reliably on currency
-  market; prices.py doesn't fetch omens). DEFERRED: Whittling — its 'lowest-LEVEL mod'
-  targeting (not tier) is conditional and hard to model honestly without per-item state.
+  market; prices.py doesn't fetch omens). Whittling added as GUIDANCE in the removal note (not a solver action — its 'lowest-LEVEL mod'
+  targeting can't be tracked in solver state, so it's informational: 'if the unwanted mod is
+  lowest-level, Whittling+Chaos removes exactly it').
 
 ## Data refresh (run locally — needs network the dev box lacks)
 - ☑ **Desecrated base-type filtering.** DONE via build_desecrated.py: rebuilt
@@ -55,14 +56,16 @@ Newest items near the top of each section. Status: ☐ todo · ◐ in progress �
 - ◐ **Currency prices** refresh with `python prices.py` LOCALLY (scout/ninja unreachable
   from build box). Script verified syntactically valid; fetches currency + essence
   prices. Does NOT fetch omens (coronation/erasure/exaltation use flagged placeholders).
-  Tier-floor values (Greater~35 / Perfect~50) are patch-disputed estimates in solver.py.
+  Tier-floor: Greater=44 (VERIFIED, 0.5 patch notes — was wrongly 35); Perfect=50 still estimate.
 
 ## Item art (deferred by Brandon)
 - ◐ **Real item art.** Harvester written: run `python harvest_item_art.py` LOCALLY
   (poe2db/poecdn unreachable from the build box) -> writes data/item_art.json, served by
   /api/item-art and merged into BASE_ART at load. PoB has no per-base art paths, so the
-  scraper reads poe2db category pages. Until run, placeholder silhouettes stay. Needs
-  `pip install requests beautifulsoup4`.
+  scraper reads poe2db category pages. First local run returned 0/57 (poe2db icons are hashed poecdn paths, often no .png ext, lazy-
+  loaded). Harvester hardened (data-src + /image/ + /gen/ + raw-HTML regex fallback); needs
+  another local run to confirm. If still 0, poe2db likely renders icons via JS — would need a
+  different art source. Placeholders stay until resolved.
 
 ## Done this session
 - ☑ Quarterstaff support (real warstaff-tagged pool from PoB; 70/88 mods).

@@ -1,7 +1,7 @@
 {
  "base": "ring",
  "token": "ring",
- "count": 203,
+ "count": 204,
  "weights_source": "pob_real",
  "weights_note": "Complete per-base mod pool + real spawn weights from Path of Building (ModItem.lua). Only mods that can roll on this base are included.",
  "mods": [
@@ -2240,6 +2240,17 @@
    ],
    "weight": 1,
    "source": "base"
+  },
+  {
+   "mod_id": "EssenceIncreasedManaPercent1",
+   "affix_type": "Prefix",
+   "group": "MaximumManaIncreasePercent",
+   "level": 72,
+   "text": [
+    "(4-6)% increased maximum Mana"
+   ],
+   "weight": 0,
+   "source": "essence_only"
   }
  ]
 }

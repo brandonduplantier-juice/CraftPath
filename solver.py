@@ -43,7 +43,7 @@ CAPS = {"Normal": (0, 0), "Magic": (1, 1), "Rare": (3, 3)}
 # wiki lists Greater=35 / Perfect=50; a 0.5.0 (Runes of Aldur) guide reported
 # Greater dropped to 44. Until confirmed in-game, defaulting to wiki values.
 # Edit here if GGG/your testing confirms otherwise — flagged as ESTIMATE in UI.
-TIER_FLOOR = {"greater": 35, "perfect": 50}
+TIER_FLOOR = {"greater": 44, "perfect": 50}  # Greater=44 confirmed (0.5 patch notes, was 55); Perfect=50 estimate
 
 
 @dataclass(frozen=True)

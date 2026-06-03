@@ -1,7 +1,7 @@
 {
  "base": "helmet_str",
  "token": "helmet_str",
- "count": 153,
+ "count": 154,
  "weights_source": "pob_real",
  "weights_note": "Complete per-base mod pool + real spawn weights from Path of Building (ModItem.lua). Only mods that can roll on this base are included.",
  "mods": [
@@ -1714,6 +1714,17 @@
    ],
    "weight": 1,
    "source": "base"
+  },
+  {
+   "mod_id": "EssenceColdRecoupLife1",
+   "affix_type": "Suffix",
+   "group": "EssenceColdRecoupLife",
+   "level": 72,
+   "text": [
+    "(26-30)% of Cold Damage taken Recouped as Life"
+   ],
+   "weight": 0,
+   "source": "essence_only"
   }
  ]
 }

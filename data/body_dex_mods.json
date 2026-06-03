@@ -1,7 +1,7 @@
 {
  "base": "body_dex",
  "token": "body_dex",
- "count": 156,
+ "count": 159,
  "weights_source": "pob_real",
  "weights_note": "Complete per-base mod pool + real spawn weights from Path of Building (ModItem.lua). Only mods that can roll on this base are included.",
  "mods": [
@@ -1744,6 +1744,39 @@
    ],
    "weight": 1,
    "source": "base"
+  },
+  {
+   "mod_id": "EssenceIncreasedLifePercent1",
+   "affix_type": "Prefix",
+   "group": "MaximumLifeIncreasePercent",
+   "level": 72,
+   "text": [
+    "(8-10)% increased maximum Life"
+   ],
+   "weight": 0,
+   "source": "essence_only"
+  },
+  {
+   "mod_id": "EssencePhysicalDamageTakenAsChaos1",
+   "affix_type": "Prefix",
+   "group": "PhysicalDamageTakenAsChaos",
+   "level": 72,
+   "text": [
+    "(10-15)% of Physical Damage from Hits taken as Chaos Damage"
+   ],
+   "weight": 0,
+   "source": "essence_only"
+  },
+  {
+   "mod_id": "EssenceReducedCriticalDamageAgainstYou1",
+   "affix_type": "Suffix",
+   "group": "EssenceReducedCriticalDamageAgainstYou",
+   "level": 72,
+   "text": [
+    "Hits against you have (40-50)% reduced Critical Damage Bonus"
+   ],
+   "weight": 0,
+   "source": "essence_only"
   }
  ]
 }
