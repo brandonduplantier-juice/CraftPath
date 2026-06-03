@@ -650,7 +650,15 @@ function gotoStep(n){
   } else { next.style.display='block'; WIZ_STEP=n; }
 }
 let byId = {};
-async function api(path, opts){ const r = await fetch(path, opts); return r.json(); }
+async function api(path, opts){
+  const r = await fetch(path, opts);
+  if(!r.ok){
+    let body=''; try{ body=await r.text(); }catch(e){}
+    console.error('API '+path+' -> HTTP '+r.status, body.slice(0,200));
+    throw new Error('API '+path+' failed: HTTP '+r.status);
+  }
+  return r.json();
+}
 function updateSessionStatus(live){
   const s=$('#sessionStatus'); if(!s) return;
   if(live){ s.textContent='✓ session active · market features on'; s.style.color='var(--verisium-bright)'; }
@@ -664,11 +672,20 @@ function saveMarketKey(){
   if(typeof priceCheck==='function') priceCheck();
 }
 async function init(){
-  const cfg = await api('/api/config');
+  // Wire ALL button handlers FIRST, before any network calls. Previously these
+  // were attached after a sequence of awaits; if any early API call threw (which
+  // can happen in the packaged desktop build), init() aborted and NO buttons got
+  // handlers ("none of the buttons work"). Wiring first guarantees the UI is
+  // always interactive even if a data fetch fails.
+  wireControls();
+
+  let cfg = {edition:'desktop', market_available:true, market_live:false};
+  try{ cfg = await api('/api/config') || cfg; }catch(e){ console.warn('config load failed', e); }
   window.CFG = cfg;
-  const prices = await api('/api/prices');
-  $('#leagueBadge').textContent = 'league: ' + (prices.league || '?');
-  // edition badge + adapt the market button to which version this is
+  try{
+    const prices = await api('/api/prices');
+    $('#leagueBadge').textContent = 'league: ' + (prices.league || '?');
+  }catch(e){ console.warn('prices load failed', e); }
   const ed = $('#editionBadge');
   if(ed){
     if(cfg.edition==='online'){ ed.textContent='online edition · optimizer'; }
@@ -678,7 +695,6 @@ async function init(){
     const pc=$('#pricecheck');
     if(pc){ pc.innerHTML='⤓ Market pricing (desktop only)'; pc.title='Live market pricing runs locally; download the desktop version to use it with your own account'; }
   } else {
-    // desktop edition: show the built-in session field (PoB-style)
     const box=$('#sessionBox'); if(box) box.style.display='block';
     updateSessionStatus(cfg.market_live);
     const save=$('#saveSession');
@@ -694,24 +710,28 @@ async function init(){
       save.classList.remove('loading'); save.disabled=false;
     };
   }
-  const bases = await api('/api/bases');
-  // load harvested real item art (populated by harvest_item_art.py); merge into
-  // BASE_ART so the card shows real icons where available, placeholder otherwise.
-  try{ const art = await api('/api/item-art'); if(art && typeof art==='object') Object.assign(BASE_ART, art); }catch(e){}
-  const baseOpts = bases.map(b=>`<option value="${b.token}">${b.label}</option>`).join('');
-  $('#base').innerHTML = baseOpts;
-  $('#baseVisible').innerHTML = baseOpts;
-  // sync visible base/ilvl pickers to the hidden inputs the logic uses
+  // populate bases (guarded)
+  try{
+    const bases = await api('/api/bases');
+    try{ const art = await api('/api/item-art'); if(art && typeof art==='object') Object.assign(BASE_ART, art); }catch(e){}
+    const baseOpts = bases.map(b=>`<option value="${b.token}">${b.label}</option>`).join('');
+    $('#base').innerHTML = baseOpts;
+    $('#baseVisible').innerHTML = baseOpts;
+  }catch(e){ console.error('bases load failed', e); }
+  try{ await loadBase(); }catch(e){ console.error('initial loadBase failed', e); }
+}
+
+// All static control wiring lives here so it runs unconditionally, regardless of
+// whether any data fetch succeeds.
+function wireControls(){
   $('#baseVisible').onchange = ()=>{ $('#base').value=$('#baseVisible').value; loadBase(); };
   $('#ilvlVisible').oninput = ()=>{ $('#ilvl').value=$('#ilvlVisible').value; };
-  await loadBase();
   $('#base').onchange = loadBase;
   $('#search').addEventListener('input', renderLists);
   ['#mfEssence','#mfTiered','#mfDesec'].forEach(id=>{
     const el=$(id); if(el) el.addEventListener('change', ()=>{
       renderLists();
       renderDesec($('#desecSearch')?$('#desecSearch').value:'');
-      // checking "Bones & Omens" auto-opens the desecration pool so targets are visible
       if(id==='#mfDesec' && el.checked){
         const body=$('#desecBody'); if(body && body.style.display==='none') $('#desecToggle').click();
       }
@@ -802,15 +822,21 @@ async function init(){
 }
 async function loadBase(){
   MODS = await api('/api/mods/'+$('#base').value);
-  MOD_META = {tier_floor: MODS.tier_floor || {greater:35, perfect:50}};
+  if(!MODS || !MODS.prefixes){
+    console.error('mods load returned no data for', $('#base').value, MODS);
+    MODS = {prefixes:[], suffixes:[], tier_floor:{greater:44, perfect:50}};
+  }
+  MOD_META = {tier_floor: MODS.tier_floor || {greater:44, perfect:50}};
   byId = {};
-  [...MODS.prefixes, ...MODS.suffixes].forEach(m=>byId[m.id]=m);
+  [...(MODS.prefixes||[]), ...(MODS.suffixes||[])].forEach(m=>byId[m.id]=m);
   chosenPre = []; chosenSuf = [];
   const wb = $('#weightBadge');
-  const ws = MODS.weights_source;
-  if(ws === 'craft_of_exile_estimate'){ wb.textContent='weights: CoE estimate'; wb.className='badge'; }
-  else if(ws === 'pob_real' || ws === 'pob_real_partial'){ wb.textContent='weights: PoB (real)'; wb.className='badge'; }
-  else { wb.textContent='weights: PLACEHOLDER (flat)'; wb.className='badge warn'; }
+  if(wb){
+    const ws = MODS.weights_source;
+    if(ws === 'craft_of_exile_estimate'){ wb.textContent='weights: CoE estimate'; wb.className='badge'; }
+    else if(ws === 'pob_real' || ws === 'pob_real_partial'){ wb.textContent='weights: PoB (real)'; wb.className='badge'; }
+    else { wb.textContent='weights: PLACEHOLDER (flat)'; wb.className='badge warn'; }
+  }
   renderLists(); renderChips();
 }
 // Method filters: given the checked method boxes, can this mod be a target?
