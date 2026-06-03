@@ -256,14 +256,37 @@ def api_mods(base):
         mods, wsource = _load_mod_pool(base)
     except FileNotFoundError as e:
         return jsonify({"error": str(e)}), 404
+    # Which mods can an ESSENCE force? Build the set of (group -> best essence
+    # tier level) this item class's essences can guarantee, so the UI can grey
+    # out mods no essence reaches when "Use Essence" is checked.
+    item_class = _class_for_token(base)
+    md = {m.mod_id: m for m in mods}
+    ess_reach = {}   # group -> highest forced mod level available via essence
+    ess_tier_by_group = {}   # group -> set of tiers ('normal'/'greater') available
+    for e in _essences_by_class().get(item_class, []):
+        fm = e.get("mod")
+        if fm in md:
+            g = md[fm].group
+            lvl = md[fm].level
+            ess_reach[g] = max(ess_reach.get(g, 0), lvl)
+            nm = e["name"].lower()
+            tier = "greater" if nm.startswith("greater") else (
+                   "perfect" if nm.startswith("perfect") else "normal")
+            ess_tier_by_group.setdefault(g, set()).add(tier)
     def row(m):
+        # essence can hit this mod if an essence forces its group at a tier
+        # whose level >= this mod's level (a lower-tier essence can't reach it)
+        ess_ok = m.group in ess_reach and ess_reach[m.group] >= m.level
         return {"id": m.mod_id, "type": m.affix_type, "group": m.group,
                 "level": m.level, "weight": m.weight,
                 "text": (m.text[0] if m.text else m.mod_id),
-                "source": getattr(m, "source", "base")}
+                "source": getattr(m, "source", "base"),
+                "essence_ok": ess_ok,
+                "essence_tiers": sorted(ess_tier_by_group.get(m.group, set())) if ess_ok else []}
     pre = [row(m) for m in mods if m.affix_type == "Prefix"]
     suf = [row(m) for m in mods if m.affix_type == "Suffix"]
     return jsonify({"base": base, "weights_source": wsource,
+                    "tier_floor": {"greater": 35, "perfect": 50},
                     "prefixes": sorted(pre, key=lambda r: r["text"]),
                     "suffixes": sorted(suf, key=lambda r: r["text"])})
 

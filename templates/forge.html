@@ -269,6 +269,15 @@
   .desec-row{cursor:default;opacity:.85}
   .desec-row .mr-meta{font-size:9px;color:var(--amanamu,#a98bd0);opacity:.7}
   .onfail-removal{margin-top:6px;font-size:11px;line-height:1.5;color:#e6b89a;opacity:.92;border-left:2px solid #6a4a3a;padding-left:8px}
+  .method-filters{max-width:760px;margin:0 auto 12px}
+  .mf-hint{font-size:11px;color:var(--ash-dim);opacity:.75;text-align:center;margin-bottom:8px}
+  .mf-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .mf-box{display:flex;align-items:center;gap:6px;font-size:12px;padding:7px 12px;border:1px solid #3a4a5a;border-radius:6px;background:rgba(40,55,70,.25);cursor:pointer;user-select:none;font-family:'JetBrains Mono',monospace;letter-spacing:.02em}
+  .mf-box:hover{border-color:var(--verisium,#5ad);background:rgba(40,55,70,.4)}
+  .mf-box input{accent-color:var(--verisium,#5ad);cursor:pointer}
+  .mf-box input:checked + span{color:var(--verisium-bright,#7cf)}
+  .mf-info{font-size:11px;color:var(--ash-dim);opacity:.6;cursor:help;border:1px solid currentColor;border-radius:50%;width:14px;height:14px;display:inline-flex;align-items:center;justify-content:center}
+  .method-popup{position:fixed;left:50%;bottom:40px;transform:translateX(-50%);max-width:380px;background:#1a1420;border:1px solid #6a4a3a;border-radius:8px;padding:12px 16px;font-size:12px;line-height:1.5;color:#e6d8c8;box-shadow:0 8px 30px rgba(0,0,0,.6);z-index:1000;display:none}
   .item-ilvl{font-size:11px;color:var(--ash-dim);text-align:center}
 
   .paste-zone textarea{width:100%;height:96px;background:rgba(0,0,0,.32);border:1px dashed var(--edge);
@@ -384,6 +393,17 @@
   <!-- STEP 2: choose your target mods -->
   <section class="wiz-stage" id="step2" style="display:none">
     <div class="stage-instr">Pick the mods you want on the finished item. <b>Search</b> or scroll, click to add.</div>
+    <div class="method-filters" id="methodFilters">
+      <div class="mf-hint">Crafting with a specific method? Toggle it first — the mod list will grey out what that method can't make.</div>
+      <div class="mf-row">
+        <label class="mf-box"><input type="checkbox" id="mfEssence"><span>⚗ Use Essence</span>
+          <span class="mf-info" title="Essences guarantee one specific mod type at a fixed tier. Greys out mods no essence can force (e.g. the very top tiers).">ⓘ</span></label>
+        <label class="mf-box"><input type="checkbox" id="mfTiered"><span>⬆ Greater / Perfect orbs</span>
+          <span class="mf-info" title="These add a RANDOM mod but skip the weakest tiers (min mod level ~35 Greater / ~50 Perfect). Greys out low-tier mods below that floor.">ⓘ</span></label>
+        <label class="mf-box"><input type="checkbox" id="mfDesec"><span>🦴 Bones &amp; Omens</span>
+          <span class="mf-info" title="Desecration: a Bone + Necromancy omen adds a special mod from the Well of Souls. Lets you target the desecrated pool. Sinistral omen = prefix, Dextral = suffix.">ⓘ</span></label>
+      </div>
+    </div>
     <input id="search" type="text" placeholder="type 'fire', 'attack speed', 'life'…" autocomplete="off" class="wiz-search">
     <div class="stage-row two">
       <div class="side-col wide">
@@ -662,6 +682,15 @@ async function init(){
   await loadBase();
   $('#base').onchange = loadBase;
   $('#search').addEventListener('input', renderLists);
+  ['#mfEssence','#mfTiered','#mfDesec'].forEach(id=>{
+    const el=$(id); if(el) el.addEventListener('change', ()=>{
+      renderLists();
+      // checking "Bones & Omens" auto-opens the desecration pool so targets are visible
+      if(id==='#mfDesec' && el.checked){
+        const body=$('#desecBody'); if(body && body.style.display==='none') $('#desecToggle').click();
+      }
+    });
+  });
   $('#forge').onclick = solve;
 
   // ---- wizard navigation ----
@@ -747,6 +776,7 @@ async function init(){
 }
 async function loadBase(){
   MODS = await api('/api/mods/'+$('#base').value);
+  MOD_META = {tier_floor: MODS.tier_floor || {greater:35, perfect:50}};
   byId = {};
   [...MODS.prefixes, ...MODS.suffixes].forEach(m=>byId[m.id]=m);
   chosenPre = []; chosenSuf = [];
@@ -755,11 +785,37 @@ async function loadBase(){
   else { wb.textContent='weights: PLACEHOLDER (flat)'; wb.className='badge warn'; }
   renderLists(); renderChips();
 }
+// Method filters: given the checked method boxes, can this mod be a target?
+// Returns {ok:true} or {ok:false, reason:"..."}. With no boxes checked,
+// everything is reachable (basic slamming hits any mod).
+function methodReach(m){
+  const useEss = $('#mfEssence') && $('#mfEssence').checked;
+  const useTiered = $('#mfTiered') && $('#mfTiered').checked;
+  const useDesec = $('#mfDesec') && $('#mfDesec').checked;
+  if(!useEss && !useTiered && !useDesec) return {ok:true};
+  // desecrated mods are a separate pool; the regular target list mods are not
+  // desecrated, so the desec box alone doesn't make regular mods reachable.
+  const reasons=[];
+  if(useEss){
+    if(m.essence_ok) return {ok:true};
+    reasons.push("no essence forces this stat at this tier");
+  }
+  if(useTiered){
+    const floor = (MOD_META.tier_floor && MOD_META.tier_floor.greater) || 35;
+    if(m.level >= floor) return {ok:true};
+    reasons.push("below the Greater/Perfect tier floor (min mod level ~"+floor+")");
+  }
+  if(useDesec){
+    // regular pool mods aren't from desecration; desec targets live in the
+    // desecration panel. So checking only desec greys regular mods.
+    reasons.push("not a desecrated mod (use the desecration pool below)");
+  }
+  return {ok:false, reason:reasons.join("; ")};
+}
+let MOD_META = {};   // holds tier_floor etc from /api/mods
+
 function renderOneList(el, mods, chosen, isPre){
   const q = $('#search').value.trim().toLowerCase();
-  // groups already occupied by a chosen mod (same-group mods can't coexist)
-  // groups already occupied: by chosen TARGETS and by KEPT mods from step 1.
-  // A mod can't roll if its group is already taken by either.
   const keptIds = ITEM_MODS.filter(m=>m.state==='keep').map(m=>m.mod_id);
   const takenGroups = new Set([...chosenPre, ...chosenSuf, ...keptIds]
     .map(id => byId[id] && byId[id].group).filter(Boolean));
@@ -768,18 +824,35 @@ function renderOneList(el, mods, chosen, isPre){
   if(!hits.length){ el.innerHTML='<div class="empty">'+(q?'no matches':'—')+'</div>'; return; }
   el.innerHTML='';
   hits.forEach(m=>{
-    const blocked = takenGroups.has(m.group);   // a mod of this group is already chosen
-    const row=document.createElement('div'); row.className='mod-row'+(blocked?' disabled':'');
+    const blocked = takenGroups.has(m.group);   // group already chosen
+    const reach = methodReach(m);
+    const mblock = !reach.ok;                    // blocked by method filter
+    const dis = blocked || mblock;
+    const row=document.createElement('div'); row.className='mod-row'+(dis?' disabled':'');
+    let tag='';
+    if(blocked) tag=' <span style="color:var(--blood-bright);font-size:9px">· group taken</span>';
+    else if(mblock) tag=' <span style="color:#d0a060;font-size:9px">· method can\'t make this</span>';
     row.innerHTML=`<span>${m.text} <span style="color:var(--ash-dim);font-size:10px">L${m.level}·w${m.weight}</span>`+
-      (blocked?' <span style="color:var(--blood-bright);font-size:9px">· group taken</span>':'')+`</span>`+
-      `<span class="src ${m.source}">${m.source}</span>`;
-    if(!blocked){
+      tag+`</span><span class="src ${m.source}">${m.source}</span>`;
+    if(!dis){
       row.onclick=()=>{ const cap=isPre?chosenPre:chosenSuf;
-        if(cap.length + keptCount(isPre) >= 3) return;   // kept mods use slots too
+        if(cap.length + keptCount(isPre) >= 3) return;
         cap.push(m.id); renderChips(); renderLists(); };
+    } else if(mblock && !blocked){
+      // clicking a method-blocked mod explains why
+      row.onclick=()=>showMethodPopup(m, reach.reason);
+      row.style.cursor='help';
     }
     el.appendChild(row);
   });
+}
+function showMethodPopup(m, reason){
+  let pop=$('#methodPopup');
+  if(!pop){ pop=document.createElement('div'); pop.id='methodPopup'; pop.className='method-popup'; document.body.appendChild(pop); }
+  pop.innerHTML=`<b>Can't pick "${m.text.replace(/<[^>]*>/g,'')}"</b><br>${reason}.<br>`+
+    `<span style="opacity:.7">Uncheck that method above, or pick a different mod.</span>`;
+  pop.style.display='block';
+  clearTimeout(pop._t); pop._t=setTimeout(()=>{pop.style.display='none';}, 4200);
 }
 // how many slots are already used by KEPT mods on a side (prefix/suffix)
 function keptCount(isPre){

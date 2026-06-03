@@ -436,6 +436,25 @@ class Solver:
             if aouts:
                 acts.append(("Orb of Annulment", self._cost("Orb of Annulment"), aouts))
         elif s.rarity == "Rare":
+            # Perfect Essence: on a Rare, REMOVES a random mod then ADDS a
+            # guaranteed mod. Models the highest-tier targeted craft. Composed as
+            # annul-distribution (random removal) then deterministic add of the
+            # forced mod. Only offered for still-missing wanted mods.
+            missing = self.wanted - s.secured
+            for mid in missing:
+                key = (mid, "perfect")
+                if key in self.forcers:
+                    ename, ecost, _fm = self.forcers[key]
+                    rem = self._annul_outcomes(s, sec_pre, sec_suf)
+                    if rem:
+                        outs = []
+                        for p, ns in rem:
+                            outs.append((p, State(ns.rarity, ns.secured | {mid},
+                                                  ns.junk_pre, ns.junk_suf)))
+                    else:
+                        outs = [(1.0, State(s.rarity, s.secured | {mid},
+                                            s.junk_pre, s.junk_suf))]
+                    acts.append((f"Essence: {ename}", ecost, outs))
             # Exalted Orb + Greater/Perfect variants (tier floor 0/35/50)
             if open_pre + open_suf > 0:
                 for label, floor in (("Exalted Orb", 0),
