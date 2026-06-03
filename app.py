@@ -390,6 +390,19 @@ def api_prices():
     return jsonify(_prices())
 
 
+@app.route("/api/build-guides")
+def api_build_guides():
+    """Curated, hand-authored crafting recipes for common gear (class -> slot ->
+    budget). These are guides, not solver output, because they use deterministic
+    recipes (rune-forging, fracture-locks, desecration) outside the optimizer's
+    scope. Costs are flagged volatile estimates."""
+    try:
+        with open(resource_path("data", "build_guides.json"), encoding="utf-8") as fh:
+            return jsonify(json.load(fh))
+    except Exception as e:
+        return jsonify({"error": str(e), "classes": {}, "shared_slots": {}}), 200
+
+
 @app.route("/api/putrefaction/<base>")
 def api_putrefaction(base):
     """Estimate putrefaction (Omen of Putrefaction + Bone) odds for a base.
@@ -799,6 +812,15 @@ def api_solve():
             _erasure_omen = v if _erasure_omen is None else min(_erasure_omen, v)
     if _erasure_omen is None:
         _erasure_omen = 5.0      # placeholder (Ritual omen, price varies)
+    # Omen of Greater Exaltation (next Exalt adds TWO mods). Real price if listed,
+    # else a flagged placeholder. Widely used in 0.5 because it is usually cheaper
+    # than two Greater/Perfect Exalts.
+    _greater_exalt_omen = None
+    for k, v in prices.items():
+        if "greater exaltation" in k.lower():
+            _greater_exalt_omen = v if _greater_exalt_omen is None else min(_greater_exalt_omen, v)
+    if _greater_exalt_omen is None:
+        _greater_exalt_omen = 8.0   # placeholder (Ritual omen, price varies)
 
     sv = Solver(mods, base, ilvl, wanted, prices,
                 essences=essences, item_class=item_class, essence_prices=ess_prices,
@@ -806,6 +828,7 @@ def api_solve():
                 bone_cost=bone_cost, sinistral_omen_cost=omen_cost,
                 exalt_omen_cost=_exalt_omen, annul_omen_cost=_annul_omen,
                 coronation_omen_cost=_coronation_omen, erasure_omen_cost=_erasure_omen,
+                greater_exalt_omen_cost=_greater_exalt_omen,
                 enabled_methods=enabled_methods)
     start = State(start_rarity,
                   frozenset(have_pre + have_suf),

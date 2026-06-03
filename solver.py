@@ -60,6 +60,7 @@ class Solver:
                  desecrated=None, bone_cost=None, sinistral_omen_cost=None,
                  exalt_omen_cost=None, annul_omen_cost=None,
                  coronation_omen_cost=None, erasure_omen_cost=None,
+                 greater_exalt_omen_cost=None,
                  enabled_methods=None):
         self.base = base_token
         self.ilvl = item_level
@@ -92,6 +93,9 @@ class Solver:
         self.annul_omen_cost = annul_omen_cost
         self.coronation_omen_cost = coronation_omen_cost
         self.erasure_omen_cost = erasure_omen_cost
+        # cost of an Omen of Greater Exaltation: the next Exalt adds TWO mods at
+        # once (into two open slots) instead of one. None -> feature off.
+        self.greater_exalt_omen_cost = greater_exalt_omen_cost
         # cost to abandon the current item and start fresh from a new white base.
         # White bases are cheap (vendor/drop); default 0.5 ex covers buying one.
         self.base_cost = self.prices.get("White Base", 0.5)
@@ -295,6 +299,29 @@ class Solver:
             outs.append((junk_suf_w / W,
                          State(s.rarity, s.secured, s.junk_pre, s.junk_suf + 1)))
         return outs
+
+    def _two_add_outcomes(self, s: State, min_level=0):
+        """Omen of Greater Exaltation: the next Exalt adds TWO random mods at
+        once. Modeled as two sequential single-adds from the current Rare state,
+        composing the per-add distributions and recomputing open slots between
+        them (so it can't add into a slot the first add filled). If only one slot
+        is open, it adds one (degenerates to a normal exalt)."""
+        cur = {s: 1.0}
+        for _ in range(2):
+            nxt = {}
+            for st, p in cur.items():
+                op, osf, _, _ = self._slots(st)
+                if op + osf <= 0:
+                    nxt[st] = nxt.get(st, 0.0) + p   # no slot left: stays put
+                    continue
+                adds = self._add_outcomes(st, op, osf, min_level=min_level)
+                if not adds:
+                    nxt[st] = nxt.get(st, 0.0) + p
+                    continue
+                for q, ns in adds:
+                    nxt[ns] = nxt.get(ns, 0.0) + p * q
+            cur = nxt
+        return [(p, st) for st, p in cur.items() if p > 1e-12]
 
     def _annul_outcomes(self, s: State, sec_pre, sec_suf, side=None):
         """Remove one random present mod (cannot target which one).
@@ -531,6 +558,28 @@ class Solver:
                     if douts:
                         acts.append(("Exalted Orb + Omen of Dextral Exaltation",
                                      ecost, douts))
+            # Omen of Greater Exaltation: the next Exalt adds TWO mods at once.
+            # Worth using when 2+ slots are open and the omen is cheaper than two
+            # separate exalts (the usual case). Pairs with base/Greater/Perfect
+            # Exalted; the tiered variants are gated by 'omens'+'tiered'. Gated by
+            # 'omens'. Verified across multiple 0.5 crafting guides.
+            if self._on("omens") and self.greater_exalt_omen_cost is not None \
+                    and (open_pre + open_suf) >= 2:
+                geo = [("Exalted Orb + Omen of Greater Exaltation", 0)]
+                if self._on("tiered"):
+                    geo += [("Greater Exalted Orb + Omen of Greater Exaltation",
+                             TIER_FLOOR["greater"]),
+                            ("Perfect Exalted Orb + Omen of Greater Exaltation",
+                             TIER_FLOOR["perfect"])]
+                for label, floor in geo:
+                    base_orb = label.split(" + ")[0]
+                    bc = self._cost(base_orb)
+                    if bc >= 1e9:
+                        continue
+                    c = bc + self.greater_exalt_omen_cost
+                    outs = self._two_add_outcomes(s, min_level=floor)
+                    if outs:
+                        acts.append((label, c, outs))
             aouts = self._annul_outcomes(s, sec_pre, sec_suf)
             if aouts:
                 acts.append(("Orb of Annulment", self._cost("Orb of Annulment"), aouts))
