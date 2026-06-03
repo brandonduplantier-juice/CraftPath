@@ -16,10 +16,37 @@ import json, os
 CACHE = os.path.join(os.path.dirname(__file__), "prices_cache.json")
 
 
+def _derive_tiered(prices: dict) -> dict:
+    """Derive Greater/Perfect orb prices from base orbs when a provider doesn't
+    list them. These are real, fairly stable multiples of the base orb (the
+    tiered variants are rarer drops). Multipliers are ESTIMATES, flagged as such
+    in the cache via 'tiered_estimated'. Only fills keys that are missing."""
+    # rough community multiples vs the base orb (Greater ~6x, Perfect ~25x)
+    GREATER, PERFECT = 6.0, 25.0
+    pairs = [
+        ("Transmutation Orb", "Greater Orb of Transmutation", "Perfect Orb of Transmutation"),
+        ("Augmentation Orb",  "Greater Orb of Augmentation",  "Perfect Orb of Augmentation"),
+        ("Regal Orb",         "Greater Regal Orb",            "Perfect Regal Orb"),
+        ("Exalted Orb",       "Greater Exalted Orb",          "Perfect Exalted Orb"),
+    ]
+    filled = []
+    for base, g, p in pairs:
+        b = prices.get(base)
+        if b is None:
+            continue
+        if g not in prices:
+            prices[g] = round(b * GREATER, 4); filled.append(g)
+        if p not in prices:
+            prices[p] = round(b * PERFECT, 4); filled.append(p)
+    return prices, filled
+
+
 def refresh(league: str | None = None) -> dict:
-    """Try providers in order; write and return the first success.
-    Also attempts to fetch essence prices (best-effort) into the cache.
+    """Try providers in order; MERGE fresh prices over the existing cache so any
+    seeded estimates (Greater/Perfect orbs, essences, bones, omens) survive when
+    a live fetch doesn't return them. Also attempts essence prices (best-effort).
     """
+    existing = load_prices() or {}
     errors = []
     meta = None
     try:
@@ -35,7 +62,7 @@ def refresh(league: str | None = None) -> dict:
                     meta["essence_category"] = ess.get("category")
             except Exception as e:
                 meta["essence_error"] = f"{type(e).__name__}: {e}"
-            _write(meta)
+            _merge_and_write(existing, meta)
             return meta
         errors.append("scout: empty price set")
     except Exception as e:
@@ -45,11 +72,63 @@ def refresh(league: str | None = None) -> dict:
         meta = prices_ninja.build_cache(league) if league else prices_ninja.build_cache()
         if meta.get("prices"):
             meta["provider"] = "poe.ninja"
-            _write(meta); return meta
+            _merge_and_write(existing, meta); return meta
         errors.append("ninja: empty price set")
     except Exception as e:
         errors.append(f"ninja: {type(e).__name__}: {e}")
     raise RuntimeError("All price providers failed:\n  " + "\n  ".join(errors))
+
+
+def _seed_essence_estimates() -> dict:
+    """Build tiered ESTIMATE essence prices for every essence the game has, so
+    the essence method always has a price even when no live/cached value exists.
+    Tiered by rank (Lesser/Normal/Greater/Perfect). Flagged as estimate."""
+    try:
+        ess = json.load(open(os.path.join(os.path.dirname(__file__),
+                                          "data", "essences_by_class.json")))
+    except Exception:
+        return {}
+    # rough ex values by rank (community ballpark — replace via live fetch)
+    RANK = {"perfect": 25.0, "greater": 8.0, "lesser": 0.5, "normal": 2.0}
+    out = {}
+    for lst in ess.values():
+        for e in lst:
+            nm = e["name"]; nl = nm.lower()
+            if nl.startswith("perfect"):
+                out[nm] = RANK["perfect"]
+            elif nl.startswith("greater"):
+                out[nm] = RANK["greater"]
+            elif nl.startswith("lesser"):
+                out[nm] = RANK["lesser"]
+            else:
+                out[nm] = RANK["normal"]
+    return out
+
+
+def _merge_and_write(existing: dict, meta: dict) -> None:
+    """Overlay fresh live prices onto the existing cache so estimates survive.
+    Live values WIN for any key they cover; everything else (Greater/Perfect,
+    essences, bones, omens) is preserved from the prior cache. Greater/Perfect
+    are then re-derived from live base orbs where still missing."""
+    merged_prices = dict(existing.get("prices", {}))   # start from old (estimates)
+    live = meta.get("prices", {})
+    merged_prices.update(live)                          # live base orbs override
+    merged_prices, derived = _derive_tiered(merged_prices)
+    meta["prices"] = merged_prices
+    meta["live_keys"] = sorted(live.keys())
+    meta["derived_tiered"] = derived
+    # preserve essences from old cache if the live fetch didn't get any
+    if not meta.get("essence_prices") and existing.get("essence_prices"):
+        meta["essence_prices"] = existing["essence_prices"]
+        meta["essence_category"] = existing.get("essence_category")
+        meta["essence_source"] = "preserved estimate (live fetch returned none)"
+    # last-resort: seed tiered estimates so the essence method always has prices
+    if not meta.get("essence_prices"):
+        seeded = _seed_essence_estimates()
+        if seeded:
+            meta["essence_prices"] = seeded
+            meta["essence_source"] = "seeded estimate (no live or cached prices)"
+    _write(meta)
 
 
 def _write(meta: dict) -> None:
@@ -77,8 +156,13 @@ if __name__ == "__main__":
     for name, v in sorted(meta["prices"].items(), key=lambda kv: kv[1]):
         print(f"  {name:<20} {v:>12.4f} ex")
     print(f"\nCached {len(meta['prices'])} currencies -> {os.path.basename(CACHE)}")
+    if meta.get("live_keys"):
+        print(f"  Live (from {meta['provider']}): {len(meta['live_keys'])} base currencies")
+    if meta.get("derived_tiered"):
+        print(f"  Derived Greater/Perfect from base orbs: {len(meta['derived_tiered'])} "
+              f"(estimated multipliers — flagged)")
     if meta.get("essence_prices"):
-        print(f"Essence prices: {len(meta['essence_prices'])} essences "
-              f"(category '{meta.get('essence_category')}')")
+        src = meta.get("essence_source", f"live (category '{meta.get('essence_category')}')")
+        print(f"  Essence prices: {len(meta['essence_prices'])} essences [{src}]")
     elif meta.get("essence_error"):
-        print(f"Essence prices unavailable: {meta['essence_error']}")
+        print(f"  Essence prices unavailable: {meta['essence_error']} (kept prior estimates if any)")
