@@ -32,13 +32,15 @@ Newest items near the top of each section. Status: ☐ todo · ◐ in progress �
   Omens enables the Exaltation/Annulment steering omens AND makes desecrated mods
   directly selectable as targets — clicking one adds a 🦴-marked chip; any desecrated
   target routes the plan to the Putrefaction (Well of Souls) how-to guide.
-- ☐ **Conditional path / decision-tree view.** Present the plan as explicit branches:
-  "if this → continue, if that → remove and roll again, if this → brick." The solver
-  already computes failure-recovery per step; this is a presentation/UX layer on top.
-- ☐ **Niche omens not yet modeled:** Coronation (Regal+side), Whittling, Erasure
-  (Chaos+side), Alchemy omens. Each needs its own mechanic verification before adding.
-  (Deliberately skipped: Homogenising Exaltation — removed 0.4.0; Corruption omens —
-  removed 0.5.0; Recombination — removed this league.)
+- ☑ **Decision-tree view.** Each probabilistic step now shows an explicit success/fail
+  fork: "✓ hits (X%) → next step" / "✗ misses (Y%) → recovery action / brick", alongside
+  the existing recovery line.
+- ◐ **Niche omens.** DONE (verified mechanics): Sinistral/Dextral Coronation (next Regal
+  adds only prefix/suffix) and Sinistral/Dextral Erasure (next Chaos removes only
+  prefix/suffix then adds), both gated by the omens checkbox, with plan method-notes.
+  Costs are flagged 5ex placeholders (Ritual-only omens, not reliably on currency
+  market; prices.py doesn't fetch omens). DEFERRED: Whittling — its 'lowest-LEVEL mod'
+  targeting (not tier) is conditional and hard to model honestly without per-item state.
 
 ## Data refresh (run locally — needs network the dev box lacks)
 - ☑ **Desecrated base-type filtering.** DONE via build_desecrated.py: rebuilt
@@ -50,14 +52,17 @@ Newest items near the top of each section. Status: ☐ todo · ◐ in progress �
 - ☐ **Essence prices** seeded as TIERED ESTIMATES (Lesser~0.5 / Normal~2 / Greater~8
   / Perfect~25 ex). Run `python prices.py` locally to overwrite with live PoE2 Scout
   values. A few high-demand Greater essences really trade 50+ ex.
-- ☐ **Currency/omen prices** are a manual snapshot; refresh with `python prices.py`.
+- ◐ **Currency prices** refresh with `python prices.py` LOCALLY (scout/ninja unreachable
+  from build box). Script verified syntactically valid; fetches currency + essence
+  prices. Does NOT fetch omens (coronation/erasure/exaltation use flagged placeholders).
   Tier-floor values (Greater~35 / Perfect~50) are patch-disputed estimates in solver.py.
 
 ## Item art (deferred by Brandon)
-- ☐ **Real item art URLs.** Source = `web.poecdn.com` (GGG's own CDN — what poe.ninja
-  /poe2db reference). Per-base icon path is encoded/unguessable, so it needs a one-time
-  LOCAL harvester to populate `BASE_ART` in forge.html from poecdn URLs. Placeholder
-  silhouettes + GGG credit are live now. Deferred until other functionality is solid.
+- ◐ **Real item art.** Harvester written: run `python harvest_item_art.py` LOCALLY
+  (poe2db/poecdn unreachable from the build box) -> writes data/item_art.json, served by
+  /api/item-art and merged into BASE_ART at load. PoB has no per-base art paths, so the
+  scraper reads poe2db category pages. Until run, placeholder silhouettes stay. Needs
+  `pip install requests beautifulsoup4`.
 
 ## Done this session
 - ☑ Quarterstaff support (real warstaff-tagged pool from PoB; 70/88 mods).

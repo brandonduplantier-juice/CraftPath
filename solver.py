@@ -59,6 +59,7 @@ class Solver:
                  essences=None, item_class=None, essence_prices=None,
                  desecrated=None, bone_cost=None, sinistral_omen_cost=None,
                  exalt_omen_cost=None, annul_omen_cost=None,
+                 coronation_omen_cost=None, erasure_omen_cost=None,
                  enabled_methods=None):
         self.base = base_token
         self.ilvl = item_level
@@ -89,6 +90,8 @@ class Solver:
         # side). None -> feature off (omen not priced/available).
         self.exalt_omen_cost = exalt_omen_cost
         self.annul_omen_cost = annul_omen_cost
+        self.coronation_omen_cost = coronation_omen_cost
+        self.erasure_omen_cost = erasure_omen_cost
         # cost to abandon the current item and start fresh from a new white base.
         # White bases are cheap (vendor/drop); default 0.5 ex covers buying one.
         self.base_cost = self.prices.get("White Base", 0.5)
@@ -333,10 +336,13 @@ class Solver:
             cur = [(p, st) for st, p in nxt.items()]
         return cur
 
-    def _chaos_outcomes(self, s: State, sec_pre, sec_suf, open_pre, open_suf):
+    def _chaos_outcomes(self, s: State, sec_pre, sec_suf, open_pre, open_suf, side=None):
         """Chaos Orb (PoE2 0.5): removes ONE random mod, then adds ONE new
-        random mod. Composed as annul-distribution followed by add-distribution."""
-        removed = self._annul_outcomes(s, sec_pre, sec_suf)
+        random mod. Composed as annul-distribution followed by add-distribution.
+        With side='Prefix'/'Suffix' (Sinistral/Dextral Erasure omen), the REMOVAL
+        is restricted to that side (then the add is unrestricted, as Chaos adds
+        a random new mod to any open slot)."""
+        removed = self._annul_outcomes(s, sec_pre, sec_suf, side=side)
         if not removed:
             return []
         out = {}
@@ -446,6 +452,19 @@ class Solver:
                 routs = self._add_outcomes(regal_state, rp, rs, min_level=floor)
                 if routs:
                     acts.append((label, c, routs))
+            # Sinistral/Dextral Coronation: next Regal adds ONLY a prefix / ONLY a
+            # suffix. Gated by 'omens'. Steers the Magic->Rare upgrade to the side
+            # that still has a wanted mod instead of gambling which side gets it.
+            if self._on("omens") and self.coronation_omen_cost is not None:
+                ccost = self._cost("Regal Orb") + self.coronation_omen_cost
+                if rp > 0:
+                    so = self._add_outcomes(regal_state, rp, 0)   # prefix only
+                    if so:
+                        acts.append(("Regal Orb + Omen of Sinistral Coronation", ccost, so))
+                if rs > 0:
+                    do = self._add_outcomes(regal_state, 0, rs)   # suffix only
+                    if do:
+                        acts.append(("Regal Orb + Omen of Dextral Coronation", ccost, do))
             aouts = self._annul_outcomes(s, sec_pre, sec_suf)
             if aouts:
                 acts.append(("Orb of Annulment", self._cost("Orb of Annulment"), aouts))
@@ -518,6 +537,18 @@ class Solver:
                 ch = self._chaos_outcomes(s, sec_pre, sec_suf, open_pre, open_suf)
                 if ch:
                     acts.append(("Chaos Orb", cc, ch))
+                # Sinistral/Dextral Erasure: next Chaos removes ONLY a prefix /
+                # ONLY a suffix (then adds a random new mod). Gated by 'omens'.
+                # Lets you reroll a junk mod on a known side without risking the
+                # keeper on the other side.
+                if self._on("omens") and self.erasure_omen_cost is not None:
+                    ecost = cc + self.erasure_omen_cost
+                    chp = self._chaos_outcomes(s, sec_pre, sec_suf, open_pre, open_suf, side="Prefix")
+                    if chp:
+                        acts.append(("Chaos Orb + Omen of Sinistral Erasure", ecost, chp))
+                    chs = self._chaos_outcomes(s, sec_pre, sec_suf, open_pre, open_suf, side="Suffix")
+                    if chs:
+                        acts.append(("Chaos Orb + Omen of Dextral Erasure", ecost, chs))
             # NOTE: desecration (Bone+Omen) is intentionally NOT a solver action.
             # Its reveal odds are unpublished, and as a low-probability self-
             # looping action it destabilized the exact linear solve (produced

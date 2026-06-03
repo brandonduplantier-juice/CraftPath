@@ -282,6 +282,14 @@
   .mf-box input:checked + span{color:var(--verisium-bright,#7cf)}
   .mf-info{font-size:11px;color:var(--ash-dim);opacity:.6;cursor:help;border:1px solid currentColor;border-radius:50%;width:14px;height:14px;display:inline-flex;align-items:center;justify-content:center}
   .method-popup{position:fixed;left:50%;bottom:40px;transform:translateX(-50%);max-width:380px;background:#1a1420;border:1px solid #6a4a3a;border-radius:8px;padding:12px 16px;font-size:12px;line-height:1.5;color:#e6d8c8;box-shadow:0 8px 30px rgba(0,0,0,.6);z-index:1000;display:none}
+  .branch-fork{display:flex;gap:8px;margin:8px 0 4px;font-size:11px;font-family:'JetBrains Mono',monospace}
+  .branch{flex:1;display:flex;flex-direction:column;gap:2px;padding:6px 9px;border-radius:6px;border-left:3px solid}
+  .branch.hit{background:rgba(60,140,90,.12);border-color:var(--verd-bright,#6c9)}
+  .branch.miss{background:rgba(160,90,60,.12);border-color:#c87}
+  .branch-arm{font-weight:600;letter-spacing:.02em}
+  .branch.hit .branch-arm{color:var(--verd-bright,#6c9)}
+  .branch.miss .branch-arm{color:#e6a87a}
+  .branch-to{opacity:.7;font-size:10px}
   .item-ilvl{font-size:11px;color:var(--ash-dim);text-align:center}
 
   .paste-zone textarea{width:100%;height:96px;background:rgba(0,0,0,.32);border:1px dashed var(--edge);
@@ -677,6 +685,9 @@ async function init(){
     };
   }
   const bases = await api('/api/bases');
+  // load harvested real item art (populated by harvest_item_art.py); merge into
+  // BASE_ART so the card shows real icons where available, placeholder otherwise.
+  try{ const art = await api('/api/item-art'); if(art && typeof art==='object') Object.assign(BASE_ART, art); }catch(e){}
   const baseOpts = bases.map(b=>`<option value="${b.token}">${b.label}</option>`).join('');
   $('#base').innerHTML = baseOpts;
   $('#baseVisible').innerHTML = baseOpts;
@@ -966,6 +977,14 @@ const fmt = x => x==null?'∞' : x>=1e6 ? x.toExponential(2) : x>=1000 ? Math.ro
 // short how/when note for special crafting methods
 function methodNote(action){
   const a=(action||'').toLowerCase();
+  if(a.includes('coronation')){
+    const suf=a.includes('dextral');
+    return `<div class="method-note">✦ <b>How:</b> right-click an <b>Omen of ${suf?'Dextral':'Sinistral'} Coronation</b>, then use a <b>Regal Orb</b> — the Magic→Rare upgrade adds only a <b>${suf?'suffix':'prefix'}</b> this time, steering it to the side you still need. <span class="est">Ritual-only omen; cost varies — treat as estimate.</span></div>`;
+  }
+  if(a.includes('erasure')){
+    const suf=a.includes('dextral');
+    return `<div class="method-note">✦ <b>How:</b> right-click an <b>Omen of ${suf?'Dextral':'Sinistral'} Erasure</b>, then use a <b>Chaos Orb</b> — it removes only a <b>${suf?'suffix':'prefix'}</b> (then adds a new random mod), so you can reroll a junk mod on one side without risking the keeper on the other. <span class="est">Ritual-only omen; cost varies — treat as estimate.</span></div>`;
+  }
   if(a.includes('sinistral exaltation')){
     return `<div class="method-note">✦ <b>How:</b> right-click an <b>Omen of Sinistral Exaltation</b> to activate it, then use an <b>Exalted Orb</b> — it adds only a <b>prefix</b> this time instead of a random side. <span class="est">Ritual-only omen; cost varies — treat as estimate.</span></div>`;
   }
@@ -1071,6 +1090,10 @@ async function solve(){
       ${s.p_useful>0?`<div class="odds-bar"><div class="odds-fill" style="width:${Math.min(100,s.p_useful*100)}%"></div></div>`:''}
       ${s.secures.length?`<div class="secures">secures: <span class="m">${[...new Set(s.secures.map(u=>u.text))].join(' · ')}</span></div>`:''}
       ${methodNote(s.action)}
+      ${s.p_useful>0 && s.p_useful<1 ? `<div class="branch-fork">
+        <div class="branch hit"><span class="branch-arm">✓ hits (${(s.p_useful*100).toFixed(0)}%)</span><span class="branch-to">→ ${i+1 < j.steps.length ? 'step '+(s.n+1) : 'done ✓'}</span></div>
+        <div class="branch miss"><span class="branch-arm">✗ misses (${((1-s.p_useful)*100).toFixed(0)}%)</span><span class="branch-to">→ ${s.on_fail && s.on_fail.outcome==='bricked' ? 'brick — fresh base' : (s.on_fail ? (s.on_fail.next_action||'retry') : 'retry')}</span></div>
+      </div>`:''}
       ${s.on_fail?`<div class="onfail ${s.on_fail.outcome==='bricked'?'brick':''}">
         <span class="onfail-label">${s.on_fail.outcome==='bricked'?'⚠ if this fails':'↻ if this fails'}</span>
         ${s.on_fail.outcome==='bricked'

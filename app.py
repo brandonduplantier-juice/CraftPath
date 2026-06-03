@@ -250,6 +250,19 @@ def api_bases():
     return jsonify(sorted(bases, key=lambda b: b["label"]))
 
 
+@app.route("/api/item-art")
+def api_item_art():
+    """Serve harvested base->art-url map (data/item_art.json) if present.
+    Populated by running harvest_item_art.py locally. Empty {} otherwise."""
+    p = os.path.join(DATA, "item_art.json")
+    if os.path.exists(p):
+        try:
+            return jsonify(json.load(open(p)))
+        except Exception:
+            pass
+    return jsonify({})
+
+
 @app.route("/api/mods/<base>")
 def api_mods(base):
     try:
@@ -763,12 +776,27 @@ def api_solve():
     for k, v in prices.items():
         if "annulment" in k.lower() and "omen" in k.lower():
             _annul_omen = v if _annul_omen is None else min(_annul_omen, v)
+    # Coronation (steered Regal) and Erasure (steered Chaos removal) omens.
+    # Real price if listed, else a flagged placeholder so the method is offered.
+    _coronation_omen = None
+    for k, v in prices.items():
+        if "coronation" in k.lower():
+            _coronation_omen = v if _coronation_omen is None else min(_coronation_omen, v)
+    if _coronation_omen is None:
+        _coronation_omen = 5.0   # placeholder — Ritual omen, price varies
+    _erasure_omen = None
+    for k, v in prices.items():
+        if "erasure" in k.lower():
+            _erasure_omen = v if _erasure_omen is None else min(_erasure_omen, v)
+    if _erasure_omen is None:
+        _erasure_omen = 5.0      # placeholder — Ritual omen, price varies
 
     sv = Solver(mods, base, ilvl, wanted, prices,
                 essences=essences, item_class=item_class, essence_prices=ess_prices,
                 desecrated=desecrated_pool or None,
                 bone_cost=bone_cost, sinistral_omen_cost=omen_cost,
                 exalt_omen_cost=_exalt_omen, annul_omen_cost=_annul_omen,
+                coronation_omen_cost=_coronation_omen, erasure_omen_cost=_erasure_omen,
                 enabled_methods=enabled_methods)
     start = State(start_rarity,
                   frozenset(have_pre + have_suf),
