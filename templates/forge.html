@@ -786,7 +786,9 @@ async function loadBase(){
   [...MODS.prefixes, ...MODS.suffixes].forEach(m=>byId[m.id]=m);
   chosenPre = []; chosenSuf = [];
   const wb = $('#weightBadge');
-  if(MODS.weights_source === 'craft_of_exile_estimate'){ wb.textContent='weights: CoE estimate'; wb.className='badge'; }
+  const ws = MODS.weights_source;
+  if(ws === 'craft_of_exile_estimate'){ wb.textContent='weights: CoE estimate'; wb.className='badge'; }
+  else if(ws === 'pob_real' || ws === 'pob_real_partial'){ wb.textContent='weights: PoB (real)'; wb.className='badge'; }
   else { wb.textContent='weights: PLACEHOLDER (flat)'; wb.className='badge warn'; }
   renderLists(); renderChips();
 }

@@ -1,1 +1,3087 @@
-{"source": "poe2db_desecrated", "count": 195, "note": "Desecrated (Well of Souls) mods. ilvl 65 gate (jewel-abyssal ilvl1). Reveal weights are unknown (not published); modeled flat and flagged. Slot rules in desecrated.py: no prefix desec on body/gloves/boots/helmet; none on sceptre; lord-omens only on weapons/jewellery.", "mods": [{"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "Charms gain (0.1\u20140.2) charges per Second Charm amanamu", "mod_id": "DESEC_amanamu_Pre_0", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "2 to 4 Fire Thorns damage per 100 maximum Life amanamu Elemental Fire", "mod_id": "DESEC_amanamu_Pre_1", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "(10\u201418)% chance for Charms you use to not consume Charges Charm amanamu", "mod_id": "DESEC_amanamu_Pre_2", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "(8\u201416)% increased Curse Magnitudes amanamu Caster Curse", "mod_id": "DESEC_amanamu_Pre_3", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "Offering Skills have (12\u201420)% increased Buff effect amanamu", "mod_id": "DESEC_amanamu_Pre_4", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "Projectiles deal (20\u201430)% increased Damage with Hits against Enemies within 2m amanamu Damage", "mod_id": "DESEC_amanamu_Pre_5", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "Remnants you create have (8\u201415)% increased effect amanamu", "mod_id": "DESEC_amanamu_Pre_6", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "Minions deal (15\u201425)% increased Damage if you've Hit Recently amanamu Damage Minion", "mod_id": "DESEC_amanamu_Pre_7", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "(20\u201430)% increased Magnitude of Ignite if you've consumed an Endurance Charge Recently amanamu Ailment", "mod_id": "DESEC_amanamu_Pre_8", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "(35\u201450)% increased Armour from Equipped Body Armour amanamu Armour", "mod_id": "DESEC_amanamu_Pre_9", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "(15\u201425)% increased Global Armour, Evasion and Energy Shield amanamu", "mod_id": "DESEC_amanamu_Pre_10", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "(148\u2014178)% increased Spell Damage with Spells that cost Life amanamu", "mod_id": "DESEC_amanamu_Pre_11", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "+(35\u201450) to Spirit amanamu", "mod_id": "DESEC_amanamu_Pre_12", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "(74\u201489)% increased Elemental Damage amanamu Damage Elemental Fire Cold Lightning", "mod_id": "DESEC_amanamu_Pre_13", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "(55\u201464)% increased Spell Damage / Minions deal (55\u201464)% increased Damage amanamu Caster Minion", "mod_id": "DESEC_amanamu_Pre_14", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "(74\u201489)% increased Spell Damage with Spells that cost Life amanamu", "mod_id": "DESEC_amanamu_Pre_15", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "Attacks with this Weapon Penetrate (15\u201425)% Fire Resistance amanamu Damage Elemental Fire Attack", "mod_id": "DESEC_amanamu_Pre_16", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "(41\u201459)% increased Damage against Enemies with Fully Broken Armour amanamu Damage", "mod_id": "DESEC_amanamu_Pre_17", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "(86\u201499)% increased Damage against Enemies with Fully Broken Armour amanamu Damage", "mod_id": "DESEC_amanamu_Pre_18", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "(86\u201499)% increased Fire Damage / (14\u201423)% increased Ignite Magnitude amanamu Elemental Fire Ailment", "mod_id": "DESEC_amanamu_Pre_19", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "Grenade Skills have +1 Cooldown Use amanamu", "mod_id": "DESEC_amanamu_Pre_20", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "(101\u2014121)% increased Grenade Damage / (20\u201430)% increased Grenade Duration amanamu Damage", "mod_id": "DESEC_amanamu_Pre_21", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "Companions deal (40\u201459)% increased Damage / (40\u201459)% increased Damage while your Companion is in your Presence amanamu", "mod_id": "DESEC_amanamu_Pre_22", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "(12\u201423)% increased Area of Effect for Attacks amanamu Attack", "mod_id": "DESEC_amanamu_Pre_23", "weight": 1}, {"affix_name": "Amanamu's", "ilvl": 65, "affix_type": "Prefix", "lord": "amanamu", "source": "desecrated", "text": "Minions deal (60\u201479)% increased Damage if you've Hit Recently amanamu Damage Minion", "mod_id": "DESEC_amanamu_Pre_24", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "Mana Flasks gain (0.1\u20140.2) charges per Second kurgal", "mod_id": "DESEC_kurgal_Pre_25", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "Gain (6\u201412)% of Maximum Mana as Armour kurgal Mana Armour", "mod_id": "DESEC_kurgal_Pre_26", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "(10\u201415)% chance for Flasks you use to not consume Charges kurgal", "mod_id": "DESEC_kurgal_Pre_27", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "Invocated Spells deal (61\u201479)% increased Damage kurgal Caster", "mod_id": "DESEC_kurgal_Pre_28", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "Spell Skills have (10\u201420)% increased Area of Effect kurgal Caster", "mod_id": "DESEC_kurgal_Pre_29", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "Projectiles deal (20\u201430)% increased Damage with Hits against Enemies further than 6m kurgal", "mod_id": "DESEC_kurgal_Pre_30", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "(15\u201425)% increased Spell Damage while on Full Energy Shield kurgal Damage Caster", "mod_id": "DESEC_kurgal_Pre_31", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "(20\u201430)% increased Freeze Buildup if you've consumed an Power Charge Recently kurgal Ailment", "mod_id": "DESEC_kurgal_Pre_32", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "(35\u201450)% increased Energy Shield from Equipped Body Armour kurgal Energy Shield", "mod_id": "DESEC_kurgal_Pre_33", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "Invocated Spells have (10\u201420)% chance to consume half as much Energy kurgal Caster", "mod_id": "DESEC_kurgal_Pre_34", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "(4\u20145)% increased Spell Damage per 100 maximum Mana kurgal Mana Damage Caster", "mod_id": "DESEC_kurgal_Pre_35", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "+(1\u20142) to maximum number of Elemental Infusions kurgal Elemental", "mod_id": "DESEC_kurgal_Pre_36", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "Invocated Spells deal (75\u201489)% increased Damage kurgal Caster", "mod_id": "DESEC_kurgal_Pre_37", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "Attacks with this Weapon Penetrate (15\u201425)% Cold Resistance kurgal Damage Elemental Cold Attack", "mod_id": "DESEC_kurgal_Pre_38", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "(110\u2014154)% increased Physical Damage / 15% reduced Attack Speed kurgal Physical Attack Speed", "mod_id": "DESEC_kurgal_Pre_39", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "Empowered Attacks deal (41\u201459)% increased Damage kurgal Damage Attack", "mod_id": "DESEC_kurgal_Pre_40", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "Empowered Attacks deal (86\u201499)% increased Damage kurgal Damage Attack", "mod_id": "DESEC_kurgal_Pre_41", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "(86\u201499)% increased Cold Damage / (14\u201423)% increased Freeze Buildup kurgal Elemental Cold Ailment", "mod_id": "DESEC_kurgal_Pre_42", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "Projectiles deal (85\u2014109)% increased Damage with Hits against Enemies within 2m kurgal Damage", "mod_id": "DESEC_kurgal_Pre_43", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "Projectiles have (25\u201435)% chance to Chain an additional time from terrain kurgal", "mod_id": "DESEC_kurgal_Pre_44", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "(30\u201440)% increased bonuses gained from Equipped Quiver kurgal", "mod_id": "DESEC_kurgal_Pre_45", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "(60\u201479)% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds kurgal", "mod_id": "DESEC_kurgal_Pre_46", "weight": 1}, {"affix_name": "Kurgal's", "ilvl": 65, "affix_type": "Prefix", "lord": "kurgal", "source": "desecrated", "text": "Warcries Empower an additional Attack kurgal Attack", "mod_id": "DESEC_kurgal_Pre_47", "weight": 1}, {"affix_name": "Ulaman's", "ilvl": 65, "affix_type": "Prefix", "lord": "ulaman", "source": "desecrated", "text": "Life Flasks gain (0.1\u20140.2) charges per Second ulaman", "mod_id": "DESEC_ulaman_Pre_48", "weight": 1}, {"affix_name": "Ulaman's", "ilvl": 65, "affix_type": "Prefix", "lord": "ulaman", "source": "desecrated", "text": "(10\u201418)% chance for Flasks you use to not consume Charges ulaman", "mod_id": "DESEC_ulaman_Pre_49", "weight": 1}, {"affix_name": "Ulaman's", "ilvl": 65, "affix_type": "Prefix", "lord": "ulaman", "source": "desecrated", "text": "(20\u201430)% increased Life Regeneration rate during Effect of any Life Flask ulaman", "mod_id": "DESEC_ulaman_Pre_50", "weight": 1}, {"affix_name": "Ulaman's", "ilvl": 65, "affix_type": "Prefix", "lord": "ulaman", "source": "desecrated", "text": "Spell Skills have +1 to maximum number of Summoned Totems ulaman Caster", "mod_id": "DESEC_ulaman_Pre_51", "weight": 1}, {"affix_name": "Ulaman's", "ilvl": 65, "affix_type": "Prefix", "lord": "ulaman", "source": "desecrated", "text": "(61\u201479)% increased Spell Damage while wielding a Melee Weapon ulaman Caster", "mod_id": "DESEC_ulaman_Pre_52", "weight": 1}, {"affix_name": "Ulaman's", "ilvl": 65, "affix_type": "Prefix", "lord": "ulaman", "source": "desecrated", "text": "Increases and Reductions to Projectile Speed also apply to Damage with Bows ulaman", "mod_id": "DESEC_ulaman_Pre_53", "weight": 1}, {"affix_name": "Ulaman's", "ilvl": 65, "affix_type": "Prefix", "lord": "ulaman", "source": "desecrated", "text": "(15\u201425)% increased Attack Damage while on Low Life ulaman", "mod_id": "DESEC_ulaman_Pre_54", "weight": 1}, {"affix_name": "Ulaman's", "ilvl": 65, "affix_type": "Prefix", "lord": "ulaman", "source": "desecrated", "text": "(20\u201430)% increased Magnitude of Shock if you've consumed a Frenzy Charge Recently ulaman Ailment", "mod_id": "DESEC_ulaman_Pre_55", "weight": 1}, {"affix_name": "Ulaman's", "ilvl": 65, "affix_type": "Prefix", "lord": "ulaman", "source": "desecrated", "text": "(35\u201450)% increased Evasion Rating from Equipped Body Armour ulaman Evasion", "mod_id": "DESEC_ulaman_Pre_56", "weight": 1}, {"affix_name": "Ulaman's", "ilvl": 65, "affix_type": "Prefix", "lord": "ulaman", "source": "desecrated", "text": "(10\u201420)% increased Deflection Rating ulaman Evasion", "mod_id": "DESEC_ulaman_Pre_57", "weight": 1}, {"affix_name": "Ulaman's", "ilvl": 65, "affix_type": "Prefix", "lord": "ulaman", "source": "desecrated", "text": "(20\u201430)% chance for Skills to retain 40% of Glory on use ulaman", "mod_id": "DESEC_ulaman_Pre_58", "weight": 1}, {"affix_name": "Ulaman's", "ilvl": 65, "affix_type": "Prefix", "lord": "ulaman", "source": "desecrated", "text": "(4\u20145)% increased Spell Damage per 100 Maximum Life ulaman Life Damage Caster", "mod_id": "DESEC_ulaman_Pre_59", "weight": 1}, {"affix_name": "Ulaman's", "ilvl": 65, "affix_type": "Prefix", "lord": "ulaman", "source": "desecrated", "text": "(40\u201464)% increased Magnitude of Damaging Ailments you inflict ulaman Ailment", "mod_id": "DESEC_ulaman_Pre_60", "weight": 1}, {"affix_name": "Ulaman's", "ilvl": 65, "affix_type": "Prefix", "lord": "ulaman", "source": "desecrated", "text": "Gain (21\u201425)% of Damage as Extra Physical Damage ulaman Damage Physical", "mod_id": "DESEC_ulaman_Pre_61", "weight": 1}, {"affix_name": "Ulaman's", "ilvl": 65, "affix_type": "Prefix", "lord": "ulaman", "source": "desecrated", "text": "(27\u201438)% increased Magnitude of Bleeding you inflict ulaman Damage Physical Attack Ailment", "mod_id": "DESEC_ulaman_Pre_62", "weight": 1}, {"affix_name": "Ulaman's", "ilvl": 65, "affix_type": "Prefix", "lord": "ulaman", "source": "desecrated", "text": "Attacks with this Weapon Penetrate (15\u201425)% Lightning Resistance ulaman Damage Elemental Lightning Attack", "mod_id": "DESEC_ulaman_Pre_63", "weight": 1}, {"affix_name": "Ulaman's", "ilvl": 65, "affix_type": "Prefix", "lord": "ulaman", "source": "desecrated", "text": "Melee Attack Skills have +1 to maximum number of Summoned Totems ulaman", "mod_id": "DESEC_ulaman_Pre_64", "weight": 1}, {"affix_name": "Ulaman's", "ilvl": 65, "affix_type": "Prefix", "lord": "ulaman", "source": "desecrated", "text": "(41\u201459)% increased Damage while you have a Totem ulaman Damage", "mod_id": "DESEC_ulaman_Pre_65", "weight": 1}, {"affix_name": "Ulaman's", "ilvl": 65, "affix_type": "Prefix", "lord": "ulaman", "source": "desecrated", "text": "(86\u201499)% increased Damage while you have a Totem ulaman Damage", "mod_id": "DESEC_ulaman_Pre_66", "weight": 1}, {"affix_name": "Ulaman's", "ilvl": 65, "affix_type": "Prefix", "lord": "ulaman", "source": "desecrated", "text": "(86\u201499)% increased Lightning Damage / (14\u201423)% increased Magnitude of Shock you inflict ulaman Elemental Lightning Ailment", "mod_id": "DESEC_ulaman_Pre_67", "weight": 1}, {"affix_name": "Ulaman's", "ilvl": 65, "affix_type": "Prefix", "lord": "ulaman", "source": "desecrated", "text": "+1 to maximum number of Summoned Ballista Totems ulaman", "mod_id": "DESEC_ulaman_Pre_68", "weight": 1}, {"affix_name": "Ulaman's", "ilvl": 65, "affix_type": "Prefix", "lord": "ulaman", "source": "desecrated", "text": "Projectiles deal (60\u201479)% increased Damage with Hits against Enemies further than 6m ulaman", "mod_id": "DESEC_ulaman_Pre_69", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "+(13\u201417)% to Fire and Chaos Resistances amanamu Elemental Fire Chaos Resistance", "mod_id": "DESEC_amanamu_Suf_70", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "+(9\u201415) to Strength and Intelligence amanamu Attribute", "mod_id": "DESEC_amanamu_Suf_71", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(4\u20148)% increased Spirit Reservation Efficiency of Skills amanamu", "mod_id": "DESEC_amanamu_Suf_72", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(10\u201420)% increased Glory generation amanamu", "mod_id": "DESEC_amanamu_Suf_73", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(25\u201435)% increased Presence Area of Effect amanamu Aura", "mod_id": "DESEC_amanamu_Suf_74", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(12\u201420)% increased Area of Effect of Curses amanamu Caster Curse", "mod_id": "DESEC_amanamu_Suf_75", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(10\u201420)% chance to Daze on Hit amanamu", "mod_id": "DESEC_amanamu_Suf_76", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(8\u201415)% of Leech is Instant amanamu", "mod_id": "DESEC_amanamu_Suf_77", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(10\u201420)% increased Immobilisation buildup amanamu", "mod_id": "DESEC_amanamu_Suf_78", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(20\u201430)% reduced Ignite Duration on you amanamu Elemental Fire Ailment", "mod_id": "DESEC_amanamu_Suf_79", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(12\u201420)% reduced Slowing Potency of Debuffs on You amanamu", "mod_id": "DESEC_amanamu_Suf_80", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "+(0.1\u20140.2) metres to Dodge Roll distance amanamu", "mod_id": "DESEC_amanamu_Suf_81", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "+(2\u20144)% to Thorns Critical Hit Chance amanamu Damage Critical", "mod_id": "DESEC_amanamu_Suf_82", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(10\u201420)% of Damage taken Recouped as Life amanamu Life", "mod_id": "DESEC_amanamu_Suf_83", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(25\u201435)% reduced effect of Curses on you amanamu Caster Curse", "mod_id": "DESEC_amanamu_Suf_84", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(6\u201412)% increased Spirit Reservation Efficiency of Skills amanamu", "mod_id": "DESEC_amanamu_Suf_85", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "Hits with Shield Skills which Heavy Stun enemies break fully Break Armour amanamu", "mod_id": "DESEC_amanamu_Suf_86", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "Your Heavy Stun buildup empties (30\u201440)% faster amanamu", "mod_id": "DESEC_amanamu_Suf_87", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "+1% to all maximum Resistances amanamu Resistance", "mod_id": "DESEC_amanamu_Suf_88", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "+(1\u20142) to Level of all Minion Skills amanamu Minion Gem", "mod_id": "DESEC_amanamu_Suf_89", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(10\u201420)% faster Curse Activation amanamu Caster Curse", "mod_id": "DESEC_amanamu_Suf_90", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "Projectiles have (18\u201426)% increased Critical Damage Bonus against Enemies within 2m amanamu", "mod_id": "DESEC_amanamu_Suf_91", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(8\u201412)% increased Skill Effect Duration amanamu", "mod_id": "DESEC_amanamu_Suf_92", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "Remnants can be collected from (20\u201430)% further away amanamu", "mod_id": "DESEC_amanamu_Suf_93", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(12\u201420)% increased amount of Life Leeched amanamu Life", "mod_id": "DESEC_amanamu_Suf_94", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "Equipment and Skill Gems have (10\u201415)% reduced Attribute Requirements amanamu", "mod_id": "DESEC_amanamu_Suf_95", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "Aura Skills have (8\u201416)% increased Magnitudes amanamu", "mod_id": "DESEC_amanamu_Suf_96", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(25\u201435)% of Spell Mana Cost Converted to Life Cost amanamu Life Caster", "mod_id": "DESEC_amanamu_Suf_97", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(25\u201435)% increased Archon Buff duration amanamu", "mod_id": "DESEC_amanamu_Suf_98", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "+(12\u201416)% to Block chance amanamu", "mod_id": "DESEC_amanamu_Suf_99", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "Spell Skills have (8\u201416)% increased Area of Effect amanamu Caster", "mod_id": "DESEC_amanamu_Suf_100", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(5\u201410)% increased Cost Efficiency / (15\u201425)% of Spell Mana Cost Converted to Life Cost amanamu Life Caster", "mod_id": "DESEC_amanamu_Suf_101", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "Enemies Hindered by you take (4\u20147)% increased Elemental Damage amanamu", "mod_id": "DESEC_amanamu_Suf_102", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(5\u201410)% increased Spirit Reservation Efficiency of Skills amanamu", "mod_id": "DESEC_amanamu_Suf_103", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "Break Armour equal to (2\u20144)% of Physical Damage dealt amanamu Damage Physical", "mod_id": "DESEC_amanamu_Suf_104", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "Skills which create Fissures have a (15\u201425)% chance to create an additional Fissure amanamu Attack", "mod_id": "DESEC_amanamu_Suf_105", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(10\u201416)% chance for Mace Slam Skills you use yourself to cause an additional Aftershock amanamu Attack", "mod_id": "DESEC_amanamu_Suf_106", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "Break Armour equal to (4\u20147)% of Physical Damage dealt amanamu Damage Physical", "mod_id": "DESEC_amanamu_Suf_107", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "Skills which create Fissures have a (25\u201431)% chance to create an additional Fissure amanamu Attack", "mod_id": "DESEC_amanamu_Suf_108", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(16\u201423)% chance for Mace Slam Skills you use yourself to cause an additional Aftershock amanamu Attack", "mod_id": "DESEC_amanamu_Suf_109", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(25\u201440)% chance to build an additional Combo on Hit amanamu", "mod_id": "DESEC_amanamu_Suf_110", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "Grenades have (15\u201425)% chance to activate a second time amanamu", "mod_id": "DESEC_amanamu_Suf_111", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(12\u201418)% increased Attack Speed / Companions have (12\u201418)% increased Attack Speed amanamu", "mod_id": "DESEC_amanamu_Suf_112", "weight": 1}, {"affix_name": "of Amanamu", "ilvl": 65, "affix_type": "Suffix", "lord": "amanamu", "source": "desecrated", "text": "(40\u201460)% chance to Pierce an Enemy amanamu", "mod_id": "DESEC_amanamu_Suf_113", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "+(13\u201417)% to Cold and Chaos Resistances kurgal Elemental Cold Chaos Resistance", "mod_id": "DESEC_kurgal_Suf_114", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "+(9\u201415) to Dexterity and Intelligence kurgal Attribute", "mod_id": "DESEC_kurgal_Suf_115", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(6\u201410)% increased Mana Cost Efficiency kurgal Mana", "mod_id": "DESEC_kurgal_Suf_116", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(20\u201430)% increased effect of Arcane Surge on you kurgal Mana Caster", "mod_id": "DESEC_kurgal_Suf_117", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(10\u201415)% chance to Gain Arcane Surge when you deal a Critical Hit kurgal Critical", "mod_id": "DESEC_kurgal_Suf_118", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(8\u201415)% increased Cast Speed when on Full Life kurgal Caster Speed", "mod_id": "DESEC_kurgal_Suf_119", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(20\u201430)% reduced Duration of Bleeding on You kurgal Physical Ailment", "mod_id": "DESEC_kurgal_Suf_120", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(8\u201412)% increased Mana Cost Efficiency if you have Dodge Rolled Recently kurgal Mana", "mod_id": "DESEC_kurgal_Suf_121", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(40\u201450)% increased Mana Regeneration Rate while stationary kurgal Mana", "mod_id": "DESEC_kurgal_Suf_122", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(30\u201440)% increased Mana Regeneration Rate kurgal Mana", "mod_id": "DESEC_kurgal_Suf_123", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(10\u201420)% of Damage taken Recouped as Mana kurgal Life Mana", "mod_id": "DESEC_kurgal_Suf_124", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(10\u201420)% of Elemental Damage taken Recouped as Energy Shield kurgal", "mod_id": "DESEC_kurgal_Suf_125", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "+(23\u201431)% of Armour also applies to Chaos Damage kurgal", "mod_id": "DESEC_kurgal_Suf_126", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(10\u201420)% of Damage is taken from Mana before Life kurgal Life Mana", "mod_id": "DESEC_kurgal_Suf_127", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(6\u201412) Mana gained when you Block kurgal Mana", "mod_id": "DESEC_kurgal_Suf_128", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(40\u201450)% increased Energy Shield Recharge Rate if you've Blocked Recently kurgal Energy Shield", "mod_id": "DESEC_kurgal_Suf_129", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(15\u201425)% chance when collecting an Elemental Infusion to gain an additional Elemental Infusion of the same type kurgal", "mod_id": "DESEC_kurgal_Suf_130", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "Projectiles have (18\u201426)% increased Critical Hit Chance against Enemies further than 6m kurgal", "mod_id": "DESEC_kurgal_Suf_131", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(10\u201415)% increased Exposure Effect kurgal Elemental Fire Cold Lightning", "mod_id": "DESEC_kurgal_Suf_132", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(8\u201412)% increased Cooldown Recovery Rate kurgal", "mod_id": "DESEC_kurgal_Suf_133", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "Recover (2\u20143)% of maximum Mana on Kill kurgal Mana", "mod_id": "DESEC_kurgal_Suf_134", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(12\u201420)% increased amount of Mana Leeched kurgal Mana", "mod_id": "DESEC_kurgal_Suf_135", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "Minions have (12\u201420)% increased Cooldown Recovery Rate kurgal Minion", "mod_id": "DESEC_kurgal_Suf_136", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(8\u201416)% of Damage is taken from Mana before Life kurgal Life Mana", "mod_id": "DESEC_kurgal_Suf_137", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "+(3\u20145)% to Quality of all Skills kurgal Gem", "mod_id": "DESEC_kurgal_Suf_138", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "Archon recovery period expires (25\u201435)% faster kurgal", "mod_id": "DESEC_kurgal_Suf_139", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(26\u201436)% increased Cast Speed while on Full Mana kurgal Mana Caster Speed", "mod_id": "DESEC_kurgal_Suf_140", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(3\u20145)% increased Cast Speed for each different Non-Instant Spell you've Cast Recently kurgal", "mod_id": "DESEC_kurgal_Suf_141", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "Enemies Hindered by you take (4\u20147)% increased Chaos Damage kurgal", "mod_id": "DESEC_kurgal_Suf_142", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(8\u201415)% increased Cost Efficiency of Attacks kurgal Attack", "mod_id": "DESEC_kurgal_Suf_143", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(17\u201425)% increased Warcry Cooldown Recovery Rate kurgal", "mod_id": "DESEC_kurgal_Suf_144", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(25\u201431)% increased Warcry Cooldown Recovery Rate kurgal", "mod_id": "DESEC_kurgal_Suf_145", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "Recover (4\u20146)% of Maximum Mana when you expend at least 10 Combo kurgal Mana", "mod_id": "DESEC_kurgal_Suf_146", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(17\u201425)% increased Reload Speed kurgal Attack Speed", "mod_id": "DESEC_kurgal_Suf_147", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(15\u201420)% chance when you Reload a Crossbow to be immediate kurgal", "mod_id": "DESEC_kurgal_Suf_148", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "Projectiles have (25\u201434)% increased Critical Hit Chance against Enemies further than 6m kurgal", "mod_id": "DESEC_kurgal_Suf_149", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(25\u201434)% increased Immobilisation buildup kurgal", "mod_id": "DESEC_kurgal_Suf_150", "weight": 1}, {"affix_name": "of Kurgal", "ilvl": 65, "affix_type": "Suffix", "lord": "kurgal", "source": "desecrated", "text": "(39\u201451)% increased Critical Hit Chance against Marked Enemies kurgal Critical", "mod_id": "DESEC_kurgal_Suf_151", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "+(13\u201417)% to Lightning and Chaos Resistances ulaman Elemental Lightning Chaos Resistance", "mod_id": "DESEC_ulaman_Suf_152", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "+(9\u201415) to Strength and Dexterity ulaman Attribute", "mod_id": "DESEC_ulaman_Suf_153", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "Enemies you Mark take (4\u20148)% increased Damage ulaman", "mod_id": "DESEC_ulaman_Suf_154", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(13\u201420)% increased Critical Damage Bonus ulaman Damage Critical", "mod_id": "DESEC_ulaman_Suf_155", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(8\u201412)% increased Life Cost Efficiency ulaman Life", "mod_id": "DESEC_ulaman_Suf_156", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(10\u201420)% increased Magnitude of Ailments you inflict ulaman Damage Ailment", "mod_id": "DESEC_ulaman_Suf_157", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(20\u201430)% increased chance to Poison ulaman", "mod_id": "DESEC_ulaman_Suf_158", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(20\u201430)% increased chance to inflict Bleeding ulaman", "mod_id": "DESEC_ulaman_Suf_159", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(15\u201425)% chance for Attack Hits to apply Incision ulaman Physical Ailment", "mod_id": "DESEC_ulaman_Suf_160", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(8\u201412)% increased Skill Speed if you've consumed a Frenzy Charge Recently ulaman Speed", "mod_id": "DESEC_ulaman_Suf_161", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(20\u201430)% reduced Poison Duration on you ulaman Chaos Ailment", "mod_id": "DESEC_ulaman_Suf_162", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "Corrupted Blood cannot be inflicted on you ulaman Physical Ailment", "mod_id": "DESEC_ulaman_Suf_163", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(6\u201410)% reduced Movement Speed Penalty from using Skills while moving ulaman Speed", "mod_id": "DESEC_ulaman_Suf_164", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(17\u201425)% reduced Slowing Potency of Debuffs on You if you've used a Charm Recently Charm ulaman", "mod_id": "DESEC_ulaman_Suf_165", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "Hits have (17\u201425)% reduced Critical Hit Chance against you ulaman Critical", "mod_id": "DESEC_ulaman_Suf_166", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "Prevent +(3\u20145)% of Damage from Deflected Hits ulaman", "mod_id": "DESEC_ulaman_Suf_167", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(12\u201418)% increased Reservation Efficiency of Companion Skills ulaman", "mod_id": "DESEC_ulaman_Suf_168", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "+(1\u20142)% to maximum Block chance ulaman", "mod_id": "DESEC_ulaman_Suf_169", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(20\u201430)% increased Parried Debuff Magnitude ulaman", "mod_id": "DESEC_ulaman_Suf_170", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(25\u201435)% increased Parried Debuff Duration ulaman", "mod_id": "DESEC_ulaman_Suf_171", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(10\u201420)% of Spell Mana Cost Converted to Life Cost ulaman Life Caster", "mod_id": "DESEC_ulaman_Suf_172", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(10\u201416)% chance for Spell Skills to fire 2 additional Projectiles ulaman Caster", "mod_id": "DESEC_ulaman_Suf_173", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "Projectile Attacks have a (8\u201412)% chance to fire two additional Projectiles while moving ulaman", "mod_id": "DESEC_ulaman_Suf_174", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(10\u201414)% of Skill Mana Costs Converted to Life Costs ulaman Life", "mod_id": "DESEC_ulaman_Suf_175", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(3\u20146)% increased Skill Speed ulaman Speed", "mod_id": "DESEC_ulaman_Suf_176", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "Recover (2\u20143)% of maximum Life on Kill ulaman Life", "mod_id": "DESEC_ulaman_Suf_177", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(10\u201420)% increased Reservation Efficiency of Herald Skills ulaman", "mod_id": "DESEC_ulaman_Suf_178", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "+1 to Level of all Skills ulaman Gem", "mod_id": "DESEC_ulaman_Suf_179", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(30\u201440)% increased Cast Speed when on Low Life ulaman Caster Speed", "mod_id": "DESEC_ulaman_Suf_180", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(25\u201435)% chance for Spell Skills to fire 2 additional Projectiles ulaman Caster", "mod_id": "DESEC_ulaman_Suf_181", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "Break (31\u201439)% increased Armour ulaman", "mod_id": "DESEC_ulaman_Suf_182", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "Break Armour on Critical Hit with Spells equal to (11\u201418)% of Physical Damage dealt ulaman Caster Critical", "mod_id": "DESEC_ulaman_Suf_183", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "Enemies Hindered by you take (4\u20147)% increased Physical Damage ulaman", "mod_id": "DESEC_ulaman_Suf_184", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(15\u201420)% of Skill Mana Costs Converted to Life Costs ulaman Life", "mod_id": "DESEC_ulaman_Suf_185", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(17\u201425)% increased Totem Placement speed ulaman Speed", "mod_id": "DESEC_ulaman_Suf_186", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(25\u201431)% increased Totem Placement speed ulaman Speed", "mod_id": "DESEC_ulaman_Suf_187", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "Recover (6\u201412)% of Maximum Life when you expend at least 10 Combo ulaman Life", "mod_id": "DESEC_ulaman_Suf_188", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "Attacks Chain an additional time ulaman", "mod_id": "DESEC_ulaman_Suf_189", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "Projectiles have (27\u201438)% increased Critical Damage Bonus against Enemies within 2m ulaman", "mod_id": "DESEC_ulaman_Suf_190", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "Projectile Attacks have a (10\u201418)% chance to fire two additional Projectiles while moving ulaman", "mod_id": "DESEC_ulaman_Suf_191", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(8\u201413)% increased Attack Speed / (8\u201413)% increased Attack Speed while your Companion is in your Presence ulaman", "mod_id": "DESEC_ulaman_Suf_192", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "Gain (3\u20146) Rage on Melee Hit kurgal Attack", "mod_id": "DESEC_ulaman_Suf_193", "weight": 1}, {"affix_name": "of Ulaman", "ilvl": 65, "affix_type": "Suffix", "lord": "ulaman", "source": "desecrated", "text": "(40\u201450)% increased Life Regeneration Rate while moving ulaman Life", "mod_id": "DESEC_ulaman_Suf_194", "weight": 1}], "weights_source": "flat_uniform"}
+{
+ "source": "pob_modveiled",
+ "count": 196,
+ "note": "Well of Souls (Abyss) desecrated mods from Path of Building ModVeiled.lua. Each carries real per-base weightKey tags so the API filters to mods that can actually roll on a given base. Reveal odds among valid mods are unpublished; treat as flat.",
+ "weights_source": "pob_real",
+ "mods": [
+  {
+   "mod_id": "AbyssModArmourJewelleryUlamanSuffixLightningChaosResistance",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "+(13-17)% to Lightning and Chaos Resistances",
+   "tags": {
+    "armour": 1,
+    "belt": 1,
+    "ring": 1,
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModArmourJewelleryUlamanSuffixStrengthAndDexterity",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "+(9-15) to Strength and Dexterity",
+   "tags": {
+    "armour": 1,
+    "belt": 1,
+    "ring": 1,
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModArmourJewelleryAmanamuSuffixFireChaosResistance",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "+(13-17)% to Fire and Chaos Resistances",
+   "tags": {
+    "armour": 1,
+    "belt": 1,
+    "ring": 1,
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModArmourJewelleryAmanamuSuffixStrengthAndIntelligence",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "+(9-15) to Strength and Intelligence",
+   "tags": {
+    "armour": 1,
+    "belt": 1,
+    "ring": 1,
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModArmourJewelleryKurgalSuffixColdChaosResistance",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "+(13-17)% to Cold and Chaos Resistances",
+   "tags": {
+    "armour": 1,
+    "belt": 1,
+    "ring": 1,
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModArmourJewelleryKurgalSuffixDexterityAndIntelligence",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "+(9-15) to Dexterity and Intelligence",
+   "tags": {
+    "armour": 1,
+    "belt": 1,
+    "ring": 1,
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModFourCatKurgalSuffixManaCostEfficiency",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(6-10)% increased Mana Cost Efficiency",
+   "tags": {
+    "helmet": 1,
+    "gloves": 1,
+    "focus": 1,
+    "quiver": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModHelmUlamanSuffixMarkedEnemyTakeIncreasedDamage",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Enemies you Mark take (4-8)% increased Damage",
+   "tags": {
+    "str_armour": 0,
+    "int_armour": 0,
+    "str_int_armour": 0,
+    "helmet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModHelmUlamanSuffixCriticalHitDamage",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(13-20)% increased Critical Damage Bonus",
+   "tags": {
+    "str_armour": 0,
+    "int_armour": 0,
+    "str_int_armour": 0,
+    "helmet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModHelmUlamanSuffixLifeCostEfficiency",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(8-12)% increased Life Cost Efficiency",
+   "tags": {
+    "helmet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModHelmAmanamuSuffixSpiritReservationEfficiency",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(4-8)% increased Spirit Reservation Efficiency",
+   "tags": {
+    "helmet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModHelmAmanamuSuffixGloryGeneration",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(10-20)% increased Glory generation",
+   "tags": {
+    "dex_armour": 0,
+    "int_armour": 0,
+    "dex_int_armour": 0,
+    "helmet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModHelmAmanamuSuffixPresenceAreaOfEffect",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(25-35)% increased Presence Area of Effect",
+   "tags": {
+    "helmet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModHelmKurgalSuffixArcaneSurgeEffect",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(20-30)% increased effect of Arcane Surge on you",
+   "tags": {
+    "str_armour": 0,
+    "dex_armour": 0,
+    "str_dex_armour": 0,
+    "helmet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModGlovesUlamanSuffixAilmentMagnitude",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(10-20)% increased Magnitude of Ailments you inflict",
+   "tags": {
+    "gloves": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModGlovesUlamanSuffixPoisonChance",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(20-30)% increased chance to Poison",
+   "tags": {
+    "gloves": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModGlovesUlamanSuffixBleedChance",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(20-30)% increased chance to inflict Bleeding",
+   "tags": {
+    "gloves": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModGlovesUlamanSuffixIncisionChance",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(15-25)% chance for Attack Hits to apply Incision",
+   "tags": {
+    "str_armour": 0,
+    "dex_armour": 0,
+    "str_dex_armour": 0,
+    "gloves": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModGlovesUlamanSuffixFrenzyChargeConsumedSkillSpeed",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(8-12)% increased Skill Speed if you've consumed a Frenzy Charge Recently",
+   "tags": {
+    "str_armour": 0,
+    "dex_armour": 0,
+    "str_dex_armour": 0,
+    "gloves": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModGlovesAmanamuSuffixCurseAreaOfEffect",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(12-20)% increased Area of Effect of Curses",
+   "tags": {
+    "str_armour": 0,
+    "int_armour": 0,
+    "str_int_armour": 0,
+    "gloves": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModGlovesAmanamuSuffixDazeChance",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(10-20)% chance to Daze on Hit",
+   "tags": {
+    "gloves": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModGlovesAmanamuSuffixPercentOfLifeLeechInstant",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(8-15)% of Leech is Instant",
+   "tags": {
+    "dex_armour": 0,
+    "int_armour": 0,
+    "dex_int_armour": 0,
+    "gloves": 0,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModGlovesAmanamuSuffixImmobilisationBuildUp",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(10-20)% increased Immobilisation buildup",
+   "tags": {
+    "str_armour": 0,
+    "int_armour": 0,
+    "str_int_armour": 0,
+    "gloves": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModGlovesKurgalSuffixArcaneSurgeOnCriticalHit",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(10-15)% chance to Gain Arcane Surge when you deal a Critical Hit",
+   "tags": {
+    "str_armour": 0,
+    "dex_armour": 0,
+    "str_dex_armour": 0,
+    "gloves": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModGlovesKurgalSuffixCastSpeedWhileOnFullMana",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(8-15)% increased Cast Speed when on Full Life",
+   "tags": {
+    "str_armour": 0,
+    "dex_armour": 0,
+    "str_dex_armour": 0,
+    "gloves": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBootsAndBeltUlamanSuffixReducedPoisonDurationSelf",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(20-30)% reduced Poison Duration on you",
+   "tags": {
+    "boots": 1,
+    "belt": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBootsAndBeltAmanamuSuffixReducedIgniteDuration",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(20-30)% reduced Ignite Duration on you",
+   "tags": {
+    "boots": 1,
+    "belt": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBootsAndBeltKurgalSuffixReducedBleedDurationSelf",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(20-30)% reduced Duration of Bleeding on You",
+   "tags": {
+    "boots": 1,
+    "belt": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBootsUlamanSuffixCorruptedBloodImmunity",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Corrupted Blood cannot be inflicted on you",
+   "tags": {
+    "boots": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBootsAmanamuSuffixReducedPotencyOfSlows",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(12-20)% reduced Slowing Potency of Debuffs on You",
+   "tags": {
+    "boots": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBootsAmanamuSuffixDodgeRollDistance",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "+(0.1-0.2) metres to Dodge Roll distance",
+   "tags": {
+    "boots": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBootsKurgalSuffixManaCostEfficiencyDodgeRolledRecently",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(8-12)% increased Mana Cost Efficiency if you have Dodge Rolled Recently",
+   "tags": {
+    "boots": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBootsKurgalSuffixManaRegenerationStationary",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(40-50)% increased Mana Regeneration Rate while stationary",
+   "tags": {
+    "boots": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBeltUlamanPrefixLifeFlasksGainChargesPerSecond",
+   "affix_name": "Ulaman's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Life Flasks gain (0.1-0.2) charges per Second",
+   "tags": {
+    "belt": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBeltUlamanPrefixChanceToNotConsumeFlaskConsumeCharges",
+   "affix_name": "Ulaman's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(10-18)% chance for Flasks you use to not consume Charges",
+   "tags": {
+    "belt": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBeltUlamanPrefixLifeRegenRateDuringLifeFlaskEffect",
+   "affix_name": "Ulaman's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(20-30)% increased Life Regeneration rate during Effect of any Life Flask",
+   "tags": {
+    "belt": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBeltUlamanSuffixReducedSlowPotencySelfIfCharmedRecently",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(17-25)% reduced Slowing Potency of Debuffs on You if you've used a Charm Recently",
+   "tags": {
+    "belt": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBeltAmanamuPrefixCharmsGainChargesPerSecond",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Charms gain (0.1-0.2) charges per Second",
+   "tags": {
+    "belt": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBeltAmanamuPrefixGainFireThornsPer100MaximumLife",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "2 to 4 Fire Thorns damage per 100 maximum Life",
+   "tags": {
+    "belt": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBeltAmanamuPrefixChanceToNotConsumeCharmCharges",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(10-18)% chance for Charms you use to not consume Charges",
+   "tags": {
+    "belt": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBeltAmanamuSuffixThornsBaseCriticalStrikeChance",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "+(2-4)% to Thorns Critical Hit Chance",
+   "tags": {
+    "belt": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBeltKurgalPrefixManaFlasksGainChargesPerSecond",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Mana Flasks gain (0.1-0.2) charges per Second",
+   "tags": {
+    "belt": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBeltKurgalPrefixGainArmourPercentOfMana",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Gain (6-12)% of Maximum Mana as Armour",
+   "tags": {
+    "belt": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBeltKurgalPrefixChanceToNotConsumeFlaskConsumeCharges",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(10-15)% chance for Flasks you use to not consume Charges",
+   "tags": {
+    "belt": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBeltKurgalSuffixManaRegenerationRate",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(30-40)% increased Mana Regeneration Rate",
+   "tags": {
+    "belt": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBodyShieldUlamanSuffixHitsAgainstYouReducedCriticalDamage",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Hits have (17-25)% reduced Critical Hit Chance against you",
+   "tags": {
+    "body_armour": 1,
+    "shield": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBodyShieldAmanamuSuffixLifeRecoup",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(10-20)% of Damage taken Recouped as Life",
+   "tags": {
+    "dex_armour": 0,
+    "int_armour": 0,
+    "dex_int_armour": 0,
+    "helmet": 1,
+    "shield": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBodyShieldAmanamuSuffixReducedCursedEffectSelf",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(25-35)% reduced effect of Curses on you",
+   "tags": {
+    "body_armour": 1,
+    "shield": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBodyShieldKurgalSuffixManaRecoup",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(10-20)% of Damage taken Recouped as Mana",
+   "tags": {
+    "body_armour": 1,
+    "shield": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBodyShieldKurgalSuffixElementalEnergyShieldRecoup",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(10-20)% of Elemental Damage taken Recouped as Energy Shield",
+   "tags": {
+    "str_shield": 0,
+    "dex_shield": 0,
+    "str_dex_shield": 0,
+    "helmet": 1,
+    "shield": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBodyShieldKurgalSuffixArmourAppliesToChaosDamage",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "+(23-31)% of Armour also applies to Chaos Damage",
+   "tags": {
+    "dex_armour": 0,
+    "int_armour": 0,
+    "dex_int_armour": 0,
+    "helmet": 1,
+    "shield": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBodyArmourUlamanSuffixDeflectDamagePrevented",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Prevent +(3-5)% of Damage from Deflected Hits",
+   "tags": {
+    "str_armour": 0,
+    "int_armour": 0,
+    "str_int_armour": 0,
+    "body_armour": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBodyArmourUlamanSuffixCompanionReservationEfficiency",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(12-18)% increased Reservation Efficiency of Companion Skills",
+   "tags": {
+    "str_armour": 0,
+    "int_armour": 0,
+    "str_int_armour": 0,
+    "body_armour": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBodyArmourAmanamuSuffixSpiritReservationEfficiency",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(6-12)% increased Spirit Reservation Efficiency",
+   "tags": {
+    "body_armour": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBodyArmourKurgalSuffixDamageTakenFromManaBeforeLife",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(10-20)% of Damage is taken from Mana before Life",
+   "tags": {
+    "str_armour": 0,
+    "dex_armour": 0,
+    "str_dex_armour": 0,
+    "body_armour": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModShieldUlamanSuffixMaximumBlockChance",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "+(1-2)% to maximum Block chance",
+   "tags": {
+    "shield": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModShieldUlamanSuffixParryDebuffMagnitude",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(20-30)% increased Parried Debuff Magnitude",
+   "tags": {
+    "str_shield": 0,
+    "str_int_shield": 0,
+    "shield": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModShieldUlamanSuffixParryDebuffDuration",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(25-35)% increased Parried Debuff Duration",
+   "tags": {
+    "str_shield": 0,
+    "str_int_shield": 0,
+    "shield": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModShieldUlamanSuffixLightningTakenAsPhysAndGlancingWhileActiveBlocking",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(30-40)% of Physical Damage taken as Lightning while your Shield is raised You take (8-15)% of damage from Blocked Hits with a raised Shield",
+   "tags": {
+    "dex_shield": 0,
+    "dex_int_shield": 0,
+    "shield": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModShieldAmanamuSuffixShieldSkillsFullyBreakArmourOnHeavyStun",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Hits with Shield Skills which Heavy Stun enemies break fully Break Armour",
+   "tags": {
+    "dex_shield": 0,
+    "dex_int_shield": 0,
+    "shield": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModShieldAmanamuSuffixHeavyStunDecaySelf",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Your Heavy Stun buildup empties (30-40)% faster",
+   "tags": {
+    "dex_shield": 0,
+    "dex_int_shield": 0,
+    "shield": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModShieldAmanamuSuffixAllMaximumResistances",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "+1% to all maximum Resistances",
+   "tags": {
+    "shield": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModShieldKurgalSuffixFlatManaGainedOnBlock",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(6-12) Mana gained when you Block",
+   "tags": {
+    "shield": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModShieldKurgalSuffixEnergyShieldRechargeRateBlockedRecently",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(40-50)% increased Energy Shield Recharge Rate if you've Blocked Recently",
+   "tags": {
+    "str_shield": 0,
+    "dex_shield": 0,
+    "str_dex_shield": 0,
+    "shield": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModFocusUlamanPrefixMaximumSpellTotems",
+   "affix_name": "Ulaman's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Spell Skills have +1 to maximum number of Summoned Totems",
+   "tags": {
+    "focus": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModFocusUlamanPrefixSpellDamageWhileWieldingMeleeWeapon",
+   "affix_name": "Ulaman's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(61-79)% increased Spell Damage while wielding a Melee Weapon",
+   "tags": {
+    "focus": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModFocusUlamanSuffixSpellManaCostConvertedToLifeCost",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(10-20)% of Spell Mana Cost Converted to Life Cost",
+   "tags": {
+    "focus": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModFocusUlamanSuffixChanceForTwoAdditionalSpellProjectiles",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(10-16)% chance for Spell Skills to fire 2 additional Projectiles",
+   "tags": {
+    "focus": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModFocusAmanamuPrefixCurseMagnitude",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(8-16)% increased Curse Magnitudes",
+   "tags": {
+    "focus": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModFocusAmanamuPrefixOfferingBuffEffect",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Offering Skills have (12-20)% increased Buff effect",
+   "tags": {
+    "focus": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModFocusAmanamuSuffixGlobalMinionSkillLevels",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "+(1-2) to Level of all Minion Skills",
+   "tags": {
+    "focus": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModFocusAmanamuSuffixFasterCurseActivation",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(10-20)% faster Curse Activation",
+   "tags": {
+    "focus": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModFocusKurgalPrefixInvocationSpellDamage",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Invocated Spells deal (61-79)% increased Damage",
+   "tags": {
+    "focus": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModFocusKurgalPrefixSpellAreaOfEffect",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Spell Skills have (10-20)% increased Area of Effect",
+   "tags": {
+    "focus": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModFocusKurgalSuffixChanceForAdditionalInfusion",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(15-25)% chance when collecting an Elemental Infusion to gain an additional Elemental Infusion of the same type",
+   "tags": {
+    "focus": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModQuiverUlamanPrefixIncreasesToProjectileSpeedApplyToDamage",
+   "affix_name": "Ulaman's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Increases and Reductions to Projectile Speed also apply to Damage with Bows",
+   "tags": {
+    "quiver": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModQuiverUlamanSuffixChanceForExtraProjectilesWhileMoving",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Projectile Attacks have a (8-12)% chance to fire two additional Projectiles while moving",
+   "tags": {
+    "quiver": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModQuiverUlamanSuffixAttackCostConvertedToLifeCost",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(10-14)% of Skill Mana Costs Converted to Life Costs",
+   "tags": {
+    "quiver": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModQuiverAmanamuPrefixProjectileDamageCloseRange",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Projectiles deal (20-30)% increased Damage with Hits against Enemies within 2m",
+   "tags": {
+    "quiver": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModQuiverAmanamuSuffixProjectileCriticalHitDamageCloseRange",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Projectiles have (18-26)% increased Critical Damage Bonus against Enemies within 2m",
+   "tags": {
+    "quiver": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModQuiverKurgalPrefixProjectileDamageFar",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Projectiles deal (20-30)% increased Damage with Hits against Enemies further than 6m",
+   "tags": {
+    "quiver": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModQuiverKurgalSuffixProjectileCriticalHitChanceFar",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Projectiles have (18-26)% increased Critical Hit Chance against Enemies further than 6m",
+   "tags": {
+    "quiver": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModRingAmuletUlamanPrefixAttackDamageWhileLowLife",
+   "affix_name": "Ulaman's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(15-25)% increased Attack Damage while on Low Life",
+   "tags": {
+    "ring": 1,
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModRingAmuletUlamanSuffixSkillSpeed",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(3-6)% increased Skill Speed",
+   "tags": {
+    "ring": 1,
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModRingAmuletUlamanSuffixRecoverPercentMaxLifeOnKill",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Recover (2-3)% of maximum Life on Kill",
+   "tags": {
+    "ring": 1,
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModRingAmuletAmanamuPrefixRemnantEffect",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Remnants you create have (8-15)% increased effect",
+   "tags": {
+    "ring": 1,
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModRingAmuletAmanamuPrefixMinionDamageIfYou'veHitRecently",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Minions deal (15-25)% increased Damage if you've Hit Recently",
+   "tags": {
+    "ring": 1,
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModRingAmuletAmanamuSuffixSkillEffectDuration",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(8-12)% increased Skill Effect Duration",
+   "tags": {
+    "ring": 1,
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModRingAmuletAmanamuSuffixRemnantCollectionRange",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Remnants can be collected from (20-30)% further away",
+   "tags": {
+    "ring": 1,
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModRingAmuletKurgalPrefixSpellDamageWhileEnergyShieldFull",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(15-25)% increased Spell Damage while on Full Energy Shield",
+   "tags": {
+    "ring": 1,
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModRingAmuletKurgalSuffixExposureEffect",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(10-15)% increased Exposure Effect",
+   "tags": {
+    "ring": 1,
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModRingAmuletKurgalSuffixCooldownRecoveryRate",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(8-12)% increased Cooldown Recovery Rate",
+   "tags": {
+    "ring": 1,
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModRingAmuletKurgalSuffixRecoverPercentMaxManaOnKill",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Recover (2-3)% of maximum Mana on Kill",
+   "tags": {
+    "ring": 1,
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModRingUlamanPrefixShockMagnitudeIfConsumedFrenzyCharge",
+   "affix_name": "Ulaman's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(20-30)% increased Magnitude of Shock if you've consumed a Frenzy Charge Recently",
+   "tags": {
+    "ring": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModRingAmanamuPrefixIgniteMagnitudeIfConsumedEnduranceCharge",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(20-30)% increased Magnitude of Ignite if you've consumed an Endurance Charge Recently",
+   "tags": {
+    "ring": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModRingAmanamuSuffixLifeLeechAmount",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(12-20)% increased amount of Life Leeched",
+   "tags": {
+    "ring": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModRingKurgalPrefixFreezeBuildupIfConsumedPowerCharge",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(20-30)% increased Freeze Buildup if you've consumed an Power Charge Recently",
+   "tags": {
+    "ring": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModRingKurgalSuffixManaLeechAmount",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(12-20)% increased amount of Mana Leeched",
+   "tags": {
+    "ring": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModAmuletUlamanPrefixEvasionRatingFromEquippedBody",
+   "affix_name": "Ulaman's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(35-50)% increased Evasion Rating from Equipped Body Armour",
+   "tags": {
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModAmuletUlamanPrefixGlobalDeflectionRating",
+   "affix_name": "Ulaman's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(10-20)% increased Deflection Rating",
+   "tags": {
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModAmuletUlamanPrefixChanceToNotConsumeGlory",
+   "affix_name": "Ulaman's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(20-30)% chance for Skills to retain 40% of Glory on use",
+   "tags": {
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModAmuletUlamanSuffixHeraldReservationEfficiency",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(10-20)% increased Reservation Efficiency of Herald Skills",
+   "tags": {
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModAmuletUlamanSuffixGlobalLevelOfSkillGems",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "+1 to Level of all Skills",
+   "tags": {
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModAmuletAmanamuPrefixArmourFromEquippedBody",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(35-50)% increased Armour from Equipped Body Armour",
+   "tags": {
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModAmuletAmanamuPrefixGlobalDefences",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(15-25)% increased Global Armour, Evasion and Energy Shield",
+   "tags": {
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModAmuletAmanamuSuffixReducedRequirementEquipmentAndSkill",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Equipment and Skill Gems have (10-15)% reduced Attribute Requirements",
+   "tags": {
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModAmuletAmanamuSuffixAuraMagnitude",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Aura Skills have (8-16)% increased Magnitudes",
+   "tags": {
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModAmuletKurgalPrefixEnergyShieldFromEquippedBody",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(35-50)% increased Energy Shield from Equipped Body Armour",
+   "tags": {
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModAmuletKurgalPrefixChanceInvocatedSpellsConsumeHalfEnergy",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Invocated Spells have (10-20)% chance to consume half as much Energy",
+   "tags": {
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModAmuletKurgalSuffixCooldownRecoveryRateCommandSkills",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Minions have (12-20)% increased Cooldown Recovery Rate",
+   "tags": {
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModAmuletKurgalSuffixDamageFromManaBeforeLife",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(8-16)% of Damage is taken from Mana before Life",
+   "tags": {
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModAmuletKurgalSuffixQualityofAllSkills",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "+(3-5)% to Quality of all Skills",
+   "tags": {
+    "amulet": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModStaffUlamanPrefixSpellDamagePer100MaximumLife",
+   "affix_name": "Ulaman's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(4-5)% increased Spell Damage per 100 Maximum Life",
+   "tags": {
+    "staff": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModStaffUlamanPrefixMagnitudeOfDamagingAilments",
+   "affix_name": "Ulaman's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(40-64)% increased Magnitude of Damaging Ailments you inflict",
+   "tags": {
+    "staff": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModStaffUlamanSuffixCastSpeedWhileLowLife",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(30-40)% increased Cast Speed when on Low Life",
+   "tags": {
+    "staff": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModStaffUlamanSuffixChanceForSpellsToFireTwoAdditionalProjectiles",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(25-35)% chance for Spell Skills to fire 2 additional Projectiles",
+   "tags": {
+    "staff": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModStaffAmanamuPrefixSpellDamageWithSpellsThatCostLife",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(148-178)% increased Spell Damage with Spells that cost Life",
+   "tags": {
+    "staff": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModStaffAmanamuPrefixFlatSpirit",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "+(35-50) to Spirit",
+   "tags": {
+    "staff": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModStaffAmanamuSuffixSpellManaCostConvertedToLifeCost",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(25-35)% of Spell Mana Cost Converted to Life Cost",
+   "tags": {
+    "staff": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModStaffAmanamuSuffixArchonDuration",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(25-35)% increased Archon Buff duration",
+   "tags": {
+    "staff": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModStaffAmanamuSuffixBlockChance",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "+(12-16)% to Block chance",
+   "tags": {
+    "staff": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModStaffKurgalPrefixSpellDamagePer100MaximumMana",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(4-5)% increased Spell Damage per 100 maximum Mana",
+   "tags": {
+    "staff": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModStaffKurgalPrefixMaximumInfusions",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "+(1-2) to maximum number of Elemental Infusions",
+   "tags": {
+    "staff": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModStaffKurgalSuffixArchonCooldownRecovery",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Archon recovery period expires (25-35)% faster",
+   "tags": {
+    "staff": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModStaffKurgalSuffixCastSpeedWhileFullMana",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(26-36)% increased Cast Speed while on Full Mana",
+   "tags": {
+    "wand": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModWandUlamanPrefixDamageAsExtraPhysical",
+   "affix_name": "Ulaman's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Gain (21-25)% of Damage as Extra Physical Damage",
+   "tags": {
+    "wand": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModWandUlamanPrefixBleedMagnitude",
+   "affix_name": "Ulaman's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(27-38)% increased Magnitude of Bleeding you inflict",
+   "tags": {
+    "wand": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModWandUlamanSuffixArmourBreakAmount",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Break (31-39)% increased Armour",
+   "tags": {
+    "wand": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModWandUlamanSuffixBreakArmourSpellCrits",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Break Armour on Critical Hit with Spells equal to (11-18)% of Physical Damage dealt",
+   "tags": {
+    "wand": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModWandUlamanSuffixHinderedEnemiesTakeIncreasedPhysical",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Enemies Hindered by you take (4-7)% increased Physical Damage",
+   "tags": {
+    "wand": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModWandAmanamuPrefixIncreasedElementalDamage",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(74-89)% increased Elemental Damage",
+   "tags": {
+    "wand": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModWandAmanamuPrefixHybridSpellAndMinionDamage",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(55-64)% increased Spell Damage Minions deal (55-64)% increased Damage",
+   "tags": {
+    "wand": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModWandAmanamuPrefixSpellDamageWithSpellsThatCostLife",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(74-89)% increased Spell Damage with Spells that cost Life",
+   "tags": {
+    "wand": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModWandAmanamuSuffixSpellAreaOfEffect",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Spell Skills have (8-16)% increased Area of Effect",
+   "tags": {
+    "wand": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModWandAmanamuSuffixSpellManaCostConvertedToLifeSkillEfficiency",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(5-10)% increased Cost Efficiency (15-25)% of Spell Mana Cost Converted to Life Cost",
+   "tags": {
+    "wand": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModWandAmanamuSuffixHinderedEnemiesTakeIncreasedElemental",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Enemies Hindered by you take (4-7)% increased Elemental Damage",
+   "tags": {
+    "wand": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModWandKurgalPrefixInvocatedSpellDamage",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Invocated Spells deal (75-89)% increased Damage",
+   "tags": {
+    "wand": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModWandKurgalSuffixCastSpeedPerDifferentSpellCastRecently",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(3-5)% increased Cast Speed for each different Non-Instant Spell you've Cast Recently",
+   "tags": {
+    "wand": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModWandKurgalSuffixHinderedEnemiesTakeIncreasedChaos",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Enemies Hindered by you take (4-7)% increased Chaos Damage",
+   "tags": {
+    "wand": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModGenWeaponUlamanPrefixLightningPenetration",
+   "affix_name": "Ulaman's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Attacks with this Weapon Penetrate (15-25)% Lightning Resistance",
+   "tags": {
+    "weapon": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModGenWeaponUlamanSuffixSkillCostConvertedToLife",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(15-20)% of Skill Mana Costs Converted to Life Costs",
+   "tags": {
+    "weapon": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModGenWeaponAmanamuPrefixFirePenetration",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Attacks with this Weapon Penetrate (15-25)% Fire Resistance",
+   "tags": {
+    "weapon": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModGenWeaponAmanamuSuffixSpiritReservationEfficiency",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(5-10)% increased Spirit Reservation Efficiency",
+   "tags": {
+    "weapon": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModGenWeaponKurgalPrefixColdPenetration",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Attacks with this Weapon Penetrate (15-25)% Cold Resistance",
+   "tags": {
+    "weapon": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModGenWeaponKurgalSuffixAttackCostEfficiency",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(8-15)% increased Cost Efficiency of Attacks",
+   "tags": {
+    "weapon": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModAllMacesUlamanPrefixMaximumMeleeAttackTotems",
+   "affix_name": "Ulaman's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Melee Attack Skills have +1 to maximum number of Summoned Totems",
+   "tags": {
+    "mace": 1,
+    "talisman": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModAllMacesKurgalPrefixIncreasedPhysicalDamageReducedAttackSpeed",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(110-154)% increased Physical Damage 15% reduced Attack Speed",
+   "tags": {
+    "mace": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModAllMacesKurgalSuffixCostEfficiencyOfAttackSkills",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(8-15)% increased Cost Efficiency of Attacks",
+   "tags": {
+    "mace": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssMod1HMaceUlamanPrefixDamageWhileActiveTotem",
+   "affix_name": "Ulaman's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(41-59)% increased Damage while you have a Totem",
+   "tags": {
+    "two_hand_weapon": 0,
+    "mace": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssMod1HMaceUlamanSuffixTotemPlacementSpeed",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(17-25)% increased Totem Placement speed",
+   "tags": {
+    "two_hand_weapon": 0,
+    "mace": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssMod1HMaceAmanamuPrefixDamageAgainstFullyArmourBrokenEnemies",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(41-59)% increased Damage against Enemies with Fully Broken Armour",
+   "tags": {
+    "two_hand_weapon": 0,
+    "mace": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssMod1HMaceAmanamuSuffixBreakPercentArmourPhysicalDamage",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Break Armour equal to (2-4)% of Physical Damage dealt",
+   "tags": {
+    "two_hand_weapon": 0,
+    "mace": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssMod1HMaceAmanamuSuffixAdditionalFissureChance",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Skills which create Fissures have a (15-25)% chance to create an additional Fissure",
+   "tags": {
+    "two_hand_weapon": 0,
+    "mace": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssMod1HMaceAmanamuSuffixChanceSlamSkillsCauseAftershocks",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(10-16)% chance for Mace Slam Skills you use yourself to cause an additional Aftershock",
+   "tags": {
+    "two_hand_weapon": 0,
+    "mace": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssMod1HMaceKurgalPrefixEmpoweredAttackDamage",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Empowered Attacks deal (41-59)% increased Damage",
+   "tags": {
+    "two_hand_weapon": 0,
+    "mace": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssMod1HMaceKurgalSuffixWarcryCooldownRecoveryRate",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(17-25)% increased Warcry Cooldown Recovery Rate",
+   "tags": {
+    "two_hand_weapon": 0,
+    "mace": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssMod2HMaceUlamanPrefixDamageWhileActiveTotem",
+   "affix_name": "Ulaman's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(86-99)% increased Damage while you have a Totem",
+   "tags": {
+    "one_hand_weapon": 0,
+    "mace": 1,
+    "talisman": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssMod2HMaceUlamanSuffixTotemPlacementSpeed",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(25-31)% increased Totem Placement speed",
+   "tags": {
+    "one_hand_weapon": 0,
+    "mace": 1,
+    "talisman": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssMod2HMaceAmanamuPrefixDamageAgainstFullyArmourBrokenEnemies",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(86-99)% increased Damage against Enemies with Fully Broken Armour",
+   "tags": {
+    "one_hand_weapon": 0,
+    "mace": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssMod2HMaceAmanamuSuffixBreakPercentArmourPhysicalDamage",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Break Armour equal to (4-7)% of Physical Damage dealt",
+   "tags": {
+    "one_hand_weapon": 0,
+    "mace": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssMod2HMaceAmanamuSuffixAdditionalFissureChance",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Skills which create Fissures have a (25-31)% chance to create an additional Fissure",
+   "tags": {
+    "one_hand_weapon": 0,
+    "mace": 1,
+    "talisman": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssMod2HMaceAmanamuSuffixChanceSlamSkillsCauseAftershocks",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(16-23)% chance for Mace Slam Skills you use yourself to cause an additional Aftershock",
+   "tags": {
+    "one_hand_weapon": 0,
+    "mace": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssMod2HMaceKurgalPrefixEmpoweredAttackDamage",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Empowered Attacks deal (86-99)% increased Damage",
+   "tags": {
+    "one_hand_weapon": 0,
+    "mace": 1,
+    "talisman": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssMod2HMaceKurgalSuffixWarcryCooldownRecoveryRate",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(25-31)% increased Warcry Cooldown Recovery Rate",
+   "tags": {
+    "one_hand_weapon": 0,
+    "mace": 1,
+    "talisman": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModQuarterstaffUlamanPrefixLightningDamageShockMagnitude",
+   "affix_name": "Ulaman's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(86-99)% increased Lightning Damage (14-23)% increased Magnitude of Shock you inflict",
+   "tags": {
+    "warstaff": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModQuarterstaffUlamanSuffixRecoverLifeWhenExpendingTenCombo",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Recover (6-12)% of Maximum Life when you expend at least 10 Combo",
+   "tags": {
+    "warstaff": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModQuarterstaffAmanamuPrefixFireDamageIgniteMagnitude",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(86-99)% increased Fire Damage (14-23)% increased Ignite Magnitude",
+   "tags": {
+    "warstaff": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModQuarterstaffAmanamuSuffixChanceToGenerateAdditionalCombo",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(25-40)% chance to build an additional Combo on Hit",
+   "tags": {
+    "warstaff": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModQuarterstaffKurgalPrefixColdDamageFreezeBuildup",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(86-99)% increased Cold Damage (14-23)% increased Freeze Buildup",
+   "tags": {
+    "warstaff": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModQuarterstaffKurgalSuffixRecoverManaWhenExpendingTenCombo",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Recover (4-6)% of Maximum Mana when you expend at least 10 Combo",
+   "tags": {
+    "warstaff": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModCrossbowUlamanPrefixMaximumRangedAttackTotems",
+   "affix_name": "Ulaman's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "+1 to maximum number of Summoned Ballista Totems",
+   "tags": {
+    "crossbow": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModCrossbowUlamanSuffixAttacksChainAdditionalTime",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Attacks Chain an additional time",
+   "tags": {
+    "crossbow": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModCrossbowUlamanSuffixProjectileCriticalHitDamageCloseRange",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Projectiles have (27-38)% increased Critical Damage Bonus against Enemies within 2m",
+   "tags": {
+    "crossbow": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModCrossbowAmanamuPrefixGrenadeAdditionalCooldown",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Grenade Skills have +1 Cooldown Use",
+   "tags": {
+    "crossbow": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModCrossbowAmanamuPrefixGrenadeDamageAndDuration",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(101-121)% increased Grenade Damage (20-30)% increased Grenade Duration",
+   "tags": {
+    "crossbow": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModCrossbowAmanamuSuffixAdditionalGrenadeTriggerChance",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Grenades have (15-25)% chance to activate a second time",
+   "tags": {
+    "crossbow": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModCrossbowKurgalPrefixProjectileDamageCloseRange",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Projectiles deal (85-109)% increased Damage with Hits against Enemies within 2m",
+   "tags": {
+    "crossbow": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModCrossbowKurgalSuffixReloadSpeed",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(17-25)% increased Reload Speed",
+   "tags": {
+    "crossbow": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModCrossbowKurgalSuffixChanceForInstantReload",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(15-20)% chance when you Reload a Crossbow to be immediate",
+   "tags": {
+    "crossbow": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBowSpearUlamanPrefixProjectileDamageFar",
+   "affix_name": "Ulaman's",
+   "affix_type": "Prefix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Projectiles deal (60-79)% increased Damage with Hits against Enemies further than 6m",
+   "tags": {
+    "bow": 1,
+    "spear": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBowSpearUlamanSuffixChanceForExtraProjectilesWhileMoving",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Projectile Attacks have a (10-18)% chance to fire two additional Projectiles while moving",
+   "tags": {
+    "bow": 1,
+    "spear": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBowSpearUlamanSuffixAttackSpeedLocalAndWithCompanion",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(8-13)% increased Attack Speed (8-13)% increased Attack Speed while your Companion is in your Presence",
+   "tags": {
+    "bow": 1,
+    "spear": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBowSpearAmanamuPrefixCompanionDamageAndDamageWithCompanion",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Companions deal (40-59)% increased Damage (40-59)% increased Damage while your Companion is in your Presence",
+   "tags": {
+    "bow": 1,
+    "spear": 1,
+    "talisman": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBowSpearAmanamuPrefixAttackSkillAreaOfEffect",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(12-23)% increased Area of Effect for Attacks",
+   "tags": {
+    "bow": 1,
+    "spear": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBowSpearAmanamuSuffixCompanionAndLocalAttackSpeed",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(12-18)% increased Attack Speed Companions have (12-18)% increased Attack Speed",
+   "tags": {
+    "bow": 1,
+    "spear": 1,
+    "talisman": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBowSpearAmanamuSuffixChancePierceAdditionalTime",
+   "affix_name": "of Amanamu",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(40-60)% chance to Pierce an Enemy",
+   "tags": {
+    "bow": 1,
+    "spear": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBowSpearKurgalPrefixChanceChainFromTerrain",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Projectiles have (25-35)% chance to Chain an additional time from terrain",
+   "tags": {
+    "bow": 1,
+    "spear": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBowSpearKurgalSuffixProjectileCriticalHitChanceFar",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Projectiles have (25-34)% increased Critical Hit Chance against Enemies further than 6m",
+   "tags": {
+    "bow": 1,
+    "spear": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBowSpearKurgalSuffixImmobilisationBuildup",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(25-34)% increased Immobilisation buildup",
+   "tags": {
+    "bow": 1,
+    "spear": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBowKurgalPrefixIncreasedQuiverStats",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(30-40)% increased bonuses gained from Equipped Quiver",
+   "tags": {
+    "bow": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModSpearKurgalPrefixMeleeDamageIfProjectileAttackHitEightSeconds",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(60-79)% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds",
+   "tags": {
+    "spear": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModTalismanUlamanSuffixGainXRageOnMeleeHit",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Gain (3-6) Rage on Melee Hit",
+   "tags": {
+    "talisman": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModTalismanAmanamuPrefixMinionsDealIncreasedDamageIfYouHitRecently",
+   "affix_name": "Amanamu's",
+   "affix_type": "Prefix",
+   "lord": "amanamu",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Minions deal (60-79)% increased Damage if you've Hit Recently",
+   "tags": {
+    "talisman": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModTalismanKurgalPrefixWarcriesEmpowerXAdditionalAttacks",
+   "affix_name": "Kurgal's",
+   "affix_type": "Prefix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "Warcries Empower an additional Attack",
+   "tags": {
+    "talisman": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModTalismanKurgalSuffixCriticalHitChanceAgainstMarkedTargets",
+   "affix_name": "of Kurgal",
+   "affix_type": "Suffix",
+   "lord": "kurgal",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(39-51)% increased Critical Hit Chance against Marked Enemies",
+   "tags": {
+    "talisman": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  },
+  {
+   "mod_id": "AbyssModBootsUlamanSuffixLifeRegenMoving",
+   "affix_name": "of Ulaman",
+   "affix_type": "Suffix",
+   "lord": "ulaman",
+   "level": 65,
+   "ilvl": 65,
+   "text": "(40-50)% increased Life Regeneration Rate while moving",
+   "tags": {
+    "boots": 1,
+    "default": 0
+   },
+   "source": "desecrated",
+   "weight": 1
+  }
+ ]
+}

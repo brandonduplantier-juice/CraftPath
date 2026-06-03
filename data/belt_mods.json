@@ -1,1 +1,1501 @@
-{"base": "Belt", "token": "belt", "tags": ["belt", "default", "demigods", "not_for_sale", "runeforged"], "count": 135, "mods": [{"mod_id": "Strength1", "affix_type": "Suffix", "group": "Strength", "level": 1, "text": ["+(5-8) to Strength"], "weight": 1, "source": "base"}, {"mod_id": "Strength2", "affix_type": "Suffix", "group": "Strength", "level": 11, "text": ["+(9-12) to Strength"], "weight": 1, "source": "base"}, {"mod_id": "Strength3", "affix_type": "Suffix", "group": "Strength", "level": 22, "text": ["+(13-16) to Strength"], "weight": 1, "source": "base"}, {"mod_id": "Strength4", "affix_type": "Suffix", "group": "Strength", "level": 33, "text": ["+(17-20) to Strength"], "weight": 1, "source": "base"}, {"mod_id": "Strength5", "affix_type": "Suffix", "group": "Strength", "level": 44, "text": ["+(21-24) to Strength"], "weight": 1, "source": "base"}, {"mod_id": "Strength6", "affix_type": "Suffix", "group": "Strength", "level": 55, "text": ["+(25-27) to Strength"], "weight": 1, "source": "base"}, {"mod_id": "Strength7", "affix_type": "Suffix", "group": "Strength", "level": 66, "text": ["+(28-30) to Strength"], "weight": 1, "source": "base"}, {"mod_id": "Strength8", "affix_type": "Suffix", "group": "Strength", "level": 74, "text": ["+(31-33) to Strength"], "weight": 1, "source": "base"}, {"mod_id": "Strength9", "affix_type": "Suffix", "group": "Strength", "level": 81, "text": ["+(34-36) to Strength"], "weight": 1, "source": "base"}, {"mod_id": "FireResist1", "affix_type": "Suffix", "group": "FireResistance", "level": 1, "text": ["+(6-10)% to Fire Resistance"], "weight": 1, "source": "base"}, {"mod_id": "FireResist2", "affix_type": "Suffix", "group": "FireResistance", "level": 12, "text": ["+(11-15)% to Fire Resistance"], "weight": 1, "source": "base"}, {"mod_id": "FireResist3", "affix_type": "Suffix", "group": "FireResistance", "level": 24, "text": ["+(16-20)% to Fire Resistance"], "weight": 1, "source": "base"}, {"mod_id": "FireResist4", "affix_type": "Suffix", "group": "FireResistance", "level": 36, "text": ["+(21-25)% to Fire Resistance"], "weight": 1, "source": "base"}, {"mod_id": "FireResist5", "affix_type": "Suffix", "group": "FireResistance", "level": 48, "text": ["+(26-30)% to Fire Resistance"], "weight": 1, "source": "base"}, {"mod_id": "FireResist6", "affix_type": "Suffix", "group": "FireResistance", "level": 60, "text": ["+(31-35)% to Fire Resistance"], "weight": 1, "source": "base"}, {"mod_id": "FireResist7", "affix_type": "Suffix", "group": "FireResistance", "level": 71, "text": ["+(36-40)% to Fire Resistance"], "weight": 1, "source": "base"}, {"mod_id": "FireResist8", "affix_type": "Suffix", "group": "FireResistance", "level": 82, "text": ["+(41-45)% to Fire Resistance"], "weight": 1, "source": "base"}, {"mod_id": "ColdResist1", "affix_type": "Suffix", "group": "ColdResistance", "level": 1, "text": ["+(6-10)% to Cold Resistance"], "weight": 1, "source": "base"}, {"mod_id": "ColdResist2", "affix_type": "Suffix", "group": "ColdResistance", "level": 14, "text": ["+(11-15)% to Cold Resistance"], "weight": 1, "source": "base"}, {"mod_id": "ColdResist3", "affix_type": "Suffix", "group": "ColdResistance", "level": 26, "text": ["+(16-20)% to Cold Resistance"], "weight": 1, "source": "base"}, {"mod_id": "ColdResist4", "affix_type": "Suffix", "group": "ColdResistance", "level": 38, "text": ["+(21-25)% to Cold Resistance"], "weight": 1, "source": "base"}, {"mod_id": "ColdResist5", "affix_type": "Suffix", "group": "ColdResistance", "level": 50, "text": ["+(26-30)% to Cold Resistance"], "weight": 1, "source": "base"}, {"mod_id": "ColdResist6", "affix_type": "Suffix", "group": "ColdResistance", "level": 60, "text": ["+(31-35)% to Cold Resistance"], "weight": 1, "source": "base"}, {"mod_id": "ColdResist7", "affix_type": "Suffix", "group": "ColdResistance", "level": 71, "text": ["+(36-40)% to Cold Resistance"], "weight": 1, "source": "base"}, {"mod_id": "ColdResist8", "affix_type": "Suffix", "group": "ColdResistance", "level": 82, "text": ["+(41-45)% to Cold Resistance"], "weight": 1, "source": "base"}, {"mod_id": "LightningResist1", "affix_type": "Suffix", "group": "LightningResistance", "level": 1, "text": ["+(6-10)% to Lightning Resistance"], "weight": 1, "source": "base"}, {"mod_id": "LightningResist2", "affix_type": "Suffix", "group": "LightningResistance", "level": 13, "text": ["+(11-15)% to Lightning Resistance"], "weight": 1, "source": "base"}, {"mod_id": "LightningResist3", "affix_type": "Suffix", "group": "LightningResistance", "level": 25, "text": ["+(16-20)% to Lightning Resistance"], "weight": 1, "source": "base"}, {"mod_id": "LightningResist4", "affix_type": "Suffix", "group": "LightningResistance", "level": 37, "text": ["+(21-25)% to Lightning Resistance"], "weight": 1, "source": "base"}, {"mod_id": "LightningResist5", "affix_type": "Suffix", "group": "LightningResistance", "level": 49, "text": ["+(26-30)% to Lightning Resistance"], "weight": 1, "source": "base"}, {"mod_id": "LightningResist6", "affix_type": "Suffix", "group": "LightningResistance", "level": 60, "text": ["+(31-35)% to Lightning Resistance"], "weight": 1, "source": "base"}, {"mod_id": "LightningResist7", "affix_type": "Suffix", "group": "LightningResistance", "level": 71, "text": ["+(36-40)% to Lightning Resistance"], "weight": 1, "source": "base"}, {"mod_id": "LightningResist8", "affix_type": "Suffix", "group": "LightningResistance", "level": 82, "text": ["+(41-45)% to Lightning Resistance"], "weight": 1, "source": "base"}, {"mod_id": "ChaosResist1", "affix_type": "Suffix", "group": "ChaosResistance", "level": 16, "text": ["+(4-7)% to Chaos Resistance"], "weight": 1, "source": "base"}, {"mod_id": "ChaosResist2", "affix_type": "Suffix", "group": "ChaosResistance", "level": 30, "text": ["+(8-11)% to Chaos Resistance"], "weight": 1, "source": "base"}, {"mod_id": "ChaosResist3", "affix_type": "Suffix", "group": "ChaosResistance", "level": 44, "text": ["+(12-15)% to Chaos Resistance"], "weight": 1, "source": "base"}, {"mod_id": "ChaosResist4", "affix_type": "Suffix", "group": "ChaosResistance", "level": 56, "text": ["+(16-19)% to Chaos Resistance"], "weight": 1, "source": "base"}, {"mod_id": "ChaosResist5", "affix_type": "Suffix", "group": "ChaosResistance", "level": 68, "text": ["+(20-23)% to Chaos Resistance"], "weight": 1, "source": "base"}, {"mod_id": "ChaosResist6", "affix_type": "Suffix", "group": "ChaosResistance", "level": 81, "text": ["+(24-27)% to Chaos Resistance"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedLife1", "affix_type": "Prefix", "group": "IncreasedLife", "level": 1, "text": ["+(10-19) to maximum Life"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedLife2", "affix_type": "Prefix", "group": "IncreasedLife", "level": 6, "text": ["+(20-29) to maximum Life"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedLife3", "affix_type": "Prefix", "group": "IncreasedLife", "level": 16, "text": ["+(30-39) to maximum Life"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedLife4", "affix_type": "Prefix", "group": "IncreasedLife", "level": 24, "text": ["+(40-59) to maximum Life"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedLife5", "affix_type": "Prefix", "group": "IncreasedLife", "level": 33, "text": ["+(60-69) to maximum Life"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedLife6", "affix_type": "Prefix", "group": "IncreasedLife", "level": 38, "text": ["+(70-84) to maximum Life"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedLife7", "affix_type": "Prefix", "group": "IncreasedLife", "level": 46, "text": ["+(85-99) to maximum Life"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedLife8", "affix_type": "Prefix", "group": "IncreasedLife", "level": 54, "text": ["+(100-119) to maximum Life"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedLife9", "affix_type": "Prefix", "group": "IncreasedLife", "level": 60, "text": ["+(120-149) to maximum Life"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedLife10", "affix_type": "Prefix", "group": "IncreasedLife", "level": 65, "text": ["+(150-174) to maximum Life"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedMana1", "affix_type": "Prefix", "group": "IncreasedMana", "level": 1, "text": ["+(10-14) to maximum Mana"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedMana2", "affix_type": "Prefix", "group": "IncreasedMana", "level": 6, "text": ["+(15-24) to maximum Mana"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedMana3", "affix_type": "Prefix", "group": "IncreasedMana", "level": 16, "text": ["+(25-34) to maximum Mana"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedMana4", "affix_type": "Prefix", "group": "IncreasedMana", "level": 25, "text": ["+(35-54) to maximum Mana"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedMana5", "affix_type": "Prefix", "group": "IncreasedMana", "level": 33, "text": ["+(55-64) to maximum Mana"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedMana6", "affix_type": "Prefix", "group": "IncreasedMana", "level": 38, "text": ["+(65-79) to maximum Mana"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedMana7", "affix_type": "Prefix", "group": "IncreasedMana", "level": 46, "text": ["+(80-89) to maximum Mana"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedMana8", "affix_type": "Prefix", "group": "IncreasedMana", "level": 54, "text": ["+(90-104) to maximum Mana"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedMana9", "affix_type": "Prefix", "group": "IncreasedMana", "level": 60, "text": ["+(105-124) to maximum Mana"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedPhysicalDamageReductionRating1", "affix_type": "Prefix", "group": "PhysicalDamageReductionRating", "level": 1, "text": ["+(12-22) to Armour"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedPhysicalDamageReductionRating2", "affix_type": "Prefix", "group": "PhysicalDamageReductionRating", "level": 11, "text": ["+(23-51) to Armour"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedPhysicalDamageReductionRating3", "affix_type": "Prefix", "group": "PhysicalDamageReductionRating", "level": 16, "text": ["+(52-68) to Armour"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedPhysicalDamageReductionRating4", "affix_type": "Prefix", "group": "PhysicalDamageReductionRating", "level": 25, "text": ["+(69-107) to Armour"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedPhysicalDamageReductionRating5", "affix_type": "Prefix", "group": "PhysicalDamageReductionRating", "level": 33, "text": ["+(108-140) to Armour"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedPhysicalDamageReductionRating6", "affix_type": "Prefix", "group": "PhysicalDamageReductionRating", "level": 46, "text": ["+(141-186) to Armour"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedPhysicalDamageReductionRating7", "affix_type": "Prefix", "group": "PhysicalDamageReductionRating", "level": 54, "text": ["+(187-225) to Armour"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedPhysicalDamageReductionRating8_", "affix_type": "Prefix", "group": "PhysicalDamageReductionRating", "level": 65, "text": ["+(226-267) to Armour"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedPhysicalDamageReductionRating9", "affix_type": "Prefix", "group": "PhysicalDamageReductionRating", "level": 70, "text": ["+(268-311) to Armour"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedPhysicalDamageReductionRating10", "affix_type": "Prefix", "group": "PhysicalDamageReductionRating", "level": 80, "text": ["+(312-351) to Armour"], "weight": 1, "source": "base"}, {"mod_id": "StunThreshold1", "affix_type": "Suffix", "group": "StunThreshold", "level": 1, "text": ["+(6-11) to Stun Threshold"], "weight": 1, "source": "base"}, {"mod_id": "StunThreshold2", "affix_type": "Suffix", "group": "StunThreshold", "level": 8, "text": ["+(12-29) to Stun Threshold"], "weight": 1, "source": "base"}, {"mod_id": "StunThreshold3", "affix_type": "Suffix", "group": "StunThreshold", "level": 15, "text": ["+(30-49) to Stun Threshold"], "weight": 1, "source": "base"}, {"mod_id": "StunThreshold4", "affix_type": "Suffix", "group": "StunThreshold", "level": 22, "text": ["+(50-72) to Stun Threshold"], "weight": 1, "source": "base"}, {"mod_id": "StunThreshold5", "affix_type": "Suffix", "group": "StunThreshold", "level": 29, "text": ["+(73-97) to Stun Threshold"], "weight": 1, "source": "base"}, {"mod_id": "StunThreshold6", "affix_type": "Suffix", "group": "StunThreshold", "level": 36, "text": ["+(98-124) to Stun Threshold"], "weight": 1, "source": "base"}, {"mod_id": "StunThreshold7", "affix_type": "Suffix", "group": "StunThreshold", "level": 45, "text": ["+(125-163) to Stun Threshold"], "weight": 1, "source": "base"}, {"mod_id": "StunThreshold8", "affix_type": "Suffix", "group": "StunThreshold", "level": 54, "text": ["+(164-206) to Stun Threshold"], "weight": 1, "source": "base"}, {"mod_id": "StunThreshold9", "affix_type": "Suffix", "group": "StunThreshold", "level": 63, "text": ["+(207-253) to Stun Threshold"], "weight": 1, "source": "base"}, {"mod_id": "StunThreshold10", "affix_type": "Suffix", "group": "StunThreshold", "level": 72, "text": ["+(254-304) to Stun Threshold"], "weight": 1, "source": "base"}, {"mod_id": "AttackerTakesDamage1", "affix_type": "Prefix", "group": "ThornsPhysicalDamage", "level": 1, "text": ["(1-2) to (3-4) Physical Thorns damage"], "weight": 1, "source": "base"}, {"mod_id": "AttackerTakesDamage2", "affix_type": "Prefix", "group": "ThornsPhysicalDamage", "level": 10, "text": ["(5-7) to (7-10) Physical Thorns damage"], "weight": 1, "source": "base"}, {"mod_id": "AttackerTakesDamage3", "affix_type": "Prefix", "group": "ThornsPhysicalDamage", "level": 19, "text": ["(11-16) to (17-23) Physical Thorns damage"], "weight": 1, "source": "base"}, {"mod_id": "AttackerTakesDamage4", "affix_type": "Prefix", "group": "ThornsPhysicalDamage", "level": 38, "text": ["(24-35) to (36-53) Physical Thorns damage"], "weight": 1, "source": "base"}, {"mod_id": "AttackerTakesDamage5", "affix_type": "Prefix", "group": "ThornsPhysicalDamage", "level": 48, "text": ["(40-60) to (61-92) Physical Thorns damage"], "weight": 1, "source": "base"}, {"mod_id": "AttackerTakesDamage6", "affix_type": "Prefix", "group": "ThornsPhysicalDamage", "level": 63, "text": ["(64-97) to (98-145) Physical Thorns damage"], "weight": 1, "source": "base"}, {"mod_id": "AttackerTakesDamage7", "affix_type": "Prefix", "group": "ThornsPhysicalDamage", "level": 74, "text": ["(101-151) to (152-220) Physical Thorns damage"], "weight": 1, "source": "base"}, {"mod_id": "LifeRegeneration1", "affix_type": "Suffix", "group": "LifeRegeneration", "level": 1, "text": ["(1-2) Life Regeneration per second"], "weight": 1, "source": "base"}, {"mod_id": "LifeRegeneration2", "affix_type": "Suffix", "group": "LifeRegeneration", "level": 5, "text": ["(2.1-3) Life Regeneration per second"], "weight": 1, "source": "base"}, {"mod_id": "LifeRegeneration3", "affix_type": "Suffix", "group": "LifeRegeneration", "level": 11, "text": ["(3.1-4) Life Regeneration per second"], "weight": 1, "source": "base"}, {"mod_id": "LifeRegeneration4", "affix_type": "Suffix", "group": "LifeRegeneration", "level": 17, "text": ["(4.1-6) Life Regeneration per second"], "weight": 1, "source": "base"}, {"mod_id": "LifeRegeneration5", "affix_type": "Suffix", "group": "LifeRegeneration", "level": 26, "text": ["(6.1-9) Life Regeneration per second"], "weight": 1, "source": "base"}, {"mod_id": "LifeRegeneration6", "affix_type": "Suffix", "group": "LifeRegeneration", "level": 35, "text": ["(9.1-13) Life Regeneration per second"], "weight": 1, "source": "base"}, {"mod_id": "LifeRegeneration7", "affix_type": "Suffix", "group": "LifeRegeneration", "level": 47, "text": ["(13.1-18) Life Regeneration per second"], "weight": 1, "source": "base"}, {"mod_id": "LifeRegeneration8_", "affix_type": "Suffix", "group": "LifeRegeneration", "level": 58, "text": ["(18.1-23) Life Regeneration per second"], "weight": 1, "source": "base"}, {"mod_id": "LifeRegeneration9", "affix_type": "Suffix", "group": "LifeRegeneration", "level": 68, "text": ["(23.1-29) Life Regeneration per second"], "weight": 1, "source": "base"}, {"mod_id": "BeltFlaskLifeRecoveryRate1", "affix_type": "Prefix", "group": "BeltFlaskLifeRecoveryRate", "level": 1, "text": ["(5-10)% increased Flask Life Recovery rate"], "weight": 1, "source": "base"}, {"mod_id": "BeltFlaskLifeRecoveryRate2", "affix_type": "Prefix", "group": "BeltFlaskLifeRecoveryRate", "level": 16, "text": ["(11-16)% increased Flask Life Recovery rate"], "weight": 1, "source": "base"}, {"mod_id": "BeltFlaskLifeRecoveryRate3_", "affix_type": "Prefix", "group": "BeltFlaskLifeRecoveryRate", "level": 33, "text": ["(17-22)% increased Flask Life Recovery rate"], "weight": 1, "source": "base"}, {"mod_id": "BeltFlaskLifeRecoveryRate4", "affix_type": "Prefix", "group": "BeltFlaskLifeRecoveryRate", "level": 46, "text": ["(23-28)% increased Flask Life Recovery rate"], "weight": 1, "source": "base"}, {"mod_id": "BeltFlaskLifeRecoveryRate5", "affix_type": "Prefix", "group": "BeltFlaskLifeRecoveryRate", "level": 60, "text": ["(29-34)% increased Flask Life Recovery rate"], "weight": 1, "source": "base"}, {"mod_id": "BeltFlaskLifeRecoveryRate6", "affix_type": "Prefix", "group": "BeltFlaskLifeRecoveryRate", "level": 75, "text": ["(35-40)% increased Flask Life Recovery rate"], "weight": 1, "source": "base"}, {"mod_id": "BeltFlaskManaRecoveryRate1_", "affix_type": "Prefix", "group": "BeltFlaskManaRecoveryRate", "level": 5, "text": ["(5-10)% increased Flask Mana Recovery rate"], "weight": 1, "source": "base"}, {"mod_id": "BeltFlaskManaRecoveryRate2", "affix_type": "Prefix", "group": "BeltFlaskManaRecoveryRate", "level": 11, "text": ["(11-16)% increased Flask Mana Recovery rate"], "weight": 1, "source": "base"}, {"mod_id": "BeltFlaskManaRecoveryRate3_", "affix_type": "Prefix", "group": "BeltFlaskManaRecoveryRate", "level": 26, "text": ["(17-22)% increased Flask Mana Recovery rate"], "weight": 1, "source": "base"}, {"mod_id": "BeltFlaskManaRecoveryRate4__", "affix_type": "Prefix", "group": "BeltFlaskManaRecoveryRate", "level": 36, "text": ["(23-28)% increased Flask Mana Recovery rate"], "weight": 1, "source": "base"}, {"mod_id": "BeltFlaskManaRecoveryRate5", "affix_type": "Prefix", "group": "BeltFlaskManaRecoveryRate", "level": 54, "text": ["(29-34)% increased Flask Mana Recovery rate"], "weight": 1, "source": "base"}, {"mod_id": "BeltFlaskManaRecoveryRate6", "affix_type": "Prefix", "group": "BeltFlaskManaRecoveryRate", "level": 63, "text": ["(35-40)% increased Flask Mana Recovery rate"], "weight": 1, "source": "base"}, {"mod_id": "BeltIncreasedCharmDuration1", "affix_type": "Prefix", "group": "BeltIncreasedCharmDuration", "level": 8, "text": ["(4-9)% increased Charm Effect Duration"], "weight": 1, "source": "base"}, {"mod_id": "BeltIncreasedCharmDuration2", "affix_type": "Prefix", "group": "BeltIncreasedCharmDuration", "level": 33, "text": ["(10-15)% increased Charm Effect Duration"], "weight": 1, "source": "base"}, {"mod_id": "BeltIncreasedCharmDuration3", "affix_type": "Prefix", "group": "BeltIncreasedCharmDuration", "level": 46, "text": ["(16-21)% increased Charm Effect Duration"], "weight": 1, "source": "base"}, {"mod_id": "BeltIncreasedCharmDuration4", "affix_type": "Prefix", "group": "BeltIncreasedCharmDuration", "level": 60, "text": ["(22-27)% increased Charm Effect Duration"], "weight": 1, "source": "base"}, {"mod_id": "BeltIncreasedCharmDuration5", "affix_type": "Prefix", "group": "BeltIncreasedCharmDuration", "level": 75, "text": ["(28-33)% increased Charm Effect Duration"], "weight": 1, "source": "base"}, {"mod_id": "BeltIncreasedFlaskChargesGained1", "affix_type": "Suffix", "group": "BeltIncreasedFlaskChargesGained", "level": 2, "text": ["(5-10)% increased Flask Charges gained"], "weight": 1, "source": "base"}, {"mod_id": "BeltIncreasedFlaskChargesGained2", "affix_type": "Suffix", "group": "BeltIncreasedFlaskChargesGained", "level": 16, "text": ["(11-16)% increased Flask Charges gained"], "weight": 1, "source": "base"}, {"mod_id": "BeltIncreasedFlaskChargesGained3_____", "affix_type": "Suffix", "group": "BeltIncreasedFlaskChargesGained", "level": 32, "text": ["(17-22)% increased Flask Charges gained"], "weight": 1, "source": "base"}, {"mod_id": "BeltIncreasedFlaskChargesGained4", "affix_type": "Suffix", "group": "BeltIncreasedFlaskChargesGained", "level": 48, "text": ["(23-28)% increased Flask Charges gained"], "weight": 1, "source": "base"}, {"mod_id": "BeltIncreasedFlaskChargesGained5_", "affix_type": "Suffix", "group": "BeltIncreasedFlaskChargesGained", "level": 70, "text": ["(29-34)% increased Flask Charges gained"], "weight": 1, "source": "base"}, {"mod_id": "BeltIncreasedFlaskChargesGained6", "affix_type": "Suffix", "group": "BeltIncreasedFlaskChargesGained", "level": 81, "text": ["(35-40)% increased Flask Charges gained"], "weight": 1, "source": "base"}, {"mod_id": "BeltReducedFlaskChargesUsed1", "affix_type": "Suffix", "group": "BeltReducedFlaskChargesUsed", "level": 3, "text": ["(8-10)% reduced Flask Charges used"], "weight": 1, "source": "base"}, {"mod_id": "BeltReducedFlaskChargesUsed2", "affix_type": "Suffix", "group": "BeltReducedFlaskChargesUsed", "level": 18, "text": ["(11-13)% reduced Flask Charges used"], "weight": 1, "source": "base"}, {"mod_id": "BeltReducedFlaskChargesUsed3", "affix_type": "Suffix", "group": "BeltReducedFlaskChargesUsed", "level": 33, "text": ["(14-16)% reduced Flask Charges used"], "weight": 1, "source": "base"}, {"mod_id": "BeltReducedFlaskChargesUsed4", "affix_type": "Suffix", "group": "BeltReducedFlaskChargesUsed", "level": 50, "text": ["(17-19)% reduced Flask Charges used"], "weight": 1, "source": "base"}, {"mod_id": "BeltReducedFlaskChargesUsed5", "affix_type": "Suffix", "group": "BeltReducedFlaskChargesUsed", "level": 72, "text": ["(20-22)% reduced Flask Charges used"], "weight": 1, "source": "base"}, {"mod_id": "BeltReducedFlaskChargesUsed6", "affix_type": "Suffix", "group": "BeltReducedFlaskChargesUsed", "level": 81, "text": ["(23-25)% reduced Flask Charges used"], "weight": 1, "source": "base"}, {"mod_id": "BeltIncreasedCharmChargesGained1", "affix_type": "Suffix", "group": "BeltIncreasedCharmChargesGained", "level": 2, "text": ["(5-10)% increased Charm Charges gained"], "weight": 1, "source": "base"}, {"mod_id": "BeltIncreasedCharmChargesGained2", "affix_type": "Suffix", "group": "BeltIncreasedCharmChargesGained", "level": 16, "text": ["(11-16)% increased Charm Charges gained"], "weight": 1, "source": "base"}, {"mod_id": "BeltIncreasedCharmChargesGained3", "affix_type": "Suffix", "group": "BeltIncreasedCharmChargesGained", "level": 32, "text": ["(17-22)% increased Charm Charges gained"], "weight": 1, "source": "base"}, {"mod_id": "BeltIncreasedCharmChargesGained4", "affix_type": "Suffix", "group": "BeltIncreasedCharmChargesGained", "level": 48, "text": ["(23-28)% increased Charm Charges gained"], "weight": 1, "source": "base"}, {"mod_id": "BeltIncreasedCharmChargesGained5", "affix_type": "Suffix", "group": "BeltIncreasedCharmChargesGained", "level": 70, "text": ["(29-34)% increased Charm Charges gained"], "weight": 1, "source": "base"}, {"mod_id": "BeltIncreasedCharmChargesGained6", "affix_type": "Suffix", "group": "BeltIncreasedCharmChargesGained", "level": 81, "text": ["(35-40)% increased Charm Charges gained"], "weight": 1, "source": "base"}, {"mod_id": "BeltReducedCharmChargesUsed1", "affix_type": "Suffix", "group": "BeltReducedCharmChargesUsed", "level": 3, "text": ["(8-10)% reduced Charm Charges used"], "weight": 1, "source": "base"}, {"mod_id": "BeltReducedCharmChargesUsed2", "affix_type": "Suffix", "group": "BeltReducedCharmChargesUsed", "level": 18, "text": ["(11-13)% reduced Charm Charges used"], "weight": 1, "source": "base"}, {"mod_id": "BeltReducedCharmChargesUsed3", "affix_type": "Suffix", "group": "BeltReducedCharmChargesUsed", "level": 33, "text": ["(14-16)% reduced Charm Charges used"], "weight": 1, "source": "base"}, {"mod_id": "BeltReducedCharmChargesUsed4", "affix_type": "Suffix", "group": "BeltReducedCharmChargesUsed", "level": 50, "text": ["(17-19)% reduced Charm Charges used"], "weight": 1, "source": "base"}, {"mod_id": "BeltReducedCharmChargesUsed5", "affix_type": "Suffix", "group": "BeltReducedCharmChargesUsed", "level": 72, "text": ["(20-22)% reduced Charm Charges used"], "weight": 1, "source": "base"}, {"mod_id": "BeltReducedCharmChargesUsed6", "affix_type": "Suffix", "group": "BeltReducedCharmChargesUsed", "level": 81, "text": ["(23-25)% reduced Charm Charges used"], "weight": 1, "source": "base"}], "weights_source": "flat_uniform"}
+{
+ "base": "Belt",
+ "token": "belt",
+ "tags": [
+  "belt",
+  "default",
+  "demigods",
+  "not_for_sale",
+  "runeforged"
+ ],
+ "count": 135,
+ "mods": [
+  {
+   "mod_id": "Strength1",
+   "affix_type": "Suffix",
+   "group": "Strength",
+   "level": 1,
+   "text": [
+    "+(5-8) to Strength"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "Strength2",
+   "affix_type": "Suffix",
+   "group": "Strength",
+   "level": 11,
+   "text": [
+    "+(9-12) to Strength"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "Strength3",
+   "affix_type": "Suffix",
+   "group": "Strength",
+   "level": 22,
+   "text": [
+    "+(13-16) to Strength"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "Strength4",
+   "affix_type": "Suffix",
+   "group": "Strength",
+   "level": 33,
+   "text": [
+    "+(17-20) to Strength"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "Strength5",
+   "affix_type": "Suffix",
+   "group": "Strength",
+   "level": 44,
+   "text": [
+    "+(21-24) to Strength"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "Strength6",
+   "affix_type": "Suffix",
+   "group": "Strength",
+   "level": 55,
+   "text": [
+    "+(25-27) to Strength"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "Strength7",
+   "affix_type": "Suffix",
+   "group": "Strength",
+   "level": 66,
+   "text": [
+    "+(28-30) to Strength"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "Strength8",
+   "affix_type": "Suffix",
+   "group": "Strength",
+   "level": 74,
+   "text": [
+    "+(31-33) to Strength"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "Strength9",
+   "affix_type": "Suffix",
+   "group": "Strength",
+   "level": 81,
+   "text": [
+    "+(34-36) to Strength"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "FireResist1",
+   "affix_type": "Suffix",
+   "group": "FireResistance",
+   "level": 1,
+   "text": [
+    "+(6-10)% to Fire Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "FireResist2",
+   "affix_type": "Suffix",
+   "group": "FireResistance",
+   "level": 12,
+   "text": [
+    "+(11-15)% to Fire Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "FireResist3",
+   "affix_type": "Suffix",
+   "group": "FireResistance",
+   "level": 24,
+   "text": [
+    "+(16-20)% to Fire Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "FireResist4",
+   "affix_type": "Suffix",
+   "group": "FireResistance",
+   "level": 36,
+   "text": [
+    "+(21-25)% to Fire Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "FireResist5",
+   "affix_type": "Suffix",
+   "group": "FireResistance",
+   "level": 48,
+   "text": [
+    "+(26-30)% to Fire Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "FireResist6",
+   "affix_type": "Suffix",
+   "group": "FireResistance",
+   "level": 60,
+   "text": [
+    "+(31-35)% to Fire Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "FireResist7",
+   "affix_type": "Suffix",
+   "group": "FireResistance",
+   "level": 71,
+   "text": [
+    "+(36-40)% to Fire Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "FireResist8",
+   "affix_type": "Suffix",
+   "group": "FireResistance",
+   "level": 82,
+   "text": [
+    "+(41-45)% to Fire Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ColdResist1",
+   "affix_type": "Suffix",
+   "group": "ColdResistance",
+   "level": 1,
+   "text": [
+    "+(6-10)% to Cold Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ColdResist2",
+   "affix_type": "Suffix",
+   "group": "ColdResistance",
+   "level": 14,
+   "text": [
+    "+(11-15)% to Cold Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ColdResist3",
+   "affix_type": "Suffix",
+   "group": "ColdResistance",
+   "level": 26,
+   "text": [
+    "+(16-20)% to Cold Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ColdResist4",
+   "affix_type": "Suffix",
+   "group": "ColdResistance",
+   "level": 38,
+   "text": [
+    "+(21-25)% to Cold Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ColdResist5",
+   "affix_type": "Suffix",
+   "group": "ColdResistance",
+   "level": 50,
+   "text": [
+    "+(26-30)% to Cold Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ColdResist6",
+   "affix_type": "Suffix",
+   "group": "ColdResistance",
+   "level": 60,
+   "text": [
+    "+(31-35)% to Cold Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ColdResist7",
+   "affix_type": "Suffix",
+   "group": "ColdResistance",
+   "level": 71,
+   "text": [
+    "+(36-40)% to Cold Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ColdResist8",
+   "affix_type": "Suffix",
+   "group": "ColdResistance",
+   "level": 82,
+   "text": [
+    "+(41-45)% to Cold Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LightningResist1",
+   "affix_type": "Suffix",
+   "group": "LightningResistance",
+   "level": 1,
+   "text": [
+    "+(6-10)% to Lightning Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LightningResist2",
+   "affix_type": "Suffix",
+   "group": "LightningResistance",
+   "level": 13,
+   "text": [
+    "+(11-15)% to Lightning Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LightningResist3",
+   "affix_type": "Suffix",
+   "group": "LightningResistance",
+   "level": 25,
+   "text": [
+    "+(16-20)% to Lightning Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LightningResist4",
+   "affix_type": "Suffix",
+   "group": "LightningResistance",
+   "level": 37,
+   "text": [
+    "+(21-25)% to Lightning Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LightningResist5",
+   "affix_type": "Suffix",
+   "group": "LightningResistance",
+   "level": 49,
+   "text": [
+    "+(26-30)% to Lightning Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LightningResist6",
+   "affix_type": "Suffix",
+   "group": "LightningResistance",
+   "level": 60,
+   "text": [
+    "+(31-35)% to Lightning Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LightningResist7",
+   "affix_type": "Suffix",
+   "group": "LightningResistance",
+   "level": 71,
+   "text": [
+    "+(36-40)% to Lightning Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LightningResist8",
+   "affix_type": "Suffix",
+   "group": "LightningResistance",
+   "level": 82,
+   "text": [
+    "+(41-45)% to Lightning Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ChaosResist1",
+   "affix_type": "Suffix",
+   "group": "ChaosResistance",
+   "level": 16,
+   "text": [
+    "+(4-7)% to Chaos Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ChaosResist2",
+   "affix_type": "Suffix",
+   "group": "ChaosResistance",
+   "level": 30,
+   "text": [
+    "+(8-11)% to Chaos Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ChaosResist3",
+   "affix_type": "Suffix",
+   "group": "ChaosResistance",
+   "level": 44,
+   "text": [
+    "+(12-15)% to Chaos Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ChaosResist4",
+   "affix_type": "Suffix",
+   "group": "ChaosResistance",
+   "level": 56,
+   "text": [
+    "+(16-19)% to Chaos Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ChaosResist5",
+   "affix_type": "Suffix",
+   "group": "ChaosResistance",
+   "level": 68,
+   "text": [
+    "+(20-23)% to Chaos Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ChaosResist6",
+   "affix_type": "Suffix",
+   "group": "ChaosResistance",
+   "level": 81,
+   "text": [
+    "+(24-27)% to Chaos Resistance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedLife1",
+   "affix_type": "Prefix",
+   "group": "IncreasedLife",
+   "level": 1,
+   "text": [
+    "+(10-19) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedLife2",
+   "affix_type": "Prefix",
+   "group": "IncreasedLife",
+   "level": 6,
+   "text": [
+    "+(20-29) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedLife3",
+   "affix_type": "Prefix",
+   "group": "IncreasedLife",
+   "level": 16,
+   "text": [
+    "+(30-39) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedLife4",
+   "affix_type": "Prefix",
+   "group": "IncreasedLife",
+   "level": 24,
+   "text": [
+    "+(40-59) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedLife5",
+   "affix_type": "Prefix",
+   "group": "IncreasedLife",
+   "level": 33,
+   "text": [
+    "+(60-69) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedLife6",
+   "affix_type": "Prefix",
+   "group": "IncreasedLife",
+   "level": 38,
+   "text": [
+    "+(70-84) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedLife7",
+   "affix_type": "Prefix",
+   "group": "IncreasedLife",
+   "level": 46,
+   "text": [
+    "+(85-99) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedLife8",
+   "affix_type": "Prefix",
+   "group": "IncreasedLife",
+   "level": 54,
+   "text": [
+    "+(100-119) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedLife9",
+   "affix_type": "Prefix",
+   "group": "IncreasedLife",
+   "level": 60,
+   "text": [
+    "+(120-149) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedLife10",
+   "affix_type": "Prefix",
+   "group": "IncreasedLife",
+   "level": 65,
+   "text": [
+    "+(150-174) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedMana1",
+   "affix_type": "Prefix",
+   "group": "IncreasedMana",
+   "level": 1,
+   "text": [
+    "+(10-14) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedMana2",
+   "affix_type": "Prefix",
+   "group": "IncreasedMana",
+   "level": 6,
+   "text": [
+    "+(15-24) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedMana3",
+   "affix_type": "Prefix",
+   "group": "IncreasedMana",
+   "level": 16,
+   "text": [
+    "+(25-34) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedMana4",
+   "affix_type": "Prefix",
+   "group": "IncreasedMana",
+   "level": 25,
+   "text": [
+    "+(35-54) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedMana5",
+   "affix_type": "Prefix",
+   "group": "IncreasedMana",
+   "level": 33,
+   "text": [
+    "+(55-64) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedMana6",
+   "affix_type": "Prefix",
+   "group": "IncreasedMana",
+   "level": 38,
+   "text": [
+    "+(65-79) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedMana7",
+   "affix_type": "Prefix",
+   "group": "IncreasedMana",
+   "level": 46,
+   "text": [
+    "+(80-89) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedMana8",
+   "affix_type": "Prefix",
+   "group": "IncreasedMana",
+   "level": 54,
+   "text": [
+    "+(90-104) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedMana9",
+   "affix_type": "Prefix",
+   "group": "IncreasedMana",
+   "level": 60,
+   "text": [
+    "+(105-124) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedPhysicalDamageReductionRating1",
+   "affix_type": "Prefix",
+   "group": "PhysicalDamageReductionRating",
+   "level": 1,
+   "text": [
+    "+(12-22) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedPhysicalDamageReductionRating2",
+   "affix_type": "Prefix",
+   "group": "PhysicalDamageReductionRating",
+   "level": 11,
+   "text": [
+    "+(23-51) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedPhysicalDamageReductionRating3",
+   "affix_type": "Prefix",
+   "group": "PhysicalDamageReductionRating",
+   "level": 16,
+   "text": [
+    "+(52-68) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedPhysicalDamageReductionRating4",
+   "affix_type": "Prefix",
+   "group": "PhysicalDamageReductionRating",
+   "level": 25,
+   "text": [
+    "+(69-107) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedPhysicalDamageReductionRating5",
+   "affix_type": "Prefix",
+   "group": "PhysicalDamageReductionRating",
+   "level": 33,
+   "text": [
+    "+(108-140) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedPhysicalDamageReductionRating6",
+   "affix_type": "Prefix",
+   "group": "PhysicalDamageReductionRating",
+   "level": 46,
+   "text": [
+    "+(141-186) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedPhysicalDamageReductionRating7",
+   "affix_type": "Prefix",
+   "group": "PhysicalDamageReductionRating",
+   "level": 54,
+   "text": [
+    "+(187-225) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedPhysicalDamageReductionRating8_",
+   "affix_type": "Prefix",
+   "group": "PhysicalDamageReductionRating",
+   "level": 65,
+   "text": [
+    "+(226-267) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedPhysicalDamageReductionRating9",
+   "affix_type": "Prefix",
+   "group": "PhysicalDamageReductionRating",
+   "level": 70,
+   "text": [
+    "+(268-311) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedPhysicalDamageReductionRating10",
+   "affix_type": "Prefix",
+   "group": "PhysicalDamageReductionRating",
+   "level": 80,
+   "text": [
+    "+(312-351) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunThreshold1",
+   "affix_type": "Suffix",
+   "group": "StunThreshold",
+   "level": 1,
+   "text": [
+    "+(6-11) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunThreshold2",
+   "affix_type": "Suffix",
+   "group": "StunThreshold",
+   "level": 8,
+   "text": [
+    "+(12-29) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunThreshold3",
+   "affix_type": "Suffix",
+   "group": "StunThreshold",
+   "level": 15,
+   "text": [
+    "+(30-49) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunThreshold4",
+   "affix_type": "Suffix",
+   "group": "StunThreshold",
+   "level": 22,
+   "text": [
+    "+(50-72) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunThreshold5",
+   "affix_type": "Suffix",
+   "group": "StunThreshold",
+   "level": 29,
+   "text": [
+    "+(73-97) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunThreshold6",
+   "affix_type": "Suffix",
+   "group": "StunThreshold",
+   "level": 36,
+   "text": [
+    "+(98-124) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunThreshold7",
+   "affix_type": "Suffix",
+   "group": "StunThreshold",
+   "level": 45,
+   "text": [
+    "+(125-163) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunThreshold8",
+   "affix_type": "Suffix",
+   "group": "StunThreshold",
+   "level": 54,
+   "text": [
+    "+(164-206) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunThreshold9",
+   "affix_type": "Suffix",
+   "group": "StunThreshold",
+   "level": 63,
+   "text": [
+    "+(207-253) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunThreshold10",
+   "affix_type": "Suffix",
+   "group": "StunThreshold",
+   "level": 72,
+   "text": [
+    "+(254-304) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AttackerTakesDamage1",
+   "affix_type": "Prefix",
+   "group": "ThornsPhysicalDamage",
+   "level": 1,
+   "text": [
+    "(1-2) to (3-4) Physical Thorns damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AttackerTakesDamage2",
+   "affix_type": "Prefix",
+   "group": "ThornsPhysicalDamage",
+   "level": 10,
+   "text": [
+    "(5-7) to (7-10) Physical Thorns damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AttackerTakesDamage3",
+   "affix_type": "Prefix",
+   "group": "ThornsPhysicalDamage",
+   "level": 19,
+   "text": [
+    "(11-16) to (17-23) Physical Thorns damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AttackerTakesDamage4",
+   "affix_type": "Prefix",
+   "group": "ThornsPhysicalDamage",
+   "level": 38,
+   "text": [
+    "(24-35) to (36-53) Physical Thorns damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AttackerTakesDamage5",
+   "affix_type": "Prefix",
+   "group": "ThornsPhysicalDamage",
+   "level": 48,
+   "text": [
+    "(40-60) to (61-92) Physical Thorns damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AttackerTakesDamage6",
+   "affix_type": "Prefix",
+   "group": "ThornsPhysicalDamage",
+   "level": 63,
+   "text": [
+    "(64-97) to (98-145) Physical Thorns damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AttackerTakesDamage7",
+   "affix_type": "Prefix",
+   "group": "ThornsPhysicalDamage",
+   "level": 74,
+   "text": [
+    "(101-151) to (152-220) Physical Thorns damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeRegeneration1",
+   "affix_type": "Suffix",
+   "group": "LifeRegeneration",
+   "level": 1,
+   "text": [
+    "(1-2) Life Regeneration per second"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeRegeneration2",
+   "affix_type": "Suffix",
+   "group": "LifeRegeneration",
+   "level": 5,
+   "text": [
+    "(2.1-3) Life Regeneration per second"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeRegeneration3",
+   "affix_type": "Suffix",
+   "group": "LifeRegeneration",
+   "level": 11,
+   "text": [
+    "(3.1-4) Life Regeneration per second"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeRegeneration4",
+   "affix_type": "Suffix",
+   "group": "LifeRegeneration",
+   "level": 17,
+   "text": [
+    "(4.1-6) Life Regeneration per second"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeRegeneration5",
+   "affix_type": "Suffix",
+   "group": "LifeRegeneration",
+   "level": 26,
+   "text": [
+    "(6.1-9) Life Regeneration per second"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeRegeneration6",
+   "affix_type": "Suffix",
+   "group": "LifeRegeneration",
+   "level": 35,
+   "text": [
+    "(9.1-13) Life Regeneration per second"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeRegeneration7",
+   "affix_type": "Suffix",
+   "group": "LifeRegeneration",
+   "level": 47,
+   "text": [
+    "(13.1-18) Life Regeneration per second"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeRegeneration8_",
+   "affix_type": "Suffix",
+   "group": "LifeRegeneration",
+   "level": 58,
+   "text": [
+    "(18.1-23) Life Regeneration per second"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeRegeneration9",
+   "affix_type": "Suffix",
+   "group": "LifeRegeneration",
+   "level": 68,
+   "text": [
+    "(23.1-29) Life Regeneration per second"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltFlaskLifeRecoveryRate1",
+   "affix_type": "Prefix",
+   "group": "BeltFlaskLifeRecoveryRate",
+   "level": 1,
+   "text": [
+    "(5-10)% increased Flask Life Recovery rate"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltFlaskLifeRecoveryRate2",
+   "affix_type": "Prefix",
+   "group": "BeltFlaskLifeRecoveryRate",
+   "level": 16,
+   "text": [
+    "(11-16)% increased Flask Life Recovery rate"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltFlaskLifeRecoveryRate3_",
+   "affix_type": "Prefix",
+   "group": "BeltFlaskLifeRecoveryRate",
+   "level": 33,
+   "text": [
+    "(17-22)% increased Flask Life Recovery rate"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltFlaskLifeRecoveryRate4",
+   "affix_type": "Prefix",
+   "group": "BeltFlaskLifeRecoveryRate",
+   "level": 46,
+   "text": [
+    "(23-28)% increased Flask Life Recovery rate"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltFlaskLifeRecoveryRate5",
+   "affix_type": "Prefix",
+   "group": "BeltFlaskLifeRecoveryRate",
+   "level": 60,
+   "text": [
+    "(29-34)% increased Flask Life Recovery rate"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltFlaskLifeRecoveryRate6",
+   "affix_type": "Prefix",
+   "group": "BeltFlaskLifeRecoveryRate",
+   "level": 75,
+   "text": [
+    "(35-40)% increased Flask Life Recovery rate"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltFlaskManaRecoveryRate1_",
+   "affix_type": "Prefix",
+   "group": "BeltFlaskManaRecoveryRate",
+   "level": 5,
+   "text": [
+    "(5-10)% increased Flask Mana Recovery rate"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltFlaskManaRecoveryRate2",
+   "affix_type": "Prefix",
+   "group": "BeltFlaskManaRecoveryRate",
+   "level": 11,
+   "text": [
+    "(11-16)% increased Flask Mana Recovery rate"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltFlaskManaRecoveryRate3_",
+   "affix_type": "Prefix",
+   "group": "BeltFlaskManaRecoveryRate",
+   "level": 26,
+   "text": [
+    "(17-22)% increased Flask Mana Recovery rate"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltFlaskManaRecoveryRate4__",
+   "affix_type": "Prefix",
+   "group": "BeltFlaskManaRecoveryRate",
+   "level": 36,
+   "text": [
+    "(23-28)% increased Flask Mana Recovery rate"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltFlaskManaRecoveryRate5",
+   "affix_type": "Prefix",
+   "group": "BeltFlaskManaRecoveryRate",
+   "level": 54,
+   "text": [
+    "(29-34)% increased Flask Mana Recovery rate"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltFlaskManaRecoveryRate6",
+   "affix_type": "Prefix",
+   "group": "BeltFlaskManaRecoveryRate",
+   "level": 63,
+   "text": [
+    "(35-40)% increased Flask Mana Recovery rate"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltIncreasedCharmDuration1",
+   "affix_type": "Prefix",
+   "group": "BeltIncreasedCharmDuration",
+   "level": 8,
+   "text": [
+    "(4-9)% increased Charm Effect Duration"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltIncreasedCharmDuration2",
+   "affix_type": "Prefix",
+   "group": "BeltIncreasedCharmDuration",
+   "level": 33,
+   "text": [
+    "(10-15)% increased Charm Effect Duration"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltIncreasedCharmDuration3",
+   "affix_type": "Prefix",
+   "group": "BeltIncreasedCharmDuration",
+   "level": 46,
+   "text": [
+    "(16-21)% increased Charm Effect Duration"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltIncreasedCharmDuration4",
+   "affix_type": "Prefix",
+   "group": "BeltIncreasedCharmDuration",
+   "level": 60,
+   "text": [
+    "(22-27)% increased Charm Effect Duration"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltIncreasedCharmDuration5",
+   "affix_type": "Prefix",
+   "group": "BeltIncreasedCharmDuration",
+   "level": 75,
+   "text": [
+    "(28-33)% increased Charm Effect Duration"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltIncreasedFlaskChargesGained1",
+   "affix_type": "Suffix",
+   "group": "BeltIncreasedFlaskChargesGained",
+   "level": 2,
+   "text": [
+    "(5-10)% increased Flask Charges gained"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltIncreasedFlaskChargesGained2",
+   "affix_type": "Suffix",
+   "group": "BeltIncreasedFlaskChargesGained",
+   "level": 16,
+   "text": [
+    "(11-16)% increased Flask Charges gained"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltIncreasedFlaskChargesGained3_____",
+   "affix_type": "Suffix",
+   "group": "BeltIncreasedFlaskChargesGained",
+   "level": 32,
+   "text": [
+    "(17-22)% increased Flask Charges gained"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltIncreasedFlaskChargesGained4",
+   "affix_type": "Suffix",
+   "group": "BeltIncreasedFlaskChargesGained",
+   "level": 48,
+   "text": [
+    "(23-28)% increased Flask Charges gained"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltIncreasedFlaskChargesGained5_",
+   "affix_type": "Suffix",
+   "group": "BeltIncreasedFlaskChargesGained",
+   "level": 70,
+   "text": [
+    "(29-34)% increased Flask Charges gained"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltIncreasedFlaskChargesGained6",
+   "affix_type": "Suffix",
+   "group": "BeltIncreasedFlaskChargesGained",
+   "level": 81,
+   "text": [
+    "(35-40)% increased Flask Charges gained"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltReducedFlaskChargesUsed1",
+   "affix_type": "Suffix",
+   "group": "BeltReducedFlaskChargesUsed",
+   "level": 3,
+   "text": [
+    "(8-10)% reduced Flask Charges used"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltReducedFlaskChargesUsed2",
+   "affix_type": "Suffix",
+   "group": "BeltReducedFlaskChargesUsed",
+   "level": 18,
+   "text": [
+    "(11-13)% reduced Flask Charges used"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltReducedFlaskChargesUsed3",
+   "affix_type": "Suffix",
+   "group": "BeltReducedFlaskChargesUsed",
+   "level": 33,
+   "text": [
+    "(14-16)% reduced Flask Charges used"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltReducedFlaskChargesUsed4",
+   "affix_type": "Suffix",
+   "group": "BeltReducedFlaskChargesUsed",
+   "level": 50,
+   "text": [
+    "(17-19)% reduced Flask Charges used"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltReducedFlaskChargesUsed5",
+   "affix_type": "Suffix",
+   "group": "BeltReducedFlaskChargesUsed",
+   "level": 72,
+   "text": [
+    "(20-22)% reduced Flask Charges used"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltReducedFlaskChargesUsed6",
+   "affix_type": "Suffix",
+   "group": "BeltReducedFlaskChargesUsed",
+   "level": 81,
+   "text": [
+    "(23-25)% reduced Flask Charges used"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltIncreasedCharmChargesGained1",
+   "affix_type": "Suffix",
+   "group": "BeltIncreasedCharmChargesGained",
+   "level": 2,
+   "text": [
+    "(5-10)% increased Charm Charges gained"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltIncreasedCharmChargesGained2",
+   "affix_type": "Suffix",
+   "group": "BeltIncreasedCharmChargesGained",
+   "level": 16,
+   "text": [
+    "(11-16)% increased Charm Charges gained"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltIncreasedCharmChargesGained3",
+   "affix_type": "Suffix",
+   "group": "BeltIncreasedCharmChargesGained",
+   "level": 32,
+   "text": [
+    "(17-22)% increased Charm Charges gained"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltIncreasedCharmChargesGained4",
+   "affix_type": "Suffix",
+   "group": "BeltIncreasedCharmChargesGained",
+   "level": 48,
+   "text": [
+    "(23-28)% increased Charm Charges gained"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltIncreasedCharmChargesGained5",
+   "affix_type": "Suffix",
+   "group": "BeltIncreasedCharmChargesGained",
+   "level": 70,
+   "text": [
+    "(29-34)% increased Charm Charges gained"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltIncreasedCharmChargesGained6",
+   "affix_type": "Suffix",
+   "group": "BeltIncreasedCharmChargesGained",
+   "level": 81,
+   "text": [
+    "(35-40)% increased Charm Charges gained"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltReducedCharmChargesUsed1",
+   "affix_type": "Suffix",
+   "group": "BeltReducedCharmChargesUsed",
+   "level": 3,
+   "text": [
+    "(8-10)% reduced Charm Charges used"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltReducedCharmChargesUsed2",
+   "affix_type": "Suffix",
+   "group": "BeltReducedCharmChargesUsed",
+   "level": 18,
+   "text": [
+    "(11-13)% reduced Charm Charges used"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltReducedCharmChargesUsed3",
+   "affix_type": "Suffix",
+   "group": "BeltReducedCharmChargesUsed",
+   "level": 33,
+   "text": [
+    "(14-16)% reduced Charm Charges used"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltReducedCharmChargesUsed4",
+   "affix_type": "Suffix",
+   "group": "BeltReducedCharmChargesUsed",
+   "level": 50,
+   "text": [
+    "(17-19)% reduced Charm Charges used"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltReducedCharmChargesUsed5",
+   "affix_type": "Suffix",
+   "group": "BeltReducedCharmChargesUsed",
+   "level": 72,
+   "text": [
+    "(20-22)% reduced Charm Charges used"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "BeltReducedCharmChargesUsed6",
+   "affix_type": "Suffix",
+   "group": "BeltReducedCharmChargesUsed",
+   "level": 81,
+   "text": [
+    "(23-25)% reduced Charm Charges used"
+   ],
+   "weight": 1,
+   "source": "base"
+  }
+ ],
+ "weights_source": "pob_real",
+ "weights_note": "Real per-base spawn weights from Path of Building (ModItem.lua). Mods that can't roll on this base (weight 0) are removed."
+}

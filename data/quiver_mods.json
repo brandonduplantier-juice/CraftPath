@@ -1,1 +1,1113 @@
-{"base": "Quiver", "token": "quiver", "tags": ["default", "quiver"], "count": 100, "mods": [{"mod_id": "Dexterity1", "affix_type": "Suffix", "group": "Dexterity", "level": 1, "text": ["+(5-8) to Dexterity"], "weight": 1, "source": "base"}, {"mod_id": "Dexterity2", "affix_type": "Suffix", "group": "Dexterity", "level": 11, "text": ["+(9-12) to Dexterity"], "weight": 1, "source": "base"}, {"mod_id": "Dexterity3", "affix_type": "Suffix", "group": "Dexterity", "level": 22, "text": ["+(13-16) to Dexterity"], "weight": 1, "source": "base"}, {"mod_id": "Dexterity4", "affix_type": "Suffix", "group": "Dexterity", "level": 33, "text": ["+(17-20) to Dexterity"], "weight": 1, "source": "base"}, {"mod_id": "Dexterity5", "affix_type": "Suffix", "group": "Dexterity", "level": 44, "text": ["+(21-24) to Dexterity"], "weight": 1, "source": "base"}, {"mod_id": "Dexterity6", "affix_type": "Suffix", "group": "Dexterity", "level": 55, "text": ["+(25-27) to Dexterity"], "weight": 1, "source": "base"}, {"mod_id": "Dexterity7", "affix_type": "Suffix", "group": "Dexterity", "level": 66, "text": ["+(28-30) to Dexterity"], "weight": 1, "source": "base"}, {"mod_id": "Dexterity8", "affix_type": "Suffix", "group": "Dexterity", "level": 74, "text": ["+(31-33) to Dexterity"], "weight": 1, "source": "base"}, {"mod_id": "AddedPhysicalDamage1", "affix_type": "Prefix", "group": "PhysicalDamage", "level": 1, "text": ["Adds (1-2) to 3 Physical Damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedPhysicalDamage2", "affix_type": "Prefix", "group": "PhysicalDamage", "level": 8, "text": ["Adds (2-3) to (4-6) Physical Damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedPhysicalDamage3", "affix_type": "Prefix", "group": "PhysicalDamage", "level": 16, "text": ["Adds (2-4) to (5-8) Physical Damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedPhysicalDamage4", "affix_type": "Prefix", "group": "PhysicalDamage", "level": 33, "text": ["Adds (4-6) to (8-11) Physical Damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedPhysicalDamage5", "affix_type": "Prefix", "group": "PhysicalDamage", "level": 46, "text": ["Adds (5-7) to (9-13) Physical Damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedPhysicalDamage6", "affix_type": "Prefix", "group": "PhysicalDamage", "level": 54, "text": ["Adds (6-10) to (12-17) Physical Damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedPhysicalDamage7", "affix_type": "Prefix", "group": "PhysicalDamage", "level": 60, "text": ["Adds (7-11) to (14-20) Physical Damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedPhysicalDamage8", "affix_type": "Prefix", "group": "PhysicalDamage", "level": 65, "text": ["Adds (10-15) to (18-26) Physical Damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedPhysicalDamage9", "affix_type": "Prefix", "group": "PhysicalDamage", "level": 75, "text": ["Adds (12-19) to (22-32) Physical Damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedFireDamage1", "affix_type": "Prefix", "group": "FireDamage", "level": 1, "text": ["Adds (1-2) to 3 Fire damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedFireDamage2", "affix_type": "Prefix", "group": "FireDamage", "level": 8, "text": ["Adds (3-5) to (6-9) Fire damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedFireDamage3", "affix_type": "Prefix", "group": "FireDamage", "level": 16, "text": ["Adds (6-8) to (10-13) Fire damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedFireDamage4", "affix_type": "Prefix", "group": "FireDamage", "level": 33, "text": ["Adds (9-11) to (14-17) Fire damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedFireDamage5", "affix_type": "Prefix", "group": "FireDamage", "level": 46, "text": ["Adds (12-13) to (18-20) Fire damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedFireDamage6", "affix_type": "Prefix", "group": "FireDamage", "level": 54, "text": ["Adds (11-16) to (21-26) Fire damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedFireDamage7", "affix_type": "Prefix", "group": "FireDamage", "level": 60, "text": ["Adds (13-19) to (27-32) Fire damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedFireDamage8", "affix_type": "Prefix", "group": "FireDamage", "level": 65, "text": ["Adds (20-24) to (33-36) Fire damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedFireDamage9", "affix_type": "Prefix", "group": "FireDamage", "level": 75, "text": ["Adds (25-29) to (37-45) Fire damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedColdDamage1", "affix_type": "Prefix", "group": "ColdDamage", "level": 1, "text": ["Adds 1 to (2-3) Cold damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedColdDamage2", "affix_type": "Prefix", "group": "ColdDamage", "level": 8, "text": ["Adds (3-4) to (5-8) Cold damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedColdDamage3", "affix_type": "Prefix", "group": "ColdDamage", "level": 16, "text": ["Adds (5-6) to (9-11) Cold damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedColdDamage4", "affix_type": "Prefix", "group": "ColdDamage", "level": 33, "text": ["Adds (7-8) to (12-14) Cold damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedColdDamage5", "affix_type": "Prefix", "group": "ColdDamage", "level": 46, "text": ["Adds (9-10) to (15-17) Cold damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedColdDamage6", "affix_type": "Prefix", "group": "ColdDamage", "level": 54, "text": ["Adds (11-13) to (18-21) Cold damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedColdDamage7", "affix_type": "Prefix", "group": "ColdDamage", "level": 60, "text": ["Adds (14-15) to (22-24) Cold damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedColdDamage8", "affix_type": "Prefix", "group": "ColdDamage", "level": 65, "text": ["Adds (16-20) to (25-31) Cold damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedColdDamage9", "affix_type": "Prefix", "group": "ColdDamage", "level": 75, "text": ["Adds (21-24) to (32-37) Cold damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedLightningDamage1", "affix_type": "Prefix", "group": "LightningDamage", "level": 1, "text": ["Adds 1 to (4-6) Lightning damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedLightningDamage2", "affix_type": "Prefix", "group": "LightningDamage", "level": 8, "text": ["Adds 1 to (10-15) Lightning damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedLightningDamage3", "affix_type": "Prefix", "group": "LightningDamage", "level": 16, "text": ["Adds 1 to (16-22) Lightning damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedLightningDamage4", "affix_type": "Prefix", "group": "LightningDamage", "level": 33, "text": ["Adds 1 to (23-27) Lightning damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedLightningDamage5", "affix_type": "Prefix", "group": "LightningDamage", "level": 46, "text": ["Adds 1 to (28-32) Lightning damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedLightningDamage6", "affix_type": "Prefix", "group": "LightningDamage", "level": 54, "text": ["Adds (1-2) to (33-40) Lightning damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedLightningDamage7", "affix_type": "Prefix", "group": "LightningDamage", "level": 60, "text": ["Adds (1-2) to (41-47) Lightning damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedLightningDamage8", "affix_type": "Prefix", "group": "LightningDamage", "level": 65, "text": ["Adds (1-3) to (48-59) Lightning damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AddedLightningDamage9", "affix_type": "Prefix", "group": "LightningDamage", "level": 75, "text": ["Adds (1-4) to (60-71) Lightning damage to Attacks"], "weight": 1, "source": "base"}, {"mod_id": "GlobalProjectileSkillGemLevel1", "affix_type": "Suffix", "group": "GlobalIncreaseProjectileSkillGemLevel", "level": 5, "text": ["+1 to Level of all Projectile Skills"], "weight": 1, "source": "base"}, {"mod_id": "LifeGainedFromEnemyDeath1", "affix_type": "Suffix", "group": "LifeGainedFromEnemyDeath", "level": 1, "text": ["Gain (4-6) Life per enemy killed"], "weight": 1, "source": "base"}, {"mod_id": "LifeGainedFromEnemyDeath2", "affix_type": "Suffix", "group": "LifeGainedFromEnemyDeath", "level": 11, "text": ["Gain (7-9) Life per enemy killed"], "weight": 1, "source": "base"}, {"mod_id": "LifeGainedFromEnemyDeath3", "affix_type": "Suffix", "group": "LifeGainedFromEnemyDeath", "level": 22, "text": ["Gain (10-18) Life per enemy killed"], "weight": 1, "source": "base"}, {"mod_id": "LifeGainedFromEnemyDeath4", "affix_type": "Suffix", "group": "LifeGainedFromEnemyDeath", "level": 33, "text": ["Gain (19-28) Life per enemy killed"], "weight": 1, "source": "base"}, {"mod_id": "LifeGainedFromEnemyDeath5", "affix_type": "Suffix", "group": "LifeGainedFromEnemyDeath", "level": 44, "text": ["Gain (29-40) Life per enemy killed"], "weight": 1, "source": "base"}, {"mod_id": "LifeGainedFromEnemyDeath6", "affix_type": "Suffix", "group": "LifeGainedFromEnemyDeath", "level": 55, "text": ["Gain (41-53) Life per enemy killed"], "weight": 1, "source": "base"}, {"mod_id": "ManaGainedFromEnemyDeath1", "affix_type": "Suffix", "group": "ManaGainedFromEnemyDeath", "level": 1, "text": ["Gain (2-3) Mana per enemy killed"], "weight": 1, "source": "base"}, {"mod_id": "ManaGainedFromEnemyDeath2", "affix_type": "Suffix", "group": "ManaGainedFromEnemyDeath", "level": 12, "text": ["Gain (4-5) Mana per enemy killed"], "weight": 1, "source": "base"}, {"mod_id": "ManaGainedFromEnemyDeath3", "affix_type": "Suffix", "group": "ManaGainedFromEnemyDeath", "level": 23, "text": ["Gain (6-9) Mana per enemy killed"], "weight": 1, "source": "base"}, {"mod_id": "ManaGainedFromEnemyDeath4", "affix_type": "Suffix", "group": "ManaGainedFromEnemyDeath", "level": 34, "text": ["Gain (10-14) Mana per enemy killed"], "weight": 1, "source": "base"}, {"mod_id": "ManaGainedFromEnemyDeath5", "affix_type": "Suffix", "group": "ManaGainedFromEnemyDeath", "level": 45, "text": ["Gain (15-20) Mana per enemy killed"], "weight": 1, "source": "base"}, {"mod_id": "ManaGainedFromEnemyDeath6", "affix_type": "Suffix", "group": "ManaGainedFromEnemyDeath", "level": 56, "text": ["Gain (21-27) Mana per enemy killed"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedAttackSpeed1", "affix_type": "Suffix", "group": "IncreasedAttackSpeed", "level": 1, "text": ["(5-7)% increased Attack Speed"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedAttackSpeed2", "affix_type": "Suffix", "group": "IncreasedAttackSpeed", "level": 22, "text": ["(8-10)% increased Attack Speed"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedAttackSpeed3", "affix_type": "Suffix", "group": "IncreasedAttackSpeed", "level": 37, "text": ["(11-13)% increased Attack Speed"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedAttackSpeed4", "affix_type": "Suffix", "group": "IncreasedAttackSpeed", "level": 60, "text": ["(14-16)% increased Attack Speed"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedAccuracy1", "affix_type": "Prefix", "group": "IncreasedAccuracy", "level": 1, "text": ["+(11-32) to Accuracy Rating"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedAccuracy2", "affix_type": "Prefix", "group": "IncreasedAccuracy", "level": 11, "text": ["+(33-60) to Accuracy Rating"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedAccuracy3", "affix_type": "Prefix", "group": "IncreasedAccuracy", "level": 18, "text": ["+(61-84) to Accuracy Rating"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedAccuracy4", "affix_type": "Prefix", "group": "IncreasedAccuracy", "level": 26, "text": ["+(85-123) to Accuracy Rating"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedAccuracy5", "affix_type": "Prefix", "group": "IncreasedAccuracy", "level": 36, "text": ["+(124-167) to Accuracy Rating"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedAccuracy6", "affix_type": "Prefix", "group": "IncreasedAccuracy", "level": 48, "text": ["+(168-236) to Accuracy Rating"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedAccuracy7", "affix_type": "Prefix", "group": "IncreasedAccuracy", "level": 58, "text": ["+(237-346) to Accuracy Rating"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedAccuracy8", "affix_type": "Prefix", "group": "IncreasedAccuracy", "level": 67, "text": ["+(347-450) to Accuracy Rating"], "weight": 1, "source": "base"}, {"mod_id": "IncreasedAccuracy9", "affix_type": "Prefix", "group": "IncreasedAccuracy", "level": 76, "text": ["+(451-550) to Accuracy Rating"], "weight": 1, "source": "base"}, {"mod_id": "AttackCriticalStrikeChance1", "affix_type": "Suffix", "group": "AttackCriticalStrikeChance", "level": 5, "text": ["(10-14)% increased Critical Hit Chance for Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AttackCriticalStrikeChance2", "affix_type": "Suffix", "group": "AttackCriticalStrikeChance", "level": 20, "text": ["(15-19)% increased Critical Hit Chance for Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AttackCriticalStrikeChance3", "affix_type": "Suffix", "group": "AttackCriticalStrikeChance", "level": 30, "text": ["(20-24)% increased Critical Hit Chance for Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AttackCriticalStrikeChance4", "affix_type": "Suffix", "group": "AttackCriticalStrikeChance", "level": 44, "text": ["(25-29)% increased Critical Hit Chance for Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AttackCriticalStrikeChance5", "affix_type": "Suffix", "group": "AttackCriticalStrikeChance", "level": 58, "text": ["(30-34)% increased Critical Hit Chance for Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AttackCriticalStrikeChance6", "affix_type": "Suffix", "group": "AttackCriticalStrikeChance", "level": 72, "text": ["(35-38)% increased Critical Hit Chance for Attacks"], "weight": 1, "source": "base"}, {"mod_id": "AttackCriticalStrikeMultiplier1", "affix_type": "Suffix", "group": "AttackCriticalStrikeMultiplier", "level": 8, "text": ["(10-14)% increased Critical Damage Bonus for Attack Damage"], "weight": 1, "source": "base"}, {"mod_id": "AttackCriticalStrikeMultiplier2", "affix_type": "Suffix", "group": "AttackCriticalStrikeMultiplier", "level": 21, "text": ["(15-19)% increased Critical Damage Bonus for Attack Damage"], "weight": 1, "source": "base"}, {"mod_id": "AttackCriticalStrikeMultiplier3", "affix_type": "Suffix", "group": "AttackCriticalStrikeMultiplier", "level": 31, "text": ["(20-24)% increased Critical Damage Bonus for Attack Damage"], "weight": 1, "source": "base"}, {"mod_id": "AttackCriticalStrikeMultiplier4", "affix_type": "Suffix", "group": "AttackCriticalStrikeMultiplier", "level": 45, "text": ["(25-29)% increased Critical Damage Bonus for Attack Damage"], "weight": 1, "source": "base"}, {"mod_id": "AttackCriticalStrikeMultiplier5", "affix_type": "Suffix", "group": "AttackCriticalStrikeMultiplier", "level": 59, "text": ["(30-34)% increased Critical Damage Bonus for Attack Damage"], "weight": 1, "source": "base"}, {"mod_id": "AttackCriticalStrikeMultiplier6", "affix_type": "Suffix", "group": "AttackCriticalStrikeMultiplier", "level": 74, "text": ["(35-39)% increased Critical Damage Bonus for Attack Damage"], "weight": 1, "source": "base"}, {"mod_id": "ArrowPierceChance1", "affix_type": "Suffix", "group": "ChanceToPierce", "level": 11, "text": ["(12-14)% chance to Pierce an Enemy"], "weight": 1, "source": "base"}, {"mod_id": "ArrowPierceChance2", "affix_type": "Suffix", "group": "ChanceToPierce", "level": 26, "text": ["(15-17)% chance to Pierce an Enemy"], "weight": 1, "source": "base"}, {"mod_id": "ArrowPierceChance3", "affix_type": "Suffix", "group": "ChanceToPierce", "level": 44, "text": ["(18-20)% chance to Pierce an Enemy"], "weight": 1, "source": "base"}, {"mod_id": "ArrowPierceChance4", "affix_type": "Suffix", "group": "ChanceToPierce", "level": 61, "text": ["(21-23)% chance to Pierce an Enemy"], "weight": 1, "source": "base"}, {"mod_id": "ArrowPierceChance5", "affix_type": "Suffix", "group": "ChanceToPierce", "level": 77, "text": ["(24-26)% chance to Pierce an Enemy"], "weight": 1, "source": "base"}, {"mod_id": "AdditionalArrowChanceQuiver1", "affix_type": "Suffix", "group": "AdditionalArrowChanceCanExceed100%", "level": 46, "text": ["+(25-40)% Surpassing chance to fire an additional Arrow"], "weight": 1, "source": "base"}, {"mod_id": "AdditionalArrowChanceQuiver2", "affix_type": "Suffix", "group": "AdditionalArrowChanceCanExceed100%", "level": 80, "text": ["+(41-60)% Surpassing chance to fire an additional Arrow"], "weight": 1, "source": "base"}, {"mod_id": "ProjectileSpeed1", "affix_type": "Prefix", "group": "ProjectileSpeed", "level": 14, "text": ["(10-17)% increased Projectile Speed"], "weight": 1, "source": "base"}, {"mod_id": "ProjectileSpeed2", "affix_type": "Prefix", "group": "ProjectileSpeed", "level": 27, "text": ["(18-25)% increased Projectile Speed"], "weight": 1, "source": "base"}, {"mod_id": "ProjectileSpeed3", "affix_type": "Prefix", "group": "ProjectileSpeed", "level": 41, "text": ["(26-33)% increased Projectile Speed"], "weight": 1, "source": "base"}, {"mod_id": "ProjectileSpeed4", "affix_type": "Prefix", "group": "ProjectileSpeed", "level": 55, "text": ["(34-41)% increased Projectile Speed"], "weight": 1, "source": "base"}, {"mod_id": "ProjectileSpeed5", "affix_type": "Prefix", "group": "ProjectileSpeed", "level": 82, "text": ["(42-46)% increased Projectile Speed"], "weight": 1, "source": "base"}, {"mod_id": "DamageWithBows1", "affix_type": "Prefix", "group": "DamageWithBowSkills", "level": 1, "text": ["(11-20)% increased Damage with Bow Skills"], "weight": 1, "source": "base"}, {"mod_id": "DamageWithBows2", "affix_type": "Prefix", "group": "DamageWithBowSkills", "level": 16, "text": ["(21-30)% increased Damage with Bow Skills"], "weight": 1, "source": "base"}, {"mod_id": "DamageWithBows3", "affix_type": "Prefix", "group": "DamageWithBowSkills", "level": 33, "text": ["(31-36)% increased Damage with Bow Skills"], "weight": 1, "source": "base"}, {"mod_id": "DamageWithBows4", "affix_type": "Prefix", "group": "DamageWithBowSkills", "level": 46, "text": ["(37-42)% increased Damage with Bow Skills"], "weight": 1, "source": "base"}, {"mod_id": "DamageWithBows5", "affix_type": "Prefix", "group": "DamageWithBowSkills", "level": 60, "text": ["(43-50)% increased Damage with Bow Skills"], "weight": 1, "source": "base"}, {"mod_id": "DamageWithBows6", "affix_type": "Prefix", "group": "DamageWithBowSkills", "level": 81, "text": ["(51-59)% increased Damage with Bow Skills"], "weight": 1, "source": "base"}], "weights_source": "flat_uniform"}
+{
+ "base": "Quiver",
+ "token": "quiver",
+ "tags": [
+  "default",
+  "quiver"
+ ],
+ "count": 100,
+ "mods": [
+  {
+   "mod_id": "Dexterity1",
+   "affix_type": "Suffix",
+   "group": "Dexterity",
+   "level": 1,
+   "text": [
+    "+(5-8) to Dexterity"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "Dexterity2",
+   "affix_type": "Suffix",
+   "group": "Dexterity",
+   "level": 11,
+   "text": [
+    "+(9-12) to Dexterity"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "Dexterity3",
+   "affix_type": "Suffix",
+   "group": "Dexterity",
+   "level": 22,
+   "text": [
+    "+(13-16) to Dexterity"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "Dexterity4",
+   "affix_type": "Suffix",
+   "group": "Dexterity",
+   "level": 33,
+   "text": [
+    "+(17-20) to Dexterity"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "Dexterity5",
+   "affix_type": "Suffix",
+   "group": "Dexterity",
+   "level": 44,
+   "text": [
+    "+(21-24) to Dexterity"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "Dexterity6",
+   "affix_type": "Suffix",
+   "group": "Dexterity",
+   "level": 55,
+   "text": [
+    "+(25-27) to Dexterity"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "Dexterity7",
+   "affix_type": "Suffix",
+   "group": "Dexterity",
+   "level": 66,
+   "text": [
+    "+(28-30) to Dexterity"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "Dexterity8",
+   "affix_type": "Suffix",
+   "group": "Dexterity",
+   "level": 74,
+   "text": [
+    "+(31-33) to Dexterity"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedPhysicalDamage1",
+   "affix_type": "Prefix",
+   "group": "PhysicalDamage",
+   "level": 1,
+   "text": [
+    "Adds (1-2) to 3 Physical Damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedPhysicalDamage2",
+   "affix_type": "Prefix",
+   "group": "PhysicalDamage",
+   "level": 8,
+   "text": [
+    "Adds (2-3) to (4-6) Physical Damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedPhysicalDamage3",
+   "affix_type": "Prefix",
+   "group": "PhysicalDamage",
+   "level": 16,
+   "text": [
+    "Adds (2-4) to (5-8) Physical Damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedPhysicalDamage4",
+   "affix_type": "Prefix",
+   "group": "PhysicalDamage",
+   "level": 33,
+   "text": [
+    "Adds (4-6) to (8-11) Physical Damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedPhysicalDamage5",
+   "affix_type": "Prefix",
+   "group": "PhysicalDamage",
+   "level": 46,
+   "text": [
+    "Adds (5-7) to (9-13) Physical Damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedPhysicalDamage6",
+   "affix_type": "Prefix",
+   "group": "PhysicalDamage",
+   "level": 54,
+   "text": [
+    "Adds (6-10) to (12-17) Physical Damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedPhysicalDamage7",
+   "affix_type": "Prefix",
+   "group": "PhysicalDamage",
+   "level": 60,
+   "text": [
+    "Adds (7-11) to (14-20) Physical Damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedPhysicalDamage8",
+   "affix_type": "Prefix",
+   "group": "PhysicalDamage",
+   "level": 65,
+   "text": [
+    "Adds (10-15) to (18-26) Physical Damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedPhysicalDamage9",
+   "affix_type": "Prefix",
+   "group": "PhysicalDamage",
+   "level": 75,
+   "text": [
+    "Adds (12-19) to (22-32) Physical Damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedFireDamage1",
+   "affix_type": "Prefix",
+   "group": "FireDamage",
+   "level": 1,
+   "text": [
+    "Adds (1-2) to 3 Fire damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedFireDamage2",
+   "affix_type": "Prefix",
+   "group": "FireDamage",
+   "level": 8,
+   "text": [
+    "Adds (3-5) to (6-9) Fire damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedFireDamage3",
+   "affix_type": "Prefix",
+   "group": "FireDamage",
+   "level": 16,
+   "text": [
+    "Adds (6-8) to (10-13) Fire damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedFireDamage4",
+   "affix_type": "Prefix",
+   "group": "FireDamage",
+   "level": 33,
+   "text": [
+    "Adds (9-11) to (14-17) Fire damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedFireDamage5",
+   "affix_type": "Prefix",
+   "group": "FireDamage",
+   "level": 46,
+   "text": [
+    "Adds (12-13) to (18-20) Fire damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedFireDamage6",
+   "affix_type": "Prefix",
+   "group": "FireDamage",
+   "level": 54,
+   "text": [
+    "Adds (11-16) to (21-26) Fire damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedFireDamage7",
+   "affix_type": "Prefix",
+   "group": "FireDamage",
+   "level": 60,
+   "text": [
+    "Adds (13-19) to (27-32) Fire damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedFireDamage8",
+   "affix_type": "Prefix",
+   "group": "FireDamage",
+   "level": 65,
+   "text": [
+    "Adds (20-24) to (33-36) Fire damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedFireDamage9",
+   "affix_type": "Prefix",
+   "group": "FireDamage",
+   "level": 75,
+   "text": [
+    "Adds (25-29) to (37-45) Fire damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedColdDamage1",
+   "affix_type": "Prefix",
+   "group": "ColdDamage",
+   "level": 1,
+   "text": [
+    "Adds 1 to (2-3) Cold damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedColdDamage2",
+   "affix_type": "Prefix",
+   "group": "ColdDamage",
+   "level": 8,
+   "text": [
+    "Adds (3-4) to (5-8) Cold damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedColdDamage3",
+   "affix_type": "Prefix",
+   "group": "ColdDamage",
+   "level": 16,
+   "text": [
+    "Adds (5-6) to (9-11) Cold damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedColdDamage4",
+   "affix_type": "Prefix",
+   "group": "ColdDamage",
+   "level": 33,
+   "text": [
+    "Adds (7-8) to (12-14) Cold damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedColdDamage5",
+   "affix_type": "Prefix",
+   "group": "ColdDamage",
+   "level": 46,
+   "text": [
+    "Adds (9-10) to (15-17) Cold damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedColdDamage6",
+   "affix_type": "Prefix",
+   "group": "ColdDamage",
+   "level": 54,
+   "text": [
+    "Adds (11-13) to (18-21) Cold damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedColdDamage7",
+   "affix_type": "Prefix",
+   "group": "ColdDamage",
+   "level": 60,
+   "text": [
+    "Adds (14-15) to (22-24) Cold damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedColdDamage8",
+   "affix_type": "Prefix",
+   "group": "ColdDamage",
+   "level": 65,
+   "text": [
+    "Adds (16-20) to (25-31) Cold damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedColdDamage9",
+   "affix_type": "Prefix",
+   "group": "ColdDamage",
+   "level": 75,
+   "text": [
+    "Adds (21-24) to (32-37) Cold damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedLightningDamage1",
+   "affix_type": "Prefix",
+   "group": "LightningDamage",
+   "level": 1,
+   "text": [
+    "Adds 1 to (4-6) Lightning damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedLightningDamage2",
+   "affix_type": "Prefix",
+   "group": "LightningDamage",
+   "level": 8,
+   "text": [
+    "Adds 1 to (10-15) Lightning damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedLightningDamage3",
+   "affix_type": "Prefix",
+   "group": "LightningDamage",
+   "level": 16,
+   "text": [
+    "Adds 1 to (16-22) Lightning damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedLightningDamage4",
+   "affix_type": "Prefix",
+   "group": "LightningDamage",
+   "level": 33,
+   "text": [
+    "Adds 1 to (23-27) Lightning damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedLightningDamage5",
+   "affix_type": "Prefix",
+   "group": "LightningDamage",
+   "level": 46,
+   "text": [
+    "Adds 1 to (28-32) Lightning damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedLightningDamage6",
+   "affix_type": "Prefix",
+   "group": "LightningDamage",
+   "level": 54,
+   "text": [
+    "Adds (1-2) to (33-40) Lightning damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedLightningDamage7",
+   "affix_type": "Prefix",
+   "group": "LightningDamage",
+   "level": 60,
+   "text": [
+    "Adds (1-2) to (41-47) Lightning damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedLightningDamage8",
+   "affix_type": "Prefix",
+   "group": "LightningDamage",
+   "level": 65,
+   "text": [
+    "Adds (1-3) to (48-59) Lightning damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AddedLightningDamage9",
+   "affix_type": "Prefix",
+   "group": "LightningDamage",
+   "level": 75,
+   "text": [
+    "Adds (1-4) to (60-71) Lightning damage to Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalProjectileSkillGemLevel1",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseProjectileSkillGemLevel",
+   "level": 5,
+   "text": [
+    "+1 to Level of all Projectile Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeGainedFromEnemyDeath1",
+   "affix_type": "Suffix",
+   "group": "LifeGainedFromEnemyDeath",
+   "level": 1,
+   "text": [
+    "Gain (4-6) Life per enemy killed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeGainedFromEnemyDeath2",
+   "affix_type": "Suffix",
+   "group": "LifeGainedFromEnemyDeath",
+   "level": 11,
+   "text": [
+    "Gain (7-9) Life per enemy killed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeGainedFromEnemyDeath3",
+   "affix_type": "Suffix",
+   "group": "LifeGainedFromEnemyDeath",
+   "level": 22,
+   "text": [
+    "Gain (10-18) Life per enemy killed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeGainedFromEnemyDeath4",
+   "affix_type": "Suffix",
+   "group": "LifeGainedFromEnemyDeath",
+   "level": 33,
+   "text": [
+    "Gain (19-28) Life per enemy killed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeGainedFromEnemyDeath5",
+   "affix_type": "Suffix",
+   "group": "LifeGainedFromEnemyDeath",
+   "level": 44,
+   "text": [
+    "Gain (29-40) Life per enemy killed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeGainedFromEnemyDeath6",
+   "affix_type": "Suffix",
+   "group": "LifeGainedFromEnemyDeath",
+   "level": 55,
+   "text": [
+    "Gain (41-53) Life per enemy killed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ManaGainedFromEnemyDeath1",
+   "affix_type": "Suffix",
+   "group": "ManaGainedFromEnemyDeath",
+   "level": 1,
+   "text": [
+    "Gain (2-3) Mana per enemy killed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ManaGainedFromEnemyDeath2",
+   "affix_type": "Suffix",
+   "group": "ManaGainedFromEnemyDeath",
+   "level": 12,
+   "text": [
+    "Gain (4-5) Mana per enemy killed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ManaGainedFromEnemyDeath3",
+   "affix_type": "Suffix",
+   "group": "ManaGainedFromEnemyDeath",
+   "level": 23,
+   "text": [
+    "Gain (6-9) Mana per enemy killed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ManaGainedFromEnemyDeath4",
+   "affix_type": "Suffix",
+   "group": "ManaGainedFromEnemyDeath",
+   "level": 34,
+   "text": [
+    "Gain (10-14) Mana per enemy killed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ManaGainedFromEnemyDeath5",
+   "affix_type": "Suffix",
+   "group": "ManaGainedFromEnemyDeath",
+   "level": 45,
+   "text": [
+    "Gain (15-20) Mana per enemy killed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ManaGainedFromEnemyDeath6",
+   "affix_type": "Suffix",
+   "group": "ManaGainedFromEnemyDeath",
+   "level": 56,
+   "text": [
+    "Gain (21-27) Mana per enemy killed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedAttackSpeed1",
+   "affix_type": "Suffix",
+   "group": "IncreasedAttackSpeed",
+   "level": 1,
+   "text": [
+    "(5-7)% increased Attack Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedAttackSpeed2",
+   "affix_type": "Suffix",
+   "group": "IncreasedAttackSpeed",
+   "level": 22,
+   "text": [
+    "(8-10)% increased Attack Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedAttackSpeed3",
+   "affix_type": "Suffix",
+   "group": "IncreasedAttackSpeed",
+   "level": 37,
+   "text": [
+    "(11-13)% increased Attack Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedAttackSpeed4",
+   "affix_type": "Suffix",
+   "group": "IncreasedAttackSpeed",
+   "level": 60,
+   "text": [
+    "(14-16)% increased Attack Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedAccuracy1",
+   "affix_type": "Prefix",
+   "group": "IncreasedAccuracy",
+   "level": 1,
+   "text": [
+    "+(11-32) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedAccuracy2",
+   "affix_type": "Prefix",
+   "group": "IncreasedAccuracy",
+   "level": 11,
+   "text": [
+    "+(33-60) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedAccuracy3",
+   "affix_type": "Prefix",
+   "group": "IncreasedAccuracy",
+   "level": 18,
+   "text": [
+    "+(61-84) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedAccuracy4",
+   "affix_type": "Prefix",
+   "group": "IncreasedAccuracy",
+   "level": 26,
+   "text": [
+    "+(85-123) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedAccuracy5",
+   "affix_type": "Prefix",
+   "group": "IncreasedAccuracy",
+   "level": 36,
+   "text": [
+    "+(124-167) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedAccuracy6",
+   "affix_type": "Prefix",
+   "group": "IncreasedAccuracy",
+   "level": 48,
+   "text": [
+    "+(168-236) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedAccuracy7",
+   "affix_type": "Prefix",
+   "group": "IncreasedAccuracy",
+   "level": 58,
+   "text": [
+    "+(237-346) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedAccuracy8",
+   "affix_type": "Prefix",
+   "group": "IncreasedAccuracy",
+   "level": 67,
+   "text": [
+    "+(347-450) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IncreasedAccuracy9",
+   "affix_type": "Prefix",
+   "group": "IncreasedAccuracy",
+   "level": 76,
+   "text": [
+    "+(451-550) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AttackCriticalStrikeChance1",
+   "affix_type": "Suffix",
+   "group": "AttackCriticalStrikeChance",
+   "level": 5,
+   "text": [
+    "(10-14)% increased Critical Hit Chance for Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AttackCriticalStrikeChance2",
+   "affix_type": "Suffix",
+   "group": "AttackCriticalStrikeChance",
+   "level": 20,
+   "text": [
+    "(15-19)% increased Critical Hit Chance for Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AttackCriticalStrikeChance3",
+   "affix_type": "Suffix",
+   "group": "AttackCriticalStrikeChance",
+   "level": 30,
+   "text": [
+    "(20-24)% increased Critical Hit Chance for Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AttackCriticalStrikeChance4",
+   "affix_type": "Suffix",
+   "group": "AttackCriticalStrikeChance",
+   "level": 44,
+   "text": [
+    "(25-29)% increased Critical Hit Chance for Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AttackCriticalStrikeChance5",
+   "affix_type": "Suffix",
+   "group": "AttackCriticalStrikeChance",
+   "level": 58,
+   "text": [
+    "(30-34)% increased Critical Hit Chance for Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AttackCriticalStrikeChance6",
+   "affix_type": "Suffix",
+   "group": "AttackCriticalStrikeChance",
+   "level": 72,
+   "text": [
+    "(35-38)% increased Critical Hit Chance for Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AttackCriticalStrikeMultiplier1",
+   "affix_type": "Suffix",
+   "group": "AttackCriticalStrikeMultiplier",
+   "level": 8,
+   "text": [
+    "(10-14)% increased Critical Damage Bonus for Attack Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AttackCriticalStrikeMultiplier2",
+   "affix_type": "Suffix",
+   "group": "AttackCriticalStrikeMultiplier",
+   "level": 21,
+   "text": [
+    "(15-19)% increased Critical Damage Bonus for Attack Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AttackCriticalStrikeMultiplier3",
+   "affix_type": "Suffix",
+   "group": "AttackCriticalStrikeMultiplier",
+   "level": 31,
+   "text": [
+    "(20-24)% increased Critical Damage Bonus for Attack Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AttackCriticalStrikeMultiplier4",
+   "affix_type": "Suffix",
+   "group": "AttackCriticalStrikeMultiplier",
+   "level": 45,
+   "text": [
+    "(25-29)% increased Critical Damage Bonus for Attack Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AttackCriticalStrikeMultiplier5",
+   "affix_type": "Suffix",
+   "group": "AttackCriticalStrikeMultiplier",
+   "level": 59,
+   "text": [
+    "(30-34)% increased Critical Damage Bonus for Attack Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AttackCriticalStrikeMultiplier6",
+   "affix_type": "Suffix",
+   "group": "AttackCriticalStrikeMultiplier",
+   "level": 74,
+   "text": [
+    "(35-39)% increased Critical Damage Bonus for Attack Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ArrowPierceChance1",
+   "affix_type": "Suffix",
+   "group": "ChanceToPierce",
+   "level": 11,
+   "text": [
+    "(12-14)% chance to Pierce an Enemy"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ArrowPierceChance2",
+   "affix_type": "Suffix",
+   "group": "ChanceToPierce",
+   "level": 26,
+   "text": [
+    "(15-17)% chance to Pierce an Enemy"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ArrowPierceChance3",
+   "affix_type": "Suffix",
+   "group": "ChanceToPierce",
+   "level": 44,
+   "text": [
+    "(18-20)% chance to Pierce an Enemy"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ArrowPierceChance4",
+   "affix_type": "Suffix",
+   "group": "ChanceToPierce",
+   "level": 61,
+   "text": [
+    "(21-23)% chance to Pierce an Enemy"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ArrowPierceChance5",
+   "affix_type": "Suffix",
+   "group": "ChanceToPierce",
+   "level": 77,
+   "text": [
+    "(24-26)% chance to Pierce an Enemy"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AdditionalArrowChanceQuiver1",
+   "affix_type": "Suffix",
+   "group": "AdditionalArrowChanceCanExceed100%",
+   "level": 46,
+   "text": [
+    "+(25-40)% Surpassing chance to fire an additional Arrow"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AdditionalArrowChanceQuiver2",
+   "affix_type": "Suffix",
+   "group": "AdditionalArrowChanceCanExceed100%",
+   "level": 80,
+   "text": [
+    "+(41-60)% Surpassing chance to fire an additional Arrow"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ProjectileSpeed1",
+   "affix_type": "Prefix",
+   "group": "ProjectileSpeed",
+   "level": 14,
+   "text": [
+    "(10-17)% increased Projectile Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ProjectileSpeed2",
+   "affix_type": "Prefix",
+   "group": "ProjectileSpeed",
+   "level": 27,
+   "text": [
+    "(18-25)% increased Projectile Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ProjectileSpeed3",
+   "affix_type": "Prefix",
+   "group": "ProjectileSpeed",
+   "level": 41,
+   "text": [
+    "(26-33)% increased Projectile Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ProjectileSpeed4",
+   "affix_type": "Prefix",
+   "group": "ProjectileSpeed",
+   "level": 55,
+   "text": [
+    "(34-41)% increased Projectile Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ProjectileSpeed5",
+   "affix_type": "Prefix",
+   "group": "ProjectileSpeed",
+   "level": 82,
+   "text": [
+    "(42-46)% increased Projectile Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "DamageWithBows1",
+   "affix_type": "Prefix",
+   "group": "DamageWithBowSkills",
+   "level": 1,
+   "text": [
+    "(11-20)% increased Damage with Bow Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "DamageWithBows2",
+   "affix_type": "Prefix",
+   "group": "DamageWithBowSkills",
+   "level": 16,
+   "text": [
+    "(21-30)% increased Damage with Bow Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "DamageWithBows3",
+   "affix_type": "Prefix",
+   "group": "DamageWithBowSkills",
+   "level": 33,
+   "text": [
+    "(31-36)% increased Damage with Bow Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "DamageWithBows4",
+   "affix_type": "Prefix",
+   "group": "DamageWithBowSkills",
+   "level": 46,
+   "text": [
+    "(37-42)% increased Damage with Bow Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "DamageWithBows5",
+   "affix_type": "Prefix",
+   "group": "DamageWithBowSkills",
+   "level": 60,
+   "text": [
+    "(43-50)% increased Damage with Bow Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "DamageWithBows6",
+   "affix_type": "Prefix",
+   "group": "DamageWithBowSkills",
+   "level": 81,
+   "text": [
+    "(51-59)% increased Damage with Bow Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  }
+ ],
+ "weights_source": "pob_real",
+ "weights_note": "Real per-base spawn weights from Path of Building (ModItem.lua). Mods that can't roll on this base (weight 0) are removed."
+}

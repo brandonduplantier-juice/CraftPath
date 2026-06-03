@@ -306,6 +306,7 @@ def _desecrated_all():
 @app.route("/api/desecrated/<base>")
 def api_desecrated(base):
     import desecrated as D
+    from build_weights import weight_for_base
     blob = _desecrated_all()
     bt = base.split("_")[0]
     if bt in D.NO_DESECRATED:
@@ -316,15 +317,23 @@ def api_desecrated(base):
     for m in blob.get("mods", []):
         if not D.can_roll_desecrated(base, m["affix_type"]):
             continue
+        # NEW: filter by real per-base weight tags from PoB ModVeiled. A mod is
+        # only shown if it can actually roll on THIS base (weight > 0). Mods
+        # without tag data (older entries) fall through as shown, to be safe.
+        tags = m.get("tags")
+        if tags:
+            w = weight_for_base(tags, base)
+            if w is None or w <= 0:
+                continue
         row = {"id": m["mod_id"], "type": m["affix_type"], "lord": m["lord"],
                "level": m.get("ilvl", 65), "text": m["text"], "source": "desecrated"}
         (pre if m["affix_type"] == "Prefix" else suf).append(row)
     return jsonify({
-        "base": base, "available": True,
+        "base": base, "available": bool(pre or suf),
         "lord_omens_valid": D.lord_omen_valid(base),
         "prefix_note": ("Body/Gloves/Boots/Helmet have no prefix desecrated mods."
                         if bt in D.NO_PREFIX_DESECRATED else None),
-        "weights_note": "Desecrated reveal weights are unpublished; shown flat.",
+        "weights_note": "Filtered to mods that can roll on this base (PoB data). Reveal odds among them are unpublished; shown flat.",
         "prefixes": pre, "suffixes": suf})
 
 
@@ -711,11 +720,19 @@ def api_solve():
     omen_cost = None
     try:
         import desecrated as D
+        from build_weights import weight_for_base
         bt = base.split("_")[0]
         if bt not in D.NO_DESECRATED:
             blob = _desecrated_all()
             for m in blob.get("mods", []):
-                if D.can_roll_desecrated(base, m["affix_type"]):
+                if not D.can_roll_desecrated(base, m["affix_type"]):
+                    continue
+                tags = m.get("tags")
+                if tags:
+                    w = weight_for_base(tags, base)
+                    if w is None or w <= 0:
+                        continue
+                if True:
                     desecrated_pool.append({
                         "mod_id": m["mod_id"], "affix_type": m["affix_type"],
                         "lord": m.get("lord"), "text": m.get("text", ""),

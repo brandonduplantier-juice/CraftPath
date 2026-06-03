@@ -4,10 +4,15 @@ Running list of things to add or fix, captured as they come up so nothing gets l
 Newest items near the top of each section. Status: ☐ todo · ◐ in progress · ☑ done.
 
 ## High impact
-- ☐ **Per-base weights pipeline.** Every base except dagger uses flat/uniform weights.
-  The PoB source (`/home/claude/pob2/src/Data/ModItem.lua`) carries real per-tag
-  weights — extract them per base the same way pools were generated. This is the #1
-  thing limiting trustworthiness of non-dagger odds/costs. (Data job, not solver job.)
+- ☑ **Per-base weights pipeline.** DONE via build_weights.py: pulls real per-base
+  spawn weights from PoB ModItem.lua (weightKey/weightVal) for all bases and removes
+  mods that can't roll on a base (weight 0). All bases now report weights_source
+  'pob_real' (dagger keeps its richer CoE estimate). NOTE: PoB 0.5 weights are often
+  flat (1) for weapon mods, so the big win is base-VALIDITY filtering, not weight
+  spread. Re-run build_weights.py when PoB data updates. Source scripts live in repo.
+  Remaining gap: some per-base source files were missing mods to begin with (e.g.
+  talisman has no resistance mods) — the pipeline can filter/​reweight but not ADD
+  missing mods; regenerating pools from PoB wholesale is a future cleanup.
 
 ## Monetization (later)
 - ☐ **Ads.** Replicate poe.ninja's unobtrusive ads. poe.ninja uses Google AdSense
@@ -34,15 +39,12 @@ Newest items near the top of each section. Status: ☐ todo · ◐ in progress �
   removed 0.5.0; Recombination — removed this league.)
 
 ## Data refresh (run locally — needs network the dev box lacks)
-- ☐ **Desecrated mods are NOT base-type filtered (real accuracy bug).** data/desecrated_mods.json
-  is a flat ~195-mod pool with NO base-type tags, so every base shows the same list —
-  including mods that can't roll on it (e.g. a quarterstaff shows Charm / Curse-magnitude /
-  Spell / Minion mods). can_roll_desecrated only applies slot rules (no prefix-desec on
-  body/gloves/boots/helmet, none on sceptre), not per-mod base validity. FIX: pull
-  poe2db's desecrated mods PER BASE TYPE (or the base-tag per mod) and filter by it. Do
-  NOT guess validity with keyword heuristics — get the real per-base data. Also verify
-  whether the Tecrod / Kulemak lords (seen on the Timeless Jewel) have Well-of-Souls
-  reveal mods or are jewel-only before adding — don't add unverified.
+- ☑ **Desecrated base-type filtering.** DONE via build_desecrated.py: rebuilt
+  data/desecrated_mods.json from PoB ModVeiled.lua (196 lord mods: ulaman/amanamu/
+  kurgal) WITH real per-base weightKey tags. /api/desecrated and the solve pool now
+  filter to mods that can actually roll on the base (e.g. quarterstaff shows 6pre/6suf
+  weapon mods, not the old flat 70/125 with Charms/Spells/Curses). Tecrod/Kulemak NOT
+  added — they're Timeless-Jewel lords, not Well-of-Souls reveal mods (verified).
 - ☐ **Essence prices** seeded as TIERED ESTIMATES (Lesser~0.5 / Normal~2 / Greater~8
   / Perfect~25 ex). Run `python prices.py` locally to overwrite with live PoE2 Scout
   values. A few high-demand Greater essences really trade 50+ ex.
