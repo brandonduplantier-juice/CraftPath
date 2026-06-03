@@ -84,6 +84,10 @@ class Solver:
                                  if d.get("affix_type") == "Prefix" and d["mod_id"] in wanted_ids]
         self.desec_wanted_suf = [d for d in self.desecrated
                                  if d.get("affix_type") == "Suffix" and d["mod_id"] in wanted_ids]
+        # ids of wanted desecrated mods (not in the regular pool) — these must also
+        # be satisfied for the goal, and occupy slots once secured.
+        self.desec_wanted_pre_ids = {d["mod_id"] for d in self.desec_wanted_pre}
+        self.desec_wanted_suf_ids = {d["mod_id"] for d in self.desec_wanted_suf}
 
         # partition wanted by slot type
         self.wanted_pre = {i for i in wanted_ids
@@ -126,14 +130,21 @@ class Solver:
         mp, ms = CAPS[s.rarity]
         sec_pre = sum(i in self.wanted_pre for i in s.secured)
         sec_suf = sum(i in self.wanted_suf for i in s.secured)
+        # secured wanted-desecrated mods occupy slots too
+        sec_pre += sum(i in self.desec_wanted_pre_ids for i in s.secured)
+        sec_suf += sum(i in self.desec_wanted_suf_ids for i in s.secured)
         open_pre = mp - sec_pre - s.junk_pre
         open_suf = ms - sec_suf - s.junk_suf
         return open_pre, open_suf, sec_pre, sec_suf
 
     def is_goal(self, s: State) -> bool:
-        # secured if every wanted GROUP has an acceptable member present
+        # secured if every wanted GROUP has an acceptable member present...
         secured_groups = {self.mods[i].group for i in s.secured if i in self.mods}
-        return self.wanted_groups <= secured_groups
+        if not (self.wanted_groups <= secured_groups):
+            return False
+        # ...AND every wanted desecrated mod (not in the regular pool) is secured
+        need_desec = self.desec_wanted_pre_ids | self.desec_wanted_suf_ids
+        return need_desec <= s.secured
 
     # ---- add-action outcome distribution --------------------------------
     def _add_outcomes(self, s: State, open_pre, open_suf):

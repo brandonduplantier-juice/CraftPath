@@ -672,8 +672,37 @@ def api_solve():
         def forced_mod(s, _cls): return s._mod
     essences = [E(d) for d in ess_raw] if ess_raw else None
 
+    # --- Desecration wiring: build the base-legal desecrated pool + omen/bone
+    # costs from live prices, so the solver can offer Bone+Omen desecration as a
+    # crafting step. Reveal weights are unpublished -> modeled flat and flagged.
+    desecrated_pool = []
+    bone_cost = None
+    omen_cost = None
+    try:
+        import desecrated as D
+        bt = base.split("_")[0]
+        if bt not in D.NO_DESECRATED:
+            blob = _desecrated_all()
+            for m in blob.get("mods", []):
+                if D.can_roll_desecrated(base, m["affix_type"]):
+                    desecrated_pool.append({
+                        "mod_id": m["mod_id"], "affix_type": m["affix_type"],
+                        "lord": m.get("lord"), "text": m.get("text", ""),
+                        "ilvl": m.get("ilvl", 65)})
+            # cheapest bone (any jawbone/collarbone) and cheapest sinistral/dextral omen
+            bones = [v for k, v in prices.items()
+                     if "jawbone" in k.lower() or "collarbone" in k.lower()]
+            omens = [v for k, v in prices.items()
+                     if "necromancy" in k.lower()]   # Sinistral/Dextral Necromancy
+            bone_cost = min(bones) if bones else None
+            omen_cost = min(omens) if omens else None
+    except Exception:
+        desecrated_pool = []
+
     sv = Solver(mods, base, ilvl, wanted, prices,
-                essences=essences, item_class=item_class, essence_prices=ess_prices)
+                essences=essences, item_class=item_class, essence_prices=ess_prices,
+                desecrated=desecrated_pool or None,
+                bone_cost=bone_cost, sinistral_omen_cost=omen_cost)
     start = State(start_rarity,
                   frozenset(have_pre + have_suf),
                   junk_pre, junk_suf)
@@ -688,6 +717,14 @@ def api_solve():
     not_viable = total != float("inf") and total > VIABLE_CEILING
 
     by_id = {m.mod_id: m for m in mods}
+    # desecrated mods aren't in the regular pool; build a text lookup for them
+    # so step output can render their names. (key -> plain text string)
+    desec_text = {d["mod_id"]: d.get("text", d["mod_id"]) for d in (desecrated_pool or [])}
+    def _mod_text(mid):
+        if mid in by_id:
+            t = by_id[mid].text
+            return t[0] if isinstance(t, (list, tuple)) and t else (t if isinstance(t, str) else mid)
+        return desec_text.get(mid, mid)
     result = {"status": "ok", "base": base, "item_level": ilvl,
               "weights_source": wsource,
               "expected_cost": (None if (total == float("inf") or not_viable) else round(total, 2)),
@@ -722,7 +759,7 @@ def api_solve():
         for p, ns in outs:
             for mid in (ns.secured - s.secured):
                 useful.append({"mod": mid,
-                               "text": by_id[mid].text[0] if by_id[mid].text else mid,
+                               "text": _mod_text(mid),
                                "p": round(p, 4)})
                 p_use += p
 
