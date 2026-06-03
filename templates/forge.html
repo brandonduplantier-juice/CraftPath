@@ -78,6 +78,8 @@
   details.guide-ref .gr-h{font-size:12px;color:var(--verisium-bright);letter-spacing:.08em;text-transform:uppercase;margin:12px 0 5px}
   details.guide-ref ul{margin:0;padding-left:18px}
   details.guide-ref li{font-size:13px;color:var(--ash);margin:4px 0;line-height:1.45}
+  .guide-warning{border:1px solid #6b5a2a;border-radius:8px;background:rgba(120,90,20,.14);
+    color:var(--gold-bright);font-size:13px;line-height:1.5;padding:13px 18px;margin:0 0 12px}
   .budget-tabs{display:flex;gap:8px;margin-bottom:16px}
   .budget-tab{padding:7px 16px;border:1px solid var(--edge);border-radius:5px;cursor:pointer;
     font-size:12px;letter-spacing:.06em;color:var(--ash);background:rgba(40,50,70,.2);transition:all .14s}
@@ -831,6 +833,7 @@ function renderGuideReference(){
   const D=GUIDES.desecration, M=GUIDES.methods||[];
   const ul=(arr)=>'<ul>'+arr.map(x=>'<li>'+x+'</li>').join('')+'</ul>';
   let html='';
+  if(GUIDES.meta_warning){ html+='<div class="guide-warning">⚠ '+GUIDES.meta_warning+'</div>'; }
   if(D){
     html+='<details class="guide-ref"><summary>🦴 '+(D.title||'Desecration reference')+'</summary><div class="gr-body">'+
       (D.intro?'<p>'+D.intro+'</p>':'')+

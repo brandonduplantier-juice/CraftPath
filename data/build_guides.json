@@ -92,6 +92,19 @@
       "source": "JTX bleed-bow guide (companion bow)",
       "flag": "Desecration reveal weights are unpublished; the Liege pool guarantees the mod TYPE, the exact reveal among that pool is RNG.",
       "ilvl": "82+"
+     },
+     "high": {
+      "base": "High-tier Bow base, item level 82 for top tiers.",
+      "ilvl": "82",
+      "steps": [
+       "Priority mods: flat added elemental damage (for elemental bows) or % increased Physical Damage (for phys bows) (prefixes); attack speed, critical hit chance, +levels to projectile/bow skills, accuracy on phys variants (suffixes). Deadeye/Pathfinder scale projectile attacks; pick the damage type your skill uses.",
+       "Start from a high item-level base that already has one or two strong mods.",
+       "Target the remaining mods with desecration (Bone + a lord omen on weapons/jewellery) or Expedition, then finish with the optimizer.",
+       "Alloys can force one guaranteed mod by replacing a random one. Desecration reveal odds are unpublished, so treat targeting as best-effort, not guaranteed."
+      ],
+      "est_cost": "Expensive / build-defining",
+      "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+      "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
      }
     }
    }
@@ -115,6 +128,31 @@
       "source": "wand meta-craft guide (Astrid's Creativity + alloy)",
       "flag": "Uses rune-based metacrafting (+1 crafted mod) and alloys; deterministic-ish but expensive. Not solver-computed.",
       "ilvl": "81+"
+     },
+     "low": {
+      "base": "Wand with a useful base, item level 82.",
+      "ilvl": "82",
+      "steps": [
+       "Priority mods: +levels to spell or specific-element skills, % increased Spell Damage, flat added spell damage of your element (prefixes); cast speed, spell critical chance / critical damage, mana (suffixes). Stormweaver/Chronomancer scale spells; match the element of your main skill.",
+       "Buy a white base at the right item level, or a cheap magic/rare off trade.",
+       "Run the optimizer (Steps 1-3) to add your priority mods via Transmutation then Augmentation/Regal.",
+       "Socket runes for resistances or life to patch gaps cheaply."
+      ],
+      "est_cost": "Cheap (a handful of orbs)",
+      "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+      "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
+     },
+     "med": {
+      "base": "Wand with a useful base, item level 82.",
+      "ilvl": "82",
+      "steps": [
+       "Priority mods: +levels to spell or specific-element skills, % increased Spell Damage, flat added spell damage of your element (prefixes); cast speed, spell critical chance / critical damage, mana (suffixes). Stormweaver/Chronomancer scale spells; match the element of your main skill.",
+       "Use an Essence to guarantee your most important mod (or a missing resistance), then the optimizer to add the rest and push tiers.",
+       "Socket the best runes you can. For armour, Verisium Runeforging adds Runic Ward (free below item level 55, trades some base defence above it)."
+      ],
+      "est_cost": "Moderate (essence + orbs)",
+      "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+      "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
      }
     }
    }
@@ -122,17 +160,140 @@
   "mercenary": {
    "label": "Mercenary",
    "weapon_label": "Crossbow",
-   "slots": {}
+   "slots": {
+    "weapon": {
+     "low": {
+      "base": "Crossbow base, item level 82. A Twin/Gemini-style crossbow fires an extra bolt.",
+      "ilvl": "82",
+      "steps": [
+       "Priority mods: flat added physical or cold damage to attacks, % increased Physical Damage (prefixes); attack speed, critical hit chance, reload speed, +levels to projectile skills (suffixes). Permafrost/Fragmentation freeze-shatter and grenades are the common 0.5 routes.",
+       "Buy a white base at the right item level, or a cheap magic/rare off trade.",
+       "Run the optimizer (Steps 1-3) to add your priority mods via Transmutation then Augmentation/Regal.",
+       "Socket runes for resistances or life to patch gaps cheaply."
+      ],
+      "est_cost": "Cheap (a handful of orbs)",
+      "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+      "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
+     },
+     "med": {
+      "base": "Crossbow base, item level 82. A Twin/Gemini-style crossbow fires an extra bolt.",
+      "ilvl": "82",
+      "steps": [
+       "Priority mods: flat added physical or cold damage to attacks, % increased Physical Damage (prefixes); attack speed, critical hit chance, reload speed, +levels to projectile skills (suffixes). Permafrost/Fragmentation freeze-shatter and grenades are the common 0.5 routes.",
+       "Use an Essence to guarantee your most important mod (or a missing resistance), then the optimizer to add the rest and push tiers.",
+       "Socket the best runes you can. For armour, Verisium Runeforging adds Runic Ward (free below item level 55, trades some base defence above it)."
+      ],
+      "est_cost": "Moderate (essence + orbs)",
+      "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+      "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
+     },
+     "high": {
+      "base": "Crossbow base, item level 82. A Twin/Gemini-style crossbow fires an extra bolt.",
+      "ilvl": "82",
+      "steps": [
+       "Priority mods: flat added physical or cold damage to attacks, % increased Physical Damage (prefixes); attack speed, critical hit chance, reload speed, +levels to projectile skills (suffixes). Permafrost/Fragmentation freeze-shatter and grenades are the common 0.5 routes.",
+       "Start from a high item-level base that already has one or two strong mods.",
+       "Target the remaining mods with desecration (Bone + a lord omen on weapons/jewellery) or Expedition, then finish with the optimizer.",
+       "Alloys can force one guaranteed mod by replacing a random one. Desecration reveal odds are unpublished, so treat targeting as best-effort, not guaranteed."
+      ],
+      "est_cost": "Expensive / build-defining",
+      "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+      "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
+     }
+    }
+   }
   },
   "warrior": {
    "label": "Warrior",
    "weapon_label": "Mace / Two-Hand",
-   "slots": {}
+   "slots": {
+    "weapon": {
+     "low": {
+      "base": "High base-damage Mace / two-hand, item level 82.",
+      "ilvl": "82",
+      "steps": [
+       "Priority mods: % increased Physical Damage, flat added physical damage, +levels to melee/attack skills (prefixes); attack speed, accuracy, critical hit chance, increased stun buildup (suffixes). Mace builds rank low in 0.5 (slow, lower damage); set expectations accordingly.",
+       "Buy a white base at the right item level, or a cheap magic/rare off trade.",
+       "Run the optimizer (Steps 1-3) to add your priority mods via Transmutation then Augmentation/Regal.",
+       "Socket runes for resistances or life to patch gaps cheaply."
+      ],
+      "est_cost": "Cheap (a handful of orbs)",
+      "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+      "flag": "Warrior/mace is widely rated weak in 0.5. Targets are stable, but the archetype itself underperforms this patch. Verify before investing."
+     },
+     "med": {
+      "base": "High base-damage Mace / two-hand, item level 82.",
+      "ilvl": "82",
+      "steps": [
+       "Priority mods: % increased Physical Damage, flat added physical damage, +levels to melee/attack skills (prefixes); attack speed, accuracy, critical hit chance, increased stun buildup (suffixes). Mace builds rank low in 0.5 (slow, lower damage); set expectations accordingly.",
+       "Use an Essence to guarantee your most important mod (or a missing resistance), then the optimizer to add the rest and push tiers.",
+       "Socket the best runes you can. For armour, Verisium Runeforging adds Runic Ward (free below item level 55, trades some base defence above it)."
+      ],
+      "est_cost": "Moderate (essence + orbs)",
+      "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+      "flag": "Warrior/mace is widely rated weak in 0.5. Targets are stable, but the archetype itself underperforms this patch. Verify before investing."
+     },
+     "high": {
+      "base": "High base-damage Mace / two-hand, item level 82.",
+      "ilvl": "82",
+      "steps": [
+       "Priority mods: % increased Physical Damage, flat added physical damage, +levels to melee/attack skills (prefixes); attack speed, accuracy, critical hit chance, increased stun buildup (suffixes). Mace builds rank low in 0.5 (slow, lower damage); set expectations accordingly.",
+       "Start from a high item-level base that already has one or two strong mods.",
+       "Target the remaining mods with desecration (Bone + a lord omen on weapons/jewellery) or Expedition, then finish with the optimizer.",
+       "Alloys can force one guaranteed mod by replacing a random one. Desecration reveal odds are unpublished, so treat targeting as best-effort, not guaranteed."
+      ],
+      "est_cost": "Expensive / build-defining",
+      "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+      "flag": "Warrior/mace is widely rated weak in 0.5. Targets are stable, but the archetype itself underperforms this patch. Verify before investing."
+     }
+    }
+   }
   },
   "witch": {
    "label": "Witch",
    "weapon_label": "Sceptre / Staff",
-   "slots": {}
+   "slots": {
+    "weapon": {
+     "low": {
+      "base": "Sceptre for spirit + minion/spell scaling, or a Staff for raw spell damage. Item level 82.",
+      "ilvl": "82",
+      "steps": [
+       "Priority mods: +levels to minion/spell skills, % increased Spell Damage; Sceptres also grant Spirit (prefixes); cast speed, spell critical, spirit, mana (suffixes). Infernalist/Lich/Blood Mage scale spells or minions; Sceptre for spirit/minions, Staff for spell damage.",
+       "Buy a white base at the right item level, or a cheap magic/rare off trade.",
+       "Run the optimizer (Steps 1-3) to add your priority mods via Transmutation then Augmentation/Regal.",
+       "Socket runes for resistances or life to patch gaps cheaply."
+      ],
+      "est_cost": "Cheap (a handful of orbs)",
+      "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+      "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
+     },
+     "med": {
+      "base": "Sceptre for spirit + minion/spell scaling, or a Staff for raw spell damage. Item level 82.",
+      "ilvl": "82",
+      "steps": [
+       "Priority mods: +levels to minion/spell skills, % increased Spell Damage; Sceptres also grant Spirit (prefixes); cast speed, spell critical, spirit, mana (suffixes). Infernalist/Lich/Blood Mage scale spells or minions; Sceptre for spirit/minions, Staff for spell damage.",
+       "Use an Essence to guarantee your most important mod (or a missing resistance), then the optimizer to add the rest and push tiers.",
+       "Socket the best runes you can. For armour, Verisium Runeforging adds Runic Ward (free below item level 55, trades some base defence above it)."
+      ],
+      "est_cost": "Moderate (essence + orbs)",
+      "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+      "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
+     },
+     "high": {
+      "base": "Sceptre for spirit + minion/spell scaling, or a Staff for raw spell damage. Item level 82.",
+      "ilvl": "82",
+      "steps": [
+       "Priority mods: +levels to minion/spell skills, % increased Spell Damage; Sceptres also grant Spirit (prefixes); cast speed, spell critical, spirit, mana (suffixes). Infernalist/Lich/Blood Mage scale spells or minions; Sceptre for spirit/minions, Staff for spell damage.",
+       "Start from a high item-level base that already has one or two strong mods.",
+       "Target the remaining mods with desecration (Bone + a lord omen on weapons/jewellery) or Expedition, then finish with the optimizer.",
+       "Alloys can force one guaranteed mod by replacing a random one. Desecration reveal odds are unpublished, so treat targeting as best-effort, not guaranteed."
+      ],
+      "est_cost": "Expensive / build-defining",
+      "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+      "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
+     }
+    }
+   }
   }
  },
  "shared_slots": {
@@ -161,6 +322,19 @@
     "source": "boots putrefaction guide",
     "flag": "Desecration reveal odds unpublished; modeled as RNG in CraftPath's putrefaction estimate.",
     "ilvl": "82"
+   },
+   "high": {
+    "base": "Boots matching your build's defence, item level 82 for T1 resistances.",
+    "ilvl": "82",
+    "steps": [
+     "Priority mods: movement speed is the key suffix; life prefix; two resistances. Runeforge Runic Ward if you want a defensive layer.",
+     "Start from a high item-level base that already has one or two strong mods.",
+     "Target the remaining mods with desecration (Bone + a lord omen on weapons/jewellery) or Expedition, then finish with the optimizer.",
+     "Alloys can force one guaranteed mod by replacing a random one. Desecration reveal odds are unpublished, so treat targeting as best-effort, not guaranteed."
+    ],
+    "est_cost": "Expensive / build-defining",
+    "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+    "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
    }
   },
   "helmet": {
@@ -176,6 +350,32 @@
     "source": "stash-tab crafting guide (rarity helmet)",
     "flag": "Fracture-and-lock is a manual step; CraftPath does not model fracturing as an optimizer action.",
     "ilvl": "82"
+   },
+   "low": {
+    "base": "Helmet matching your build's defence, item level 82.",
+    "ilvl": "82",
+    "steps": [
+     "Priority mods: life and a big defence roll as prefixes; resistances and attributes as suffixes. Some helmets grant +level to a specific skill.",
+     "Buy a white base at the right item level, or a cheap magic/rare off trade.",
+     "Run the optimizer (Steps 1-3) to add your priority mods via Transmutation then Augmentation/Regal.",
+     "Socket runes for resistances or life to patch gaps cheaply."
+    ],
+    "est_cost": "Cheap (a handful of orbs)",
+    "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+    "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
+   },
+   "high": {
+    "base": "Helmet matching your build's defence, item level 82.",
+    "ilvl": "82",
+    "steps": [
+     "Priority mods: life and a big defence roll as prefixes; resistances and attributes as suffixes. Some helmets grant +level to a specific skill.",
+     "Start from a high item-level base that already has one or two strong mods.",
+     "Target the remaining mods with desecration (Bone + a lord omen on weapons/jewellery) or Expedition, then finish with the optimizer.",
+     "Alloys can force one guaranteed mod by replacing a random one. Desecration reveal odds are unpublished, so treat targeting as best-effort, not guaranteed."
+    ],
+    "est_cost": "Expensive / build-defining",
+    "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+    "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
    }
   },
   "amulet": {
@@ -206,6 +406,19 @@
     "source": "amulet crafting guide (intermediate tier)",
     "flag": "Catalyst weighting multipliers are the creator's own testing, unverified. Fracture is a manual lock step, not solver-modeled.",
     "ilvl": "82"
+   },
+   "high": {
+    "base": "Amulet (e.g. gold/solar) at item level 82.",
+    "ilvl": "82",
+    "steps": [
+     "Priority mods: +skill levels and spirit are the big prefixes; life, resistances, attributes, and crit as suffixes. Desecration/Expedition help land + skill levels.",
+     "Start from a high item-level base that already has one or two strong mods.",
+     "Target the remaining mods with desecration (Bone + a lord omen on weapons/jewellery) or Expedition, then finish with the optimizer.",
+     "Alloys can force one guaranteed mod by replacing a random one. Desecration reveal odds are unpublished, so treat targeting as best-effort, not guaranteed."
+    ],
+    "est_cost": "Expensive / build-defining",
+    "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+    "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
    }
   },
   "body": {
@@ -223,6 +436,151 @@
     "source": "mana chestplate guide (best-in-slot mana body)",
     "flag": "Mana/spirit roll has no published weights (creator estimate ~250 chaos avg). One mandatory 1-in-3 fracture. Not solver-computed.",
     "ilvl": "82"
+   },
+   "low": {
+    "base": "Body armour matching your build's defence, item level 82.",
+    "ilvl": "82",
+    "steps": [
+     "Priority mods: life and a large defence roll as prefixes; resistances as suffixes. Runeforge Runic Ward (free below item level 55) and Expansive Alloy (presence area) are 0.5 options.",
+     "Buy a white base at the right item level, or a cheap magic/rare off trade.",
+     "Run the optimizer (Steps 1-3) to add your priority mods via Transmutation then Augmentation/Regal.",
+     "Socket runes for resistances or life to patch gaps cheaply."
+    ],
+    "est_cost": "Cheap (a handful of orbs)",
+    "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+    "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
+   },
+   "med": {
+    "base": "Body armour matching your build's defence, item level 82.",
+    "ilvl": "82",
+    "steps": [
+     "Priority mods: life and a large defence roll as prefixes; resistances as suffixes. Runeforge Runic Ward (free below item level 55) and Expansive Alloy (presence area) are 0.5 options.",
+     "Use an Essence to guarantee your most important mod (or a missing resistance), then the optimizer to add the rest and push tiers.",
+     "Socket the best runes you can. For armour, Verisium Runeforging adds Runic Ward (free below item level 55, trades some base defence above it)."
+    ],
+    "est_cost": "Moderate (essence + orbs)",
+    "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+    "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
+   }
+  },
+  "gloves": {
+   "low": {
+    "base": "Base matching your build's defence (armour / evasion / ES / hybrid), item level 82.",
+    "ilvl": "82",
+    "steps": [
+     "Priority mods: life and flat added damage (attack builds) as prefixes; resistances, attack or cast speed, and attributes as suffixes.",
+     "Buy a white base at the right item level, or a cheap magic/rare off trade.",
+     "Run the optimizer (Steps 1-3) to add your priority mods via Transmutation then Augmentation/Regal.",
+     "Socket runes for resistances or life to patch gaps cheaply."
+    ],
+    "est_cost": "Cheap (a handful of orbs)",
+    "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+    "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
+   },
+   "med": {
+    "base": "Base matching your build's defence (armour / evasion / ES / hybrid), item level 82.",
+    "ilvl": "82",
+    "steps": [
+     "Priority mods: life and flat added damage (attack builds) as prefixes; resistances, attack or cast speed, and attributes as suffixes.",
+     "Use an Essence to guarantee your most important mod (or a missing resistance), then the optimizer to add the rest and push tiers.",
+     "Socket the best runes you can. For armour, Verisium Runeforging adds Runic Ward (free below item level 55, trades some base defence above it)."
+    ],
+    "est_cost": "Moderate (essence + orbs)",
+    "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+    "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
+   },
+   "high": {
+    "base": "Base matching your build's defence (armour / evasion / ES / hybrid), item level 82.",
+    "ilvl": "82",
+    "steps": [
+     "Priority mods: life and flat added damage (attack builds) as prefixes; resistances, attack or cast speed, and attributes as suffixes.",
+     "Start from a high item-level base that already has one or two strong mods.",
+     "Target the remaining mods with desecration (Bone + a lord omen on weapons/jewellery) or Expedition, then finish with the optimizer.",
+     "Alloys can force one guaranteed mod by replacing a random one. Desecration reveal odds are unpublished, so treat targeting as best-effort, not guaranteed."
+    ],
+    "est_cost": "Expensive / build-defining",
+    "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+    "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
+   }
+  },
+  "belt": {
+   "low": {
+    "base": "Belt base; pick one whose implicit suits you (e.g. charm/flask). Item level 82.",
+    "ilvl": "82",
+    "steps": [
+     "Priority mods: life and flask/charm or ES as prefixes; resistances and attributes as suffixes. Belts cannot roll attack/cast speed.",
+     "Buy a white base at the right item level, or a cheap magic/rare off trade.",
+     "Run the optimizer (Steps 1-3) to add your priority mods via Transmutation then Augmentation/Regal.",
+     "Socket runes for resistances or life to patch gaps cheaply."
+    ],
+    "est_cost": "Cheap (a handful of orbs)",
+    "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+    "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
+   },
+   "med": {
+    "base": "Belt base; pick one whose implicit suits you (e.g. charm/flask). Item level 82.",
+    "ilvl": "82",
+    "steps": [
+     "Priority mods: life and flask/charm or ES as prefixes; resistances and attributes as suffixes. Belts cannot roll attack/cast speed.",
+     "Use an Essence to guarantee your most important mod (or a missing resistance), then the optimizer to add the rest and push tiers.",
+     "Socket the best runes you can. For armour, Verisium Runeforging adds Runic Ward (free below item level 55, trades some base defence above it)."
+    ],
+    "est_cost": "Moderate (essence + orbs)",
+    "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+    "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
+   },
+   "high": {
+    "base": "Belt base; pick one whose implicit suits you (e.g. charm/flask). Item level 82.",
+    "ilvl": "82",
+    "steps": [
+     "Priority mods: life and flask/charm or ES as prefixes; resistances and attributes as suffixes. Belts cannot roll attack/cast speed.",
+     "Start from a high item-level base that already has one or two strong mods.",
+     "Target the remaining mods with desecration (Bone + a lord omen on weapons/jewellery) or Expedition, then finish with the optimizer.",
+     "Alloys can force one guaranteed mod by replacing a random one. Desecration reveal odds are unpublished, so treat targeting as best-effort, not guaranteed."
+    ],
+    "est_cost": "Expensive / build-defining",
+    "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+    "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
+   }
+  },
+  "ring": {
+   "low": {
+    "base": "Ring base; Iron Ring gives a flat-damage implicit useful for attack builds. Item level 82.",
+    "ilvl": "82",
+    "steps": [
+     "Priority mods: life, mana, and flat added damage as prefixes; resistances, attributes, and (where the base allows) crit as suffixes.",
+     "Buy a white base at the right item level, or a cheap magic/rare off trade.",
+     "Run the optimizer (Steps 1-3) to add your priority mods via Transmutation then Augmentation/Regal.",
+     "Socket runes for resistances or life to patch gaps cheaply."
+    ],
+    "est_cost": "Cheap (a handful of orbs)",
+    "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+    "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
+   },
+   "med": {
+    "base": "Ring base; Iron Ring gives a flat-damage implicit useful for attack builds. Item level 82.",
+    "ilvl": "82",
+    "steps": [
+     "Priority mods: life, mana, and flat added damage as prefixes; resistances, attributes, and (where the base allows) crit as suffixes.",
+     "Use an Essence to guarantee your most important mod (or a missing resistance), then the optimizer to add the rest and push tiers.",
+     "Socket the best runes you can. For armour, Verisium Runeforging adds Runic Ward (free below item level 55, trades some base defence above it)."
+    ],
+    "est_cost": "Moderate (essence + orbs)",
+    "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+    "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
+   },
+   "high": {
+    "base": "Ring base; Iron Ring gives a flat-damage implicit useful for attack builds. Item level 82.",
+    "ilvl": "82",
+    "steps": [
+     "Priority mods: life, mana, and flat added damage as prefixes; resistances, attributes, and (where the base allows) crit as suffixes.",
+     "Start from a high item-level base that already has one or two strong mods.",
+     "Target the remaining mods with desecration (Bone + a lord omen on weapons/jewellery) or Expedition, then finish with the optimizer.",
+     "Alloys can force one guaranteed mod by replacing a random one. Desecration reveal odds are unpublished, so treat targeting as best-effort, not guaranteed."
+    ],
+    "est_cost": "Expensive / build-defining",
+    "source": "Inferred from current 0.5 build guides + stable slot priorities; NOT verified best-in-slot",
+    "flag": "Inference, not a published recipe. The 0.5 meta is days old; verify on a current build guide before heavy investment."
    }
   }
  },
@@ -272,5 +630,6 @@
    "est_cost": "a few ex per base; profit is from volume, not any single roll",
    "source": "public 0.5 base-flipping guide (transcript)"
   }
- ]
+ ],
+ "meta_warning": "Patch 0.5 Runes of Aldur launched May 29, 2026. The endgame meta is only days old and unsettled: community build guides are still being optimized and several new interactions are unconfirmed. The entries below are common target mods plus a reasonable crafting route, inferred from current guides and stable slot priorities. They are NOT verified best-in-slot. Verify on a current build guide before committing large currency."
 }
