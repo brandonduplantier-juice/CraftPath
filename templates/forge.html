@@ -791,8 +791,8 @@ async function init(){
     $('#parseBtn').classList.remove('loading'); $('#parseBtn').disabled=false;
   };
   $('#pricecheck').onclick = priceCheck;
-  $('#disc').innerHTML = '<b>Honest notes:</b> mod pool from Path of Building · '+
-    'weights from Craft of Exile (extrapolated estimate, not game data) when loaded, else flat placeholder · '+
+  $('#disc').innerHTML = '<b>Honest notes:</b> mod pool + spawn weights from Path of Building (real game data) · '+
+    'daggers use a Craft of Exile weight overlay; some weapon mods are flat-weighted in PoB itself · '+
     'essence/desecrated modeled where data exists. '+
     '<b>Alloys</b> (13 types, 0.5): replace one random mod on a <i>rare</i> with a specific guaranteed mod, '+
     'sharing the single crafted-mod slot with essences — modeled as unsupported for now (per-alloy mods not yet datamined). '+

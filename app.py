@@ -942,7 +942,7 @@ def api_solve():
                 if essence_step:
                     how.append(essence_step)
                 how.append(f"⚠️ ACTIVATE THE OMEN: right-click <b>{necro_named}</b> in your inventory to set "
-                           f"it ACTIVE (red border). It does nothing until activated — people forget this constantly.")
+                           f"it ACTIVE (red border). It does nothing until activated.")
                 how.append(desec_line)
                 if lord_line:
                     how.append(lord_line)
