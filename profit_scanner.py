@@ -24,8 +24,9 @@ import json, os
 from dataclasses import dataclass, field
 from solver import Solver, State
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-DATA = os.path.join(HERE, "data")
+from respath import resource_path
+HERE = resource_path()
+DATA = resource_path("data")
 
 
 # ---------------------------------------------------------------------------

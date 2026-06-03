@@ -32,8 +32,10 @@ import solver as solver_mod
 from solver import Solver, State
 from essences import parse_essences, essences_for_class
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-DATA = os.path.join(HERE, "data")
+from respath import resource_root, resource_path, writable_dir
+
+HERE = resource_root()
+DATA = resource_path("data")
 
 # --- Optional error tracking (Sentry) -------------------------------------
 # Only activates if a SENTRY_DSN env var is set (on the hosted instance).
@@ -58,7 +60,9 @@ def _init_sentry():
 
 _init_sentry()
 
-app = Flask(__name__, template_folder="templates", static_folder="static")
+app = Flask(__name__,
+            template_folder=resource_path("templates"),
+            static_folder=resource_path("static"))
 
 
 @app.errorhandler(500)
@@ -215,9 +219,14 @@ def _class_for_token(token: str) -> str:
 
 
 def _prices():
-    p = os.path.join(HERE, "prices_cache.json")
-    if os.path.exists(p):
-        return json.load(open(p))
+    # writable refresh (from running prices.py) wins; else the bundled seed.
+    for p in (os.path.join(writable_dir(), "prices_cache.json"),
+              resource_path("prices_cache.json")):
+        if os.path.exists(p):
+            try:
+                return json.load(open(p))
+            except Exception:
+                continue
     return {"prices": {}, "essence_prices": {}, "league": "unknown",
             "note": "run prices.py to populate"}
 
@@ -227,7 +236,7 @@ def _prices():
 # ---------------------------------------------------------------------------
 @app.route("/")
 def index():
-    return send_from_directory("templates", "forge.html")
+    return send_from_directory(resource_path("templates"), "forge.html")
 
 
 @app.route("/api/bases")
@@ -635,7 +644,7 @@ def api_data_summary():
 @app.route("/data")
 def data_dashboard():
     """Visual refinement dashboard: renders the collected aggregate data."""
-    return send_from_directory("templates", "data.html")
+    return send_from_directory(resource_path("templates"), "data.html")
 
 
 @app.route("/api/solve", methods=["POST"])

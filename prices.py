@@ -13,7 +13,9 @@ cache via load_prices(); if no cache exists it falls back to labeled placeholder
 from __future__ import annotations
 import json, os
 
-CACHE = os.path.join(os.path.dirname(__file__), "prices_cache.json")
+from respath import resource_path, writable_dir
+CACHE = os.path.join(writable_dir(), "prices_cache.json")
+_SEED_CACHE = resource_path("prices_cache.json")  # bundled read-only seed
 
 
 def _derive_tiered(prices: dict) -> dict:
@@ -84,8 +86,7 @@ def _seed_essence_estimates() -> dict:
     the essence method always has a price even when no live/cached value exists.
     Tiered by rank (Lesser/Normal/Greater/Perfect). Flagged as estimate."""
     try:
-        ess = json.load(open(os.path.join(os.path.dirname(__file__),
-                                          "data", "essences_by_class.json")))
+        ess = json.load(open(resource_path("data", "essences_by_class.json")))
     except Exception:
         return {}
     # rough ex values by rank (community ballpark; replace via live fetch)
@@ -137,11 +138,16 @@ def _write(meta: dict) -> None:
 
 
 def load_prices() -> dict | None:
-    try:
-        with open(CACHE, encoding="utf-8") as fh:
-            return json.load(fh)
-    except (FileNotFoundError, json.JSONDecodeError):
-        return None
+    # Prefer the writable cache (refreshed by running prices.py). If it doesn't
+    # exist yet (e.g. first run of the packaged .exe), fall back to the bundled
+    # seed prices_cache.json that ships inside the build.
+    for path in (CACHE, _SEED_CACHE):
+        try:
+            with open(path, encoding="utf-8") as fh:
+                return json.load(fh)
+        except (FileNotFoundError, json.JSONDecodeError):
+            continue
+    return None
 
 
 if __name__ == "__main__":

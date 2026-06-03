@@ -33,8 +33,9 @@ from __future__ import annotations
 import json, os
 from dataclasses import dataclass
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-DATA = os.path.join(HERE, "data")
+from respath import resource_path
+HERE = resource_path()
+DATA = resource_path("data")
 
 # default options shown per reveal (the "casino" shows a few; demos suggest ~3)
 DEFAULT_OPTIONS_PER_REVEAL = 3
