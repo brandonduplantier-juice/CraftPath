@@ -1088,6 +1088,26 @@ def api_solve():
         })
         s = success_state
 
+    # If the player checked Essence but the plan never uses one, explain why.
+    # Common cause: the item is already Rare and only a Perfect essence can act on
+    # a Rare (remove+add), but none forces the wanted mod; or no essence reaches
+    # the wanted tier. Surfacing this avoids the confusing "I asked for essence
+    # but it slammed orbs" experience.
+    if enabled_methods and "essence" in enabled_methods:
+        used_essence = any(st["action"].startswith("Essence") for st in result["steps"])
+        if not used_essence and result["steps"]:
+            if start_rarity == "Rare":
+                result["essence_note"] = ("You enabled Essence, but the item starts as a Rare. "
+                    "Lesser/Greater essences only work on Normal/Magic items; on a Rare only a "
+                    "Perfect Essence can act (it removes a random mod, then adds one), and none "
+                    "forces your target here. So the plan adds mods with orbs instead. To use a "
+                    "guaranteed essence, start from a white (Normal) base.")
+            else:
+                result["essence_note"] = ("You enabled Essence, but no essence forces your target "
+                    "at the tier you picked, so the plan slams orbs to reach it. Lower the target "
+                    "tier to the highest tier an essence covers (look for the ⚗ essence tag on a "
+                    "mod) if you want a guaranteed essence path.")
+
     return jsonify(result)
 
 

@@ -290,6 +290,7 @@
   .branch.hit .branch-arm{color:var(--verd-bright,#6c9)}
   .branch.miss .branch-arm{color:#e6a87a}
   .branch-to{opacity:.7;font-size:10px}
+  .slot-note{background:rgba(40,60,90,.18);border:1px solid #3a4a66;border-left:3px solid #5a7aa6;border-radius:6px;padding:10px 13px;margin:10px 0;font-size:12px;line-height:1.55;color:#cdd8e6}
   .item-ilvl{font-size:11px;color:var(--ash-dim);text-align:center}
 
   .paste-zone textarea{width:100%;height:96px;background:rgba(0,0,0,.32);border:1px dashed var(--edge);
@@ -859,6 +860,12 @@ function renderOneList(el, mods, chosen, isPre){
     let tag='';
     if(blocked) tag=' <span style="color:var(--blood-bright);font-size:9px">· group taken</span>';
     else if(mblock) tag=' <span style="color:#d0a060;font-size:9px">· method can\'t make this</span>';
+    // positive indicator: when Essence is checked, mark mods an essence CAN force
+    // (and which tier), so the player sees their essence options at a glance.
+    else if(useEss && m.essence_ok){
+      const tiers=(m.essence_tiers||[]).join('/');
+      tag=' <span style="color:#7cd9c8;font-size:9px" title="An essence can guarantee this mod">⚗ essence'+(tiers?' ('+tiers+')':'')+'</span>';
+    }
     row.innerHTML=`<span>${m.text} <span style="color:var(--ash-dim);font-size:10px">L${m.level}·w${m.weight}</span>`+
       tag+`</span><span class="src ${m.source}">${m.source}</span>`;
     if(!dis){
@@ -1090,6 +1097,22 @@ async function solve(){
     <div class="big">${fmt(j.expected_cost)} ex</div>
     <div class="sub">${j.over_budget? 'exceeds your '+j.budget+' ex budget; buying the finished item is likely cheaper'
       : 'expected cost via the optimal path'+(j.budget?` · within your ${j.budget} ex budget`:'')}</div></div>`;
+  if(j.essence_note){
+    html+=`<div class="slot-note" style="border-left-color:#7cd9c8">⚗ <b>Essence note:</b> ${j.essence_note}</div>`;
+  }
+  // detect a run of the SAME add-orb (Exalted/Transmute/Augment/Alchemy) across
+  // consecutive steps. Shown as separate steps it can read like "spam one orb",
+  // which is impossible (each adds a mod and fills a slot). Flag it once so the
+  // player understands: each attempt fills a slot, misses leave junk, and enough
+  // misses brick the item (hence the Restart at the end).
+  const ADD_ORBS=/Exalted Orb|Transmutation Orb|Augmentation Orb|Orb of Alchemy/;
+  let repeatRun=0;
+  for(let k=1;k<j.steps.length;k++){
+    if(ADD_ORBS.test(j.steps[k].action) && j.steps[k].action===j.steps[k-1].action) repeatRun++;
+  }
+  if(repeatRun>=2){
+    html+=`<div class="slot-note">ℹ️ <b>About the repeated orb steps:</b> each one is a <i>fresh slot</i>, not the same orb re-rolled. An add-orb (Exalted, etc.) drops a <b>random</b> mod into an open slot; a miss leaves an unwanted mod that <b>fills that slot</b>. Once slots fill with misses the item is <b>bricked</b>, which is why the path ends in <b>Restart</b>. The cost shown already accounts for this. If a guaranteed method (essence) could hit your target it would be used first; here it can't reach this tier/state, so slamming is the only route.</div>`;
+  }
   j.steps.forEach((s,i)=>{
     html+=`<div class="step ${s.is_essence?'ess':''}" style="animation-delay:${i*0.05}s">
       <div class="step-head"><span class="step-action">${s.action.replace('Essence: ','✦ ')}</span>
