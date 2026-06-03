@@ -1009,31 +1009,58 @@ def api_solve():
         acts = sv.actions(s)
         cost = next(c for n, c, o in acts if n == action)
         outs = next(o for n, c, o in acts if n == action)
+        wanted_ids = (sv.wanted_pre | sv.wanted_suf
+                      | sv.desec_wanted_pre_ids | sv.desec_wanted_suf_ids)
+        # A secured mod counts as progress if it belongs to a wanted GROUP (the
+        # solver secures ANY acceptable tier in a wanted group, not only the exact
+        # requested tier id), OR it's a specifically wanted desecrated mod.
+        def _is_wanted(mid):
+            if mid in wanted_ids:
+                return True
+            mm = sv.mods.get(mid)
+            return bool(mm and mm.group in sv.wanted_groups)
+        def _newly_wanted(ns):
+            return {mid for mid in (ns.secured - s.secured) if _is_wanted(mid)}
+        # --- Advance the walk toward the goal. The policy is a TREE; to render a
+        # single readable sequence we follow the branch that best progresses
+        # toward the goal. Progress = (a) securing a new wanted mod, or failing
+        # that (b) the successor with the lowest expected remaining cost (which is
+        # how a pure rarity upgrade like Transmute/Regal moves Normal->Magic->Rare
+        # toward being able to hold the remaining mods). This prevents the walk
+        # from stalling at a non-goal Magic state or following a failure branch. ---
+        def _progress_key(po):
+            p, ns = po
+            secures = len(_newly_wanted(ns))
+            er = E_.get(ns, float("inf"))
+            # 1) more newly-secured wanted mods is better
+            # 2) then lower expected remaining cost (closer to goal)
+            # 3) then higher probability (the realistic branch)
+            return (secures,
+                    -er if er != float("inf") else float("-inf"),
+                    p)
+        success_state = max(outs, key=_progress_key)[1]
+        # What THIS step secures, on the success branch we actually follow. The
+        # action's outcome distribution may include several different single-mod
+        # landings (an Exalted/Augment can drop any open wanted mod); listing all
+        # of them would read as if one orb secured several mods, which is false.
+        # We report only the mod(s) newly secured on the branch the walk follows,
+        # and p_use is the total probability the step secures ANY wanted mod (the
+        # honest per-attempt success chance for that step).
         useful, p_use = [], 0.0
-        _seen_mods = set()
         for p, ns in outs:
-            for mid in (ns.secured - s.secured):
+            if _newly_wanted(ns):
                 p_use += p
-                if mid in _seen_mods:
-                    continue
-                _seen_mods.add(mid)
-                useful.append({"mod": mid,
-                               "text": _mod_text(mid),
-                               "p": round(p, 4)})
+        for mid in _newly_wanted(success_state):
+            useful.append({"mod": mid, "text": _mod_text(mid),
+                           "p": round(p_use, 4)})
 
-        # --- Honest failure analysis: what happens if this step does NOT secure
-        # a wanted mod. We group the non-progress outcomes and report what the
-        # solver's own policy says to do from there, with the real recovery cost
-        # (E_[failure_state]) - no invented advice. ---
-        success_state = max(outs, key=lambda po: po[0])[1]
         fail_mass = 0.0
         worst_recovery = None         # highest expected recovery cost among fail branches
         fail_next_action = None       # what the policy does from the (most likely) fail state
         bricked_mass = 0.0            # probability this step dead-ends the item
         for p, ns in outs:
-            secured_new = ns.secured - s.secured
-            if secured_new:
-                continue              # this outcome made progress - not a failure
+            if _newly_wanted(ns):
+                continue              # this outcome secured a wanted mod - not a failure
             fail_mass += p
             rec = E_.get(ns, float("inf"))
             if rec == float("inf"):
@@ -1076,6 +1103,18 @@ def api_solve():
                                 f"those need a fresh base."
                                 if bricked_mass > 1e-9 else ""))}
 
+        # A step that secures no wanted mod but still advances the craft is a
+        # SETUP move: it changes rarity so the next step can proceed (e.g. an
+        # Augment fills the Magic item so a Regal can upgrade it to Rare, opening
+        # a third slot). Label it so an empty "secures" line isn't confusing.
+        setup_note = None
+        if not useful and not action.startswith("Restart"):
+            if success_state.rarity != s.rarity:
+                setup_note = (f"setup: upgrades the item to {success_state.rarity} so the "
+                              f"next step can add another mod")
+            else:
+                setup_note = "setup: prepares the item for the next step"
+
         result["steps"].append({
             "n": step, "rarity": s.rarity, "action": action,
             "cost_each": round(cost, 4),
@@ -1083,6 +1122,7 @@ def api_solve():
             "expected_attempts": (round(1 / p_use, 1) if p_use > 0 else None),
             "expected_remaining": round(E_[s], 2),
             "secures": useful,
+            "setup_note": setup_note,
             "is_essence": action.startswith("Essence"),
             "on_fail": on_fail,
         })

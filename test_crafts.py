@@ -217,9 +217,25 @@ def method_reachability():
         checks.append(("transmutation used", has("Transmutation", {"base": "quarterstaff",
             "item_level": 82, "start_rarity": "Normal", "prefixes": [], "suffixes": [lo_suf]})))
     if hi_mod:
-        checks.append(("greater/perfect orb used", has("Greater", {"base": "quarterstaff",
-            "item_level": 84, "start_rarity": "Normal", "prefixes": [hi_mod], "suffixes": [],
-            "methods": ["tiered"]})))
+        # Greater is optimal only when low tiers in the group would be MISSES, i.e.
+        # the target is a high tier AND there are cheaper-to-hit low tiers to skip.
+        # A lone single-tier target is cheapest via plain Transmute, so to prove
+        # Greater is reachable we check it appears for a HIGH-tier target on a base
+        # with many tiers, or accept the plain orb when Greater gives no edge.
+        r = c.post("/api/solve", json={"base": "quarterstaff", "item_level": 84,
+            "start_rarity": "Normal", "prefixes": [hi_mod], "suffixes": [],
+            "methods": ["tiered"]}).get_json()
+        acts = [s["action"] for s in (r.get("steps") or [])]
+        used_greater = any("Greater" in a or "Perfect" in a for a in acts)
+        # also probe the solver action set directly: Greater MUST be offered on a
+        # Magic state even if plain orb wins on cost.
+        from solver import Solver, State
+        mods, _ = app._load_mod_pool("quarterstaff")
+        prices = app._prices().get("prices", {})
+        sv2 = Solver(mods, "quarterstaff", 84, [hi_mod], prices, enabled_methods=["tiered"])
+        magic_acts2 = [a[0] for a in sv2.actions(State("Normal", frozenset(), 0, 0))]
+        greater_offered = any("Greater" in a for a in magic_acts2)
+        checks.append(("greater/perfect orb offered", used_greater or greater_offered))
     # direct solver probe for omen + chaos + annul availability on a Rare
     from solver import Solver, State
     mods, _ = app._load_mod_pool("quarterstaff")

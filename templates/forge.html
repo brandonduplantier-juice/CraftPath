@@ -1148,6 +1148,7 @@ async function solve(){
         ${s.p_useful>0?`<span>hit <b>${(s.p_useful*100).toFixed(1)}%</b></span><span>~<b>${s.expected_attempts}</b> tries</span>`:'<span>deterministic</span>'}</div>
       ${s.p_useful>0?`<div class="odds-bar"><div class="odds-fill" style="width:${Math.min(100,s.p_useful*100)}%"></div></div>`:''}
       ${s.secures.length?`<div class="secures">secures: <span class="m">${[...new Set(s.secures.map(u=>u.text))].join(' · ')}</span></div>`:''}
+      ${s.setup_note?`<div class="secures" style="color:var(--ash)">${s.setup_note}</div>`:''}
       ${methodNote(s.action)}
       ${s.p_useful>0 && s.p_useful<1 ? `<div class="branch-fork">
         <div class="branch hit"><span class="branch-arm">✓ hits (${(s.p_useful*100).toFixed(0)}%)</span><span class="branch-to">→ ${i+1 < j.steps.length ? 'step '+(s.n+1) : 'done ✓'}</span></div>

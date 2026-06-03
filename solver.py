@@ -199,7 +199,21 @@ class Solver:
             return False
         # ...AND every wanted desecrated mod (not in the regular pool) is secured
         need_desec = self.desec_wanted_pre_ids | self.desec_wanted_suf_ids
-        return need_desec <= s.secured
+        if not (need_desec <= s.secured):
+            return False
+        # ...AND the current rarity actually has enough slots to hold all the
+        # secured wanted mods. Without this check the solver would accept an
+        # impossible state like 2 prefixes on a Magic item (Magic caps at 1/1),
+        # producing plans that "secure" more mods than the item can physically
+        # hold. Count secured wanted mods per side and compare to the caps.
+        mp, ms = CAPS[s.rarity]
+        sec_pre = sum(1 for i in s.secured
+                      if (i in self.wanted_pre) or (i in self.desec_wanted_pre_ids))
+        sec_suf = sum(1 for i in s.secured
+                      if (i in self.wanted_suf) or (i in self.desec_wanted_suf_ids))
+        if sec_pre > mp or sec_suf > ms:
+            return False
+        return True
 
     # ---- add-action outcome distribution --------------------------------
     def _add_outcomes(self, s: State, open_pre, open_suf, min_level=0):
