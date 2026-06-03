@@ -1,16 +1,9 @@
 {
- "base": "Shield (STR/DEX)",
+ "base": "shield_str_dex",
  "token": "shield_str_dex",
- "tags": [
-  "armour",
-  "default",
-  "dex_armour",
-  "shield",
-  "str_armour",
-  "str_dex_armour",
-  "str_dex_int_armour"
- ],
- "count": 217,
+ "count": 66,
+ "weights_source": "pob_real",
+ "weights_note": "Complete per-base mod pool + real spawn weights from Path of Building (ModItem.lua). Only mods that can roll on this base are included.",
  "mods": [
   {
    "mod_id": "IncreasedLife1",
@@ -129,6 +122,72 @@
    "level": 70,
    "text": [
     "+(175-189) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamageReductionRatingPercent8_",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamageReductionRatingPercent",
+   "level": 75,
+   "text": [
+    "(101-110)% increased Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionRatingPercent8",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionRatingIncreasePercent",
+   "level": 75,
+   "text": [
+    "(101-110)% increased Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEnergyShieldPercent8",
+   "affix_type": "Prefix",
+   "group": "LocalEnergyShieldPercent",
+   "level": 75,
+   "text": [
+    "(101-110)% increased Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEvasion8",
+   "affix_type": "Prefix",
+   "group": "LocalArmourAndEvasion",
+   "level": 75,
+   "text": [
+    "(101-110)% increased Armour and Evasion"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEnergyShield8",
+   "affix_type": "Prefix",
+   "group": "LocalArmourAndEnergyShield",
+   "level": 75,
+   "text": [
+    "(101-110)% increased Armour and Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShield8",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionAndEnergyShield",
+   "level": 75,
+   "text": [
+    "(101-110)% increased Evasion and Energy Shield"
    ],
    "weight": 1,
    "source": "base"
@@ -409,6 +468,116 @@
    "source": "base"
   },
   {
+   "mod_id": "ReducedExtraDamageFromCrits1___",
+   "affix_type": "Suffix",
+   "group": "ReducedExtraDamageFromCrits",
+   "level": 33,
+   "text": [
+    "Hits against you have (21-27)% reduced Critical Damage Bonus"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ReducedExtraDamageFromCrits2__",
+   "affix_type": "Suffix",
+   "group": "ReducedExtraDamageFromCrits",
+   "level": 45,
+   "text": [
+    "Hits against you have (28-34)% reduced Critical Damage Bonus"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ReducedExtraDamageFromCrits3",
+   "affix_type": "Suffix",
+   "group": "ReducedExtraDamageFromCrits",
+   "level": 58,
+   "text": [
+    "Hits against you have (35-41)% reduced Critical Damage Bonus"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ReducedExtraDamageFromCrits4__",
+   "affix_type": "Suffix",
+   "group": "ReducedExtraDamageFromCrits",
+   "level": 69,
+   "text": [
+    "Hits against you have (42-47)% reduced Critical Damage Bonus"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ReducedExtraDamageFromCrits5",
+   "affix_type": "Suffix",
+   "group": "ReducedExtraDamageFromCrits",
+   "level": 81,
+   "text": [
+    "Hits against you have (48-54)% reduced Critical Damage Bonus"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AdditionalPhysicalDamageReduction1",
+   "affix_type": "Suffix",
+   "group": "ReducedPhysicalDamageTaken",
+   "level": 32,
+   "text": [
+    "4% additional Physical Damage Reduction"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AdditionalPhysicalDamageReduction2",
+   "affix_type": "Suffix",
+   "group": "ReducedPhysicalDamageTaken",
+   "level": 41,
+   "text": [
+    "5% additional Physical Damage Reduction"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AdditionalPhysicalDamageReduction3",
+   "affix_type": "Suffix",
+   "group": "ReducedPhysicalDamageTaken",
+   "level": 53,
+   "text": [
+    "6% additional Physical Damage Reduction"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AdditionalPhysicalDamageReduction4",
+   "affix_type": "Suffix",
+   "group": "ReducedPhysicalDamageTaken",
+   "level": 66,
+   "text": [
+    "7% additional Physical Damage Reduction"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AdditionalPhysicalDamageReduction5_",
+   "affix_type": "Suffix",
+   "group": "ReducedPhysicalDamageTaken",
+   "level": 77,
+   "text": [
+    "8% additional Physical Damage Reduction"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
    "mod_id": "MaximumFireResist1",
    "affix_type": "Suffix",
    "group": "MaximumFireResist",
@@ -562,7 +731,5 @@
    "weight": 1,
    "source": "base"
   }
- ],
- "weights_source": "pob_real",
- "weights_note": "Real per-base spawn weights from Path of Building (ModItem.lua). Mods that can't roll on this base (weight 0) are removed."
+ ]
 }

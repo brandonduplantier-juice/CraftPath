@@ -1,20 +1,9 @@
 {
- "base": "Bow",
+ "base": "bow",
  "token": "bow",
- "tags": [
-  "bow",
-  "default",
-  "ezomyte_basetype",
-  "karui_basetype",
-  "maraketh_basetype",
-  "ranged",
-  "runeforged",
-  "two_hand_weapon",
-  "twohand",
-  "vaal_basetype",
-  "weapon"
- ],
- "count": 140,
+ "count": 144,
+ "weights_source": "pob_real",
+ "weights_note": "Complete per-base mod pool + real spawn weights from Path of Building (ModItem.lua). Only mods that can roll on this base are included.",
  "mods": [
   {
    "mod_id": "Dexterity1",
@@ -768,6 +757,50 @@
    "text": [
     "(75-79)% increased Physical Damage",
     "+(175-200) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalMeleeSkillGemLevelTwoHandWeapon2",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseMeleeSkillGemLevelWeapon",
+   "level": 18,
+   "text": [
+    "+2 to Level of all Melee Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalMeleeSkillGemLevelTwoHandWeapon3",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseMeleeSkillGemLevelWeapon",
+   "level": 36,
+   "text": [
+    "+3 to Level of all Melee Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalMeleeSkillGemLevelTwoHandWeapon4",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseMeleeSkillGemLevelWeapon",
+   "level": 55,
+   "text": [
+    "+4 to Level of all Melee Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalMeleeSkillGemLevelTwoHandWeapon5",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseMeleeSkillGemLevelWeapon",
+   "level": 81,
+   "text": [
+    "+5 to Level of all Melee Skills"
    ],
    "weight": 1,
    "source": "base"
@@ -1567,7 +1600,5 @@
    "weight": 1,
    "source": "base"
   }
- ],
- "weights_source": "pob_real",
- "weights_note": "Real per-base spawn weights from Path of Building (ModItem.lua). Mods that can't roll on this base (weight 0) are removed."
+ ]
 }

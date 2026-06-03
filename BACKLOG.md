@@ -10,9 +10,11 @@ Newest items near the top of each section. Status: ☐ todo · ◐ in progress �
   'pob_real' (dagger keeps its richer CoE estimate). NOTE: PoB 0.5 weights are often
   flat (1) for weapon mods, so the big win is base-VALIDITY filtering, not weight
   spread. Re-run build_weights.py when PoB data updates. Source scripts live in repo.
-  Remaining gap: some per-base source files were missing mods to begin with (e.g.
-  talisman has no resistance mods) — the pipeline can filter/​reweight but not ADD
-  missing mods; regenerating pools from PoB wholesale is a future cleanup.
+  FOLLOW-UP DONE: build_pools.py regenerates the COMPLETE per-base pool from PoB
+  (the original scrape was missing 1271 mods total — talisman 46->239 valid, wand
+  105->276, sceptre 150->257, staff 196->276). Also surfaced 4 triple-attribute
+  armour bases (body/boots/gloves/helmet _str_dex_int) that had 0 mods / didn't
+  exist — now added to bases_index.json (56 bases total). dagger keeps CoE overlay.
 
 ## Monetization (later)
 - ☐ **Ads.** Replicate poe.ninja's unobtrusive ads. poe.ninja uses Google AdSense

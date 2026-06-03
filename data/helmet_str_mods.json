@@ -1,14 +1,9 @@
 {
- "base": "Helmet (STR)",
+ "base": "helmet_str",
  "token": "helmet_str",
- "tags": [
-  "armour",
-  "default",
-  "helmet",
-  "str_armour",
-  "str_dex_int_armour"
- ],
- "count": 190,
+ "count": 153,
+ "weights_source": "pob_real",
+ "weights_note": "Complete per-base mod pool + real spawn weights from Path of Building (ModItem.lua). Only mods that can roll on this base are included.",
  "mods": [
   {
    "mod_id": "Strength1",
@@ -836,6 +831,39 @@
    "source": "base"
   },
   {
+   "mod_id": "LocalIncreasedPhysicalDamageReductionRating9_",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamageReductionRating",
+   "level": 65,
+   "text": [
+    "+(222-248) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamageReductionRating10",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamageReductionRating",
+   "level": 75,
+   "text": [
+    "+(249-277) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamageReductionRating11",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamageReductionRating",
+   "level": 79,
+   "text": [
+    "+(278-310) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
    "mod_id": "LocalIncreasedPhysicalDamageReductionRatingPercent1",
    "affix_type": "Prefix",
    "group": "LocalPhysicalDamageReductionRatingPercent",
@@ -908,6 +936,78 @@
    "level": 65,
    "text": [
     "(92-100)% increased Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalArmourAndStunThreshold1",
+   "affix_type": "Prefix",
+   "group": "LocalArmourAndStunThreshold",
+   "level": 10,
+   "text": [
+    "(6-13)% increased Armour",
+    "+(8-13) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalArmourAndStunThreshold2",
+   "affix_type": "Prefix",
+   "group": "LocalArmourAndStunThreshold",
+   "level": 19,
+   "text": [
+    "(14-20)% increased Armour",
+    "+(14-24) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalArmourAndStunThreshold3",
+   "affix_type": "Prefix",
+   "group": "LocalArmourAndStunThreshold",
+   "level": 38,
+   "text": [
+    "(21-26)% increased Armour",
+    "+(25-40) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalArmourAndStunThreshold4",
+   "affix_type": "Prefix",
+   "group": "LocalArmourAndStunThreshold",
+   "level": 48,
+   "text": [
+    "(27-32)% increased Armour",
+    "+(41-63) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalArmourAndStunThreshold5",
+   "affix_type": "Prefix",
+   "group": "LocalArmourAndStunThreshold",
+   "level": 63,
+   "text": [
+    "(33-38)% increased Armour",
+    "+(64-94) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalArmourAndStunThreshold6",
+   "affix_type": "Prefix",
+   "group": "LocalArmourAndStunThreshold",
+   "level": 74,
+   "text": [
+    "(39-42)% increased Armour",
+    "+(95-136) to Stun Threshold"
    ],
    "weight": 1,
    "source": "base"
@@ -1052,6 +1152,78 @@
    "text": [
     "(39-42)% increased Armour",
     "+(33-39) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndBase1",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndBase",
+   "level": 8,
+   "text": [
+    "+(5-9) to Armour",
+    "(6-13)% increased Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndBase2",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndBase",
+   "level": 16,
+   "text": [
+    "+(10-29) to Armour",
+    "(14-20)% increased Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndBase3",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndBase",
+   "level": 33,
+   "text": [
+    "+(30-41) to Armour",
+    "(21-26)% increased Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndBase4",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndBase",
+   "level": 46,
+   "text": [
+    "+(42-57) to Armour",
+    "(27-32)% increased Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndBase5",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndBase",
+   "level": 60,
+   "text": [
+    "+(58-75) to Armour",
+    "(33-38)% increased Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndBase6",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndBase",
+   "level": 78,
+   "text": [
+    "+(76-95) to Armour",
+    "(39-42)% increased Armour"
    ],
    "weight": 1,
    "source": "base"
@@ -1531,8 +1703,17 @@
    ],
    "weight": 1,
    "source": "base"
+  },
+  {
+   "mod_id": "ArmourAppliesToElementalDamage6",
+   "affix_type": "Suffix",
+   "group": "ArmourAppliesToElementalDamage",
+   "level": 81,
+   "text": [
+    "+(44-50)% of Armour also applies to Elemental Damage"
+   ],
+   "weight": 1,
+   "source": "base"
   }
- ],
- "weights_source": "pob_real",
- "weights_note": "Real per-base spawn weights from Path of Building (ModItem.lua). Mods that can't roll on this base (weight 0) are removed."
+ ]
 }

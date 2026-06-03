@@ -1,14 +1,9 @@
 {
- "base": "Gloves (DEX)",
+ "base": "gloves_dex",
  "token": "gloves_dex",
- "tags": [
-  "armour",
-  "default",
-  "dex_armour",
-  "gloves",
-  "str_dex_int_armour"
- ],
- "count": 230,
+ "count": 197,
+ "weights_source": "pob_real",
+ "weights_note": "Complete per-base mod pool + real spawn weights from Path of Building (ModItem.lua). Only mods that can roll on this base are included.",
  "mods": [
   {
    "mod_id": "Dexterity1",
@@ -715,6 +710,50 @@
    "source": "base"
   },
   {
+   "mod_id": "LocalIncreasedEvasionRating8",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionRating",
+   "level": 60,
+   "text": [
+    "+(177-207) to Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionRating9___",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionRating",
+   "level": 65,
+   "text": [
+    "+(208-234) to Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionRating10",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionRating",
+   "level": 75,
+   "text": [
+    "+(235-261) to Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionRating11",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionRating",
+   "level": 79,
+   "text": [
+    "+(262-300) to Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
    "mod_id": "LocalIncreasedEvasionRatingPercent1",
    "affix_type": "Prefix",
    "group": "LocalEvasionRatingIncreasePercent",
@@ -792,6 +831,78 @@
    "source": "base"
   },
   {
+   "mod_id": "LocalEvasionAndStunThreshold1",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionAndStunThreshold",
+   "level": 10,
+   "text": [
+    "(6-13)% increased Evasion Rating",
+    "+(8-13) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalEvasionAndStunThreshold2",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionAndStunThreshold",
+   "level": 19,
+   "text": [
+    "(14-20)% increased Evasion Rating",
+    "+(14-24) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalEvasionAndStunThreshold3",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionAndStunThreshold",
+   "level": 38,
+   "text": [
+    "(21-26)% increased Evasion Rating",
+    "+(25-40) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalEvasionAndStunThreshold4",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionAndStunThreshold",
+   "level": 48,
+   "text": [
+    "(27-32)% increased Evasion Rating",
+    "+(41-63) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalEvasionAndStunThreshold5",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionAndStunThreshold",
+   "level": 63,
+   "text": [
+    "(33-38)% increased Evasion Rating",
+    "+(64-94) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalEvasionAndStunThreshold6",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionAndStunThreshold",
+   "level": 74,
+   "text": [
+    "(39-42)% increased Evasion Rating",
+    "+(95-136) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
    "mod_id": "LocalIncreasedEvasionAndLife1",
    "affix_type": "Prefix",
    "group": "LocalIncreasedEvasionAndLife",
@@ -859,6 +970,150 @@
    "text": [
     "(39-42)% increased Evasion Rating",
     "+(42-49) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndMana1",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndMana",
+   "level": 8,
+   "text": [
+    "(6-13)% increased Evasion Rating",
+    "+(6-8) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndMana2",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndMana",
+   "level": 16,
+   "text": [
+    "(14-20)% increased Evasion Rating",
+    "+(9-16) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndMana3",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndMana",
+   "level": 33,
+   "text": [
+    "(21-26)% increased Evasion Rating",
+    "+(17-20) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndMana4",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndMana",
+   "level": 46,
+   "text": [
+    "(27-32)% increased Evasion Rating",
+    "+(21-26) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndMana5",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndMana",
+   "level": 60,
+   "text": [
+    "(33-38)% increased Evasion Rating",
+    "+(27-32) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndMana6",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndMana",
+   "level": 78,
+   "text": [
+    "(39-42)% increased Evasion Rating",
+    "+(33-39) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndBase1",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndBase",
+   "level": 8,
+   "text": [
+    "+(4-6) to Evasion Rating",
+    "(6-13)% increased Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndBase2",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndBase",
+   "level": 16,
+   "text": [
+    "+(7-26) to Evasion Rating",
+    "(14-20)% increased Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndBase3",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndBase",
+   "level": 33,
+   "text": [
+    "+(27-38) to Evasion Rating",
+    "(21-26)% increased Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndBase4",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndBase",
+   "level": 46,
+   "text": [
+    "+(39-53) to Evasion Rating",
+    "(27-32)% increased Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndBase5",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndBase",
+   "level": 60,
+   "text": [
+    "+(54-70) to Evasion Rating",
+    "(33-38)% increased Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndBase6",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndBase",
+   "level": 78,
+   "text": [
+    "+(71-90) to Evasion Rating",
+    "(39-42)% increased Evasion Rating"
    ],
    "weight": 1,
    "source": "base"
@@ -1929,8 +2184,17 @@
    ],
    "weight": 1,
    "source": "base"
+  },
+  {
+   "mod_id": "EvasionGrantsDeflection6",
+   "affix_type": "Suffix",
+   "group": "EvasionAppliesToDeflection",
+   "level": 81,
+   "text": [
+    "Gain Deflection Rating equal to (24-26)% of Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
   }
- ],
- "weights_source": "pob_real",
- "weights_note": "Real per-base spawn weights from Path of Building (ModItem.lua). Mods that can't roll on this base (weight 0) are removed."
+ ]
 }

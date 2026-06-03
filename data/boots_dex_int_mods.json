@@ -1,16 +1,9 @@
 {
- "base": "Boots (DEX/INT)",
+ "base": "boots_dex_int",
  "token": "boots_dex_int",
- "tags": [
-  "armour",
-  "boots",
-  "default",
-  "dex_armour",
-  "dex_int_armour",
-  "int_armour",
-  "str_dex_int_armour"
- ],
- "count": 211,
+ "count": 160,
+ "weights_source": "pob_real",
+ "weights_note": "Complete per-base mod pool + real spawn weights from Path of Building (ModItem.lua). Only mods that can roll on this base are included.",
  "mods": [
   {
    "mod_id": "Dexterity1",
@@ -765,6 +758,54 @@
    "source": "base"
   },
   {
+   "mod_id": "LocalBaseEvasionRatingAndEnergyShield5_",
+   "affix_type": "Prefix",
+   "group": "LocalBaseEvasionRatingAndEnergyShield",
+   "level": 54,
+   "text": [
+    "+(79-94) to Evasion Rating",
+    "+(26-29) to maximum Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalBaseEvasionRatingAndEnergyShield6",
+   "affix_type": "Prefix",
+   "group": "LocalBaseEvasionRatingAndEnergyShield",
+   "level": 60,
+   "text": [
+    "+(95-119) to Evasion Rating",
+    "+(30-36) to maximum Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalBaseEvasionRatingAndEnergyShield7___",
+   "affix_type": "Prefix",
+   "group": "LocalBaseEvasionRatingAndEnergyShield",
+   "level": 65,
+   "text": [
+    "+(120-141) to Evasion Rating",
+    "+(37-42) to maximum Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalBaseEvasionRatingAndEnergyShield8___",
+   "affix_type": "Prefix",
+   "group": "LocalBaseEvasionRatingAndEnergyShield",
+   "level": 75,
+   "text": [
+    "+(142-161) to Evasion Rating",
+    "+(43-48) to maximum Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
    "mod_id": "LocalIncreasedEvasionAndEnergyShield1",
    "affix_type": "Prefix",
    "group": "LocalEvasionAndEnergyShield",
@@ -909,6 +950,228 @@
    "text": [
     "(39-42)% increased Evasion and Energy Shield",
     "+(95-136) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndLife1",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndLife",
+   "level": 8,
+   "text": [
+    "(6-13)% increased Evasion and Energy Shield",
+    "+(7-10) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndLife2",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndLife",
+   "level": 16,
+   "text": [
+    "(14-20)% increased Evasion and Energy Shield",
+    "+(11-19) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndLife3",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndLife",
+   "level": 33,
+   "text": [
+    "(21-26)% increased Evasion and Energy Shield",
+    "+(20-25) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndLife4",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndLife",
+   "level": 46,
+   "text": [
+    "(27-32)% increased Evasion and Energy Shield",
+    "+(26-32) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndLife5",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndLife",
+   "level": 60,
+   "text": [
+    "(33-38)% increased Evasion and Energy Shield",
+    "+(33-41) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndLife6",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndLife",
+   "level": 78,
+   "text": [
+    "(39-42)% increased Evasion and Energy Shield",
+    "+(42-49) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndMana1",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndMana",
+   "level": 8,
+   "text": [
+    "(6-13)% increased Evasion and Energy Shield",
+    "+(6-8) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndMana2",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndMana",
+   "level": 16,
+   "text": [
+    "(14-20)% increased Evasion and Energy Shield",
+    "+(9-16) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndMana3",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndMana",
+   "level": 33,
+   "text": [
+    "(21-26)% increased Evasion and Energy Shield",
+    "+(17-20) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndMana4",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndMana",
+   "level": 46,
+   "text": [
+    "(27-32)% increased Evasion and Energy Shield",
+    "+(21-26) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndMana5",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndMana",
+   "level": 60,
+   "text": [
+    "(33-38)% increased Evasion and Energy Shield",
+    "+(27-32) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndMana6",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndMana",
+   "level": 78,
+   "text": [
+    "(39-42)% increased Evasion and Energy Shield",
+    "+(33-39) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndBase1",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndBase",
+   "level": 8,
+   "text": [
+    "+(2-3) to Evasion Rating",
+    "+(2-4) to maximum Energy Shield",
+    "(6-13)% increased Evasion and Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndBase2",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndBase",
+   "level": 16,
+   "text": [
+    "+(4-14) to Evasion Rating",
+    "+(5-6) to maximum Energy Shield",
+    "(14-20)% increased Evasion and Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndBase3",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndBase",
+   "level": 33,
+   "text": [
+    "+(15-21) to Evasion Rating",
+    "+(7-8) to maximum Energy Shield",
+    "(21-26)% increased Evasion and Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndBase4",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndBase",
+   "level": 46,
+   "text": [
+    "+(22-29) to Evasion Rating",
+    "+(9-10) to maximum Energy Shield",
+    "(27-32)% increased Evasion and Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndBase5",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndBase",
+   "level": 60,
+   "text": [
+    "+(30-39) to Evasion Rating",
+    "+(11-12) to maximum Energy Shield",
+    "(33-38)% increased Evasion and Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndBase6",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndBase",
+   "level": 78,
+   "text": [
+    "+(40-50) to Evasion Rating",
+    "+(13-15) to maximum Energy Shield",
+    "(39-42)% increased Evasion and Energy Shield"
    ],
    "weight": 1,
    "source": "base"
@@ -1453,6 +1716,28 @@
    "source": "base"
   },
   {
+   "mod_id": "EnergyShieldRechargeRate5______",
+   "affix_type": "Suffix",
+   "group": "EnergyShieldRegeneration",
+   "level": 66,
+   "text": [
+    "(20-23)% increased Energy Shield Recharge Rate"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "EnergyShieldRechargeRate6",
+   "affix_type": "Suffix",
+   "group": "EnergyShieldRegeneration",
+   "level": 81,
+   "text": [
+    "(24-27)% increased Energy Shield Recharge Rate"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
    "mod_id": "EvasionGrantsDeflection1",
    "affix_type": "Suffix",
    "group": "EvasionAppliesToDeflection",
@@ -1506,8 +1791,17 @@
    ],
    "weight": 1,
    "source": "base"
+  },
+  {
+   "mod_id": "EvasionGrantsDeflection6",
+   "affix_type": "Suffix",
+   "group": "EvasionAppliesToDeflection",
+   "level": 81,
+   "text": [
+    "Gain Deflection Rating equal to (24-26)% of Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
   }
- ],
- "weights_source": "pob_real",
- "weights_note": "Real per-base spawn weights from Path of Building (ModItem.lua). Mods that can't roll on this base (weight 0) are removed."
+ ]
 }

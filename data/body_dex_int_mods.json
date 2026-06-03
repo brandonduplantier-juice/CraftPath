@@ -1,16 +1,9 @@
 {
- "base": "Body Armour (DEX/INT)",
+ "base": "body_dex_int",
  "token": "body_dex_int",
- "tags": [
-  "armour",
-  "body_armour",
-  "default",
-  "dex_armour",
-  "dex_int_armour",
-  "int_armour",
-  "str_dex_int_armour"
- ],
- "count": 260,
+ "count": 164,
+ "weights_source": "pob_real",
+ "weights_note": "Complete per-base mod pool + real spawn weights from Path of Building (ModItem.lua). Only mods that can roll on this base are included.",
  "mods": [
   {
    "mod_id": "Dexterity1",
@@ -835,6 +828,89 @@
    "source": "base"
   },
   {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShield8",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionAndEnergyShield",
+   "level": 75,
+   "text": [
+    "(101-110)% increased Evasion and Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalEvasionAndEnergyShieldAndStunThreshold1",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionAndEnergyShieldAndStunThreshold",
+   "level": 10,
+   "text": [
+    "(6-13)% increased Evasion and Energy Shield",
+    "+(8-13) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalEvasionAndEnergyShieldAndStunThreshold2",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionAndEnergyShieldAndStunThreshold",
+   "level": 19,
+   "text": [
+    "(14-20)% increased Evasion and Energy Shield",
+    "+(14-24) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalEvasionAndEnergyShieldAndStunThreshold3",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionAndEnergyShieldAndStunThreshold",
+   "level": 38,
+   "text": [
+    "(21-26)% increased Evasion and Energy Shield",
+    "+(25-40) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalEvasionAndEnergyShieldAndStunThreshold4",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionAndEnergyShieldAndStunThreshold",
+   "level": 48,
+   "text": [
+    "(27-32)% increased Evasion and Energy Shield",
+    "+(41-63) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalEvasionAndEnergyShieldAndStunThreshold5",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionAndEnergyShieldAndStunThreshold",
+   "level": 63,
+   "text": [
+    "(33-38)% increased Evasion and Energy Shield",
+    "+(64-94) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalEvasionAndEnergyShieldAndStunThreshold6",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionAndEnergyShieldAndStunThreshold",
+   "level": 74,
+   "text": [
+    "(39-42)% increased Evasion and Energy Shield",
+    "+(95-136) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
    "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndLife1",
    "affix_type": "Prefix",
    "group": "LocalIncreasedEvasionAndEnergyShieldAndLife",
@@ -902,6 +978,78 @@
    "text": [
     "(39-42)% increased Evasion and Energy Shield",
     "+(42-49) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndMana1",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndMana",
+   "level": 8,
+   "text": [
+    "(6-13)% increased Evasion and Energy Shield",
+    "+(6-8) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndMana2",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndMana",
+   "level": 16,
+   "text": [
+    "(14-20)% increased Evasion and Energy Shield",
+    "+(9-16) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndMana3",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndMana",
+   "level": 33,
+   "text": [
+    "(21-26)% increased Evasion and Energy Shield",
+    "+(17-20) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndMana4",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndMana",
+   "level": 46,
+   "text": [
+    "(27-32)% increased Evasion and Energy Shield",
+    "+(21-26) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndMana5",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndMana",
+   "level": 60,
+   "text": [
+    "(33-38)% increased Evasion and Energy Shield",
+    "+(27-32) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShieldAndMana6",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedEvasionAndEnergyShieldAndMana",
+   "level": 78,
+   "text": [
+    "(39-42)% increased Evasion and Energy Shield",
+    "+(33-39) to maximum Mana"
    ],
    "weight": 1,
    "source": "base"
@@ -1699,7 +1847,5 @@
    "weight": 1,
    "source": "base"
   }
- ],
- "weights_source": "pob_real",
- "weights_note": "Real per-base spawn weights from Path of Building (ModItem.lua). Mods that can't roll on this base (weight 0) are removed."
+ ]
 }

@@ -1,16 +1,9 @@
 {
- "base": "Boots (STR/INT)",
+ "base": "boots_str_int",
  "token": "boots_str_int",
- "tags": [
-  "armour",
-  "boots",
-  "default",
-  "int_armour",
-  "str_armour",
-  "str_dex_int_armour",
-  "str_int_armour"
- ],
- "count": 211,
+ "count": 160,
+ "weights_source": "pob_real",
+ "weights_note": "Complete per-base mod pool + real spawn weights from Path of Building (ModItem.lua). Only mods that can roll on this base are included.",
  "mods": [
   {
    "mod_id": "Strength1",
@@ -765,6 +758,54 @@
    "source": "base"
   },
   {
+   "mod_id": "LocalBaseArmourAndEnergyShield5",
+   "affix_type": "Prefix",
+   "group": "LocalBaseArmourAndEnergyShield",
+   "level": 54,
+   "text": [
+    "+(86-102) to Armour",
+    "+(26-29) to maximum Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalBaseArmourAndEnergyShield6",
+   "affix_type": "Prefix",
+   "group": "LocalBaseArmourAndEnergyShield",
+   "level": 60,
+   "text": [
+    "+(103-127) to Armour",
+    "+(30-36) to maximum Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalBaseArmourAndEnergyShield7",
+   "affix_type": "Prefix",
+   "group": "LocalBaseArmourAndEnergyShield",
+   "level": 65,
+   "text": [
+    "+(128-149) to Armour",
+    "+(37-42) to maximum Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalBaseArmourAndEnergyShield8",
+   "affix_type": "Prefix",
+   "group": "LocalBaseArmourAndEnergyShield",
+   "level": 75,
+   "text": [
+    "+(150-170) to Armour",
+    "+(43-48) to maximum Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
    "mod_id": "LocalIncreasedArmourAndEnergyShield1",
    "affix_type": "Prefix",
    "group": "LocalArmourAndEnergyShield",
@@ -909,6 +950,228 @@
    "text": [
     "(39-42)% increased Armour and Energy Shield",
     "+(95-136) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEnergyShieldAndLife1",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndEnergyShieldAndLife",
+   "level": 8,
+   "text": [
+    "(6-13)% increased Armour and Energy Shield",
+    "+(7-10) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEnergyShieldAndLife2",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndEnergyShieldAndLife",
+   "level": 16,
+   "text": [
+    "(14-20)% increased Armour and Energy Shield",
+    "+(11-19) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEnergyShieldAndLife3",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndEnergyShieldAndLife",
+   "level": 33,
+   "text": [
+    "(21-26)% increased Armour and Energy Shield",
+    "+(20-25) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEnergyShieldAndLife4",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndEnergyShieldAndLife",
+   "level": 46,
+   "text": [
+    "(27-32)% increased Armour and Energy Shield",
+    "+(26-32) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEnergyShieldAndLife5",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndEnergyShieldAndLife",
+   "level": 60,
+   "text": [
+    "(33-38)% increased Armour and Energy Shield",
+    "+(33-41) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEnergyShieldAndLife6",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndEnergyShieldAndLife",
+   "level": 78,
+   "text": [
+    "(39-42)% increased Armour and Energy Shield",
+    "+(42-49) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEnergyShieldAndMana1",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndEnergyShieldAndMana",
+   "level": 8,
+   "text": [
+    "(6-13)% increased Armour and Energy Shield",
+    "+(6-8) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEnergyShieldAndMana2",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndEnergyShieldAndMana",
+   "level": 16,
+   "text": [
+    "(14-20)% increased Armour and Energy Shield",
+    "+(9-16) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEnergyShieldAndMana3",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndEnergyShieldAndMana",
+   "level": 33,
+   "text": [
+    "(21-26)% increased Armour and Energy Shield",
+    "+(17-20) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEnergyShieldAndMana4",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndEnergyShieldAndMana",
+   "level": 46,
+   "text": [
+    "(27-32)% increased Armour and Energy Shield",
+    "+(21-26) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEnergyShieldAndMana5",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndEnergyShieldAndMana",
+   "level": 60,
+   "text": [
+    "(33-38)% increased Armour and Energy Shield",
+    "+(27-32) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEnergyShieldAndMana6",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndEnergyShieldAndMana",
+   "level": 78,
+   "text": [
+    "(39-42)% increased Armour and Energy Shield",
+    "+(33-39) to maximum Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEnergyShieldAndBase1",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndEnergyShieldAndBase",
+   "level": 8,
+   "text": [
+    "+(3-5) to Armour",
+    "+(2-4) to maximum Energy Shield",
+    "(6-13)% increased Armour and Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEnergyShieldAndBase2",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndEnergyShieldAndBase",
+   "level": 16,
+   "text": [
+    "+(6-16) to Armour",
+    "+(5-6) to maximum Energy Shield",
+    "(14-20)% increased Armour and Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEnergyShieldAndBase3",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndEnergyShieldAndBase",
+   "level": 33,
+   "text": [
+    "+(17-23) to Armour",
+    "+(7-8) to maximum Energy Shield",
+    "(21-26)% increased Armour and Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEnergyShieldAndBase4",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndEnergyShieldAndBase",
+   "level": 46,
+   "text": [
+    "+(24-32) to Armour",
+    "+(9-10) to maximum Energy Shield",
+    "(27-32)% increased Armour and Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEnergyShieldAndBase5",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndEnergyShieldAndBase",
+   "level": 60,
+   "text": [
+    "+(33-41) to Armour",
+    "+(11-12) to maximum Energy Shield",
+    "(33-38)% increased Armour and Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEnergyShieldAndBase6",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedArmourAndEnergyShieldAndBase",
+   "level": 78,
+   "text": [
+    "+(42-52) to Armour",
+    "+(13-15) to maximum Energy Shield",
+    "(39-42)% increased Armour and Energy Shield"
    ],
    "weight": 1,
    "source": "base"
@@ -1453,6 +1716,28 @@
    "source": "base"
   },
   {
+   "mod_id": "EnergyShieldRechargeRate5______",
+   "affix_type": "Suffix",
+   "group": "EnergyShieldRegeneration",
+   "level": 66,
+   "text": [
+    "(20-23)% increased Energy Shield Recharge Rate"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "EnergyShieldRechargeRate6",
+   "affix_type": "Suffix",
+   "group": "EnergyShieldRegeneration",
+   "level": 81,
+   "text": [
+    "(24-27)% increased Energy Shield Recharge Rate"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
    "mod_id": "ArmourAppliesToElementalDamage1",
    "affix_type": "Suffix",
    "group": "ArmourAppliesToElementalDamage",
@@ -1506,8 +1791,17 @@
    ],
    "weight": 1,
    "source": "base"
+  },
+  {
+   "mod_id": "ArmourAppliesToElementalDamage6",
+   "affix_type": "Suffix",
+   "group": "ArmourAppliesToElementalDamage",
+   "level": 81,
+   "text": [
+    "+(44-50)% of Armour also applies to Elemental Damage"
+   ],
+   "weight": 1,
+   "source": "base"
   }
- ],
- "weights_source": "pob_real",
- "weights_note": "Real per-base spawn weights from Path of Building (ModItem.lua). Mods that can't roll on this base (weight 0) are removed."
+ ]
 }

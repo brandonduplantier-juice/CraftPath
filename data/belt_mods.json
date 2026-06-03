@@ -1,14 +1,9 @@
 {
- "base": "Belt",
+ "base": "belt",
  "token": "belt",
- "tags": [
-  "belt",
-  "default",
-  "demigods",
-  "not_for_sale",
-  "runeforged"
- ],
  "count": 135,
+ "weights_source": "pob_real",
+ "weights_note": "Complete per-base mod pool + real spawn weights from Path of Building (ModItem.lua). Only mods that can roll on this base are included.",
  "mods": [
   {
    "mod_id": "Strength1",
@@ -1495,7 +1490,5 @@
    "weight": 1,
    "source": "base"
   }
- ],
- "weights_source": "pob_real",
- "weights_note": "Real per-base spawn weights from Path of Building (ModItem.lua). Mods that can't roll on this base (weight 0) are removed."
+ ]
 }

@@ -1,19 +1,9 @@
 {
- "base": "One Hand Sword",
+ "base": "one_hand_sword",
  "token": "one_hand_sword",
- "tags": [
-  "default",
-  "demigods",
-  "ezomyte_basetype",
-  "maraketh_basetype",
-  "not_for_sale",
-  "one_hand_weapon",
-  "onehand",
-  "sword",
-  "vaal_basetype",
-  "weapon"
- ],
- "count": 158,
+ "count": 188,
+ "weights_source": "pob_real",
+ "weights_note": "Complete per-base mod pool + real spawn weights from Path of Building (ModItem.lua). Only mods that can roll on this base are included.",
  "mods": [
   {
    "mod_id": "Strength1",
@@ -456,6 +446,116 @@
    "source": "base"
   },
   {
+   "mod_id": "LocalAddedFireDamageTwoHand1",
+   "affix_type": "Prefix",
+   "group": "LocalFireDamage",
+   "level": 1,
+   "text": [
+    "Adds (2-4) to (5-7) Fire Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedFireDamageTwoHand2",
+   "affix_type": "Prefix",
+   "group": "LocalFireDamage",
+   "level": 8,
+   "text": [
+    "Adds (6-9) to (10-16) Fire Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedFireDamageTwoHand3",
+   "affix_type": "Prefix",
+   "group": "LocalFireDamage",
+   "level": 16,
+   "text": [
+    "Adds (11-17) to (19-28) Fire Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedFireDamageTwoHand4",
+   "affix_type": "Prefix",
+   "group": "LocalFireDamage",
+   "level": 33,
+   "text": [
+    "Adds (19-27) to (30-42) Fire Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedFireDamageTwoHand5",
+   "affix_type": "Prefix",
+   "group": "LocalFireDamage",
+   "level": 46,
+   "text": [
+    "Adds (30-37) to (45-56) Fire Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedFireDamageTwoHand6",
+   "affix_type": "Prefix",
+   "group": "LocalFireDamage",
+   "level": 54,
+   "text": [
+    "Adds (39-53) to (59-80) Fire Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedFireDamageTwoHand7",
+   "affix_type": "Prefix",
+   "group": "LocalFireDamage",
+   "level": 60,
+   "text": [
+    "Adds (56-70) to (84-107) Fire Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedFireDamageTwoHand8_",
+   "affix_type": "Prefix",
+   "group": "LocalFireDamage",
+   "level": 65,
+   "text": [
+    "Adds (73-97) to (112-149) Fire Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedFireDamageTwoHand9",
+   "affix_type": "Prefix",
+   "group": "LocalFireDamage",
+   "level": 75,
+   "text": [
+    "Adds (102-130) to (155-198) Fire Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedFireDamageTwoHand10",
+   "affix_type": "Prefix",
+   "group": "LocalFireDamage",
+   "level": 81,
+   "text": [
+    "Adds (135-156) to (205-236) Fire Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
    "mod_id": "LocalAddedColdDamage1",
    "affix_type": "Prefix",
    "group": "LocalColdDamage",
@@ -566,6 +666,116 @@
    "source": "base"
   },
   {
+   "mod_id": "LocalAddedColdDamageTwoHand1",
+   "affix_type": "Prefix",
+   "group": "LocalColdDamage",
+   "level": 1,
+   "text": [
+    "Adds (2-3) to (4-6) Cold Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedColdDamageTwoHand2",
+   "affix_type": "Prefix",
+   "group": "LocalColdDamage",
+   "level": 8,
+   "text": [
+    "Adds (5-8) to (9-14) Cold Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedColdDamageTwoHand3",
+   "affix_type": "Prefix",
+   "group": "LocalColdDamage",
+   "level": 16,
+   "text": [
+    "Adds (10-14) to (15-23) Cold Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedColdDamageTwoHand4",
+   "affix_type": "Prefix",
+   "group": "LocalColdDamage",
+   "level": 33,
+   "text": [
+    "Adds (16-23) to (25-35) Cold Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedColdDamageTwoHand5",
+   "affix_type": "Prefix",
+   "group": "LocalColdDamage",
+   "level": 46,
+   "text": [
+    "Adds (25-30) to (38-46) Cold Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedColdDamageTwoHand6",
+   "affix_type": "Prefix",
+   "group": "LocalColdDamage",
+   "level": 54,
+   "text": [
+    "Adds (32-43) to (49-66) Cold Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedColdDamageTwoHand7",
+   "affix_type": "Prefix",
+   "group": "LocalColdDamage",
+   "level": 60,
+   "text": [
+    "Adds (46-57) to (70-88) Cold Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedColdDamageTwoHand8",
+   "affix_type": "Prefix",
+   "group": "LocalColdDamage",
+   "level": 65,
+   "text": [
+    "Adds (60-80) to (92-121) Cold Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedColdDamageTwoHand9",
+   "affix_type": "Prefix",
+   "group": "LocalColdDamage",
+   "level": 75,
+   "text": [
+    "Adds (84-107) to (126-161) Cold Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedColdDamageTwoHand10",
+   "affix_type": "Prefix",
+   "group": "LocalColdDamage",
+   "level": 81,
+   "text": [
+    "Adds (112-124) to (168-189) Cold Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
    "mod_id": "LocalAddedLightningDamage1",
    "affix_type": "Prefix",
    "group": "LocalLightningDamage",
@@ -671,6 +881,116 @@
    "level": 81,
    "text": [
     "Adds (1-12) to (202-234) Lightning Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedLightningDamageTwoHand1_",
+   "affix_type": "Prefix",
+   "group": "LocalLightningDamage",
+   "level": 1,
+   "text": [
+    "Adds 1 to (7-10) Lightning Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedLightningDamageTwoHand2",
+   "affix_type": "Prefix",
+   "group": "LocalLightningDamage",
+   "level": 8,
+   "text": [
+    "Adds (1-2) to (19-27) Lightning Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedLightningDamageTwoHand3",
+   "affix_type": "Prefix",
+   "group": "LocalLightningDamage",
+   "level": 16,
+   "text": [
+    "Adds (1-3) to (31-43) Lightning Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedLightningDamageTwoHand4",
+   "affix_type": "Prefix",
+   "group": "LocalLightningDamage",
+   "level": 33,
+   "text": [
+    "Adds (1-4) to (53-76) Lightning Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedLightningDamageTwoHand5",
+   "affix_type": "Prefix",
+   "group": "LocalLightningDamage",
+   "level": 46,
+   "text": [
+    "Adds (1-4) to (80-88) Lightning Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedLightningDamageTwoHand6",
+   "affix_type": "Prefix",
+   "group": "LocalLightningDamage",
+   "level": 54,
+   "text": [
+    "Adds (1-6) to (93-122) Lightning Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedLightningDamageTwoHand7",
+   "affix_type": "Prefix",
+   "group": "LocalLightningDamage",
+   "level": 60,
+   "text": [
+    "Adds (1-8) to (128-162) Lightning Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedLightningDamageTwoHand8",
+   "affix_type": "Prefix",
+   "group": "LocalLightningDamage",
+   "level": 65,
+   "text": [
+    "Adds (1-13) to (168-231) Lightning Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedLightningDamageTwoHand9",
+   "affix_type": "Prefix",
+   "group": "LocalLightningDamage",
+   "level": 75,
+   "text": [
+    "Adds (1-16) to (239-300) Lightning Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedLightningDamageTwoHand10",
+   "affix_type": "Prefix",
+   "group": "LocalLightningDamage",
+   "level": 81,
+   "text": [
+    "Adds (1-19) to (310-358) Lightning Damage"
    ],
    "weight": 1,
    "source": "base"
@@ -1764,7 +2084,5 @@
    "weight": 1,
    "source": "base"
   }
- ],
- "weights_source": "pob_real",
- "weights_note": "Real per-base spawn weights from Path of Building (ModItem.lua). Mods that can't roll on this base (weight 0) are removed."
+ ]
 }

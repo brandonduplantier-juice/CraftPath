@@ -1,14 +1,9 @@
 {
- "base": "Shield (DEX)",
+ "base": "shield_dex",
  "token": "shield_dex",
- "tags": [
-  "armour",
-  "default",
-  "dex_armour",
-  "shield",
-  "str_dex_int_armour"
- ],
- "count": 191,
+ "count": 56,
+ "weights_source": "pob_real",
+ "weights_note": "Complete per-base mod pool + real spawn weights from Path of Building (ModItem.lua). Only mods that can roll on this base are included.",
  "mods": [
   {
    "mod_id": "IncreasedLife1",
@@ -127,6 +122,72 @@
    "level": 70,
    "text": [
     "+(175-189) to maximum Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamageReductionRatingPercent8_",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamageReductionRatingPercent",
+   "level": 75,
+   "text": [
+    "(101-110)% increased Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionRatingPercent8",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionRatingIncreasePercent",
+   "level": 75,
+   "text": [
+    "(101-110)% increased Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEnergyShieldPercent8",
+   "affix_type": "Prefix",
+   "group": "LocalEnergyShieldPercent",
+   "level": 75,
+   "text": [
+    "(101-110)% increased Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEvasion8",
+   "affix_type": "Prefix",
+   "group": "LocalArmourAndEvasion",
+   "level": 75,
+   "text": [
+    "(101-110)% increased Armour and Evasion"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEnergyShield8",
+   "affix_type": "Prefix",
+   "group": "LocalArmourAndEnergyShield",
+   "level": 75,
+   "text": [
+    "(101-110)% increased Armour and Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionAndEnergyShield8",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionAndEnergyShield",
+   "level": 75,
+   "text": [
+    "(101-110)% increased Evasion and Energy Shield"
    ],
    "weight": 1,
    "source": "base"
@@ -560,7 +621,5 @@
    "weight": 1,
    "source": "base"
   }
- ],
- "weights_source": "pob_real",
- "weights_note": "Real per-base spawn weights from Path of Building (ModItem.lua). Mods that can't roll on this base (weight 0) are removed."
+ ]
 }

@@ -1,21 +1,9 @@
 {
- "base": "Crossbow",
+ "base": "crossbow",
  "token": "crossbow",
- "tags": [
-  "cannon",
-  "crossbow",
-  "default",
-  "ezomyte_basetype",
-  "karui_basetype",
-  "maraketh_basetype",
-  "ranged",
-  "runeforged",
-  "two_hand_weapon",
-  "twohand",
-  "vaal_basetype",
-  "weapon"
- ],
- "count": 154,
+ "count": 150,
+ "weights_source": "pob_real",
+ "weights_note": "Complete per-base mod pool + real spawn weights from Path of Building (ModItem.lua). Only mods that can roll on this base are included.",
  "mods": [
   {
    "mod_id": "Strength1",
@@ -862,6 +850,50 @@
    "source": "base"
   },
   {
+   "mod_id": "GlobalMeleeSkillGemLevelTwoHandWeapon2",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseMeleeSkillGemLevelWeapon",
+   "level": 18,
+   "text": [
+    "+2 to Level of all Melee Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalMeleeSkillGemLevelTwoHandWeapon3",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseMeleeSkillGemLevelWeapon",
+   "level": 36,
+   "text": [
+    "+3 to Level of all Melee Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalMeleeSkillGemLevelTwoHandWeapon4",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseMeleeSkillGemLevelWeapon",
+   "level": 55,
+   "text": [
+    "+4 to Level of all Melee Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalMeleeSkillGemLevelTwoHandWeapon5",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseMeleeSkillGemLevelWeapon",
+   "level": 81,
+   "text": [
+    "+5 to Level of all Melee Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
    "mod_id": "GlobalProjectileSkillGemLevelTwoHandWeapon2",
    "affix_type": "Suffix",
    "group": "GlobalIncreaseProjectileSkillGemLevelWeapon",
@@ -1547,6 +1579,28 @@
    "source": "base"
   },
   {
+   "mod_id": "AdditionalAmmo1",
+   "affix_type": "Suffix",
+   "group": "AdditionalAmmo",
+   "level": 55,
+   "text": [
+    "Loads an additional bolt"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "AdditionalAmmo2",
+   "affix_type": "Suffix",
+   "group": "AdditionalAmmo",
+   "level": 82,
+   "text": [
+    "Loads 2 additional bolts"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
    "mod_id": "WeaponElementalDamageOnTwohandWeapon1",
    "affix_type": "Prefix",
    "group": "IncreasedWeaponElementalDamagePercent",
@@ -1612,7 +1666,5 @@
    "weight": 1,
    "source": "base"
   }
- ],
- "weights_source": "pob_real",
- "weights_note": "Real per-base spawn weights from Path of Building (ModItem.lua). Mods that can't roll on this base (weight 0) are removed."
+ ]
 }

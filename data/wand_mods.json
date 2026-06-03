@@ -1,18 +1,9 @@
 {
- "base": "Wand",
+ "base": "wand",
  "token": "wand",
- "tags": [
-  "default",
-  "no_chaos_spell_mods",
-  "no_cold_spell_mods",
-  "no_fire_spell_mods",
-  "no_lightning_spell_mods",
-  "no_physical_spell_mods",
-  "onehand",
-  "runeforged",
-  "wand"
- ],
- "count": 105,
+ "count": 276,
+ "weights_source": "pob_real",
+ "weights_note": "Complete per-base mod pool + real spawn weights from Path of Building (ModItem.lua). Only mods that can roll on this base are included.",
  "mods": [
   {
    "mod_id": "Intelligence1",
@@ -279,6 +270,289 @@
    "source": "base"
   },
   {
+   "mod_id": "LocalAddedPhysicalDamage1",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamage",
+   "level": 1,
+   "text": [
+    "Adds (1-2) to (4-5) Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedPhysicalDamage2",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamage",
+   "level": 8,
+   "text": [
+    "Adds (4-6) to (7-11) Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedPhysicalDamage3",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamage",
+   "level": 16,
+   "text": [
+    "Adds (6-9) to (11-16) Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedPhysicalDamage4",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamage",
+   "level": 33,
+   "text": [
+    "Adds (8-12) to (14-21) Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedPhysicalDamage5",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamage",
+   "level": 46,
+   "text": [
+    "Adds (10-15) to (18-26) Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedPhysicalDamage6",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamage",
+   "level": 54,
+   "text": [
+    "Adds (13-20) to (23-35) Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedPhysicalDamage7",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamage",
+   "level": 60,
+   "text": [
+    "Adds (16-24) to (28-42) Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedPhysicalDamage8",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamage",
+   "level": 65,
+   "text": [
+    "Adds (21-31) to (36-53) Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalAddedPhysicalDamage9",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamage",
+   "level": 75,
+   "text": [
+    "Adds (26-39) to (44-66) Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamagePercent1",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamagePercent",
+   "level": 1,
+   "text": [
+    "(40-49)% increased Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamagePercent2",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamagePercent",
+   "level": 8,
+   "text": [
+    "(50-64)% increased Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamagePercent3",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamagePercent",
+   "level": 16,
+   "text": [
+    "(65-84)% increased Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamagePercent4",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamagePercent",
+   "level": 33,
+   "text": [
+    "(85-109)% increased Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamagePercent5",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamagePercent",
+   "level": 46,
+   "text": [
+    "(110-134)% increased Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamagePercent6",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamagePercent",
+   "level": 60,
+   "text": [
+    "(135-154)% increased Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamagePercent7",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamagePercent",
+   "level": 75,
+   "text": [
+    "(155-169)% increased Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamagePercent8",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamagePercent",
+   "level": 82,
+   "text": [
+    "(170-179)% increased Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating1",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating",
+   "level": 8,
+   "text": [
+    "(15-19)% increased Physical Damage",
+    "+(16-20) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating2",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating",
+   "level": 14,
+   "text": [
+    "(20-24)% increased Physical Damage",
+    "+(21-46) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating3",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating",
+   "level": 23,
+   "text": [
+    "(25-34)% increased Physical Damage",
+    "+(47-72) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating4",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating",
+   "level": 38,
+   "text": [
+    "(35-44)% increased Physical Damage",
+    "+(73-97) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating5",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating",
+   "level": 54,
+   "text": [
+    "(45-54)% increased Physical Damage",
+    "+(98-123) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating6",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating",
+   "level": 65,
+   "text": [
+    "(55-64)% increased Physical Damage",
+    "+(124-149) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating7",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating",
+   "level": 70,
+   "text": [
+    "(65-74)% increased Physical Damage",
+    "+(150-174) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating8",
+   "affix_type": "Prefix",
+   "group": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating",
+   "level": 81,
+   "text": [
+    "(75-79)% increased Physical Damage",
+    "+(175-200) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
    "mod_id": "SpellDamageOnWeapon1",
    "affix_type": "Prefix",
    "group": "WeaponSpellDamage",
@@ -451,6 +725,446 @@
    "source": "base"
   },
   {
+   "mod_id": "FireDamagePrefixOnWeapon1",
+   "affix_type": "Prefix",
+   "group": "FireDamageWeaponPrefix",
+   "level": 2,
+   "text": [
+    "(25-34)% increased Fire Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "FireDamagePrefixOnWeapon2",
+   "affix_type": "Prefix",
+   "group": "FireDamageWeaponPrefix",
+   "level": 8,
+   "text": [
+    "(35-44)% increased Fire Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "FireDamagePrefixOnWeapon3",
+   "affix_type": "Prefix",
+   "group": "FireDamageWeaponPrefix",
+   "level": 16,
+   "text": [
+    "(45-54)% increased Fire Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "FireDamagePrefixOnWeapon4",
+   "affix_type": "Prefix",
+   "group": "FireDamageWeaponPrefix",
+   "level": 33,
+   "text": [
+    "(55-64)% increased Fire Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "FireDamagePrefixOnWeapon5_",
+   "affix_type": "Prefix",
+   "group": "FireDamageWeaponPrefix",
+   "level": 46,
+   "text": [
+    "(65-74)% increased Fire Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "FireDamagePrefixOnWeapon6",
+   "affix_type": "Prefix",
+   "group": "FireDamageWeaponPrefix",
+   "level": 60,
+   "text": [
+    "(75-89)% increased Fire Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "FireDamagePrefixOnWeapon7_",
+   "affix_type": "Prefix",
+   "group": "FireDamageWeaponPrefix",
+   "level": 70,
+   "text": [
+    "(90-104)% increased Fire Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "FireDamagePrefixOnWeapon8_",
+   "affix_type": "Prefix",
+   "group": "FireDamageWeaponPrefix",
+   "level": 81,
+   "text": [
+    "(105-119)% increased Fire Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ColdDamagePrefixOnWeapon1",
+   "affix_type": "Prefix",
+   "group": "ColdDamageWeaponPrefix",
+   "level": 2,
+   "text": [
+    "(25-34)% increased Cold Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ColdDamagePrefixOnWeapon2",
+   "affix_type": "Prefix",
+   "group": "ColdDamageWeaponPrefix",
+   "level": 8,
+   "text": [
+    "(35-44)% increased Cold Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ColdDamagePrefixOnWeapon3_",
+   "affix_type": "Prefix",
+   "group": "ColdDamageWeaponPrefix",
+   "level": 16,
+   "text": [
+    "(45-54)% increased Cold Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ColdDamagePrefixOnWeapon4",
+   "affix_type": "Prefix",
+   "group": "ColdDamageWeaponPrefix",
+   "level": 33,
+   "text": [
+    "(55-64)% increased Cold Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ColdDamagePrefixOnWeapon5_",
+   "affix_type": "Prefix",
+   "group": "ColdDamageWeaponPrefix",
+   "level": 46,
+   "text": [
+    "(65-74)% increased Cold Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ColdDamagePrefixOnWeapon6",
+   "affix_type": "Prefix",
+   "group": "ColdDamageWeaponPrefix",
+   "level": 60,
+   "text": [
+    "(75-89)% increased Cold Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ColdDamagePrefixOnWeapon7",
+   "affix_type": "Prefix",
+   "group": "ColdDamageWeaponPrefix",
+   "level": 70,
+   "text": [
+    "(90-104)% increased Cold Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ColdDamagePrefixOnWeapon8",
+   "affix_type": "Prefix",
+   "group": "ColdDamageWeaponPrefix",
+   "level": 81,
+   "text": [
+    "(105-119)% increased Cold Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LightningDamagePrefixOnWeapon1_",
+   "affix_type": "Prefix",
+   "group": "LightningDamageWeaponPrefix",
+   "level": 2,
+   "text": [
+    "(25-34)% increased Lightning Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LightningDamagePrefixOnWeapon2",
+   "affix_type": "Prefix",
+   "group": "LightningDamageWeaponPrefix",
+   "level": 8,
+   "text": [
+    "(35-44)% increased Lightning Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LightningDamagePrefixOnWeapon3",
+   "affix_type": "Prefix",
+   "group": "LightningDamageWeaponPrefix",
+   "level": 16,
+   "text": [
+    "(45-54)% increased Lightning Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LightningDamagePrefixOnWeapon4",
+   "affix_type": "Prefix",
+   "group": "LightningDamageWeaponPrefix",
+   "level": 33,
+   "text": [
+    "(55-64)% increased Lightning Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LightningDamagePrefixOnWeapon5",
+   "affix_type": "Prefix",
+   "group": "LightningDamageWeaponPrefix",
+   "level": 46,
+   "text": [
+    "(65-74)% increased Lightning Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LightningDamagePrefixOnWeapon6",
+   "affix_type": "Prefix",
+   "group": "LightningDamageWeaponPrefix",
+   "level": 60,
+   "text": [
+    "(75-89)% increased Lightning Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LightningDamagePrefixOnWeapon7",
+   "affix_type": "Prefix",
+   "group": "LightningDamageWeaponPrefix",
+   "level": 70,
+   "text": [
+    "(90-104)% increased Lightning Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LightningDamagePrefixOnWeapon8",
+   "affix_type": "Prefix",
+   "group": "LightningDamageWeaponPrefix",
+   "level": 81,
+   "text": [
+    "(105-119)% increased Lightning Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ChaosDamagePrefixOnWeapon1",
+   "affix_type": "Prefix",
+   "group": "ChaosDamageWeaponPrefix",
+   "level": 2,
+   "text": [
+    "(25-34)% increased Chaos Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ChaosDamagePrefixOnWeapon2",
+   "affix_type": "Prefix",
+   "group": "ChaosDamageWeaponPrefix",
+   "level": 8,
+   "text": [
+    "(35-44)% increased Chaos Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ChaosDamagePrefixOnWeapon3",
+   "affix_type": "Prefix",
+   "group": "ChaosDamageWeaponPrefix",
+   "level": 16,
+   "text": [
+    "(45-54)% increased Chaos Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ChaosDamagePrefixOnWeapon4",
+   "affix_type": "Prefix",
+   "group": "ChaosDamageWeaponPrefix",
+   "level": 33,
+   "text": [
+    "(55-64)% increased Chaos Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ChaosDamagePrefixOnWeapon5",
+   "affix_type": "Prefix",
+   "group": "ChaosDamageWeaponPrefix",
+   "level": 46,
+   "text": [
+    "(65-74)% increased Chaos Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ChaosDamagePrefixOnWeapon6",
+   "affix_type": "Prefix",
+   "group": "ChaosDamageWeaponPrefix",
+   "level": 60,
+   "text": [
+    "(75-89)% increased Chaos Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ChaosDamagePrefixOnWeapon7",
+   "affix_type": "Prefix",
+   "group": "ChaosDamageWeaponPrefix",
+   "level": 70,
+   "text": [
+    "(90-104)% increased Chaos Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ChaosDamagePrefixOnWeapon8",
+   "affix_type": "Prefix",
+   "group": "ChaosDamageWeaponPrefix",
+   "level": 81,
+   "text": [
+    "(105-119)% increased Chaos Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "PhysicalDamagePrefixOnWeapon1",
+   "affix_type": "Prefix",
+   "group": "PhysicalSpellDamageWeaponPrefix",
+   "level": 2,
+   "text": [
+    "(25-34)% increased Spell Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "PhysicalDamagePrefixOnWeapon2",
+   "affix_type": "Prefix",
+   "group": "PhysicalSpellDamageWeaponPrefix",
+   "level": 8,
+   "text": [
+    "(35-44)% increased Spell Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "PhysicalDamagePrefixOnWeapon3",
+   "affix_type": "Prefix",
+   "group": "PhysicalSpellDamageWeaponPrefix",
+   "level": 16,
+   "text": [
+    "(45-54)% increased Spell Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "PhysicalDamagePrefixOnWeapon4",
+   "affix_type": "Prefix",
+   "group": "PhysicalSpellDamageWeaponPrefix",
+   "level": 33,
+   "text": [
+    "(55-64)% increased Spell Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "PhysicalDamagePrefixOnWeapon5",
+   "affix_type": "Prefix",
+   "group": "PhysicalSpellDamageWeaponPrefix",
+   "level": 46,
+   "text": [
+    "(65-74)% increased Spell Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "PhysicalDamagePrefixOnWeapon6",
+   "affix_type": "Prefix",
+   "group": "PhysicalSpellDamageWeaponPrefix",
+   "level": 60,
+   "text": [
+    "(75-89)% increased Spell Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "PhysicalDamagePrefixOnWeapon7",
+   "affix_type": "Prefix",
+   "group": "PhysicalSpellDamageWeaponPrefix",
+   "level": 70,
+   "text": [
+    "(90-104)% increased Spell Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "PhysicalDamagePrefixOnWeapon8",
+   "affix_type": "Prefix",
+   "group": "PhysicalSpellDamageWeaponPrefix",
+   "level": 81,
+   "text": [
+    "(105-119)% increased Spell Physical Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
    "mod_id": "GlobalSpellGemsLevelWeapon1",
    "affix_type": "Suffix",
    "group": "GlobalIncreaseSpellSkillGemLevelWeapon",
@@ -490,6 +1204,325 @@
    "level": 78,
    "text": [
     "+4 to Level of all Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalFireSpellGemsLevelWeapon1",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseFireSpellSkillGemLevelWeapon",
+   "level": 2,
+   "text": [
+    "+1 to Level of all Fire Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalFireSpellGemsLevelWeapon2",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseFireSpellSkillGemLevelWeapon",
+   "level": 18,
+   "text": [
+    "+2 to Level of all Fire Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalFireSpellGemsLevelWeapon3",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseFireSpellSkillGemLevelWeapon",
+   "level": 36,
+   "text": [
+    "+3 to Level of all Fire Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalFireSpellGemsLevelWeapon4",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseFireSpellSkillGemLevelWeapon",
+   "level": 55,
+   "text": [
+    "+4 to Level of all Fire Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalFireSpellGemsLevelWeapon5",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseFireSpellSkillGemLevelWeapon",
+   "level": 81,
+   "text": [
+    "+5 to Level of all Fire Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalColdSpellGemsLevelWeapon1",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseColdSpellSkillGemLevelWeapon",
+   "level": 2,
+   "text": [
+    "+1 to Level of all Cold Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalColdSpellGemsLevelWeapon2",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseColdSpellSkillGemLevelWeapon",
+   "level": 18,
+   "text": [
+    "+2 to Level of all Cold Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalColdSpellGemsLevelWeapon3",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseColdSpellSkillGemLevelWeapon",
+   "level": 36,
+   "text": [
+    "+3 to Level of all Cold Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalColdSpellGemsLevelWeapon4",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseColdSpellSkillGemLevelWeapon",
+   "level": 55,
+   "text": [
+    "+4 to Level of all Cold Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalColdSpellGemsLevelWeapon5",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseColdSpellSkillGemLevelWeapon",
+   "level": 81,
+   "text": [
+    "+5 to Level of all Cold Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalLightningSpellGemsLevelWeapon1",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseLightningSpellSkillGemLevelWeapon",
+   "level": 2,
+   "text": [
+    "+1 to Level of all Lightning Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalLightningSpellGemsLevelWeapon2",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseLightningSpellSkillGemLevelWeapon",
+   "level": 18,
+   "text": [
+    "+2 to Level of all Lightning Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalLightningSpellGemsLevelWeapon3",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseLightningSpellSkillGemLevelWeapon",
+   "level": 36,
+   "text": [
+    "+3 to Level of all Lightning Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalLightningSpellGemsLevelWeapon4",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseLightningSpellSkillGemLevelWeapon",
+   "level": 55,
+   "text": [
+    "+4 to Level of all Lightning Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalLightningSpellGemsLevelWeapon5",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseLightningSpellSkillGemLevelWeapon",
+   "level": 81,
+   "text": [
+    "+5 to Level of all Lightning Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalChaosSpellGemsLevelWeapon1",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseChaosSpellSkillGemLevelWeapon",
+   "level": 2,
+   "text": [
+    "+1 to Level of all Chaos Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalChaosSpellGemsLevelWeapon2",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseChaosSpellSkillGemLevelWeapon",
+   "level": 18,
+   "text": [
+    "+2 to Level of all Chaos Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalChaosSpellGemsLevelWeapon3",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseChaosSpellSkillGemLevelWeapon",
+   "level": 36,
+   "text": [
+    "+3 to Level of all Chaos Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalChaosSpellGemsLevelWeapon4",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseChaosSpellSkillGemLevelWeapon",
+   "level": 55,
+   "text": [
+    "+4 to Level of all Chaos Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalChaosSpellGemsLevelWeapon5",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseChaosSpellSkillGemLevelWeapon",
+   "level": 81,
+   "text": [
+    "+5 to Level of all Chaos Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalPhysicalSpellGemsLevelWeapon1",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreasePhysicalSpellSkillGemLevelWeapon",
+   "level": 2,
+   "text": [
+    "+1 to Level of all Physical Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalPhysicalSpellGemsLevelWeapon2",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreasePhysicalSpellSkillGemLevelWeapon",
+   "level": 18,
+   "text": [
+    "+2 to Level of all Physical Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalPhysicalSpellGemsLevelWeapon3",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreasePhysicalSpellSkillGemLevelWeapon",
+   "level": 36,
+   "text": [
+    "+3 to Level of all Physical Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalPhysicalSpellGemsLevelWeapon4",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreasePhysicalSpellSkillGemLevelWeapon",
+   "level": 55,
+   "text": [
+    "+4 to Level of all Physical Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalPhysicalSpellGemsLevelWeapon5",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreasePhysicalSpellSkillGemLevelWeapon",
+   "level": 81,
+   "text": [
+    "+5 to Level of all Physical Spell Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalMeleeSkillGemLevelWeapon2",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseMeleeSkillGemLevel",
+   "level": 18,
+   "text": [
+    "+1 to Level of all Melee Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalMeleeSkillGemLevelWeapon3",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseMeleeSkillGemLevel",
+   "level": 36,
+   "text": [
+    "+2 to Level of all Melee Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalMeleeSkillGemLevelWeapon4",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseMeleeSkillGemLevel",
+   "level": 55,
+   "text": [
+    "+3 to Level of all Melee Skills"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "GlobalMeleeSkillGemLevelWeapon5",
+   "affix_type": "Suffix",
+   "group": "GlobalIncreaseMeleeSkillGemLevel",
+   "level": 81,
+   "text": [
+    "+4 to Level of all Melee Skills"
    ],
    "weight": 1,
    "source": "base"
@@ -556,6 +1589,94 @@
    "level": 79,
    "text": [
     "(60-69)% increased Mana Regeneration Rate"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeLeechLocal2",
+   "affix_type": "Suffix",
+   "group": "LifeLeechLocalPermyriad",
+   "level": 21,
+   "text": [
+    "Leeches (6-6.9)% of Physical Damage as Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeLeechLocal3",
+   "affix_type": "Suffix",
+   "group": "LifeLeechLocalPermyriad",
+   "level": 38,
+   "text": [
+    "Leeches (7-7.9)% of Physical Damage as Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeLeechLocal4",
+   "affix_type": "Suffix",
+   "group": "LifeLeechLocalPermyriad",
+   "level": 54,
+   "text": [
+    "Leeches (8-8.9)% of Physical Damage as Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeLeechLocal5",
+   "affix_type": "Suffix",
+   "group": "LifeLeechLocalPermyriad",
+   "level": 65,
+   "text": [
+    "Leeches (9-9.9)% of Physical Damage as Life"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ManaLeechLocal2",
+   "affix_type": "Suffix",
+   "group": "ManaLeechLocalPermyriad",
+   "level": 21,
+   "text": [
+    "Leeches (5-5.9)% of Physical Damage as Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ManaLeechLocal3",
+   "affix_type": "Suffix",
+   "group": "ManaLeechLocalPermyriad",
+   "level": 38,
+   "text": [
+    "Leeches (6-6.9)% of Physical Damage as Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ManaLeechLocal4",
+   "affix_type": "Suffix",
+   "group": "ManaLeechLocalPermyriad",
+   "level": 54,
+   "text": [
+    "Leeches (7-7.9)% of Physical Damage as Mana"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ManaLeechLocal5",
+   "affix_type": "Suffix",
+   "group": "ManaLeechLocalPermyriad",
+   "level": 65,
+   "text": [
+    "Leeches (8-8.9)% of Physical Damage as Mana"
    ],
    "weight": 1,
    "source": "base"
@@ -737,6 +1858,138 @@
    "source": "base"
   },
   {
+   "mod_id": "LifeGainPerTargetLocal1",
+   "affix_type": "Suffix",
+   "group": "LifeGainPerTargetLocal",
+   "level": 8,
+   "text": [
+    "Grants 2 Life per Enemy Hit"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeGainPerTargetLocal2",
+   "affix_type": "Suffix",
+   "group": "LifeGainPerTargetLocal",
+   "level": 20,
+   "text": [
+    "Grants 3 Life per Enemy Hit"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeGainPerTargetLocal3",
+   "affix_type": "Suffix",
+   "group": "LifeGainPerTargetLocal",
+   "level": 30,
+   "text": [
+    "Grants 4 Life per Enemy Hit"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeGainPerTargetLocal4",
+   "affix_type": "Suffix",
+   "group": "LifeGainPerTargetLocal",
+   "level": 40,
+   "text": [
+    "Grants 5 Life per Enemy Hit"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedAttackSpeed1",
+   "affix_type": "Suffix",
+   "group": "LocalIncreasedAttackSpeed",
+   "level": 1,
+   "text": [
+    "(5-7)% increased Attack Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedAttackSpeed2",
+   "affix_type": "Suffix",
+   "group": "LocalIncreasedAttackSpeed",
+   "level": 11,
+   "text": [
+    "(8-10)% increased Attack Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedAttackSpeed3",
+   "affix_type": "Suffix",
+   "group": "LocalIncreasedAttackSpeed",
+   "level": 22,
+   "text": [
+    "(11-13)% increased Attack Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedAttackSpeed4",
+   "affix_type": "Suffix",
+   "group": "LocalIncreasedAttackSpeed",
+   "level": 30,
+   "text": [
+    "(14-16)% increased Attack Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedAttackSpeed5",
+   "affix_type": "Suffix",
+   "group": "LocalIncreasedAttackSpeed",
+   "level": 37,
+   "text": [
+    "(17-19)% increased Attack Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedAttackSpeed6",
+   "affix_type": "Suffix",
+   "group": "LocalIncreasedAttackSpeed",
+   "level": 45,
+   "text": [
+    "(20-22)% increased Attack Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedAttackSpeed7",
+   "affix_type": "Suffix",
+   "group": "LocalIncreasedAttackSpeed",
+   "level": 60,
+   "text": [
+    "(23-25)% increased Attack Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedAttackSpeed8",
+   "affix_type": "Suffix",
+   "group": "LocalIncreasedAttackSpeed",
+   "level": 77,
+   "text": [
+    "(26-28)% increased Attack Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
    "mod_id": "IncreasedCastSpeed1",
    "affix_type": "Suffix",
    "group": "IncreasedCastSpeed",
@@ -814,6 +2067,171 @@
    "source": "base"
   },
   {
+   "mod_id": "LocalIncreasedAccuracy1",
+   "affix_type": "Prefix",
+   "group": "LocalAccuracyRating",
+   "level": 8,
+   "text": [
+    "+(11-32) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedAccuracy2",
+   "affix_type": "Prefix",
+   "group": "LocalAccuracyRating",
+   "level": 13,
+   "text": [
+    "+(33-60) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedAccuracy3",
+   "affix_type": "Prefix",
+   "group": "LocalAccuracyRating",
+   "level": 18,
+   "text": [
+    "+(61-84) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedAccuracy4",
+   "affix_type": "Prefix",
+   "group": "LocalAccuracyRating",
+   "level": 26,
+   "text": [
+    "+(85-123) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedAccuracy5",
+   "affix_type": "Prefix",
+   "group": "LocalAccuracyRating",
+   "level": 36,
+   "text": [
+    "+(124-167) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedAccuracy6",
+   "affix_type": "Prefix",
+   "group": "LocalAccuracyRating",
+   "level": 48,
+   "text": [
+    "+(168-236) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedAccuracy7",
+   "affix_type": "Prefix",
+   "group": "LocalAccuracyRating",
+   "level": 58,
+   "text": [
+    "+(237-346) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedAccuracy8",
+   "affix_type": "Prefix",
+   "group": "LocalAccuracyRating",
+   "level": 67,
+   "text": [
+    "+(347-450) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedAccuracy9_",
+   "affix_type": "Prefix",
+   "group": "LocalAccuracyRating",
+   "level": 76,
+   "text": [
+    "+(451-550) to Accuracy Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalCriticalStrikeChance1",
+   "affix_type": "Suffix",
+   "group": "LocalBaseCriticalStrikeChance",
+   "level": 1,
+   "text": [
+    "+(1.01-1.5)% to Critical Hit Chance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalCriticalStrikeChance2",
+   "affix_type": "Suffix",
+   "group": "LocalBaseCriticalStrikeChance",
+   "level": 20,
+   "text": [
+    "+(1.51-2.1)% to Critical Hit Chance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalCriticalStrikeChance3",
+   "affix_type": "Suffix",
+   "group": "LocalBaseCriticalStrikeChance",
+   "level": 30,
+   "text": [
+    "+(2.11-2.7)% to Critical Hit Chance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalCriticalStrikeChance4",
+   "affix_type": "Suffix",
+   "group": "LocalBaseCriticalStrikeChance",
+   "level": 44,
+   "text": [
+    "+(3.11-3.8)% to Critical Hit Chance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalCriticalStrikeChance5",
+   "affix_type": "Suffix",
+   "group": "LocalBaseCriticalStrikeChance",
+   "level": 59,
+   "text": [
+    "+(3.81-4.4)% to Critical Hit Chance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalCriticalStrikeChance6",
+   "affix_type": "Suffix",
+   "group": "LocalBaseCriticalStrikeChance",
+   "level": 73,
+   "text": [
+    "+(4.41-5)% to Critical Hit Chance"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
    "mod_id": "SpellCriticalStrikeChance1",
    "affix_type": "Suffix",
    "group": "SpellCriticalStrikeChance",
@@ -875,6 +2293,72 @@
    "level": 76,
    "text": [
     "(60-73)% increased Critical Hit Chance for Spells"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalCriticalMultiplier1",
+   "affix_type": "Suffix",
+   "group": "LocalCriticalStrikeMultiplier",
+   "level": 8,
+   "text": [
+    "+(10-11)% to Critical Damage Bonus"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalCriticalMultiplier2",
+   "affix_type": "Suffix",
+   "group": "LocalCriticalStrikeMultiplier",
+   "level": 21,
+   "text": [
+    "+(12-13)% to Critical Damage Bonus"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalCriticalMultiplier3",
+   "affix_type": "Suffix",
+   "group": "LocalCriticalStrikeMultiplier",
+   "level": 30,
+   "text": [
+    "+(14-16)% to Critical Damage Bonus"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalCriticalMultiplier4",
+   "affix_type": "Suffix",
+   "group": "LocalCriticalStrikeMultiplier",
+   "level": 44,
+   "text": [
+    "+(17-19)% to Critical Damage Bonus"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalCriticalMultiplier5",
+   "affix_type": "Suffix",
+   "group": "LocalCriticalStrikeMultiplier",
+   "level": 59,
+   "text": [
+    "+(20-22)% to Critical Damage Bonus"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalCriticalMultiplier6",
+   "affix_type": "Suffix",
+   "group": "LocalCriticalStrikeMultiplier",
+   "level": 73,
+   "text": [
+    "+(23-25)% to Critical Damage Bonus"
    ],
    "weight": 1,
    "source": "base"
@@ -946,6 +2430,42 @@
    "source": "base"
   },
   {
+   "mod_id": "LocalLightRadiusAndAccuracy1",
+   "affix_type": "Suffix",
+   "group": "LocalLightRadiusAndAccuracy",
+   "level": 8,
+   "text": [
+    "+(10-20) to Accuracy Rating",
+    "5% increased Light Radius"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalLightRadiusAndAccuracy2",
+   "affix_type": "Suffix",
+   "group": "LocalLightRadiusAndAccuracy",
+   "level": 15,
+   "text": [
+    "+(21-40) to Accuracy Rating",
+    "10% increased Light Radius"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalLightRadiusAndAccuracy3",
+   "affix_type": "Suffix",
+   "group": "LocalLightRadiusAndAccuracy",
+   "level": 30,
+   "text": [
+    "+(41-60) to Accuracy Rating",
+    "15% increased Light Radius"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
    "mod_id": "LightRadiusAndManaRegeneration1",
    "affix_type": "Suffix",
    "group": "LightRadiusAndManaRegeneration",
@@ -977,6 +2497,369 @@
    "text": [
     "(18-22)% increased Mana Regeneration Rate",
     "15% increased Light Radius"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IgniteChanceIncrease1",
+   "affix_type": "Suffix",
+   "group": "IgniteChanceIncrease",
+   "level": 15,
+   "text": [
+    "(51-60)% increased Flammability Magnitude"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IgniteChanceIncrease2",
+   "affix_type": "Suffix",
+   "group": "IgniteChanceIncrease",
+   "level": 30,
+   "text": [
+    "(61-70)% increased Flammability Magnitude"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IgniteChanceIncrease3",
+   "affix_type": "Suffix",
+   "group": "IgniteChanceIncrease",
+   "level": 45,
+   "text": [
+    "(71-80)% increased Flammability Magnitude"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IgniteChanceIncrease4",
+   "affix_type": "Suffix",
+   "group": "IgniteChanceIncrease",
+   "level": 60,
+   "text": [
+    "(81-90)% increased Flammability Magnitude"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "IgniteChanceIncrease5",
+   "affix_type": "Suffix",
+   "group": "IgniteChanceIncrease",
+   "level": 75,
+   "text": [
+    "(91-100)% increased Flammability Magnitude"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "FreezeDamageIncrease1",
+   "affix_type": "Suffix",
+   "group": "FreezeDamageIncrease",
+   "level": 15,
+   "text": [
+    "(31-40)% increased Freeze Buildup"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "FreezeDamageIncrease2",
+   "affix_type": "Suffix",
+   "group": "FreezeDamageIncrease",
+   "level": 30,
+   "text": [
+    "(41-50)% increased Freeze Buildup"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "FreezeDamageIncrease3",
+   "affix_type": "Suffix",
+   "group": "FreezeDamageIncrease",
+   "level": 45,
+   "text": [
+    "(51-60)% increased Freeze Buildup"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "FreezeDamageIncrease4",
+   "affix_type": "Suffix",
+   "group": "FreezeDamageIncrease",
+   "level": 60,
+   "text": [
+    "(61-70)% increased Freeze Buildup"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "FreezeDamageIncrease5",
+   "affix_type": "Suffix",
+   "group": "FreezeDamageIncrease",
+   "level": 75,
+   "text": [
+    "(71-80)% increased Freeze Buildup"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ShockChanceIncrease1",
+   "affix_type": "Suffix",
+   "group": "ShockChanceIncrease",
+   "level": 15,
+   "text": [
+    "(51-60)% increased chance to Shock"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ShockChanceIncrease2",
+   "affix_type": "Suffix",
+   "group": "ShockChanceIncrease",
+   "level": 30,
+   "text": [
+    "(61-70)% increased chance to Shock"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ShockChanceIncrease3",
+   "affix_type": "Suffix",
+   "group": "ShockChanceIncrease",
+   "level": 45,
+   "text": [
+    "(71-80)% increased chance to Shock"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ShockChanceIncrease4",
+   "affix_type": "Suffix",
+   "group": "ShockChanceIncrease",
+   "level": 60,
+   "text": [
+    "(81-90)% increased chance to Shock"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ShockChanceIncrease5",
+   "affix_type": "Suffix",
+   "group": "ShockChanceIncrease",
+   "level": 75,
+   "text": [
+    "(91-100)% increased chance to Shock"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunDuration1",
+   "affix_type": "Suffix",
+   "group": "LocalStunDuration",
+   "level": 5,
+   "text": [
+    "(11-13)% increased Stun Duration"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunDuration2",
+   "affix_type": "Suffix",
+   "group": "LocalStunDuration",
+   "level": 18,
+   "text": [
+    "(14-16)% increased Stun Duration"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunDuration3",
+   "affix_type": "Suffix",
+   "group": "LocalStunDuration",
+   "level": 30,
+   "text": [
+    "(17-19)% increased Stun Duration"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunDuration4",
+   "affix_type": "Suffix",
+   "group": "LocalStunDuration",
+   "level": 44,
+   "text": [
+    "(20-22)% increased Stun Duration"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunDuration5",
+   "affix_type": "Suffix",
+   "group": "LocalStunDuration",
+   "level": 58,
+   "text": [
+    "(23-26)% increased Stun Duration"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunDuration6",
+   "affix_type": "Suffix",
+   "group": "LocalStunDuration",
+   "level": 71,
+   "text": [
+    "(27-30)% increased Stun Duration"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunDamageIncrease1",
+   "affix_type": "Suffix",
+   "group": "LocalStunDamageIncrease",
+   "level": 5,
+   "text": [
+    "Causes (21-30)% increased Stun Buildup"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunDamageIncrease2",
+   "affix_type": "Suffix",
+   "group": "LocalStunDamageIncrease",
+   "level": 20,
+   "text": [
+    "Causes (31-40)% increased Stun Buildup"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunDamageIncrease3",
+   "affix_type": "Suffix",
+   "group": "LocalStunDamageIncrease",
+   "level": 30,
+   "text": [
+    "Causes (41-50)% increased Stun Buildup"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunDamageIncrease4",
+   "affix_type": "Suffix",
+   "group": "LocalStunDamageIncrease",
+   "level": 44,
+   "text": [
+    "Causes (51-60)% increased Stun Buildup"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunDamageIncrease5",
+   "affix_type": "Suffix",
+   "group": "LocalStunDamageIncrease",
+   "level": 58,
+   "text": [
+    "Causes (61-70)% increased Stun Buildup"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunDamageIncrease6",
+   "affix_type": "Suffix",
+   "group": "LocalStunDamageIncrease",
+   "level": 74,
+   "text": [
+    "Causes (71-80)% increased Stun Buildup"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "WeaponElementalDamage1",
+   "affix_type": "Prefix",
+   "group": "IncreasedWeaponElementalDamagePercent",
+   "level": 4,
+   "text": [
+    "(19-35)% increased Elemental Damage with Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "WeaponElementalDamage2",
+   "affix_type": "Prefix",
+   "group": "IncreasedWeaponElementalDamagePercent",
+   "level": 16,
+   "text": [
+    "(36-52)% increased Elemental Damage with Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "WeaponElementalDamage3",
+   "affix_type": "Prefix",
+   "group": "IncreasedWeaponElementalDamagePercent",
+   "level": 33,
+   "text": [
+    "(53-62)% increased Elemental Damage with Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "WeaponElementalDamage4",
+   "affix_type": "Prefix",
+   "group": "IncreasedWeaponElementalDamagePercent",
+   "level": 46,
+   "text": [
+    "(63-72)% increased Elemental Damage with Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "WeaponElementalDamage5",
+   "affix_type": "Prefix",
+   "group": "IncreasedWeaponElementalDamagePercent",
+   "level": 60,
+   "text": [
+    "(73-86)% increased Elemental Damage with Attacks"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "WeaponElementalDamage6_",
+   "affix_type": "Prefix",
+   "group": "IncreasedWeaponElementalDamagePercent",
+   "level": 81,
+   "text": [
+    "(87-100)% increased Elemental Damage with Attacks"
    ],
    "weight": 1,
    "source": "base"
@@ -1179,7 +3062,5 @@
    "weight": 1,
    "source": "base"
   }
- ],
- "weights_source": "pob_real",
- "weights_note": "Real per-base spawn weights from Path of Building (ModItem.lua). Mods that can't roll on this base (weight 0) are removed."
+ ]
 }

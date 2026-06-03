@@ -1,18 +1,9 @@
 {
- "base": "Focus",
+ "base": "focus",
  "token": "focus",
- "tags": [
-  "armour",
-  "default",
-  "ezomyte_basetype",
-  "focus",
-  "int_armour",
-  "karui_basetype",
-  "maraketh_basetype",
-  "runeforged",
-  "vaal_basetype"
- ],
- "count": 140,
+ "count": 110,
+ "weights_source": "pob_real",
+ "weights_note": "Complete per-base mod pool + real spawn weights from Path of Building (ModItem.lua). Only mods that can roll on this base are included.",
  "mods": [
   {
    "mod_id": "Intelligence1",
@@ -1230,7 +1221,5 @@
    "weight": 1,
    "source": "base"
   }
- ],
- "weights_source": "pob_real",
- "weights_note": "Real per-base spawn weights from Path of Building (ModItem.lua). Mods that can't roll on this base (weight 0) are removed."
+ ]
 }

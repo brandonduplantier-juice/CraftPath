@@ -1,10 +1,98 @@
 {
- "base": "gloves_int",
- "token": "gloves_int",
- "count": 202,
+ "base": "boots_str_dex_int",
+ "token": "boots_str_dex_int",
+ "count": 200,
  "weights_source": "pob_real",
  "weights_note": "Complete per-base mod pool + real spawn weights from Path of Building (ModItem.lua). Only mods that can roll on this base are included.",
  "mods": [
+  {
+   "mod_id": "Strength1",
+   "affix_type": "Suffix",
+   "group": "Strength",
+   "level": 1,
+   "text": [
+    "+(5-8) to Strength"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "Strength2",
+   "affix_type": "Suffix",
+   "group": "Strength",
+   "level": 11,
+   "text": [
+    "+(9-12) to Strength"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "Strength3",
+   "affix_type": "Suffix",
+   "group": "Strength",
+   "level": 22,
+   "text": [
+    "+(13-16) to Strength"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "Strength4",
+   "affix_type": "Suffix",
+   "group": "Strength",
+   "level": 33,
+   "text": [
+    "+(17-20) to Strength"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "Strength5",
+   "affix_type": "Suffix",
+   "group": "Strength",
+   "level": 44,
+   "text": [
+    "+(21-24) to Strength"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "Strength6",
+   "affix_type": "Suffix",
+   "group": "Strength",
+   "level": 55,
+   "text": [
+    "+(25-27) to Strength"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "Strength7",
+   "affix_type": "Suffix",
+   "group": "Strength",
+   "level": 66,
+   "text": [
+    "+(28-30) to Strength"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "Strength8",
+   "affix_type": "Suffix",
+   "group": "Strength",
+   "level": 74,
+   "text": [
+    "+(31-33) to Strength"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
   {
    "mod_id": "Dexterity1",
    "affix_type": "Suffix",
@@ -89,17 +177,6 @@
    "level": 74,
    "text": [
     "+(31-33) to Dexterity"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "Dexterity9",
-   "affix_type": "Suffix",
-   "group": "Dexterity",
-   "level": 81,
-   "text": [
-    "+(34-36) to Dexterity"
    ],
    "weight": 1,
    "source": "base"
@@ -721,6 +798,248 @@
    "source": "base"
   },
   {
+   "mod_id": "LocalIncreasedPhysicalDamageReductionRating1",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamageReductionRating",
+   "level": 1,
+   "text": [
+    "+(16-27) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamageReductionRating2",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamageReductionRating",
+   "level": 8,
+   "text": [
+    "+(28-56) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamageReductionRating3",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamageReductionRating",
+   "level": 16,
+   "text": [
+    "+(57-77) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamageReductionRating4",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamageReductionRating",
+   "level": 25,
+   "text": [
+    "+(78-98) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamageReductionRating5",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamageReductionRating",
+   "level": 33,
+   "text": [
+    "+(99-127) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamageReductionRating6",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamageReductionRating",
+   "level": 46,
+   "text": [
+    "+(128-159) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamageReductionRating7__",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamageReductionRating",
+   "level": 54,
+   "text": [
+    "+(160-190) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamageReductionRating8",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamageReductionRating",
+   "level": 60,
+   "text": [
+    "+(191-221) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamageReductionRating9_",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamageReductionRating",
+   "level": 65,
+   "text": [
+    "+(222-248) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamageReductionRating10",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamageReductionRating",
+   "level": 75,
+   "text": [
+    "+(249-277) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedPhysicalDamageReductionRating11",
+   "affix_type": "Prefix",
+   "group": "LocalPhysicalDamageReductionRating",
+   "level": 79,
+   "text": [
+    "+(278-310) to Armour"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionRating1",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionRating",
+   "level": 1,
+   "text": [
+    "+(11-18) to Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionRating2",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionRating",
+   "level": 8,
+   "text": [
+    "+(19-46) to Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionRating3",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionRating",
+   "level": 16,
+   "text": [
+    "+(47-66) to Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionRating4",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionRating",
+   "level": 25,
+   "text": [
+    "+(67-87) to Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionRating5",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionRating",
+   "level": 33,
+   "text": [
+    "+(88-116) to Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionRating6",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionRating",
+   "level": 46,
+   "text": [
+    "+(117-146) to Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionRating7_",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionRating",
+   "level": 54,
+   "text": [
+    "+(147-176) to Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionRating8",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionRating",
+   "level": 60,
+   "text": [
+    "+(177-207) to Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionRating9___",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionRating",
+   "level": 65,
+   "text": [
+    "+(208-234) to Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionRating10",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionRating",
+   "level": 75,
+   "text": [
+    "+(235-261) to Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedEvasionRating11",
+   "affix_type": "Prefix",
+   "group": "LocalEvasionRating",
+   "level": 79,
+   "text": [
+    "+(262-300) to Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
    "mod_id": "LocalIncreasedEnergyShield1",
    "affix_type": "Prefix",
    "group": "LocalEnergyShield",
@@ -842,366 +1161,377 @@
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldPercent1",
+   "mod_id": "LocalBaseArmourAndEvasionRating1",
    "affix_type": "Prefix",
-   "group": "LocalEnergyShieldPercent",
-   "level": 2,
+   "group": "LocalBaseArmourAndEvasionRating",
+   "level": 1,
    "text": [
-    "(15-26)% increased Energy Shield"
+    "+(9-16) to Armour",
+    "+(6-10) to Evasion Rating"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldPercent2",
+   "mod_id": "LocalBaseArmourAndEvasionRating2",
    "affix_type": "Prefix",
-   "group": "LocalEnergyShieldPercent",
+   "group": "LocalBaseArmourAndEvasionRating",
    "level": 16,
    "text": [
-    "(27-42)% increased Energy Shield"
+    "+(17-46) to Armour",
+    "+(11-41) to Evasion Rating"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldPercent3",
+   "mod_id": "LocalBaseArmourAndEvasionRating3",
    "affix_type": "Prefix",
-   "group": "LocalEnergyShieldPercent",
+   "group": "LocalBaseArmourAndEvasionRating",
    "level": 33,
    "text": [
-    "(43-55)% increased Energy Shield"
+    "+(47-71) to Armour",
+    "+(42-64) to Evasion Rating"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldPercent4",
+   "mod_id": "LocalBaseArmourAndEvasionRating4",
    "affix_type": "Prefix",
-   "group": "LocalEnergyShieldPercent",
+   "group": "LocalBaseArmourAndEvasionRating",
    "level": 46,
    "text": [
-    "(56-67)% increased Energy Shield"
+    "+(72-85) to Armour",
+    "+(65-78) to Evasion Rating"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldPercent5",
+   "mod_id": "LocalBaseArmourAndEvasionRating5",
    "affix_type": "Prefix",
-   "group": "LocalEnergyShieldPercent",
+   "group": "LocalBaseArmourAndEvasionRating",
    "level": 54,
    "text": [
-    "(68-79)% increased Energy Shield"
+    "+(86-102) to Armour",
+    "+(79-94) to Evasion Rating"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldPercent6",
+   "mod_id": "LocalBaseArmourAndEvasionRating6_",
    "affix_type": "Prefix",
-   "group": "LocalEnergyShieldPercent",
+   "group": "LocalBaseArmourAndEvasionRating",
    "level": 60,
    "text": [
-    "(80-91)% increased Energy Shield"
+    "+(103-127) to Armour",
+    "+(95-119) to Evasion Rating"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldPercent7_",
+   "mod_id": "LocalBaseArmourAndEvasionRating7",
    "affix_type": "Prefix",
-   "group": "LocalEnergyShieldPercent",
+   "group": "LocalBaseArmourAndEvasionRating",
    "level": 65,
    "text": [
-    "(92-100)% increased Energy Shield"
+    "+(128-149) to Armour",
+    "+(120-141) to Evasion Rating"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalEnergyShieldAndStunThreshold1",
+   "mod_id": "LocalBaseArmourAndEvasionRating8",
    "affix_type": "Prefix",
-   "group": "LocalEnergyShieldAndStunThreshold",
-   "level": 10,
+   "group": "LocalBaseArmourAndEvasionRating",
+   "level": 75,
    "text": [
-    "(6-13)% increased Energy Shield",
-    "+(8-13) to Stun Threshold"
+    "+(150-170) to Armour",
+    "+(142-161) to Evasion Rating"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalEnergyShieldAndStunThreshold2",
+   "mod_id": "LocalBaseArmourAndEnergyShield1",
    "affix_type": "Prefix",
-   "group": "LocalEnergyShieldAndStunThreshold",
-   "level": 19,
+   "group": "LocalBaseArmourAndEnergyShield",
+   "level": 1,
    "text": [
-    "(14-20)% increased Energy Shield",
-    "+(14-24) to Stun Threshold"
+    "+(9-16) to Armour",
+    "+(5-8) to maximum Energy Shield"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalEnergyShieldAndStunThreshold3",
+   "mod_id": "LocalBaseArmourAndEnergyShield2_",
    "affix_type": "Prefix",
-   "group": "LocalEnergyShieldAndStunThreshold",
-   "level": 38,
-   "text": [
-    "(21-26)% increased Energy Shield",
-    "+(25-40) to Stun Threshold"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "LocalEnergyShieldAndStunThreshold4",
-   "affix_type": "Prefix",
-   "group": "LocalEnergyShieldAndStunThreshold",
-   "level": 48,
-   "text": [
-    "(27-32)% increased Energy Shield",
-    "+(41-63) to Stun Threshold"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "LocalEnergyShieldAndStunThreshold5",
-   "affix_type": "Prefix",
-   "group": "LocalEnergyShieldAndStunThreshold",
-   "level": 63,
-   "text": [
-    "(33-38)% increased Energy Shield",
-    "+(64-94) to Stun Threshold"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "LocalEnergyShieldAndStunThreshold6",
-   "affix_type": "Prefix",
-   "group": "LocalEnergyShieldAndStunThreshold",
-   "level": 74,
-   "text": [
-    "(39-42)% increased Energy Shield",
-    "+(95-136) to Stun Threshold"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "LocalIncreasedEnergyShieldAndLife1",
-   "affix_type": "Prefix",
-   "group": "LocalIncreasedEnergyShieldAndLife",
-   "level": 8,
-   "text": [
-    "(6-13)% increased Energy Shield",
-    "+(7-10) to maximum Life"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "LocalIncreasedEnergyShieldAndLife2",
-   "affix_type": "Prefix",
-   "group": "LocalIncreasedEnergyShieldAndLife",
+   "group": "LocalBaseArmourAndEnergyShield",
    "level": 16,
    "text": [
-    "(14-20)% increased Energy Shield",
-    "+(11-19) to maximum Life"
+    "+(17-46) to Armour",
+    "+(9-15) to maximum Energy Shield"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldAndLife3",
+   "mod_id": "LocalBaseArmourAndEnergyShield3",
    "affix_type": "Prefix",
-   "group": "LocalIncreasedEnergyShieldAndLife",
+   "group": "LocalBaseArmourAndEnergyShield",
    "level": 33,
    "text": [
-    "(21-26)% increased Energy Shield",
-    "+(20-25) to maximum Life"
+    "+(47-71) to Armour",
+    "+(16-21) to maximum Energy Shield"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldAndLife4",
+   "mod_id": "LocalBaseArmourAndEnergyShield4",
    "affix_type": "Prefix",
-   "group": "LocalIncreasedEnergyShieldAndLife",
+   "group": "LocalBaseArmourAndEnergyShield",
    "level": 46,
    "text": [
-    "(27-32)% increased Energy Shield",
-    "+(26-32) to maximum Life"
+    "+(72-85) to Armour",
+    "+(22-25) to maximum Energy Shield"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldAndLife5",
+   "mod_id": "LocalBaseArmourAndEnergyShield5",
    "affix_type": "Prefix",
-   "group": "LocalIncreasedEnergyShieldAndLife",
+   "group": "LocalBaseArmourAndEnergyShield",
+   "level": 54,
+   "text": [
+    "+(86-102) to Armour",
+    "+(26-29) to maximum Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalBaseArmourAndEnergyShield6",
+   "affix_type": "Prefix",
+   "group": "LocalBaseArmourAndEnergyShield",
    "level": 60,
    "text": [
-    "(33-38)% increased Energy Shield",
-    "+(33-41) to maximum Life"
+    "+(103-127) to Armour",
+    "+(30-36) to maximum Energy Shield"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldAndLife6",
+   "mod_id": "LocalBaseArmourAndEnergyShield7",
    "affix_type": "Prefix",
-   "group": "LocalIncreasedEnergyShieldAndLife",
-   "level": 78,
+   "group": "LocalBaseArmourAndEnergyShield",
+   "level": 65,
    "text": [
-    "(39-42)% increased Energy Shield",
-    "+(42-49) to maximum Life"
+    "+(128-149) to Armour",
+    "+(37-42) to maximum Energy Shield"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldAndMana1",
+   "mod_id": "LocalBaseArmourAndEnergyShield8",
    "affix_type": "Prefix",
-   "group": "LocalIncreasedEnergyShieldAndMana",
-   "level": 8,
+   "group": "LocalBaseArmourAndEnergyShield",
+   "level": 75,
    "text": [
-    "(6-13)% increased Energy Shield",
-    "+(6-8) to maximum Mana"
+    "+(150-170) to Armour",
+    "+(43-48) to maximum Energy Shield"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldAndMana2",
+   "mod_id": "LocalBaseEvasionRatingAndEnergyShield1",
    "affix_type": "Prefix",
-   "group": "LocalIncreasedEnergyShieldAndMana",
+   "group": "LocalBaseEvasionRatingAndEnergyShield",
+   "level": 1,
+   "text": [
+    "+(6-10) to Evasion Rating",
+    "+(5-8) to maximum Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalBaseEvasionRatingAndEnergyShield2",
+   "affix_type": "Prefix",
+   "group": "LocalBaseEvasionRatingAndEnergyShield",
    "level": 16,
    "text": [
-    "(14-20)% increased Energy Shield",
-    "+(9-16) to maximum Mana"
+    "+(11-41) to Evasion Rating",
+    "+(9-15) to maximum Energy Shield"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldAndMana3",
+   "mod_id": "LocalBaseEvasionRatingAndEnergyShield3",
    "affix_type": "Prefix",
-   "group": "LocalIncreasedEnergyShieldAndMana",
+   "group": "LocalBaseEvasionRatingAndEnergyShield",
    "level": 33,
    "text": [
-    "(21-26)% increased Energy Shield",
-    "+(17-20) to maximum Mana"
+    "+(42-64) to Evasion Rating",
+    "+(16-21) to maximum Energy Shield"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldAndMana4",
+   "mod_id": "LocalBaseEvasionRatingAndEnergyShield4",
    "affix_type": "Prefix",
-   "group": "LocalIncreasedEnergyShieldAndMana",
+   "group": "LocalBaseEvasionRatingAndEnergyShield",
    "level": 46,
    "text": [
-    "(27-32)% increased Energy Shield",
-    "+(21-26) to maximum Mana"
+    "+(65-78) to Evasion Rating",
+    "+(22-25) to maximum Energy Shield"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldAndMana5",
+   "mod_id": "LocalBaseEvasionRatingAndEnergyShield5_",
    "affix_type": "Prefix",
-   "group": "LocalIncreasedEnergyShieldAndMana",
+   "group": "LocalBaseEvasionRatingAndEnergyShield",
+   "level": 54,
+   "text": [
+    "+(79-94) to Evasion Rating",
+    "+(26-29) to maximum Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalBaseEvasionRatingAndEnergyShield6",
+   "affix_type": "Prefix",
+   "group": "LocalBaseEvasionRatingAndEnergyShield",
    "level": 60,
    "text": [
-    "(33-38)% increased Energy Shield",
-    "+(27-32) to maximum Mana"
+    "+(95-119) to Evasion Rating",
+    "+(30-36) to maximum Energy Shield"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldAndMana6",
+   "mod_id": "LocalBaseEvasionRatingAndEnergyShield7___",
    "affix_type": "Prefix",
-   "group": "LocalIncreasedEnergyShieldAndMana",
-   "level": 78,
+   "group": "LocalBaseEvasionRatingAndEnergyShield",
+   "level": 65,
    "text": [
-    "(39-42)% increased Energy Shield",
-    "+(33-39) to maximum Mana"
+    "+(120-141) to Evasion Rating",
+    "+(37-42) to maximum Energy Shield"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldAndBase1",
+   "mod_id": "LocalBaseEvasionRatingAndEnergyShield8___",
    "affix_type": "Prefix",
-   "group": "LocalIncreasedEnergyShieldAndBase",
-   "level": 8,
+   "group": "LocalBaseEvasionRatingAndEnergyShield",
+   "level": 75,
    "text": [
-    "+(4-7) to maximum Energy Shield",
-    "(6-13)% increased Energy Shield"
+    "+(142-161) to Evasion Rating",
+    "+(43-48) to maximum Energy Shield"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldAndBase2",
+   "mod_id": "LocalIncreasedArmourAndEvasionAndEnergyShield1",
    "affix_type": "Prefix",
-   "group": "LocalIncreasedEnergyShieldAndBase",
+   "group": "LocalArmourAndEvasionAndEnergyShield",
+   "level": 2,
+   "text": [
+    "(15-26)% increased Armour, Evasion and Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEvasionAndEnergyShield2",
+   "affix_type": "Prefix",
+   "group": "LocalArmourAndEvasionAndEnergyShield",
    "level": 16,
    "text": [
-    "+(8-13) to maximum Energy Shield",
-    "(14-20)% increased Energy Shield"
+    "(27-42)% increased Armour, Evasion and Energy Shield"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldAndBase3",
+   "mod_id": "LocalIncreasedArmourAndEvasionAndEnergyShield3",
    "affix_type": "Prefix",
-   "group": "LocalIncreasedEnergyShieldAndBase",
+   "group": "LocalArmourAndEvasionAndEnergyShield",
    "level": 33,
    "text": [
-    "+(14-16) to maximum Energy Shield",
-    "(21-26)% increased Energy Shield"
+    "(43-55)% increased Armour, Evasion and Energy Shield"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldAndBase4",
+   "mod_id": "LocalIncreasedArmourAndEvasionAndEnergyShield4",
    "affix_type": "Prefix",
-   "group": "LocalIncreasedEnergyShieldAndBase",
+   "group": "LocalArmourAndEvasionAndEnergyShield",
    "level": 46,
    "text": [
-    "+(17-20) to maximum Energy Shield",
-    "(27-32)% increased Energy Shield"
+    "(56-67)% increased Armour, Evasion and Energy Shield"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldAndBase5",
+   "mod_id": "LocalIncreasedArmourAndEvasionAndEnergyShield5",
    "affix_type": "Prefix",
-   "group": "LocalIncreasedEnergyShieldAndBase",
+   "group": "LocalArmourAndEvasionAndEnergyShield",
+   "level": 54,
+   "text": [
+    "(68-79)% increased Armour, Evasion and Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEvasionAndEnergyShield6",
+   "affix_type": "Prefix",
+   "group": "LocalArmourAndEvasionAndEnergyShield",
    "level": 60,
    "text": [
-    "+(21-25) to maximum Energy Shield",
-    "(33-38)% increased Energy Shield"
+    "(80-91)% increased Armour, Evasion and Energy Shield"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LocalIncreasedEnergyShieldAndBase6",
+   "mod_id": "LocalIncreasedArmourAndEvasionAndEnergyShield7",
    "affix_type": "Prefix",
-   "group": "LocalIncreasedEnergyShieldAndBase",
-   "level": 78,
+   "group": "LocalArmourAndEvasionAndEnergyShield",
+   "level": 65,
    "text": [
-    "+(26-30) to maximum Energy Shield",
-    "(39-42)% increased Energy Shield"
+    "(92-100)% increased Armour, Evasion and Energy Shield"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LocalIncreasedArmourAndEvasionAndEnergyShield8",
+   "affix_type": "Prefix",
+   "group": "LocalArmourAndEvasionAndEnergyShield",
+   "level": 75,
+   "text": [
+    "(101-110)% increased Armour, Evasion and Energy Shield"
    ],
    "weight": 1,
    "source": "base"
@@ -1262,925 +1592,276 @@
    "source": "base"
   },
   {
-   "mod_id": "AddedPhysicalDamage1",
-   "affix_type": "Prefix",
-   "group": "PhysicalDamage",
+   "mod_id": "StunThreshold1",
+   "affix_type": "Suffix",
+   "group": "StunThreshold",
    "level": 1,
    "text": [
-    "Adds (1-2) to 3 Physical Damage to Attacks"
+    "+(6-11) to Stun Threshold"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "AddedPhysicalDamage2",
-   "affix_type": "Prefix",
-   "group": "PhysicalDamage",
+   "mod_id": "StunThreshold2",
+   "affix_type": "Suffix",
+   "group": "StunThreshold",
    "level": 8,
    "text": [
-    "Adds (2-3) to (4-6) Physical Damage to Attacks"
+    "+(12-29) to Stun Threshold"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "AddedPhysicalDamage3",
-   "affix_type": "Prefix",
-   "group": "PhysicalDamage",
-   "level": 16,
-   "text": [
-    "Adds (2-4) to (5-8) Physical Damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedPhysicalDamage4",
-   "affix_type": "Prefix",
-   "group": "PhysicalDamage",
-   "level": 33,
-   "text": [
-    "Adds (4-6) to (8-11) Physical Damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedPhysicalDamage5",
-   "affix_type": "Prefix",
-   "group": "PhysicalDamage",
-   "level": 46,
-   "text": [
-    "Adds (5-7) to (9-13) Physical Damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedPhysicalDamage6",
-   "affix_type": "Prefix",
-   "group": "PhysicalDamage",
-   "level": 54,
-   "text": [
-    "Adds (6-10) to (12-17) Physical Damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedPhysicalDamage7",
-   "affix_type": "Prefix",
-   "group": "PhysicalDamage",
-   "level": 60,
-   "text": [
-    "Adds (7-11) to (14-20) Physical Damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedPhysicalDamage8",
-   "affix_type": "Prefix",
-   "group": "PhysicalDamage",
-   "level": 65,
-   "text": [
-    "Adds (10-15) to (18-26) Physical Damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedPhysicalDamage9",
-   "affix_type": "Prefix",
-   "group": "PhysicalDamage",
-   "level": 75,
-   "text": [
-    "Adds (12-19) to (22-32) Physical Damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedFireDamage1",
-   "affix_type": "Prefix",
-   "group": "FireDamage",
-   "level": 1,
-   "text": [
-    "Adds (1-2) to 3 Fire damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedFireDamage2",
-   "affix_type": "Prefix",
-   "group": "FireDamage",
-   "level": 8,
-   "text": [
-    "Adds (3-5) to (6-9) Fire damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedFireDamage3",
-   "affix_type": "Prefix",
-   "group": "FireDamage",
-   "level": 16,
-   "text": [
-    "Adds (6-8) to (10-13) Fire damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedFireDamage4",
-   "affix_type": "Prefix",
-   "group": "FireDamage",
-   "level": 33,
-   "text": [
-    "Adds (9-11) to (14-17) Fire damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedFireDamage5",
-   "affix_type": "Prefix",
-   "group": "FireDamage",
-   "level": 46,
-   "text": [
-    "Adds (12-13) to (18-20) Fire damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedFireDamage6",
-   "affix_type": "Prefix",
-   "group": "FireDamage",
-   "level": 54,
-   "text": [
-    "Adds (11-16) to (21-26) Fire damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedFireDamage7",
-   "affix_type": "Prefix",
-   "group": "FireDamage",
-   "level": 60,
-   "text": [
-    "Adds (13-19) to (27-32) Fire damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedFireDamage8",
-   "affix_type": "Prefix",
-   "group": "FireDamage",
-   "level": 65,
-   "text": [
-    "Adds (20-24) to (33-36) Fire damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedFireDamage9",
-   "affix_type": "Prefix",
-   "group": "FireDamage",
-   "level": 75,
-   "text": [
-    "Adds (25-29) to (37-45) Fire damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedColdDamage1",
-   "affix_type": "Prefix",
-   "group": "ColdDamage",
-   "level": 1,
-   "text": [
-    "Adds 1 to (2-3) Cold damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedColdDamage2",
-   "affix_type": "Prefix",
-   "group": "ColdDamage",
-   "level": 8,
-   "text": [
-    "Adds (3-4) to (5-8) Cold damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedColdDamage3",
-   "affix_type": "Prefix",
-   "group": "ColdDamage",
-   "level": 16,
-   "text": [
-    "Adds (5-6) to (9-11) Cold damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedColdDamage4",
-   "affix_type": "Prefix",
-   "group": "ColdDamage",
-   "level": 33,
-   "text": [
-    "Adds (7-8) to (12-14) Cold damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedColdDamage5",
-   "affix_type": "Prefix",
-   "group": "ColdDamage",
-   "level": 46,
-   "text": [
-    "Adds (9-10) to (15-17) Cold damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedColdDamage6",
-   "affix_type": "Prefix",
-   "group": "ColdDamage",
-   "level": 54,
-   "text": [
-    "Adds (11-13) to (18-21) Cold damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedColdDamage7",
-   "affix_type": "Prefix",
-   "group": "ColdDamage",
-   "level": 60,
-   "text": [
-    "Adds (14-15) to (22-24) Cold damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedColdDamage8",
-   "affix_type": "Prefix",
-   "group": "ColdDamage",
-   "level": 65,
-   "text": [
-    "Adds (16-20) to (25-31) Cold damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedColdDamage9",
-   "affix_type": "Prefix",
-   "group": "ColdDamage",
-   "level": 75,
-   "text": [
-    "Adds (21-24) to (32-37) Cold damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedLightningDamage1",
-   "affix_type": "Prefix",
-   "group": "LightningDamage",
-   "level": 1,
-   "text": [
-    "Adds 1 to (4-6) Lightning damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedLightningDamage2",
-   "affix_type": "Prefix",
-   "group": "LightningDamage",
-   "level": 8,
-   "text": [
-    "Adds 1 to (10-15) Lightning damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedLightningDamage3",
-   "affix_type": "Prefix",
-   "group": "LightningDamage",
-   "level": 16,
-   "text": [
-    "Adds 1 to (16-22) Lightning damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedLightningDamage4",
-   "affix_type": "Prefix",
-   "group": "LightningDamage",
-   "level": 33,
-   "text": [
-    "Adds 1 to (23-27) Lightning damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedLightningDamage5",
-   "affix_type": "Prefix",
-   "group": "LightningDamage",
-   "level": 46,
-   "text": [
-    "Adds 1 to (28-32) Lightning damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedLightningDamage6",
-   "affix_type": "Prefix",
-   "group": "LightningDamage",
-   "level": 54,
-   "text": [
-    "Adds (1-2) to (33-40) Lightning damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedLightningDamage7",
-   "affix_type": "Prefix",
-   "group": "LightningDamage",
-   "level": 60,
-   "text": [
-    "Adds (1-2) to (41-47) Lightning damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedLightningDamage8",
-   "affix_type": "Prefix",
-   "group": "LightningDamage",
-   "level": 65,
-   "text": [
-    "Adds (1-3) to (48-59) Lightning damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "AddedLightningDamage9",
-   "affix_type": "Prefix",
-   "group": "LightningDamage",
-   "level": 75,
-   "text": [
-    "Adds (1-4) to (60-71) Lightning damage to Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "GlobalMeleeSkillGemLevel1",
+   "mod_id": "StunThreshold3",
    "affix_type": "Suffix",
-   "group": "GlobalIncreaseMeleeSkillGemLevel",
-   "level": 5,
+   "group": "StunThreshold",
+   "level": 15,
    "text": [
-    "+1 to Level of all Melee Skills"
+    "+(30-49) to Stun Threshold"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "GlobalMeleeSkillGemLevel2",
+   "mod_id": "StunThreshold4",
    "affix_type": "Suffix",
-   "group": "GlobalIncreaseMeleeSkillGemLevel",
-   "level": 41,
-   "text": [
-    "+2 to Level of all Melee Skills"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "LifeLeech2",
-   "affix_type": "Suffix",
-   "group": "LifeLeechPermyriad",
-   "level": 21,
-   "text": [
-    "Leech (6-6.9)% of Physical Attack Damage as Life"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "LifeLeech3",
-   "affix_type": "Suffix",
-   "group": "LifeLeechPermyriad",
-   "level": 38,
-   "text": [
-    "Leech (7-7.9)% of Physical Attack Damage as Life"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "LifeLeech4",
-   "affix_type": "Suffix",
-   "group": "LifeLeechPermyriad",
-   "level": 54,
-   "text": [
-    "Leech (8-8.9)% of Physical Attack Damage as Life"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "LifeLeech5",
-   "affix_type": "Suffix",
-   "group": "LifeLeechPermyriad",
-   "level": 65,
-   "text": [
-    "Leech (9-9.9)% of Physical Attack Damage as Life"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "ManaLeech2",
-   "affix_type": "Suffix",
-   "group": "ManaLeechPermyriad",
-   "level": 21,
-   "text": [
-    "Leech (5-5.9)% of Physical Attack Damage as Mana"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "ManaLeech3",
-   "affix_type": "Suffix",
-   "group": "ManaLeechPermyriad",
-   "level": 38,
-   "text": [
-    "Leech (6-6.9)% of Physical Attack Damage as Mana"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "ManaLeech4",
-   "affix_type": "Suffix",
-   "group": "ManaLeechPermyriad",
-   "level": 54,
-   "text": [
-    "Leech (7-7.9)% of Physical Attack Damage as Mana"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "ManaLeech5",
-   "affix_type": "Suffix",
-   "group": "ManaLeechPermyriad",
-   "level": 65,
-   "text": [
-    "Leech (8-8.9)% of Physical Attack Damage as Mana"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "LifeGainedFromEnemyDeath1",
-   "affix_type": "Suffix",
-   "group": "LifeGainedFromEnemyDeath",
-   "level": 1,
-   "text": [
-    "Gain (4-6) Life per enemy killed"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "LifeGainedFromEnemyDeath2",
-   "affix_type": "Suffix",
-   "group": "LifeGainedFromEnemyDeath",
-   "level": 11,
-   "text": [
-    "Gain (7-9) Life per enemy killed"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "LifeGainedFromEnemyDeath3",
-   "affix_type": "Suffix",
-   "group": "LifeGainedFromEnemyDeath",
+   "group": "StunThreshold",
    "level": 22,
    "text": [
-    "Gain (10-18) Life per enemy killed"
+    "+(50-72) to Stun Threshold"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LifeGainedFromEnemyDeath4",
+   "mod_id": "StunThreshold5",
    "affix_type": "Suffix",
-   "group": "LifeGainedFromEnemyDeath",
-   "level": 33,
+   "group": "StunThreshold",
+   "level": 29,
    "text": [
-    "Gain (19-28) Life per enemy killed"
+    "+(73-97) to Stun Threshold"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "LifeGainedFromEnemyDeath5",
+   "mod_id": "StunThreshold6",
    "affix_type": "Suffix",
-   "group": "LifeGainedFromEnemyDeath",
-   "level": 44,
-   "text": [
-    "Gain (29-40) Life per enemy killed"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "LifeGainedFromEnemyDeath6",
-   "affix_type": "Suffix",
-   "group": "LifeGainedFromEnemyDeath",
-   "level": 55,
-   "text": [
-    "Gain (41-53) Life per enemy killed"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "LifeGainedFromEnemyDeath7",
-   "affix_type": "Suffix",
-   "group": "LifeGainedFromEnemyDeath",
-   "level": 66,
-   "text": [
-    "Gain (54-68) Life per enemy killed"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "LifeGainedFromEnemyDeath8",
-   "affix_type": "Suffix",
-   "group": "LifeGainedFromEnemyDeath",
-   "level": 77,
-   "text": [
-    "Gain (69-84) Life per enemy killed"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "ManaGainedFromEnemyDeath1",
-   "affix_type": "Suffix",
-   "group": "ManaGainedFromEnemyDeath",
-   "level": 1,
-   "text": [
-    "Gain (2-3) Mana per enemy killed"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "ManaGainedFromEnemyDeath2",
-   "affix_type": "Suffix",
-   "group": "ManaGainedFromEnemyDeath",
-   "level": 12,
-   "text": [
-    "Gain (4-5) Mana per enemy killed"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "ManaGainedFromEnemyDeath3",
-   "affix_type": "Suffix",
-   "group": "ManaGainedFromEnemyDeath",
-   "level": 23,
-   "text": [
-    "Gain (6-9) Mana per enemy killed"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "ManaGainedFromEnemyDeath4",
-   "affix_type": "Suffix",
-   "group": "ManaGainedFromEnemyDeath",
-   "level": 34,
-   "text": [
-    "Gain (10-14) Mana per enemy killed"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "ManaGainedFromEnemyDeath5",
-   "affix_type": "Suffix",
-   "group": "ManaGainedFromEnemyDeath",
-   "level": 45,
-   "text": [
-    "Gain (15-20) Mana per enemy killed"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "ManaGainedFromEnemyDeath6",
-   "affix_type": "Suffix",
-   "group": "ManaGainedFromEnemyDeath",
-   "level": 56,
-   "text": [
-    "Gain (21-27) Mana per enemy killed"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "ManaGainedFromEnemyDeath7",
-   "affix_type": "Suffix",
-   "group": "ManaGainedFromEnemyDeath",
-   "level": 67,
-   "text": [
-    "Gain (28-35) Mana per enemy killed"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "ManaGainedFromEnemyDeath8",
-   "affix_type": "Suffix",
-   "group": "ManaGainedFromEnemyDeath",
-   "level": 78,
-   "text": [
-    "Gain (36-45) Mana per enemy killed"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "LifeGainPerTarget1",
-   "affix_type": "Suffix",
-   "group": "LifeGainPerTarget",
-   "level": 8,
-   "text": [
-    "Gain 2 Life per Enemy Hit with Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "LifeGainPerTarget2",
-   "affix_type": "Suffix",
-   "group": "LifeGainPerTarget",
-   "level": 20,
-   "text": [
-    "Gain 3 Life per Enemy Hit with Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "LifeGainPerTarget3",
-   "affix_type": "Suffix",
-   "group": "LifeGainPerTarget",
-   "level": 30,
-   "text": [
-    "Gain 4 Life per Enemy Hit with Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "LifeGainPerTarget4",
-   "affix_type": "Suffix",
-   "group": "LifeGainPerTarget",
-   "level": 40,
-   "text": [
-    "Gain 5 Life per Enemy Hit with Attacks"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "IncreasedAttackSpeed1",
-   "affix_type": "Suffix",
-   "group": "IncreasedAttackSpeed",
-   "level": 1,
-   "text": [
-    "(5-7)% increased Attack Speed"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "IncreasedAttackSpeed2",
-   "affix_type": "Suffix",
-   "group": "IncreasedAttackSpeed",
-   "level": 22,
-   "text": [
-    "(8-10)% increased Attack Speed"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "IncreasedAttackSpeed3",
-   "affix_type": "Suffix",
-   "group": "IncreasedAttackSpeed",
-   "level": 37,
-   "text": [
-    "(11-13)% increased Attack Speed"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "IncreasedAttackSpeed4",
-   "affix_type": "Suffix",
-   "group": "IncreasedAttackSpeed",
-   "level": 60,
-   "text": [
-    "(14-16)% increased Attack Speed"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "IncreasedAccuracy1",
-   "affix_type": "Prefix",
-   "group": "IncreasedAccuracy",
-   "level": 1,
-   "text": [
-    "+(11-32) to Accuracy Rating"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "IncreasedAccuracy2",
-   "affix_type": "Prefix",
-   "group": "IncreasedAccuracy",
-   "level": 11,
-   "text": [
-    "+(33-60) to Accuracy Rating"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "IncreasedAccuracy3",
-   "affix_type": "Prefix",
-   "group": "IncreasedAccuracy",
-   "level": 18,
-   "text": [
-    "+(61-84) to Accuracy Rating"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "IncreasedAccuracy4",
-   "affix_type": "Prefix",
-   "group": "IncreasedAccuracy",
-   "level": 26,
-   "text": [
-    "+(85-123) to Accuracy Rating"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "IncreasedAccuracy5",
-   "affix_type": "Prefix",
-   "group": "IncreasedAccuracy",
+   "group": "StunThreshold",
    "level": 36,
    "text": [
-    "+(124-167) to Accuracy Rating"
+    "+(98-124) to Stun Threshold"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "IncreasedAccuracy6",
-   "affix_type": "Prefix",
-   "group": "IncreasedAccuracy",
-   "level": 48,
-   "text": [
-    "+(168-236) to Accuracy Rating"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "IncreasedAccuracy7",
-   "affix_type": "Prefix",
-   "group": "IncreasedAccuracy",
-   "level": 58,
-   "text": [
-    "+(237-346) to Accuracy Rating"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "IncreasedAccuracy8",
-   "affix_type": "Prefix",
-   "group": "IncreasedAccuracy",
-   "level": 67,
-   "text": [
-    "+(347-450) to Accuracy Rating"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "IncreasedAccuracy9",
-   "affix_type": "Prefix",
-   "group": "IncreasedAccuracy",
-   "level": 76,
-   "text": [
-    "+(451-550) to Accuracy Rating"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "CriticalMultiplier1",
+   "mod_id": "StunThreshold7",
    "affix_type": "Suffix",
-   "group": "CriticalStrikeMultiplier",
-   "level": 8,
-   "text": [
-    "(10-14)% increased Critical Damage Bonus"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "CriticalMultiplier2",
-   "affix_type": "Suffix",
-   "group": "CriticalStrikeMultiplier",
-   "level": 21,
-   "text": [
-    "(15-19)% increased Critical Damage Bonus"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "CriticalMultiplier3",
-   "affix_type": "Suffix",
-   "group": "CriticalStrikeMultiplier",
-   "level": 31,
-   "text": [
-    "(20-24)% increased Critical Damage Bonus"
-   ],
-   "weight": 1,
-   "source": "base"
-  },
-  {
-   "mod_id": "CriticalMultiplier4",
-   "affix_type": "Suffix",
-   "group": "CriticalStrikeMultiplier",
+   "group": "StunThreshold",
    "level": 45,
    "text": [
-    "(25-29)% increased Critical Damage Bonus"
+    "+(125-163) to Stun Threshold"
    ],
    "weight": 1,
    "source": "base"
   },
   {
-   "mod_id": "CriticalMultiplier5",
+   "mod_id": "StunThreshold8",
    "affix_type": "Suffix",
-   "group": "CriticalStrikeMultiplier",
-   "level": 59,
+   "group": "StunThreshold",
+   "level": 54,
    "text": [
-    "(30-34)% increased Critical Damage Bonus"
+    "+(164-206) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunThreshold9",
+   "affix_type": "Suffix",
+   "group": "StunThreshold",
+   "level": 63,
+   "text": [
+    "+(207-253) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunThreshold10",
+   "affix_type": "Suffix",
+   "group": "StunThreshold",
+   "level": 72,
+   "text": [
+    "+(254-304) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "StunThreshold11",
+   "affix_type": "Suffix",
+   "group": "StunThreshold",
+   "level": 80,
+   "text": [
+    "+(305-352) to Stun Threshold"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "MovementVelocity1",
+   "affix_type": "Prefix",
+   "group": "MovementVelocity",
+   "level": 1,
+   "text": [
+    "10% increased Movement Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "MovementVelocity2",
+   "affix_type": "Prefix",
+   "group": "MovementVelocity",
+   "level": 16,
+   "text": [
+    "15% increased Movement Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "MovementVelocity3",
+   "affix_type": "Prefix",
+   "group": "MovementVelocity",
+   "level": 33,
+   "text": [
+    "20% increased Movement Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "MovementVelocity4",
+   "affix_type": "Prefix",
+   "group": "MovementVelocity",
+   "level": 46,
+   "text": [
+    "25% increased Movement Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "MovementVelocity5",
+   "affix_type": "Prefix",
+   "group": "MovementVelocity",
+   "level": 65,
+   "text": [
+    "30% increased Movement Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "MovementVelocity6",
+   "affix_type": "Prefix",
+   "group": "MovementVelocity",
+   "level": 82,
+   "text": [
+    "35% increased Movement Speed"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeRegeneration1",
+   "affix_type": "Suffix",
+   "group": "LifeRegeneration",
+   "level": 1,
+   "text": [
+    "(1-2) Life Regeneration per second"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeRegeneration2",
+   "affix_type": "Suffix",
+   "group": "LifeRegeneration",
+   "level": 5,
+   "text": [
+    "(2.1-3) Life Regeneration per second"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeRegeneration3",
+   "affix_type": "Suffix",
+   "group": "LifeRegeneration",
+   "level": 11,
+   "text": [
+    "(3.1-4) Life Regeneration per second"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeRegeneration4",
+   "affix_type": "Suffix",
+   "group": "LifeRegeneration",
+   "level": 17,
+   "text": [
+    "(4.1-6) Life Regeneration per second"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeRegeneration5",
+   "affix_type": "Suffix",
+   "group": "LifeRegeneration",
+   "level": 26,
+   "text": [
+    "(6.1-9) Life Regeneration per second"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeRegeneration6",
+   "affix_type": "Suffix",
+   "group": "LifeRegeneration",
+   "level": 35,
+   "text": [
+    "(9.1-13) Life Regeneration per second"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeRegeneration7",
+   "affix_type": "Suffix",
+   "group": "LifeRegeneration",
+   "level": 47,
+   "text": [
+    "(13.1-18) Life Regeneration per second"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "LifeRegeneration8_",
+   "affix_type": "Suffix",
+   "group": "LifeRegeneration",
+   "level": 58,
+   "text": [
+    "(18.1-23) Life Regeneration per second"
    ],
    "weight": 1,
    "source": "base"
@@ -2219,6 +1900,171 @@
    "source": "base"
   },
   {
+   "mod_id": "ReducedShockDuration1",
+   "affix_type": "Suffix",
+   "group": "ReducedShockDuration",
+   "level": 20,
+   "text": [
+    "(36-40)% reduced Shock duration on you"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ReducedShockDuration2",
+   "affix_type": "Suffix",
+   "group": "ReducedShockDuration",
+   "level": 36,
+   "text": [
+    "(41-45)% reduced Shock duration on you"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ReducedShockDuration3",
+   "affix_type": "Suffix",
+   "group": "ReducedShockDuration",
+   "level": 49,
+   "text": [
+    "(46-50)% reduced Shock duration on you"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ReducedShockDuration4",
+   "affix_type": "Suffix",
+   "group": "ReducedShockDuration",
+   "level": 63,
+   "text": [
+    "(51-55)% reduced Shock duration on you"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ReducedShockDuration5",
+   "affix_type": "Suffix",
+   "group": "ReducedShockDuration",
+   "level": 75,
+   "text": [
+    "(56-60)% reduced Shock duration on you"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ReducedChillDuration1",
+   "affix_type": "Suffix",
+   "group": "ReducedChillDuration",
+   "level": 20,
+   "text": [
+    "(36-40)% reduced Chill Duration on you"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ReducedChillDuration2",
+   "affix_type": "Suffix",
+   "group": "ReducedChillDuration",
+   "level": 36,
+   "text": [
+    "(41-45)% reduced Chill Duration on you"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ReducedChillDuration3",
+   "affix_type": "Suffix",
+   "group": "ReducedChillDuration",
+   "level": 49,
+   "text": [
+    "(46-50)% reduced Chill Duration on you"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ReducedChillDuration4",
+   "affix_type": "Suffix",
+   "group": "ReducedChillDuration",
+   "level": 63,
+   "text": [
+    "(51-55)% reduced Chill Duration on you"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ReducedChillDuration5",
+   "affix_type": "Suffix",
+   "group": "ReducedChillDuration",
+   "level": 75,
+   "text": [
+    "(56-60)% reduced Chill Duration on you"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ReducedFreezeDuration1",
+   "affix_type": "Suffix",
+   "group": "ReducedFreezeDuration",
+   "level": 20,
+   "text": [
+    "(36-40)% reduced Freeze Duration on you"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ReducedFreezeDuration2",
+   "affix_type": "Suffix",
+   "group": "ReducedFreezeDuration",
+   "level": 36,
+   "text": [
+    "(41-45)% reduced Freeze Duration on you"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ReducedFreezeDuration3",
+   "affix_type": "Suffix",
+   "group": "ReducedFreezeDuration",
+   "level": 49,
+   "text": [
+    "(46-50)% reduced Freeze Duration on you"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ReducedFreezeDuration4",
+   "affix_type": "Suffix",
+   "group": "ReducedFreezeDuration",
+   "level": 63,
+   "text": [
+    "(51-55)% reduced Freeze Duration on you"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ReducedFreezeDuration5",
+   "affix_type": "Suffix",
+   "group": "ReducedFreezeDuration",
+   "level": 75,
+   "text": [
+    "(56-60)% reduced Freeze Duration on you"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
    "mod_id": "EnergyShieldRechargeRate4",
    "affix_type": "Suffix",
    "group": "EnergyShieldRegeneration",
@@ -2247,6 +2093,138 @@
    "level": 81,
    "text": [
     "(24-27)% increased Energy Shield Recharge Rate"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ArmourAppliesToElementalDamage1",
+   "affix_type": "Suffix",
+   "group": "ArmourAppliesToElementalDamage",
+   "level": 1,
+   "text": [
+    "+(14-19)% of Armour also applies to Elemental Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ArmourAppliesToElementalDamage2",
+   "affix_type": "Suffix",
+   "group": "ArmourAppliesToElementalDamage",
+   "level": 16,
+   "text": [
+    "+(20-25)% of Armour also applies to Elemental Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ArmourAppliesToElementalDamage3",
+   "affix_type": "Suffix",
+   "group": "ArmourAppliesToElementalDamage",
+   "level": 36,
+   "text": [
+    "+(26-31)% of Armour also applies to Elemental Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ArmourAppliesToElementalDamage4",
+   "affix_type": "Suffix",
+   "group": "ArmourAppliesToElementalDamage",
+   "level": 48,
+   "text": [
+    "+(32-37)% of Armour also applies to Elemental Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ArmourAppliesToElementalDamage5",
+   "affix_type": "Suffix",
+   "group": "ArmourAppliesToElementalDamage",
+   "level": 66,
+   "text": [
+    "+(38-43)% of Armour also applies to Elemental Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "ArmourAppliesToElementalDamage6",
+   "affix_type": "Suffix",
+   "group": "ArmourAppliesToElementalDamage",
+   "level": 81,
+   "text": [
+    "+(44-50)% of Armour also applies to Elemental Damage"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "EvasionGrantsDeflection1",
+   "affix_type": "Suffix",
+   "group": "EvasionAppliesToDeflection",
+   "level": 1,
+   "text": [
+    "Gain Deflection Rating equal to (8-11)% of Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "EvasionGrantsDeflection2",
+   "affix_type": "Suffix",
+   "group": "EvasionAppliesToDeflection",
+   "level": 16,
+   "text": [
+    "Gain Deflection Rating equal to (12-14)% of Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "EvasionGrantsDeflection3",
+   "affix_type": "Suffix",
+   "group": "EvasionAppliesToDeflection",
+   "level": 36,
+   "text": [
+    "Gain Deflection Rating equal to (15-17)% of Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "EvasionGrantsDeflection4",
+   "affix_type": "Suffix",
+   "group": "EvasionAppliesToDeflection",
+   "level": 48,
+   "text": [
+    "Gain Deflection Rating equal to (18-20)% of Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "EvasionGrantsDeflection5",
+   "affix_type": "Suffix",
+   "group": "EvasionAppliesToDeflection",
+   "level": 66,
+   "text": [
+    "Gain Deflection Rating equal to (21-23)% of Evasion Rating"
+   ],
+   "weight": 1,
+   "source": "base"
+  },
+  {
+   "mod_id": "EvasionGrantsDeflection6",
+   "affix_type": "Suffix",
+   "group": "EvasionAppliesToDeflection",
+   "level": 81,
+   "text": [
+    "Gain Deflection Rating equal to (24-26)% of Evasion Rating"
    ],
    "weight": 1,
    "source": "base"
