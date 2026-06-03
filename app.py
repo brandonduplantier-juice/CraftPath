@@ -646,14 +646,15 @@ def api_solve():
     else:
         start_rarity = "Rare"
 
-    # Early viability gate: targeting 4+ specific mods by random orb-slamming is
-    # astronomically expensive no matter which mods (which is exactly why
-    # putrefaction/desecration exist). Short-circuit here BEFORE the expensive
-    # MDP solve, so these heavy queries return instantly instead of timing out.
-    if len(wanted) >= 4:
+    # Early viability gate: targeting 4+ NEW specific mods by random orb-slamming
+    # is astronomically expensive (which is why putrefaction/desecration exist).
+    # Mods already on the item (kept) don't count — they're secured, not slammed.
+    already = set(have_pre) | set(have_suf)
+    to_acquire = [w for w in wanted if w not in already]
+    if len(to_acquire) >= 4:
         return jsonify({
             "not_viable_by_slamming": True,
-            "msg": "Targeting this many specific mods by orb-slamming isn't "
+            "msg": "Targeting this many new specific mods by orb-slamming isn't "
                    "cost-viable (expected cost is astronomical). This is why "
                    "putrefaction exists - check the Putrefaction odds for this "
                    "base, which roll multiple desecrated mods at once."})
