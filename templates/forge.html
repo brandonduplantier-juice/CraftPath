@@ -268,6 +268,7 @@
   .desec-list{max-height:240px;overflow-y:auto}
   .desec-row{cursor:default;opacity:.85}
   .desec-row .mr-meta{font-size:9px;color:var(--amanamu,#a98bd0);opacity:.7}
+  .onfail-removal{margin-top:6px;font-size:11px;line-height:1.5;color:#e6b89a;opacity:.92;border-left:2px solid #6a4a3a;padding-left:8px}
   .item-ilvl{font-size:11px;color:var(--ash-dim);text-align:center}
 
   .paste-zone textarea{width:100%;height:96px;background:rgba(0,0,0,.32);border:1px dashed var(--edge);
@@ -400,6 +401,7 @@
       <div class="desec-toggle" id="desecToggle">🦴 Desecration mod pool (Well of Souls) — click to view ▾</div>
       <div class="desec-body" id="desecBody" style="display:none">
         <div class="desec-note">These are the mods a Bone + Necromancy omen can add, revealed at the Well of Souls. Reveal odds are unpublished, so these are <b>what's possible</b>, not a probability. Sinistral omen forces a prefix; Dextral forces a suffix.</div>
+        <input id="desecSearch" type="text" placeholder="search desecrated mods… (e.g. 'fire', 'life', 'resistance')" autocomplete="off" class="wiz-search" style="margin-bottom:10px">
         <div class="stage-row two">
           <div class="side-col wide">
             <div class="col-head pre"><span>Desecrated Prefixes</span><span class="cap" id="desecCapPre">—</span></div>
@@ -807,23 +809,33 @@ async function loadDesecRef(){
   _desecLoaded=base;
   try{
     const r=await api('/api/desecrated/'+base);
-    const pre=$('#desecPre'), suf=$('#desecSuf');
-    if(!r.available || (!r.prefixes.length && !r.suffixes.length)){
-      pre.innerHTML='<div class="mc-empty">no desecrated pool for this base</div>';
-      suf.innerHTML='<div class="mc-empty">no desecrated pool for this base</div>';
-      $('#desecCapPre').textContent='0'; $('#desecCapSuf').textContent='0';
-      return;
-    }
-    const row=m=>`<div class="mod-row desec-row"><span class="mr-text">${m.text}</span>`+
-                 `<span class="mr-meta">${m.lord||''} · L${m.level||'?'}</span></div>`;
-    pre.innerHTML=r.prefixes.map(row).join('')||'<div class="mc-empty">none</div>';
-    suf.innerHTML=r.suffixes.map(row).join('')||'<div class="mc-empty">none</div>';
-    $('#desecCapPre').textContent=r.prefixes.length;
-    $('#desecCapSuf').textContent=r.suffixes.length;
+    _desecData={pre:r.prefixes||[], suf:r.suffixes||[], available:r.available};
+    renderDesec('');
+    const sb=$('#desecSearch');
+    if(sb && !sb._wired){ sb._wired=true; sb.oninput=()=>renderDesec(sb.value); }
   }catch(e){
     $('#desecPre').innerHTML='<div class="mc-empty">could not load</div>';
     $('#desecSuf').innerHTML='<div class="mc-empty">could not load</div>';
   }
+}
+let _desecData={pre:[],suf:[],available:false};
+function renderDesec(q){
+  const pre=$('#desecPre'), suf=$('#desecSuf');
+  if(!_desecData.available || (!_desecData.pre.length && !_desecData.suf.length)){
+    pre.innerHTML='<div class="mc-empty">no desecrated pool for this base</div>';
+    suf.innerHTML='<div class="mc-empty">no desecrated pool for this base</div>';
+    $('#desecCapPre').textContent='0'; $('#desecCapSuf').textContent='0';
+    return;
+  }
+  const ql=(q||'').trim().toLowerCase();
+  const match=m=>!ql || (m.text||'').toLowerCase().includes(ql);
+  const fp=_desecData.pre.filter(match), fs=_desecData.suf.filter(match);
+  const row=m=>`<div class="mod-row desec-row"><span class="mr-text">${m.text}</span>`+
+               `<span class="mr-meta">${m.lord||''} · L${m.level||'?'}</span></div>`;
+  pre.innerHTML=fp.map(row).join('')||'<div class="mc-empty">no match</div>';
+  suf.innerHTML=fs.map(row).join('')||'<div class="mc-empty">no match</div>';
+  $('#desecCapPre').textContent=ql?`${fp.length}/${_desecData.pre.length}`:_desecData.pre.length;
+  $('#desecCapSuf').textContent=ql?`${fs.length}/${_desecData.suf.length}`:_desecData.suf.length;
 }
 function renderChips(){
   const mk=(arr,el,cls)=>{
@@ -939,7 +951,7 @@ async function solve(){
         <span class="onfail-label">${s.on_fail.outcome==='bricked'?'⚠ if this fails':'↻ if this fails'}</span>
         ${s.on_fail.outcome==='bricked'
           ? `<span>item is bricked — start over with a fresh base</span>`
-          : `<span>~${Math.round(s.on_fail.p*100)}% chance · next move: <b>${s.on_fail.next_action||'continue'}</b>${s.on_fail.recovery_cost!=null?` · ~${fmt(s.on_fail.recovery_cost)} ex to recover`:''}${s.on_fail.bricked_p?` · <span class="brick-warn">${Math.round(s.on_fail.bricked_p*100)}% brick risk</span>`:''}</span>`}
+          : `<span>~${Math.round(s.on_fail.p*100)}% chance · next move: <b>${s.on_fail.next_action||'continue'}</b>${s.on_fail.recovery_cost!=null?` · ~${fmt(s.on_fail.recovery_cost)} ex to recover`:''}${s.on_fail.bricked_p?` · <span class="brick-warn">${Math.round(s.on_fail.bricked_p*100)}% brick risk</span>`:''}</span>${s.on_fail.is_removal?`<div class="onfail-removal">⚠️ Removing a mod: an <b>Orb of Annulment</b> deletes a RANDOM mod — safe only when all mods on the item are junk. If you have a keeper on, you risk losing it (use a Sinistral/Dextral Annulment omen to limit removal to one side).</div>`:''}`}
       </div>`:''}
     </div>`;
   });

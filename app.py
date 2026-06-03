@@ -874,16 +874,26 @@ def api_solve():
                     "advice": "If this fails here the item is bricked (no modeled "
                               "path forward) - start over with a fresh base."}
             else:
+                _na = (fail_next_action or "").lower()
+                _removal = "annul" in _na   # next move removes a mod
+                _removal_note = ""
+                if _removal:
+                    _removal_note = (" To remove an unwanted mod you use an Orb of "
+                        "Annulment — but it removes a RANDOM mod, so it's only SAFE "
+                        "when every mod on the item is junk. If you have a mod you "
+                        "want to keep, annulling risks deleting it (a Sinistral/"
+                        "Dextral Annulment omen restricts removal to one side — safer).")
                 on_fail = {
                     "p": round(fail_mass, 4),
                     "outcome": "recoverable",
                     "next_action": fail_next_action,
+                    "is_removal": _removal,
                     "recovery_cost": (round(worst_recovery, 2)
                                       if worst_recovery is not None else None),
                     "bricked_p": (round(bricked_mass, 4) if bricked_mass > 1e-9 else 0),
                     "advice": (f"If you don't hit a wanted mod (~{round(fail_mass*100)}% "
                                f"chance), the optimal next move is "
-                               f"'{fail_next_action}'." +
+                               f"'{fail_next_action}'." + _removal_note +
                                (f" Some failure branches brick the item "
                                 f"(~{round(bricked_mass*100)}% of the time) - "
                                 f"those need a fresh base."

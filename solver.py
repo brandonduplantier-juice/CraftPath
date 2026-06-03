@@ -121,22 +121,40 @@ class Solver:
         # logic as slamming) — not only an exact mod_id match. We record it
         # against the wanted mod_id whose group it satisfies.
         if self._essences and self._item_class:
-            # build reverse map: acceptable mod_id -> the wanted id(s) it secures
-            accept_to_wanted = {}
+            # Essence matching: an essence forces a FIXED tier. It satisfies a
+            # wanted target only if that forced tier is AT OR ABOVE the wanted
+            # tier (same rule as slamming — a lower tier is a genuine miss, so we
+            # don't pretend a tier-2 Lesser essence satisfies a tier-10 target).
+            # Choosing the essence is then a guaranteed win for that stat.
+            wid_by_group = {}
             for wid in wanted_ids:
-                if wid not in self.mods:
-                    continue
-                g = self.mods[wid].group
-                for mid in sorted(self.wanted_group_members.get(g, set())):
-                    accept_to_wanted.setdefault(mid, wid)
+                if wid in self.mods:
+                    wid_by_group.setdefault(self.mods[wid].group, []).append(wid)
             for e in self._essences:
                 fm = e.forced_mod(self._item_class)
-                # exact wanted, or an acceptable same-group member at/above tier
-                target_wid = fm if fm in wanted_ids else accept_to_wanted.get(fm)
-                if target_wid is not None:
-                    cost = self.essence_prices.get(e.name, 1e9)
-                    if target_wid not in self.forcers or cost < self.forcers[target_wid][1]:
-                        self.forcers[target_wid] = (e.name, cost, fm)
+                if not fm or fm not in self.mods:
+                    continue
+                fmod = self.mods[fm]
+                # find a wanted target in the same group whose tier this essence
+                # meets or beats
+                target_wid = None
+                for wid in wid_by_group.get(fmod.group, []):
+                    if fmod.level >= self.mods[wid].level:
+                        target_wid = wid
+                        break
+                if target_wid is None:
+                    continue
+                nm = e.name.lower()
+                if nm.startswith("greater"):
+                    tier = "greater"
+                elif nm.startswith("perfect"):
+                    tier = "perfect"
+                else:
+                    tier = "normal"   # Lesser + Normal both go Normal->Magic
+                cost = self.essence_prices.get(e.name, 1e9)
+                key = (target_wid, tier)
+                if key not in self.forcers or cost < self.forcers[key][1]:
+                    self.forcers[key] = (e.name, cost, fm)
         self._action_cache = {}
         self._prep_pool()
 
@@ -356,15 +374,12 @@ class Solver:
             if fresh != s:
                 acts.append(("Restart (fresh base)", self.base_cost, [(1.0, fresh)]))
         if s.rarity == "Normal":
-            # Essence: deterministically force a wanted mod, Normal -> Magic.
-            # Only useful for still-missing wanted mods this class can force.
+            # Lesser/Normal Essence: Normal -> Magic (+ guaranteed mod).
             missing = self.wanted - s.secured
             for mid in missing:
-                if mid in self.forcers:
-                    f = self.forcers[mid]
-                    ename, ecost = f[0], f[1]
-                    # secure the WANTED mod id (the essence forces an acceptable
-                    # same-group member, which satisfies this wanted stat).
+                key = (mid, "normal")
+                if key in self.forcers:
+                    ename, ecost, _fm = self.forcers[key]
                     ns = State("Magic", s.secured | {mid}, s.junk_pre, s.junk_suf)
                     acts.append((f"Essence: {ename}", ecost, [(1.0, ns)]))
             # Transmutation + Greater/Perfect variants (tier floor 0/35/50).
@@ -386,6 +401,15 @@ class Solver:
                 if alch:
                     acts.append(("Orb of Alchemy", ac, alch))
         elif s.rarity == "Magic":
+            # Greater Essence: Magic -> Rare (+ guaranteed mod), keeping existing
+            # magic mods. This is the core "buy magic base, essence it" flow.
+            missing = self.wanted - s.secured
+            for mid in missing:
+                key = (mid, "greater")
+                if key in self.forcers:
+                    ename, ecost, _fm = self.forcers[key]
+                    ns = State("Rare", s.secured | {mid}, s.junk_pre, s.junk_suf)
+                    acts.append((f"Essence: {ename}", ecost, [(1.0, ns)]))
             if (sec_pre + sec_suf + s.junk_pre + s.junk_suf) < 2:
                 for label, floor in (("Augmentation Orb", 0),
                                      ("Greater Orb of Augmentation", TIER_FLOOR["greater"]),
