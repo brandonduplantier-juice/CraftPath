@@ -589,6 +589,8 @@ function renderPlanKept(){
   if(!pre.children.length) pre.innerHTML='<div class="mc-empty">none</div>';
   if(!suf.children.length) suf.innerHTML='<div class="mc-empty">none</div>';
 }
+
+function gotoStep(n){
   const cur=$('#step'+WIZ_STEP), next=$('#step'+n);
   if(cur===next){ return; }
   // update stepper
