@@ -1,5 +1,5 @@
 """
-verify_desecrated.py  (run LOCALLY — needs live network)
+verify_desecrated.py  (run LOCALLY; needs live network)
 
 Fetches a PoE2DB per-base modifier page and counts its desecrated mods, so you
 can verify/replace the estimates in data/desecrated_per_base.json without manual
@@ -15,7 +15,7 @@ Usage:
     python verify_desecrated.py Bow bow
 
 It prints the prefix/suffix desecrated counts it detects and the exact JSON line
-to paste into data/desecrated_per_base.json. Always eyeball the page yourself —
+to paste into data/desecrated_per_base.json. Always eyeball the page yourself -
 this is an aid, not an oracle (PoE2DB markup changes and JS-renders some parts).
 
 PoE2DB base-page slugs (common ones):
@@ -55,7 +55,7 @@ def count_desecrated(html: str):
     candidates = re.findall(r"(?:\+?\(?\d|#%|\+#)", block)
     return {"lords_present": present,
             "rough_stat_markers": len(candidates),
-            "note": "ROUGH — open the page and count the desecrated rows under "
+            "note": "ROUGH; open the page and count the desecrated rows under "
                     "the Ulaman/Amanamu/Kurgal tabs to get exact prefix/suffix counts."}
 
 

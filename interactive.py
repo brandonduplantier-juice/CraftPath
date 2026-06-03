@@ -9,7 +9,7 @@ Flow (the original spec):
   3. At each step it tells you the recommended currency, the odds of the useful
      outcomes, the expected remaining cost, and whether you're within budget.
   4. You tell it what actually rolled; it re-locates your true state in the
-     policy and gives the next step — or says DONE or BUDGET-EXCEEDED.
+     policy and gives the next step; or says DONE or BUDGET-EXCEEDED.
 
 This module is UI-agnostic: `next_step()` and `apply_outcome()` are pure
 functions over solver state, so the same engine backs the CLI here and a future

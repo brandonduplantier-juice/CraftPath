@@ -29,7 +29,7 @@ DATA = os.path.join(HERE, "data")
 
 
 # ---------------------------------------------------------------------------
-# market price provider (the trade-API-dependent half) — stubbed
+# market price provider (the trade-API-dependent half); stubbed
 # ---------------------------------------------------------------------------
 class MarketPriceProvider:
     """Estimates the sell price of an item with a given mod set.
@@ -190,7 +190,7 @@ def scan(base: str, *, strategies=("heuristic",), prices, essences=None,
         cost = E.get(start, float("inf"))
         if cost == float("inf") or cost > VIABLE_CEILING:
             # Targeting one specific top-tier mod via random slams costs absurd
-            # amounts (often >1e6 ex). That's not how anyone crafts — it's a
+            # amounts (often >1e6 ex). That's not how anyone crafts; it's a
             # meaningless candidate. Skip it rather than report nonsense.
             skipped_nonviable += 1
             continue
@@ -205,7 +205,7 @@ def scan(base: str, *, strategies=("heuristic",), prices, essences=None,
     rows.sort(key=lambda r: (r.margin is None, -(r.margin or 0), r.expected_cost))
     if not rows and skipped_nonviable:
         # All candidates were non-viable single-mod-slam targets. Be honest about it.
-        return [ProfitRow(base, "(no viable single-slam craft — use putrefaction mode)",
+        return [ProfitRow(base, "(no viable single-slam craft; use putrefaction mode)",
                           "advisory", 0.0, None, None,
                           "Single-target orb-slamming is not cost-viable for this base; "
                           "the putrefaction scanner is the realistic profit method.",

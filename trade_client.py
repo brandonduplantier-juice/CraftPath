@@ -8,7 +8,7 @@ never written to disk, never logged, and never sent anywhere except in the
 Cookie header of the request to pathofexile.com. Do not paste it into chats,
 commits, or screenshots. To rotate it, log out of pathofexile.com.
 
-Run locally (not in any sandbox — this needs the live site + your cookie):
+Run locally (not in any sandbox; this needs the live site + your cookie):
     setx POESESSID "your_cookie_value"     # Windows, once
     # or per-session:  $env:POESESSID="..."  (PowerShell)
     python trade_client.py
@@ -74,7 +74,7 @@ def build_query(stat_filter_ids: list[str], category: str | None = None,
 
     stat_filter_ids are trade stat hashes (presence search, 'and' filters).
     `category` is a trade CATEGORY string (e.g. 'weapon.dagger', 'armour.gloves'),
-    NOT a base item name — it goes in type_filters.category. Passing a raw base
+    NOT a base item name; it goes in type_filters.category. Passing a raw base
     name in `type` causes 'Unknown item base type', so we never use `type` here.
     """
     filters = [{"id": sid, "disabled": False} for sid in stat_filter_ids]
@@ -219,7 +219,7 @@ def estimate_sell_price(league: str, stat_filter_ids: list[str], *,
         if ex is not None:
             ex_amounts.append(ex)
     if not ex_amounts:
-        # couldn't convert any (unknown currencies) — report raw with a flag
+        # couldn't convert any (unknown currencies); report raw with a flag
         amounts = sorted(a for a, _ in prices)
         idx = max(0, int(len(amounts) * low_percentile) - 1)
         return {"estimate": amounts[idx], "currency": prices[0][1],

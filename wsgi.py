@@ -1,12 +1,12 @@
 """
-wsgi.py — production entry point for Exile's Forge (free crafting optimizer).
+wsgi.py; production entry point for Exile's Forge (free crafting optimizer).
 
 Run with a real WSGI server (not Flask's dev server) when hosting:
     gunicorn wsgi:app
 
 For public hosting, set DEPLOY_MODE=public so market features (which need a
-user's own POESESSID) are hard-disabled server-side. The crafting optimizer —
-solver, odds, costs, desecration/putrefaction modeling — stays fully available.
+user's own POESESSID) are hard-disabled server-side. The crafting optimizer -
+solver, odds, costs, desecration/putrefaction modeling; stays fully available.
 """
 import os
 # Default a hosted instance to public mode unless explicitly overridden.

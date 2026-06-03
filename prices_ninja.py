@@ -6,7 +6,7 @@ Endpoint (verified against the poe2-mcp-server reference client):
   https://poe.ninja/poe2/api/economy/exchange/current/overview?league=<L>&type=<T>
 Response: { core: {items:[{id,name,...}], rates:{}, primary, secondary},
             lines: [{id, primaryValue, volumePrimaryValue, ...}] }
-Rate limit: ~10 requests / 5 min — so we fetch once and cache to disk.
+Rate limit: ~10 requests / 5 min; so we fetch once and cache to disk.
 
 Values are normalized to Exalted-orb-equivalents (Exalted = 1.0), matching the
 unit the planner reports. Run `python prices.py` once to populate the cache;

@@ -1,12 +1,12 @@
 """
-test_crafts.py — automated QA harness for the CraftPath solver.
+test_crafts.py; automated QA harness for the CraftPath solver.
 
 Generates many diverse crafts (weapons/armour/jewellery × tiers × methods ×
 start states) and checks each for correctness/sanity violations:
 
   CRASH      solve raised an exception
   NONE_COST  finite path expected but got None (and not a legit viability/brick)
-  NEG_COST   expected_cost < 0 (impossible — all actions cost > 0)
+  NEG_COST   expected_cost < 0 (impossible; all actions cost > 0)
   NOT_CONV   solve didn't converge (approximate=True)
   NO_SECURE  a step claims to secure a target it doesn't
   ABSURD     single easy (low-tier) mod costs absurdly high
@@ -74,7 +74,7 @@ def check(base, body, mods_index):
             viol.append(("ABSURD", f"1 mod L{lvl} costs {cost}ex"))
     # GOAL_MISS: a target is covered if a step secures a mod in the SAME GROUP
     # at level >= the wanted tier (the solver legitimately secures an acceptable
-    # same-group member — e.g. you want fire T5, a slam gives fire T7). Exact-id
+    # same-group member; e.g. you want fire T5, a slam gives fire T7). Exact-id
     # matching would false-flag those strictly-better outcomes.
     secured = []   # list of (group, level)
     for s in steps:
@@ -96,7 +96,7 @@ def check(base, body, mods_index):
             if not any(g == wg and lv >= wl for g, lv in secured):
                 real_missing.append(w)
         if real_missing:
-            # A finite cost means the FULL policy reaches the goal — the displayed
+            # A finite cost means the FULL policy reaches the goal; the displayed
             # plan may just show a probabilistic 'lucky' branch whose first steps
             # don't literally secure every target id. Only a non-finite cost with
             # missing targets is a real reachability bug.
@@ -151,7 +151,7 @@ if __name__ == "__main__":
     total, failures = run(per)
     print(f"\nRan {total} crafts across {len(BASES)} bases.")
     if not failures:
-        print("✓ ALL CLEAN — no violations.")
+        print("✓ ALL CLEAN; no violations.")
     else:
         print(f"✗ {len(failures)} crafts with violations:\n")
         from collections import Counter

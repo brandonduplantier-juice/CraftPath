@@ -1,6 +1,6 @@
 """
 prices_scout.py
-PoE2 Scout price provider — primary source.
+PoE2 Scout price provider; primary source.
 
 API (verified from github.com/poe2scout/poe2scout source, MIT):
   League list:  GET /api/{Realm}/Leagues
@@ -10,7 +10,7 @@ API (verified from github.com/poe2scout/poe2scout source, MIT):
                                PriceLogs: [{ Price, Time, Quantity } | null] }] }
 
 Prices are denominated in the league BASE currency, which is the Exalted Orb for
-PoE2 — so CurrentPrice is already in Exalted units (Exalted itself = 1.0).
+PoE2; so CurrentPrice is already in Exalted units (Exalted itself = 1.0).
 
 We resolve the current league at runtime (no hardcoded league string) and, when
 PriceLogs are present, use the MEDIAN of recent logged prices instead of the raw

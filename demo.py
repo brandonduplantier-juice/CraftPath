@@ -1,5 +1,5 @@
 """
-demo.py  — end-to-end sanity check on real PoE2 0.5 claw data.
+demo.py ; end-to-end sanity check on real PoE2 0.5 claw data.
 
 Scenario: an ilvl 81 claw, already Rare with two prefixes filled. We want a
 specific high suffix and ask: if we Exalt (add one random eligible mod), what's

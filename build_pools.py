@@ -1,5 +1,5 @@
 """
-build_pools.py — regenerate the COMPLETE per-base mod pool for every base from
+build_pools.py; regenerate the COMPLETE per-base mod pool for every base from
 Path of Building's ModItem.lua, fixing the incomplete original scrape (many
 bases were missing 10-190+ mods, e.g. talisman had 46/239, wand 105/276).
 
@@ -9,7 +9,7 @@ exactly matches the existing per-base files so all downstream joins keep working
   {mod_id, affix_type, group, level, text:[...], weight, source:"base"}
 
 Preserves dagger's separate CoE weight overlay (applied at load time from
-coe_weights.json — untouched here).
+coe_weights.json; untouched here).
 
 Run:  python build_pools.py          # rewrites data/<base>_mods.json for all bases
       python build_pools.py --dry

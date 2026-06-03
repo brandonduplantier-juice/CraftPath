@@ -1,5 +1,5 @@
 """
-build_desecrated.py — rebuild data/desecrated_mods.json from Path of Building's
+build_desecrated.py; rebuild data/desecrated_mods.json from Path of Building's
 ModVeiled.lua, which stores the Well-of-Souls (Abyss) desecrated mods with REAL
 per-base weightKey/weightVal arrays AND lord tags.
 

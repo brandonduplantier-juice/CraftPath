@@ -42,7 +42,7 @@ CAPS = {"Normal": (0, 0), "Magic": (1, 1), "Rare": (3, 3)}
 # NOTE: these values are PATCH-VOLATILE and disputed across sources. The PoE2
 # wiki lists Greater=35 / Perfect=50; a 0.5.0 (Runes of Aldur) guide reported
 # Greater dropped to 44. Until confirmed in-game, defaulting to wiki values.
-# Edit here if GGG/your testing confirms otherwise — flagged as ESTIMATE in UI.
+# Edit here if GGG/your testing confirms otherwise; flagged as ESTIMATE in UI.
 TIER_FLOOR = {"greater": 44, "perfect": 50}  # Greater=44 confirmed (0.5 patch notes, was 55); Perfect=50 estimate
 
 
@@ -99,7 +99,7 @@ class Solver:
                                  if d.get("affix_type") == "Prefix" and d["mod_id"] in wanted_ids]
         self.desec_wanted_suf = [d for d in self.desecrated
                                  if d.get("affix_type") == "Suffix" and d["mod_id"] in wanted_ids]
-        # ids of wanted desecrated mods (not in the regular pool) — these must also
+        # ids of wanted desecrated mods (not in the regular pool); these must also
         # be satisfied for the goal, and occupy slots once secured.
         self.desec_wanted_pre_ids = {d["mod_id"] for d in self.desec_wanted_pre}
         self.desec_wanted_suf_ids = {d["mod_id"] for d in self.desec_wanted_suf}
@@ -127,12 +127,12 @@ class Solver:
 
         # Essence forcers: an essence helps if its forced mod is an ACCEPTABLE
         # member of a wanted group (same "want the stat, not the exact tier"
-        # logic as slamming) — not only an exact mod_id match. We record it
+        # logic as slamming); not only an exact mod_id match. We record it
         # against the wanted mod_id whose group it satisfies.
         if self._essences and self._item_class:
             # Essence matching: an essence forces a FIXED tier. It satisfies a
             # wanted target only if that forced tier is AT OR ABOVE the wanted
-            # tier (same rule as slamming — a lower tier is a genuine miss, so we
+            # tier (same rule as slamming; a lower tier is a genuine miss, so we
             # don't pretend a tier-2 Lesser essence satisfies a tier-10 target).
             # Choosing the essence is then a guaranteed win for that stat.
             wid_by_group = {}
@@ -360,7 +360,7 @@ class Solver:
     # ---- enumerate applicable (action, cost, outcomes) ------------------
     def actions(self, s: State):
         # Cache: a state's action set never changes, but value iteration asks
-        # for it thousands of times. Compute once, reuse. (Pure memoization —
+        # for it thousands of times. Compute once, reuse. (Pure memoization -
         # identical results, far less work; critical on slow/low-CPU hosts.)
         cached = self._action_cache.get(s)
         if cached is not None:
@@ -375,10 +375,10 @@ class Solver:
         # Restart: abandon this item, buy a fresh white base, start from Normal.
         # Available from any non-pristine state. This is the realistic cheap path
         # for single-mod crafts (transmute, and if you miss, just try a new base)
-        # — without it the solver overpays by annul-cycling a ruined item.
+        #; without it the solver overpays by annul-cycling a ruined item.
         # NOTE: we offer restart even when wanted mods are already secured. The
         # value iteration only picks it if it's genuinely cheaper than finishing
-        # the current item — which honestly reflects that a partly-done item is
+        # the current item; which honestly reflects that a partly-done item is
         # sometimes worse than a fresh base (you'd scrap it). It never forces a
         # restart that loses progress unless that's truly the cheaper expectation.
         if s.rarity != "Normal" or s.junk_pre or s.junk_suf:
@@ -761,7 +761,7 @@ def demo():
         seen.add(s); step += 1
         a = policy.get(s)
         if a is None:
-            print("  (no action — dead end)"); break
+            print("  (no action; dead end)"); break
         print(f"  step {step}: {s.rarity:<6} secured={sorted(set(s.secured))} "
               f"junk=({s.junk_pre}p,{s.junk_suf}s)  ->  {a}  "
               f"[E={E[s]:.2f} ex]")

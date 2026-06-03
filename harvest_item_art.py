@@ -1,5 +1,5 @@
 """
-harvest_item_art.py  —  RUN THIS LOCALLY ON YOUR MACHINE (not on the dev box;
+harvest_item_art.py ;  RUN THIS LOCALLY ON YOUR MACHINE (not on the dev box;
 poe2db/poecdn are unreachable from the CraftPath build environment).
 
 Builds data/item_art.json = { base_token: "https://web.poecdn.com/.../Art.png" }
@@ -28,7 +28,7 @@ DATA = os.path.join(os.path.dirname(__file__), "data")
 HEADERS = {"User-Agent": "Mozilla/5.0 (CraftPath art harvester; personal use)"}
 
 # A representative poe2db base page per CraftPath base token. poe2db base pages
-# embed the poecdn art <img>. One representative base per category is enough —
+# embed the poecdn art <img>. One representative base per category is enough -
 # the card art is illustrative, not the exact rolled base.
 # Format: base_token -> poe2db item page slug (the part after /us/).
 # Edit/extend as needed; unknown tokens are skipped (keep placeholder).

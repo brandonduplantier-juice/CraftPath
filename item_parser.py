@@ -1,17 +1,17 @@
 """
-item_parser.py — parse a copied PoE2 item (in-game Ctrl+C or trade format) into
+item_parser.py; parse a copied PoE2 item (in-game Ctrl+C or trade format) into
 a starting-item spec CraftPath can use.
 
 HONESTY:
   - The pasted text gives displayed mod lines with rolled values, plus rarity,
-    item class, and item level. It does NOT label mods as prefix/suffix — we
+    item class, and item level. It does NOT label mods as prefix/suffix; we
     infer that by matching each line to a mod in CraftPath's pool and reading
     that mod's affix_type. So prefix/suffix is only as good as the match.
   - Matching is best-effort: we normalize numbers out and compare text patterns.
     Lines we cannot confidently match are returned in `unmatched` so the caller
     can flag them to the user and log them for later data correction.
   - Implicit mods, corrupted/crafted/unique mods, and mods from mechanics
-    CraftPath doesn't model will typically not match — that's expected.
+    CraftPath doesn't model will typically not match; that's expected.
 """
 from __future__ import annotations
 import re
@@ -109,7 +109,7 @@ def detect_base(raw, valid_tokens):
     for word, tok in _DIRECT_CLASS.items():
         if re.search(r'\b'+re.escape(word)+r'\b', search_space) and tok in valid_tokens:
             return tok
-    # known item classes CraftPath has no data for yet — return a sentinel so the
+    # known item classes CraftPath has no data for yet; return a sentinel so the
     # caller can tell the user honestly rather than silently mismatching.
     # (quarterstaff is now supported via warstaff-tagged pool; no sentinel needed.)
     return None
@@ -196,7 +196,7 @@ def parse_item(raw: str, pool_mods):
         if 'at max quality' in low:
             continue
         # weapon DPS display readouts: "DPS37.7", "Physical DPS12.33",
-        # "Elemental DPS25.38", "DPS: 37.7" — derived stats, never mods.
+        # "Elemental DPS25.38", "DPS: 37.7"; derived stats, never mods.
         if re.match(r'^(physical |elemental |chaos |total )?dps[:\s]*[\d.]+$', low):
             continue
         if 'dps' in low and re.search(r'dps[:\s]*[\d.]+', low) and len(low) < 30:

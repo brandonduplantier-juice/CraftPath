@@ -3,7 +3,7 @@ weight_prior.py
 Sets a corrected weight prior for bases lacking real CoE data.
 
 IMPORTANT CORRECTION: I initially used a geometric tier-decay prior, but checking
-the real dagger CoE weights showed that's WRONG — PoE2 weights are FLAT across
+the real dagger CoE weights showed that's WRONG; PoE2 weights are FLAT across
 tiers within a mod group (e.g. all 8 tiers of Dexterity share weight 8). What
 makes high tiers rare is the ITEM-LEVEL cutoff (the solver already filters mods
 whose required level exceeds the item's ilvl), not a lower weight. Imposing tier
@@ -12,7 +12,7 @@ decay double-counted that effect and was inaccurate.
 The honest prior is therefore UNIFORM weight per mod (matching how CoE represents
 it: a flat per-group weight, tier rarity handled by ilvl gating elsewhere). This
 is the same as the original flat placeholder in practice, so this script now just
-ensures the weights_source label is honest ("flat_uniform" — tier rarity comes
+ensures the weights_source label is honest ("flat_uniform"; tier rarity comes
 from ilvl gating, between-group weight differences are unknown without CoE data).
 
 To get REAL between-group weights, paste a base's CoE weight table (the only

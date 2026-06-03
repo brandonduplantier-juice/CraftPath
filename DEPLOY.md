@@ -1,7 +1,7 @@
 # Deploying Exile's Forge (free crafting optimizer)
 
-The crafting optimizer — base pools, the MDP solver, odds/costs, desecration and
-putrefaction modeling — is safe to host publicly. The market features
+The crafting optimizer; base pools, the MDP solver, odds/costs, desecration and
+putrefaction modeling; is safe to host publicly. The market features
 (price-check, profit scanning) are **local-only** because they require each
 user's own PoE `POESESSID`, which must never live on a shared server. Deployment
 hard-disables them.

@@ -1,4 +1,4 @@
-# CraftPath — Backlog / TODO
+# CraftPath; Backlog / TODO
 
 Running list of things to add or fix, captured as they come up so nothing gets lost.
 Newest items near the top of each section. Status: ☐ todo · ◐ in progress · ☑ done.
@@ -11,10 +11,10 @@ Newest items near the top of each section. Status: ☐ todo · ◐ in progress �
   flat (1) for weapon mods, so the big win is base-VALIDITY filtering, not weight
   spread. Re-run build_weights.py when PoB data updates. Source scripts live in repo.
   FOLLOW-UP DONE: build_pools.py regenerates the COMPLETE per-base pool from PoB
-  (the original scrape was missing 1271 mods total — talisman 46->239 valid, wand
+  (the original scrape was missing 1271 mods total; talisman 46->239 valid, wand
   105->276, sceptre 150->257, staff 196->276). Also surfaced 4 triple-attribute
   armour bases (body/boots/gloves/helmet _str_dex_int) that had 0 mods / didn't
-  exist — now added to bases_index.json (56 bases total). dagger keeps CoE overlay.
+  exist; now added to bases_index.json (56 bases total). dagger keeps CoE overlay.
 
 ## Monetization (later)
 - ☐ **Ads.** Replicate poe.ninja's unobtrusive ads. poe.ninja uses Google AdSense
@@ -30,7 +30,7 @@ Newest items near the top of each section. Status: ☐ todo · ◐ in progress �
   why) + info tooltips. Checked methods CONSTRAIN the solver's plan (enabled_methods →
   basic orbs always + only checked optional methods; nothing checked = all). Bones &
   Omens enables the Exaltation/Annulment steering omens AND makes desecrated mods
-  directly selectable as targets — clicking one adds a 🦴-marked chip; any desecrated
+  directly selectable as targets; clicking one adds a 🦴-marked chip; any desecrated
   target routes the plan to the Putrefaction (Well of Souls) how-to guide.
 - ☑ **Decision-tree view.** Each probabilistic step now shows an explicit success/fail
   fork: "✓ hits (X%) → next step" / "✗ misses (Y%) → recovery action / brick", alongside
@@ -39,24 +39,24 @@ Newest items near the top of each section. Status: ☐ todo · ◐ in progress �
   adds only prefix/suffix) and Sinistral/Dextral Erasure (next Chaos removes only
   prefix/suffix then adds), both gated by the omens checkbox, with plan method-notes.
   Costs are flagged 5ex placeholders (Ritual-only omens, not reliably on currency
-  market; prices.py doesn't fetch omens). Whittling added as GUIDANCE in the removal note (not a solver action — its 'lowest-LEVEL mod'
+  market; prices.py doesn't fetch omens). Whittling added as GUIDANCE in the removal note (not a solver action; its 'lowest-LEVEL mod'
   targeting can't be tracked in solver state, so it's informational: 'if the unwanted mod is
   lowest-level, Whittling+Chaos removes exactly it').
 
-## Data refresh (run locally — needs network the dev box lacks)
+## Data refresh (run locally; needs network the dev box lacks)
 - ☑ **Desecrated base-type filtering.** DONE via build_desecrated.py: rebuilt
   data/desecrated_mods.json from PoB ModVeiled.lua (196 lord mods: ulaman/amanamu/
   kurgal) WITH real per-base weightKey tags. /api/desecrated and the solve pool now
   filter to mods that can actually roll on the base (e.g. quarterstaff shows 6pre/6suf
   weapon mods, not the old flat 70/125 with Charms/Spells/Curses). Tecrod/Kulemak NOT
-  added — they're Timeless-Jewel lords, not Well-of-Souls reveal mods (verified).
+  added; they're Timeless-Jewel lords, not Well-of-Souls reveal mods (verified).
 - ☐ **Essence prices** seeded as TIERED ESTIMATES (Lesser~0.5 / Normal~2 / Greater~8
   / Perfect~25 ex). Run `python prices.py` locally to overwrite with live PoE2 Scout
   values. A few high-demand Greater essences really trade 50+ ex.
 - ◐ **Currency prices** refresh with `python prices.py` LOCALLY (scout/ninja unreachable
   from build box). Script verified syntactically valid; fetches currency + essence
   prices. Does NOT fetch omens (coronation/erasure/exaltation use flagged placeholders).
-  Tier-floor: Greater=44 (VERIFIED, 0.5 patch notes — was wrongly 35); Perfect=50 still estimate.
+  Tier-floor: Greater=44 (VERIFIED, 0.5 patch notes; was wrongly 35); Perfect=50 still estimate.
 
 ## Item art (deferred by Brandon)
 - ◐ **Real item art.** Harvester written: run `python harvest_item_art.py` LOCALLY
@@ -64,7 +64,7 @@ Newest items near the top of each section. Status: ☐ todo · ◐ in progress �
   /api/item-art and merged into BASE_ART at load. PoB has no per-base art paths, so the
   scraper reads poe2db category pages. First local run returned 0/57 (poe2db icons are hashed poecdn paths, often no .png ext, lazy-
   loaded). Harvester hardened (data-src + /image/ + /gen/ + raw-HTML regex fallback); needs
-  another local run to confirm. If still 0, poe2db likely renders icons via JS — would need a
+  another local run to confirm. If still 0, poe2db likely renders icons via JS; would need a
   different art source. Placeholders stay until resolved.
 
 ## Done this session

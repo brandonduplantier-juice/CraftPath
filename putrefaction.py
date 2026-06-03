@@ -5,7 +5,7 @@ Models the dominant 0.5 craft: Omen of Putrefaction + Bone.
 MECHANIC (confirmed by multiple 0.5 crafting demonstrations):
   - Target must be a RARE, NOT already desecrated, NOT corrupted.
   - Prep first: 20% quality + sockets (Putrefaction CORRUPTS the item, and you
-    can't quality/socket a corrupted item afterward — though runes still socket
+    can't quality/socket a corrupted item afterward; though runes still socket
     into corrupted gear).
   - Omen of Putrefaction + Bone (Rib=armour, Jawbone=weapon/quiver,
     Collarbone=jewellery) replaces ALL mods with up to 6 UNREVEALED desecrated
@@ -14,7 +14,7 @@ MECHANIC (confirmed by multiple 0.5 crafting demonstrations):
     three), then suffixes. Each reveal offers a few options to choose from.
   - GROUP BLOCKING: taking a mod blocks its group on later reveals, and taking a
     low roll of a desirable mod (e.g. low movement speed) blocks better rolls of
-    it — so you save high-value targets for the last slot of that type.
+    it; so you save high-value targets for the last slot of that type.
   - Lord-forcing omens (Sovereign=Ulaman, Liege=Amanamu, Blackblooded=Kurgal)
     restrict the reveal pool to ONE lord's mods. This is the key to targeting:
     a small lord pool (e.g. Amanamu has only ~3 weapon mods) makes a specific
@@ -132,7 +132,7 @@ def plan_putrefaction(base: str, affix_type: str, *, target_count=1, lord=None,
     """Estimate putrefaction odds & cost for hitting a target on one affix side.
     `target_count` = how many mods in the (lord-filtered) pool you'd be happy with.
 
-    Putrefaction always rolls the MAX desecrated mods for the base — typically 6
+    Putrefaction always rolls the MAX desecrated mods for the base; typically 6
     (3 prefix + 3 suffix), or 5 if the item is fractured (confirmed PoE2 wiki).
     `fractured=True` reduces the affix side being revealed by one slot, modeling
     a pre-fractured mod occupying a slot.
@@ -144,7 +144,7 @@ def plan_putrefaction(base: str, affix_type: str, *, target_count=1, lord=None,
         slots = slots - 1   # a fractured mod consumes one of the 6 -> 5 total
     if bt in D.NO_DESECRATED:
         return None
-    # slot rule: armour has no EXCLUSIVE desecrated prefixes — but putrefaction
+    # slot rule: armour has no EXCLUSIVE desecrated prefixes; but putrefaction
     # still creates prefix slots that reveal NORMAL prefixes (e.g. boots -> MS).
     # Only block prefix putrefaction if the base neither has desec prefixes nor
     # draws prefixes from the normal pool.
@@ -176,7 +176,7 @@ def plan_putrefaction(base: str, affix_type: str, *, target_count=1, lord=None,
         pool_note = f"per-base pool ({src})"
     else:
         pool_size = global_size
-        pool_note = "GLOBAL pool (base not yet catalogued — conservative)"
+        pool_note = "GLOBAL pool (base not yet catalogued; conservative)"
     if pool_size == 0:
         return None
     p = p_hit_one_target(pool_size, slots, options_per_reveal, target_count)

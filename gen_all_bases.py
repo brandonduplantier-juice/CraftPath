@@ -103,7 +103,7 @@ def main():
 
     json.dump(index, open(os.path.join(OUT, "bases_index.json"), "w"), indent=2)
     print(f"\nGenerated {len(index)} bases -> data/bases_index.json")
-    print("NOTE: desecrated (Well of Souls) mods are NOT included — PoB's data has "
+    print("NOTE: desecrated (Well of Souls) mods are NOT included; PoB's data has "
           "only a partial set; the full desecrated pool lives on PoE2DB's Desecrated "
           "Modifiers page and needs separate sourcing.")
 

@@ -1,5 +1,5 @@
 """
-datastore.py — lightweight data-refinement collection for CraftPath.
+datastore.py; lightweight data-refinement collection for CraftPath.
 
 Goal: as people paste items, learn what the parser MISSES so the mod-pool data
 can be improved over time. We record three things, all aggregate and privacy-safe:
@@ -14,7 +14,7 @@ strips known PII-bearing lines before anything is recorded.
 
 STORAGE: store-agnostic. Defaults to a local SQLite file (works immediately).
 If DATABASE_URL is set (Postgres), uses that for persistence across redeploys.
-Switching is one env var — same pattern as SENTRY_DSN.
+Switching is one env var; same pattern as SENTRY_DSN.
 """
 from __future__ import annotations
 import os, re, sqlite3, threading, datetime, json
@@ -97,7 +97,7 @@ def _upsert_count(table, key_col, key_val, extra_cols=None):
 
 
 # ---------------------------------------------------------------------------
-# Public recording API — called from the parse endpoint. Best-effort: any
+# Public recording API; called from the parse endpoint. Best-effort: any
 # failure is swallowed so data collection NEVER breaks a user's request.
 # ---------------------------------------------------------------------------
 def record_paste(base_token, n_lines, n_matched, unmatched_lines, unsupported_base=None):

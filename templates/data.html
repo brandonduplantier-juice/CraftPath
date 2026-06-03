@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CraftPath — Data Refinement</title>
+<title>CraftPath; Data Refinement</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -95,7 +95,7 @@ async function load(){
         '<span class="bar-wrap"><span class="bar" style="width:'+(100*m.count/maxMod)+'%"></span></span>'+
         '<span class="count">'+m.count+'</span></div>';
     });
-  } else { html += '<div class="empty">Nothing unmatched yet — the parser is catching everything.</div>'; }
+  } else { html += '<div class="empty">Nothing unmatched yet; the parser is catching everything.</div>'; }
   html += '</div>';
 
   // unsupported bases
@@ -111,7 +111,7 @@ async function load(){
   } else { html += '<div class="empty">No unsupported bases requested yet.</div>'; }
   html += '</div>';
 
-  html += '<div class="note">All data is aggregate and privacy-safe — no account names, prices, or trade info is ever stored.'+
+  html += '<div class="note">All data is aggregate and privacy-safe; no account names, prices, or trade info is ever stored.'+
     (j.storage==='sqlite'?'<br>Storage is local SQLite (resets on redeploy). Set a <b>DATABASE_URL</b> for persistent Postgres.':'')+'</div>';
 
   $('#wrap').innerHTML = html;

@@ -1,5 +1,5 @@
 """
-app.py — Flask backend for poe2craft (Exile's Forge).
+app.py: Flask backend for poe2craft (Exile's Forge).
 
 Serves the Python crafting engine as a JSON API so the browser frontend calls
 the real solver instead of a drifting JS port. Endpoints:
@@ -86,10 +86,10 @@ def _handle_unexpected(err):
 # OAuth (not POESESSID) for any distributed app. So a PAID gate is only lawful
 # AFTER (a) GGG approves commercial use via oauth@grindinggear.com, and (b) auth
 # is migrated to OAuth on a registered HTTPS domain. Until then this gate is
-# STRUCTURE ONLY — no payment processor is wired.
+# STRUCTURE ONLY. No payment processor is wired.
 #
 # MARKET_ACCESS_MODE (env var, default 'open'):
-#   'open'  - everyone gets market features, no key (CURRENT DEFAULT — assumes
+#   'open'  - everyone gets market features, no key (CURRENT DEFAULT, assumes
 #             GGG's non-commercial terms apply, so the tool is free for all)
 #   'gated' - requires a valid license key (X-License-Key header or ?key=)
 #   'off'   - market features disabled for everyone
@@ -115,7 +115,7 @@ def requires_market_access(fn):
     @wraps(fn)
     def wrapper(*args, **kwargs):
         # DEPLOY_MODE=public hard-disables market features regardless of anything
-        # else — for hosting the free optimizer where no one's POESESSID belongs.
+        # else: for hosting the free optimizer where no one's POESESSID belongs.
         if os.environ.get("DEPLOY_MODE", "").lower() == "public":
             return jsonify({
                 "error": "Market features are local-only. This hosted instance "
@@ -677,7 +677,7 @@ def api_solve():
         return jsonify({"status": "invalid",
                         "msg": "Starting rarity must be Normal, Magic, or Rare."}), 400
     # The starting rarity is just the item's CURRENT state, not a cap on the
-    # target — the solver upgrades Normal->Magic->Rare as it crafts. So if the
+    # target: the solver upgrades Normal->Magic->Rare as it crafts. So if the
     # described starting mods imply a higher rarity than stated (e.g. a paste
     # had mods but no Rarity line), upgrade the starting rarity to fit rather
     # than rejecting. Only a true over-cap (more than Rare allows) is invalid.
@@ -700,7 +700,7 @@ def api_solve():
 
     # Early viability gate: targeting 4+ NEW specific mods by random orb-slamming
     # is astronomically expensive (which is why putrefaction/desecration exist).
-    # Mods already on the item (kept) don't count — they're secured, not slammed.
+    # Mods already on the item (kept) don't count; they're secured, not slammed.
     already = set(have_pre) | set(have_suf)
     to_acquire = [w for w in wanted if w not in already]
     if len(to_acquire) >= 4:
@@ -771,7 +771,7 @@ def api_solve():
     if _exalt_omen is None:
         _exalt_omen = 10.0   # placeholder (Ritual omen, price varies)
         _exalt_omen_estimated = True
-    # annul omens (Sinistral/Dextral Annulment) — real price if present
+    # annul omens (Sinistral/Dextral Annulment): real price if present
     _annul_omen = None
     for k, v in prices.items():
         if "annulment" in k.lower() and "omen" in k.lower():
@@ -805,7 +805,7 @@ def api_solve():
     total = E_[start]
     solve_approx = not getattr(sv, "converged", True)
     # safety: expected cost can never be negative (all actions cost > 0). A
-    # negative value would indicate a numerical degeneracy — treat as unreachable.
+    # negative value would indicate a numerical degeneracy; treat as unreachable.
     if total < 0:
         total = float("inf")
 

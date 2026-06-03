@@ -1,5 +1,5 @@
 """
-build_weights.py — extract REAL per-base mod weights from Path of Building's
+build_weights.py; extract REAL per-base mod weights from Path of Building's
 ModItem.lua and re-weight (and base-validity-filter) every per-base mod file.
 
 PoB encodes each mod with parallel weightKey/weightVal arrays: a list of base
@@ -75,7 +75,7 @@ def parse_pob_weights(path: str) -> dict:
     """Return {mod_id: {tag: weight_int}} for every mod in ModItem.lua."""
     txt = open(path, encoding="utf-8", errors="ignore").read()
     out = {}
-    # each mod is a line: ["Id"] = { ... },  — match id then its weightKey/Val
+    # each mod is a line: ["Id"] = { ... }, ; match id then its weightKey/Val
     for m in re.finditer(r'\["([^"]+)"\]\s*=\s*\{', txt):
         mid = m.group(1)
         # slice from here to the next top-level mod or a reasonable bound
@@ -122,14 +122,14 @@ def rebuild(dry=False):
             mid = mm.get("mod_id")
             tw = pw.get(mid)
             if tw is None:
-                # no PoB weight data for this id — keep at flat 1, flag
+                # no PoB weight data for this id; keep at flat 1, flag
                 mm["weight"] = mm.get("weight", 1) or 1
                 nodata += 1
                 kept.append(mm)
                 continue
             w = weight_for_base(tw, base)
             if w is None or w <= 0:
-                dropped += 1            # mod can't roll on this base — remove it
+                dropped += 1            # mod can't roll on this base; remove it
                 continue
             if mm.get("weight") != w:
                 reweighted += 1
@@ -152,7 +152,7 @@ def rebuild(dry=False):
     print(f"\n{'base':<18}{'before':>7}{'kept':>6}{'dropped':>8}{'reweight':>9}{'nodata':>7}")
     for row in summary:
         print(f"{row[0]:<18}{row[1]:>7}{row[2]:>6}{row[3]:>8}{row[4]:>9}{row[5]:>7}")
-    print(f"\n{'DRY RUN — no files written' if dry else 'files written'}")
+    print(f"\n{'DRY RUN; no files written' if dry else 'files written'}")
     return summary
 
 

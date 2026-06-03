@@ -3,9 +3,9 @@ prices.py
 Provider-agnostic price layer for poe2craft.
 
 Provider order:
-  1. PoE2 Scout  (prices_scout.py)  — documented MIT API, history smoothing
-  2. poe.ninja   (prices_ninja.py)  — fallback if Scout is unavailable
-  3. placeholder (in planner.py)    — clearly-labeled, used only if both fail
+  1. PoE2 Scout  (prices_scout.py) ; documented MIT API, history smoothing
+  2. poe.ninja   (prices_ninja.py) ; fallback if Scout is unavailable
+  3. placeholder (in planner.py)   ; clearly-labeled, used only if both fail
 
 Run `python prices.py` once to populate prices_cache.json. The planner reads the
 cache via load_prices(); if no cache exists it falls back to labeled placeholders.
@@ -88,7 +88,7 @@ def _seed_essence_estimates() -> dict:
                                           "data", "essences_by_class.json")))
     except Exception:
         return {}
-    # rough ex values by rank (community ballpark — replace via live fetch)
+    # rough ex values by rank (community ballpark; replace via live fetch)
     RANK = {"perfect": 25.0, "greater": 8.0, "lesser": 0.5, "normal": 2.0}
     out = {}
     for lst in ess.values():
@@ -160,7 +160,7 @@ if __name__ == "__main__":
         print(f"  Live (from {meta['provider']}): {len(meta['live_keys'])} base currencies")
     if meta.get("derived_tiered"):
         print(f"  Derived Greater/Perfect from base orbs: {len(meta['derived_tiered'])} "
-              f"(estimated multipliers — flagged)")
+              f"(estimated multipliers; flagged)")
     if meta.get("essence_prices"):
         src = meta.get("essence_source", f"live (category '{meta.get('essence_category')}')")
         print(f"  Essence prices: {len(meta['essence_prices'])} essences [{src}]")
