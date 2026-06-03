@@ -72,6 +72,7 @@ _DIRECT_CLASS = {
     "flail": "flail", "flails": "flail", "spear": "spear", "spears": "spear",
     "bow": "bow", "bows": "bow", "crossbow": "crossbow", "crossbows": "crossbow",
     "staff": "staff", "staves": "staff", "sceptre": "sceptre", "sceptres": "sceptre",
+    "quarterstaff": "quarterstaff", "quarterstaves": "quarterstaff",
     "wand": "wand", "wands": "wand",
     "one hand axe": "one_hand_axe", "one hand mace": "one_hand_mace",
     "one hand sword": "one_hand_sword", "two hand axe": "two_hand_axe",
@@ -110,9 +111,7 @@ def detect_base(raw, valid_tokens):
             return tok
     # known item classes CraftPath has no data for yet — return a sentinel so the
     # caller can tell the user honestly rather than silently mismatching.
-    for word in ("quarterstaff", "quarterstaves"):
-        if word in search_space:
-            return "__unsupported__quarterstaff"
+    # (quarterstaff is now supported via warstaff-tagged pool; no sentinel needed.)
     return None
 
 

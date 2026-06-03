@@ -72,6 +72,12 @@
     "desecrated": 0
   },
   {
+    "token": "quarterstaff",
+    "label": "Quarterstaff",
+    "count": 158,
+    "desecrated": 0
+  },
+  {
     "token": "talisman",
     "label": "Talisman",
     "count": 158,
