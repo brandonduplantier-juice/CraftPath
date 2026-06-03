@@ -207,6 +207,7 @@ def _class_for_token(token: str) -> str:
         "amulet":"Amulet","belt":"Belt","ring":"Ring","quiver":"Quiver","focus":"Focus",
         "claw":"Claw","dagger":"Dagger","flail":"Flail","spear":"Spear","bow":"Bow",
         "crossbow":"Crossbow","staff":"Staff","talisman":"Talisman","wand":"Wand","sceptre":"Sceptre",
+        "quarterstaff":"Warstaff",
         "one_hand_axe":"One Hand Axe","one_hand_mace":"One Hand Mace","one_hand_sword":"One Hand Sword",
         "two_hand_axe":"Two Hand Axe","two_hand_mace":"Two Hand Mace","two_hand_sword":"Two Hand Sword",
     }
