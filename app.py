@@ -356,7 +356,7 @@ def api_set_session():
     HARD-BLOCKED when hosted: a public server must never receive cookies."""
     if os.environ.get("DEPLOY_MODE", "").lower() == "public":
         return jsonify({"ok": False, "error": "Disabled on the hosted version. "
-                        "Market features run locally only — download CraftPath Desktop."}), 403
+                        "Market features run locally only; download CraftPath Desktop."}), 403
     import trade_client as TC
     body = request.get_json(silent=True) or {}
     sid = (body.get("poesessid") or "").strip()
@@ -432,7 +432,7 @@ def api_profit_scan(base):
         "market_wired": market.available,
         "note": ("Sell prices require the PoE2 trade API (your credentials); "
                  "until wired, crafts are ranked by expected cost only. "
-                 "Profit estimates are never guarantees — a player economy "
+                 "Profit estimates are never guarantees; a player economy "
                  "arbitrages reliable margins away and early-league prices swing."),
         "rows": [vars(r) for r in rows],
     })
@@ -441,7 +441,7 @@ def api_profit_scan(base):
 @app.route("/api/profit-putrefaction/<base>")
 @requires_market_access
 def api_profit_putrefaction(base):
-    """PREMIUM: realistic putrefaction profit craft — multi-stat templates,
+    """PREMIUM: realistic putrefaction profit craft: multi-stat templates,
     costed at ~36 ex/attempt over hit-probability, priced vs live comps."""
     import profit_scanner as PS, json as _json, os as _os
     pdata = _prices()
@@ -467,7 +467,7 @@ def api_profit_putrefaction(base):
 def api_price_check(base):
     """ACCURATE price lookup. The caller supplies the ACTUAL mods on a finished
     item (the ones they hit), and gets the live market price for that exact spec.
-    No guessing of combos — this sidesteps the profit-scanner's accuracy gaps by
+    No guessing of combos; this sidesteps the profit-scanner's accuracy gaps by
     letting you price what you really have.
 
     POST JSON: {
@@ -634,7 +634,7 @@ def api_data_summary():
 
 @app.route("/data")
 def data_dashboard():
-    """Visual refinement dashboard — renders the collected aggregate data."""
+    """Visual refinement dashboard: renders the collected aggregate data."""
     return send_from_directory("templates", "data.html")
 
 
@@ -769,7 +769,7 @@ def api_solve():
         if "exaltation" in k.lower() and "greater" not in k.lower():
             _exalt_omen = v if _exalt_omen is None else min(_exalt_omen, v)
     if _exalt_omen is None:
-        _exalt_omen = 10.0   # placeholder — Ritual omen, price varies
+        _exalt_omen = 10.0   # placeholder (Ritual omen, price varies)
         _exalt_omen_estimated = True
     # annul omens (Sinistral/Dextral Annulment) — real price if present
     _annul_omen = None
@@ -783,13 +783,13 @@ def api_solve():
         if "coronation" in k.lower():
             _coronation_omen = v if _coronation_omen is None else min(_coronation_omen, v)
     if _coronation_omen is None:
-        _coronation_omen = 5.0   # placeholder — Ritual omen, price varies
+        _coronation_omen = 5.0   # placeholder (Ritual omen, price varies)
     _erasure_omen = None
     for k, v in prices.items():
         if "erasure" in k.lower():
             _erasure_omen = v if _erasure_omen is None else min(_erasure_omen, v)
     if _erasure_omen is None:
-        _erasure_omen = 5.0      # placeholder — Ritual omen, price varies
+        _erasure_omen = 5.0      # placeholder (Ritual omen, price varies)
 
     sv = Solver(mods, base, ilvl, wanted, prices,
                 essences=essences, item_class=item_class, essence_prices=ess_prices,
@@ -875,7 +875,7 @@ def api_solve():
                                 best = (price, e.name, txt)
                     if best:
                         essence_step = (f"ESSENCE (one only): apply <b>{best[1]}</b> to guarantee "
-                                        f"your <b>{best[2]}</b>. Under 0.5 you get ONE essence — "
+                                        f"your <b>{best[2]}</b>. Under 0.5 you get ONE essence, so "
                                         f"this is the mod to lock in, since desecration can't target it.")
 
                 recs = []
@@ -918,7 +918,7 @@ def api_solve():
                 # craft-specific step list
                 if set(wanted) <= desec_ids:
                     base_open = (f"BASE: you already have your <b>{base_label}</b> set up. Putrefaction "
-                                 f"REPLACES all mods, so any kept mods will be wiped — only keep them if "
+                                 f"REPLACES all mods, so any kept mods will be wiped. Only keep them if "
                                  f"you're slotting them back AFTER. Make sure it's a RARE, not corrupted.")
                 else:
                     base_open = (f"BASE: use your <b>{base_label}</b>. Get it to RARE with your "
@@ -929,14 +929,14 @@ def api_solve():
                 necro_named = recs[0]["necro_omen"]
                 desec_line = (f"DESECRATE: with the omen active, use an <b>Abyssal {bone}</b> "
                               f"({bone_kind} bone). {necro_named} forces the new unrevealed mod onto the "
-                              f"<b>{sides_used[0].lower()}</b> side — that's where your target "
+                              f"<b>{sides_used[0].lower()}</b> side. That's where your target "
                               f"(<i>{recs[0]['targets'][0]}</i>) lives.")
                 lord_line = None
                 lord_recs = [r for r in recs if r.get("lord_omen")]
                 if lord_recs:
                     lr = lord_recs[0]
                     lord_line = (f"⭐ LORD-FORCING (the key to targeting): hold <b>{lr['lord_omen']}</b> "
-                                 f"when you desecrate — it {lr['why_omen']}. Without it the pool is larger "
+                                 f"when you desecrate. It {lr['why_omen']}. Without it the pool is larger "
                                  f"and your odds drop.")
                 how = [base_open]
                 if essence_step:
@@ -947,7 +947,7 @@ def api_solve():
                 if lord_line:
                     how.append(lord_line)
                 how.append("REVEAL at the Well of Souls: reveal the desecrated mod(s) one slot at a time. "
-                            "Save your highest-value target for the LAST reveal of that side — taking a mod "
+                            "Save your highest-value target for the LAST reveal of that side, since taking a mod "
                             "blocks its group on later reveals.")
                 how.append("⭐ ABYSSAL ECHOES (situational, ~99 ex): if the rest of the item already rolled "
                             "high and this reveal is make-or-break, hold an Omen of Abyssal Echoes for a SECOND "
@@ -957,17 +957,17 @@ def api_solve():
                                "Greater Exalted (min mod lvl 44) or Perfect Exalted (~50) skip weak tiers; "
                                "pair a Perfect Exalted with an Omen of Greater Exaltation to add TWO mods at once.")
                 how.append("FINISH LAST: quality to 20%, add sockets + runes only at the very end "
-                           "(Putrefaction corrupts the item — you can't quality/socket a corrupted item after).")
+                           "(Putrefaction corrupts the item, so you can't quality/socket it afterward).")
 
                 # shopping list extras
                 shopping["Exalted Orbs"] = "a few (fill non-target slots)" if not (set(wanted) <= desec_ids) else "0 (all slots desecrated)"
                 total_attempt = sum(r["expected_cost"] for r in recs)
-                shopping["≈ total budget"] = f"~{round(total_attempt)} ex (estimate — reveal odds unpublished)"
+                shopping["≈ total budget"] = f"~{round(total_attempt)} ex (estimate, reveal odds unpublished)"
 
                 return {"applies": True, "recs": recs, "how": how,
                         "base_label": base_label, "bone": f"Abyssal {bone}",
                         "shopping": [{"item": k, "qty": v} for k, v in shopping.items()],
-                        "estimate_flag": "Reveal odds are unpublished by GGG — modeled flat (uniform), so attempt counts and totals are ballpark. The METHOD/sequence is verified from current 0.5 crafting guides; the per-step odds are estimates."}
+                        "estimate_flag": "Reveal odds are unpublished by GGG, so they are modeled flat (uniform) and attempt counts and totals are ballpark. The METHOD/sequence is verified from current 0.5 crafting guides; the per-step odds are estimates."}
             except Exception:
                 return None
         puf = _puf_early()
@@ -976,14 +976,14 @@ def api_solve():
         if total == float("inf"):
             if puf:
                 result["bricked"] = False
-                result["msg"] = ("This mod set can't be reached by orb-slamming — it "
+                result["msg"] = ("This mod set can't be reached by orb-slamming, so it "
                                  "needs desecrated mods. Use Putrefaction (below).")
             else:
                 result["msg"] = "No path to this mod set under modeled methods."
         else:  # not_viable
             base_msg = ("Targeting this many specific mods by orb-slamming isn't "
                         "cost-viable (expected cost is astronomical).")
-            result["msg"] = (base_msg + " Use Putrefaction (below) — it rolls multiple "
+            result["msg"] = (base_msg + " Use Putrefaction (below); it rolls multiple "
                              "desecrated mods at once." if puf else
                              base_msg + " This is why putrefaction exists.")
         return jsonify(result)
@@ -1047,10 +1047,10 @@ def api_solve():
                 _removal_note = ""
                 if _removal:
                     _removal_note = (" To remove an unwanted mod you use an Orb of "
-                        "Annulment — but it removes a RANDOM mod, so it's only SAFE "
+                        "Annulment, but it removes a RANDOM mod, so it's only SAFE "
                         "when every mod on the item is junk. If you have a mod you "
                         "want to keep, annulling risks deleting it (a Sinistral/"
-                        "Dextral Annulment omen restricts removal to one side — safer).")
+                        "Dextral Annulment omen restricts removal to one side, which is safer).")
                 on_fail = {
                     "p": round(fail_mass, 4),
                     "outcome": "recoverable",
@@ -1087,9 +1087,9 @@ if __name__ == "__main__":
     import os as _os
     _wired = __import__("trade_client").has_session()
     _mode = _os.environ.get("MARKET_ACCESS_MODE", "open").lower()
-    print("CraftPath (for Divine Intent) — http://127.0.0.1:5000")
-    print("  crafting optimizer: FREE (solver, odds, costs — works for everyone)")
+    print("CraftPath (for Divine Intent) · http://127.0.0.1:5000")
+    print("  crafting optimizer: FREE (solver, odds, costs; works for everyone)")
     print(f"  market access mode: {_mode}")
-    print(f"  trade market: {'LIVE (POESESSID detected — sell prices on)' if _wired else 'OFF (set POESESSID locally to enable live sell prices)'}")
+    print(f"  trade market: {'LIVE (POESESSID detected; sell prices on)' if _wired else 'OFF (set POESESSID locally to enable live sell prices)'}")
     # use_reloader=False so this single process keeps the POESESSID from the shell
     app.run(host="127.0.0.1", port=5000, debug=True, use_reloader=False)

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CraftPath — PoE2 Crafting Optimizer</title>
+<title>CraftPath · PoE2 Crafting Optimizer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Spectral:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -382,7 +382,7 @@
 
   <!-- STEP 1: paste your current item, keep/remove its mods -->
   <section class="wiz-stage" id="step1">
-    <div class="stage-instr">Paste your item — a white base, a magic, or a rare. CraftPath reads the <b>base type, item level, and any mods</b> for you. On existing mods, <b>click to keep</b> or strike out to remove.</div>
+    <div class="stage-instr">Paste your item: a white base, a magic, or a rare. CraftPath reads the <b>base type, item level, and any mods</b> for you. On existing mods, <b>click to keep</b> or strike out to remove.</div>
     <div class="stage-row">
       <div class="side-col" id="s1pre">
         <div class="col-label pre">Prefixes</div>
@@ -415,7 +415,7 @@
   <section class="wiz-stage" id="step2" style="display:none">
     <div class="stage-instr">Pick the mods you want on the finished item. <b>Search</b> or scroll, click to add.</div>
     <div class="method-filters" id="methodFilters">
-      <div class="mf-hint">Crafting with a specific method? Toggle it first — the mod list will grey out what that method can't make.</div>
+      <div class="mf-hint">Crafting with a specific method? Toggle it first and the mod list will grey out what that method can't make.</div>
       <div class="mf-row">
         <label class="mf-box"><input type="checkbox" id="mfEssence"><span>⚗ Use Essence</span>
           <span class="mf-info" title="Essences guarantee one specific mod type at a fixed tier. Greys out mods no essence can force (e.g. the very top tiers).">ⓘ</span></label>
@@ -439,17 +439,17 @@
       </div>
     </div>
     <div class="desec-ref" id="desecRef">
-      <div class="desec-toggle" id="desecToggle">🦴 Desecration mod pool (Well of Souls) — click to view ▾</div>
+      <div class="desec-toggle" id="desecToggle">🦴 Desecration mod pool (Well of Souls) · click to view ▾</div>
       <div class="desec-body" id="desecBody" style="display:none">
         <div class="desec-note">These are the mods a Bone + Necromancy omen can add, revealed at the Well of Souls. Reveal odds are unpublished, so these are <b>what's possible</b>, not a probability. Sinistral omen forces a prefix; Dextral forces a suffix.</div>
         <input id="desecSearch" type="text" placeholder="search desecrated mods… (e.g. 'fire', 'life', 'resistance')" autocomplete="off" class="wiz-search" style="margin-bottom:10px">
         <div class="stage-row two">
           <div class="side-col wide">
-            <div class="col-head pre"><span>Desecrated Prefixes</span><span class="cap" id="desecCapPre">—</span></div>
+            <div class="col-head pre"><span>Desecrated Prefixes</span><span class="cap" id="desecCapPre">-</span></div>
             <div class="mod-list desec-list" id="desecPre"></div>
           </div>
           <div class="side-col wide">
-            <div class="col-head suf"><span>Desecrated Suffixes</span><span class="cap" id="desecCapSuf">—</span></div>
+            <div class="col-head suf"><span>Desecrated Suffixes</span><span class="cap" id="desecCapSuf">-</span></div>
             <div class="mod-list desec-list" id="desecSuf"></div>
           </div>
         </div>
@@ -496,12 +496,12 @@
   <div class="disclaimer" id="disc"></div>
 
   <div id="sessionBox" style="display:none;max-width:560px;margin:18px auto 0;padding:12px;border:1px solid var(--edge);border-radius:4px;background:rgba(0,0,0,.25)">
-    <label style="margin-top:0">PoE Session (POESESSID) — for live market pricing</label>
-    <div id="sessionStatus" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ash);margin:4px 0 8px">not set — market features off</div>
+    <label style="margin-top:0">PoE Session (POESESSID) · for live market pricing</label>
+    <div id="sessionStatus" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ash);margin:4px 0 8px">not set · market features off</div>
     <input id="sessionInput" type="password" placeholder="paste your POESESSID" autocomplete="off" style="font-size:13px">
     <button class="forge-btn" id="saveSession" style="margin-top:8px;padding:9px;font-size:13px">Save session</button>
     <div style="font-size:10px;color:var(--ash-dim);margin-top:8px;line-height:1.5">
-      Stays on your machine — sent only to pathofexile.com, like Path of Building.<br>
+      Stays on your machine, sent only to pathofexile.com, like Path of Building.<br>
       <b style="color:var(--ash)">How to find your POESESSID:</b> log in at pathofexile.com → F12 → Application/Storage tab → Cookies → pathofexile.com → copy the <b>POESESSID</b> value → paste above → Save.</div>
   </div>
 </div>
@@ -608,7 +608,7 @@ function renderOwnMods(){
 
 // render the KEPT mods locked into the flanking columns on step 3 (the plan).
 // These are the mods carried over from the starting item that stay on the
-// final result — shown locked (not clickable) so the plan view matches steps 1-2.
+// final result, shown locked (not clickable) so the plan view matches steps 1-2.
 function renderPlanKept(){
   const pre=$('#planPre'), suf=$('#planSuf');
   if(!pre||!suf) return;
@@ -652,8 +652,8 @@ let byId = {};
 async function api(path, opts){ const r = await fetch(path, opts); return r.json(); }
 function updateSessionStatus(live){
   const s=$('#sessionStatus'); if(!s) return;
-  if(live){ s.textContent='✓ session active — market features on'; s.style.color='var(--verisium-bright)'; }
-  else { s.textContent='not set — market features off'; s.style.color='var(--ash)'; }
+  if(live){ s.textContent='✓ session active · market features on'; s.style.color='var(--verisium-bright)'; }
+  else { s.textContent='not set · market features off'; s.style.color='var(--ash)'; }
 }
 // license key persistence (this is a LOCAL file in the user's own browser; localStorage is fine here)
 function localStorage_get(k){ try{ return window.localStorage.getItem(k); }catch(e){ return null; } }
@@ -675,7 +675,7 @@ async function init(){
   }
   if(cfg.edition==='online'){
     const pc=$('#pricecheck');
-    if(pc){ pc.innerHTML='⤓ Market pricing (desktop only)'; pc.title='Live market pricing runs locally — download the desktop version to use it with your own account'; }
+    if(pc){ pc.innerHTML='⤓ Market pricing (desktop only)'; pc.title='Live market pricing runs locally; download the desktop version to use it with your own account'; }
   } else {
     // desktop edition: show the built-in session field (PoB-style)
     const box=$('#sessionBox'); if(box) box.style.display='block';
@@ -720,11 +720,11 @@ async function init(){
 
   // ---- wizard navigation ----
   $('#toStep2').onclick = ()=>{
-    // require a pasted/parsed item first — the paste carries base + ilvl
+    // require a pasted/parsed item first; the paste carries base + ilvl
     if($('#itemCard').style.display==='none'){
       const pz=$('#pasteBox');
       pz.style.borderColor='var(--blood)';
-      $('#parseResult').innerHTML='<span style="color:var(--blood)">Paste your item and hit Parse first — even a fresh white base. It sets the base type and item level for you.</span>';
+      $('#parseResult').innerHTML='<span style="color:var(--blood)">Paste your item and hit Parse first, even a fresh white base. It sets the base type and item level for you.</span>';
       setTimeout(()=>{pz.style.borderColor='';},2000);
       return;
     }
@@ -777,7 +777,7 @@ async function init(){
         if(j.rarity){ $('#startRarity').value=j.rarity; ITEM_META.rarity=j.rarity; }
         if(j.item_level){ $('#ilvl').value=j.item_level; $('#ilvlVisible').value=j.item_level; }
         ITEM_MODS = j.matched.map(m=>({ mod_id:m.mod_id, text:m.text, affix:m.affix_type,
-          state: 'keep' }));   // default to KEEP — strike out the ones you don't want
+          state: 'keep' }));   // default to KEEP; strike out the ones you don't want
         ITEM_UNMATCHED = j.unmatched.slice();
         ITEM_META.name = j.name || 'Crafted Item';
         // reveal the card + flanking mods (animated), hide the paste zone
@@ -795,7 +795,7 @@ async function init(){
     'daggers use a Craft of Exile weight overlay; some weapon mods are flat-weighted in PoB itself · '+
     'essence/desecrated modeled where data exists. '+
     '<b>Alloys</b> (13 types, 0.5): replace one random mod on a <i>rare</i> with a specific guaranteed mod, '+
-    'sharing the single crafted-mod slot with essences — modeled as unsupported for now (per-alloy mods not yet datamined). '+
+    'sharing the single crafted-mod slot with essences (modeled as unsupported for now (per-alloy mods not yet datamined). '+
     'Distilled Emotions, rune modpools & Runes-of-Aldur rune-craft also unsupported (no reliable odds yet).'+
     '<br><br>Found a bug? <a href="https://github.com/brandonduplantier-juice/CraftPath/issues" target="_blank" rel="noopener" style="color:var(--verisium-bright)">Report it on GitHub</a>.';
 }
@@ -848,7 +848,7 @@ function renderOneList(el, mods, chosen, isPre){
     .map(id => byId[id] && byId[id].group).filter(Boolean));
   const hits = mods.filter(m=>!chosen.includes(m.id))
     .filter(m=> !q || m.text.toLowerCase().includes(q) || m.id.toLowerCase().includes(q)).slice(0,60);
-  if(!hits.length){ el.innerHTML='<div class="empty">'+(q?'no matches':'—')+'</div>'; return; }
+  if(!hits.length){ el.innerHTML='<div class="empty">'+(q?'no matches':'-')+'</div>'; return; }
   el.innerHTML='';
   hits.forEach(m=>{
     const blocked = takenGroups.has(m.group);   // group already chosen
@@ -902,7 +902,7 @@ async function loadDesecRef(){
       const body=$('#desecBody');
       const open=body.style.display!=='none';
       body.style.display=open?'none':'block';
-      toggle.innerHTML='🦴 Desecration mod pool (Well of Souls) — click to view '+(open?'▾':'▴');
+      toggle.innerHTML='🦴 Desecration mod pool (Well of Souls) · click to view '+(open?'▾':'▴');
     };
   }
   if(_desecLoaded===base) return;   // cache per base
@@ -988,41 +988,41 @@ function methodNote(action){
   const a=(action||'').toLowerCase();
   if(a.includes('coronation')){
     const suf=a.includes('dextral');
-    return `<div class="method-note">✦ <b>How:</b> right-click an <b>Omen of ${suf?'Dextral':'Sinistral'} Coronation</b>, then use a <b>Regal Orb</b> — the Magic→Rare upgrade adds only a <b>${suf?'suffix':'prefix'}</b> this time, steering it to the side you still need. <span class="est">Ritual-only omen; cost varies — treat as estimate.</span></div>`;
+    return `<div class="method-note">✦ <b>How:</b> right-click an <b>Omen of ${suf?'Dextral':'Sinistral'} Coronation</b>, then use a <b>Regal Orb</b>: the Magic→Rare upgrade adds only a <b>${suf?'suffix':'prefix'}</b> this time, steering it to the side you still need. <span class="est">Ritual-only omen; cost varies, treat as estimate.</span></div>`;
   }
   if(a.includes('erasure')){
     const suf=a.includes('dextral');
-    return `<div class="method-note">✦ <b>How:</b> right-click an <b>Omen of ${suf?'Dextral':'Sinistral'} Erasure</b>, then use a <b>Chaos Orb</b> — it removes only a <b>${suf?'suffix':'prefix'}</b> (then adds a new random mod), so you can reroll a junk mod on one side without risking the keeper on the other. <span class="est">Ritual-only omen; cost varies — treat as estimate.</span></div>`;
+    return `<div class="method-note">✦ <b>How:</b> right-click an <b>Omen of ${suf?'Dextral':'Sinistral'} Erasure</b>, then use a <b>Chaos Orb</b>: it removes only a <b>${suf?'suffix':'prefix'}</b> (then adds a new random mod), so you can reroll a junk mod on one side without risking the keeper on the other. <span class="est">Ritual-only omen; cost varies, treat as estimate.</span></div>`;
   }
   if(a.includes('sinistral exaltation')){
-    return `<div class="method-note">✦ <b>How:</b> right-click an <b>Omen of Sinistral Exaltation</b> to activate it, then use an <b>Exalted Orb</b> — it adds only a <b>prefix</b> this time instead of a random side. <span class="est">Ritual-only omen; cost varies — treat as estimate.</span></div>`;
+    return `<div class="method-note">✦ <b>How:</b> right-click an <b>Omen of Sinistral Exaltation</b> to activate it, then use an <b>Exalted Orb</b>: it adds only a <b>prefix</b> this time instead of a random side. <span class="est">Ritual-only omen; cost varies, treat as estimate.</span></div>`;
   }
   if(a.includes('dextral exaltation')){
-    return `<div class="method-note">✦ <b>How:</b> right-click an <b>Omen of Dextral Exaltation</b> to activate it, then use an <b>Exalted Orb</b> — it adds only a <b>suffix</b> this time instead of a random side. <span class="est">Ritual-only omen; cost varies — treat as estimate.</span></div>`;
+    return `<div class="method-note">✦ <b>How:</b> right-click an <b>Omen of Dextral Exaltation</b> to activate it, then use an <b>Exalted Orb</b>: it adds only a <b>suffix</b> this time instead of a random side. <span class="est">Ritual-only omen; cost varies, treat as estimate.</span></div>`;
   }
   if(a.includes('desecrate')){
     const suf=a.includes('suffix');
-    return `<div class="method-note">🦴 <b>How:</b> on the item, apply a <b>Bone</b> (Jawbone/Collarbone) with an <b>Omen of ${suf?'Dextral':'Sinistral'} Necromancy</b> in your inventory. This adds an unrevealed ${suf?'suffix':'prefix'} from the Well of Souls pool, then you reveal it. <span class="est">Reveal odds are unpublished — modeled flat, treat as an estimate.</span></div>`;
+    return `<div class="method-note">🦴 <b>How:</b> on the item, apply a <b>Bone</b> (Jawbone/Collarbone) with an <b>Omen of ${suf?'Dextral':'Sinistral'} Necromancy</b> in your inventory. This adds an unrevealed ${suf?'suffix':'prefix'} from the Well of Souls pool, then you reveal it. <span class="est">Reveal odds are unpublished, so they are modeled flat; treat as an estimate.</span></div>`;
   }
   if(a.includes('greater')||a.includes('perfect')){
     const tier=a.includes('perfect')?'Perfect':'Greater';
-    return `<div class="method-note">⬆ <b>How:</b> use a <b>${tier}</b> currency — same as the base orb but it guarantees a minimum modifier level (${tier==='Perfect'?'~50':'44'}), skipping the weakest tiers. <span class="est">Exact tier floor is patch-volatile — treat as estimate.</span></div>`;
+    return `<div class="method-note">⬆ <b>How:</b> use a <b>${tier}</b> currency: same as the base orb but it guarantees a minimum modifier level (${tier==='Perfect'?'~50':'44'}), skipping the weakest tiers. <span class="est">Exact tier floor is patch-volatile; treat as estimate.</span></div>`;
   }
   if(a.includes('alchemy')){
-    return `<div class="method-note">⚗ <b>How:</b> use an <b>Orb of Alchemy</b> on a white base — it jumps straight to Rare with several random mods at once (modeled as 4).</div>`;
+    return `<div class="method-note">⚗ <b>How:</b> use an <b>Orb of Alchemy</b> on a white base: it jumps straight to Rare with several random mods at once (modeled as 4).</div>`;
   }
   if(a==='chaos orb'||a.includes('chaos orb')){
-    return `<div class="method-note">🌀 <b>How:</b> use a <b>Chaos Orb</b> on a Rare — in 0.5 it removes one random mod and adds one new one (not a full reroll). <span class="est">Outcome is random — used here only when it's the cheapest fix.</span></div>`;
+    return `<div class="method-note">🌀 <b>How:</b> use a <b>Chaos Orb</b> on a Rare: in 0.5 it removes one random mod and adds one new one (not a full reroll). <span class="est">Outcome is random, used here only when it's the cheapest fix.</span></div>`;
   }
   if(a.includes('sinistral annulment')||a.includes('dextral annulment')){
     const suf=a.includes('dextral');
-    return `<div class="method-note">✦ <b>How:</b> activate an <b>Omen of ${suf?'Dextral':'Sinistral'} Annulment</b>, then use an <b>Orb of Annulment</b> — it removes only a ${suf?'suffix':'prefix'} instead of any random mod. This is the <b>safer</b> way to annul: it limits the removal to one side. <span class="est">Ritual-only omen; cost varies — estimate.</span></div>`;
+    return `<div class="method-note">✦ <b>How:</b> activate an <b>Omen of ${suf?'Dextral':'Sinistral'} Annulment</b>, then use an <b>Orb of Annulment</b>: it removes only a ${suf?'suffix':'prefix'} instead of any random mod. This is the <b>safer</b> way to annul: it limits the removal to one side. <span class="est">Ritual-only omen; cost varies, estimate.</span></div>`;
   }
   if(a==='orb of annulment'||a.includes('orb of annulment')){
-    return `<div class="method-note">⚠️ <b>How:</b> an <b>Orb of Annulment</b> removes ONE <b>random</b> mod — you can't choose which. <b>Safe</b> when every mod still on the item is junk (you only want to delete junk). <b>UNSAFE</b> when a mod you want to keep is also on the item — annul can hit your good mod instead. If you have keepers on, removing at your own risk; consider a <b>Sinistral/Dextral Annulment omen</b> to restrict removal to the side with the junk. <span class="est">Outcome is random.</span></div>`;
+    return `<div class="method-note">⚠️ <b>How:</b> an <b>Orb of Annulment</b> removes ONE <b>random</b> mod that you can't choose. <b>Safe</b> when every mod still on the item is junk (you only want to delete junk). <b>UNSAFE</b> when a mod you want to keep is also on the item, so annul can hit your good mod instead. If you have keepers on, removing at your own risk; consider a <b>Sinistral/Dextral Annulment omen</b> to restrict removal to the side with the junk. <span class="est">Outcome is random.</span></div>`;
   }
   if(a.startsWith('✦')||a.includes('essence')){
-    return `<div class="method-note">✦ <b>How:</b> use this <b>Essence</b> on a white (Normal) base — it guarantees the listed mod and upgrades the item to Magic.</div>`;
+    return `<div class="method-note">✦ <b>How:</b> use this <b>Essence</b> on a white (Normal) base: it guarantees the listed mod and upgrades the item to Magic.</div>`;
   }
   return '';
 }
@@ -1041,7 +1041,7 @@ async function solve(){
   if($('#mfTiered') && $('#mfTiered').checked) methods.push('tiered');
   if($('#mfDesec') && $('#mfDesec').checked) methods.push('omens');
   if(methods.length) body.methods=methods;
-  // kept mods are secured targets too — include them in the target sets
+  // kept mods are secured targets too; include them in the target sets
   ITEM_MODS.forEach(m=>{
     if(m.state==='keep'){
       const arr = m.affix==='Prefix'?body.prefixes:body.suffixes;
@@ -1071,12 +1071,12 @@ async function solve(){
     const resp=await fetch('/api/solve',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
     const txt=await resp.text();
     if(!txt.trim()){
-      results.innerHTML='<div class="verdict warn"><div class="big">No response</div><div class="sub">The server returned nothing — on the free host it may be waking up or restarting. Wait a few seconds and press the button again.</div></div>';
+      results.innerHTML='<div class="verdict warn"><div class="big">No response</div><div class="sub">The server returned nothing; on the free host it may be waking up or restarting. Wait a few seconds and press the button again.</div></div>';
       $('#forge').disabled=false; $('#forge').classList.remove('loading'); return;
     }
     try{ j=JSON.parse(txt); }
     catch(pe){
-      results.innerHTML='<div class="verdict warn"><div class="big">Couldn\'t read the response</div><div class="sub">The server sent something unexpected (it may have timed out). Try again — if it keeps happening, <a href="https://github.com/brandonduplantier-juice/CraftPath/issues" target="_blank" rel="noopener" style="color:var(--verisium-bright)">report it</a>.</div></div>';
+      results.innerHTML='<div class="verdict warn"><div class="big">Couldn\'t read the response</div><div class="sub">The server sent something unexpected (it may have timed out). Try again, and if it keeps happening, <a href="https://github.com/brandonduplantier-juice/CraftPath/issues" target="_blank" rel="noopener" style="color:var(--verisium-bright)">report it</a>.</div></div>';
       $('#forge').disabled=false; $('#forge').classList.remove('loading'); return;
     }
   }
@@ -1088,7 +1088,7 @@ async function solve(){
   if(j.not_viable_by_slamming){ results.innerHTML=`<div class="verdict warn"><div class="big">Not viable by orb-slamming</div><div class="sub">${j.msg||'Use putrefaction for multi-mod targets.'}</div></div>`+putrefactionHTML(j); results.scrollIntoView({behavior:'smooth',block:'start'}); return; }
   let html=`<div class="verdict ${j.over_budget?'warn':''}">
     <div class="big">${fmt(j.expected_cost)} ex</div>
-    <div class="sub">${j.over_budget? 'exceeds your '+j.budget+' ex budget — buying the finished item is likely cheaper'
+    <div class="sub">${j.over_budget? 'exceeds your '+j.budget+' ex budget; buying the finished item is likely cheaper'
       : 'expected cost via the optimal path'+(j.budget?` · within your ${j.budget} ex budget`:'')}</div></div>`;
   j.steps.forEach((s,i)=>{
     html+=`<div class="step ${s.is_essence?'ess':''}" style="animation-delay:${i*0.05}s">
@@ -1101,13 +1101,13 @@ async function solve(){
       ${methodNote(s.action)}
       ${s.p_useful>0 && s.p_useful<1 ? `<div class="branch-fork">
         <div class="branch hit"><span class="branch-arm">✓ hits (${(s.p_useful*100).toFixed(0)}%)</span><span class="branch-to">→ ${i+1 < j.steps.length ? 'step '+(s.n+1) : 'done ✓'}</span></div>
-        <div class="branch miss"><span class="branch-arm">✗ misses (${((1-s.p_useful)*100).toFixed(0)}%)</span><span class="branch-to">→ ${s.on_fail && s.on_fail.outcome==='bricked' ? 'brick — fresh base' : (s.on_fail ? (s.on_fail.next_action||'retry') : 'retry')}</span></div>
+        <div class="branch miss"><span class="branch-arm">✗ misses (${((1-s.p_useful)*100).toFixed(0)}%)</span><span class="branch-to">→ ${s.on_fail && s.on_fail.outcome==='bricked' ? 'brick (fresh base)' : (s.on_fail ? (s.on_fail.next_action||'retry') : 'retry')}</span></div>
       </div>`:''}
       ${s.on_fail?`<div class="onfail ${s.on_fail.outcome==='bricked'?'brick':''}">
         <span class="onfail-label">${s.on_fail.outcome==='bricked'?'⚠ if this fails':'↻ if this fails'}</span>
         ${s.on_fail.outcome==='bricked'
-          ? `<span>item is bricked — start over with a fresh base</span>`
-          : `<span>~${Math.round(s.on_fail.p*100)}% chance · next move: <b>${s.on_fail.next_action||'continue'}</b>${s.on_fail.recovery_cost!=null?` · ~${fmt(s.on_fail.recovery_cost)} ex to recover`:''}${s.on_fail.bricked_p?` · <span class="brick-warn">${Math.round(s.on_fail.bricked_p*100)}% brick risk</span>`:''}</span>${s.on_fail.is_removal?`<div class="onfail-removal">⚠️ Removing a mod: an <b>Orb of Annulment</b> deletes a RANDOM mod — safe only when all mods on the item are junk. If you have a keeper on, you risk losing it (use a Sinistral/Dextral Annulment omen to limit removal to one side).<br>💡 If the mod you want gone is the <b>lowest-level</b> modifier on the item, an <b>Omen of Whittling + Chaos Orb</b> removes exactly that one (it targets the lowest required-level mod, not the lowest tier) and adds a new random mod in its place.</div>`:''}`}
+          ? `<span>item is bricked; start over with a fresh base</span>`
+          : `<span>~${Math.round(s.on_fail.p*100)}% chance · next move: <b>${s.on_fail.next_action||'continue'}</b>${s.on_fail.recovery_cost!=null?` · ~${fmt(s.on_fail.recovery_cost)} ex to recover`:''}${s.on_fail.bricked_p?` · <span class="brick-warn">${Math.round(s.on_fail.bricked_p*100)}% brick risk</span>`:''}</span>${s.on_fail.is_removal?`<div class="onfail-removal">⚠️ Removing a mod: an <b>Orb of Annulment</b> deletes a RANDOM mod, so it is safe only when all mods on the item are junk. If you have a keeper on, you risk losing it (use a Sinistral/Dextral Annulment omen to limit removal to one side).<br>💡 If the mod you want gone is the <b>lowest-level</b> modifier on the item, an <b>Omen of Whittling + Chaos Orb</b> removes exactly that one (it targets the lowest required-level mod, not the lowest tier) and adds a new random mod in its place.</div>`:''}`}
       </div>`:''}
     </div>`;
   });
@@ -1170,9 +1170,9 @@ async function priceCheck(){
   if(j.access_mode==='local_only'){
     const url=(window.CFG&&window.CFG.download_url)||'https://github.com/brandonduplantier-juice/CraftPath/releases';
     results.innerHTML=`<div class="verdict warn"><div class="big">Market pricing is desktop-only</div>
-      <div class="sub">Live prices query the Path of Exile trade API with <i>your own</i> session, which only runs safely on your machine — never through this website. The free crafting optimizer here works fully without it.</div>
+      <div class="sub">Live prices query the Path of Exile trade API with <i>your own</i> session, which only runs safely on your machine, never through this website. The free crafting optimizer here works fully without it.</div>
       <div style="margin-top:14px"><a class="donate" href="${url}" target="_blank" rel="noopener" style="border-color:var(--verisium);color:var(--verisium-bright)">⤓ Download CraftPath Desktop</a></div>
-      <div class="sub" style="margin-top:8px;font-size:12px">Same tool, plus live market pricing &amp; profit scanning — run locally with your own PoE login, just like Path of Building.</div></div>`;
+      <div class="sub" style="margin-top:8px;font-size:12px">Same tool, plus live market pricing &amp; profit scanning, run locally with your own PoE login, just like Path of Building.</div></div>`;
     return;
   }
   if(j.access_mode==='gated'){
