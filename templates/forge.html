@@ -344,6 +344,15 @@
   .puf-tag.lord{border-color:#8a6a3a;color:var(--gold-bright)}
   .puf-tag.cost{color:var(--verisium-bright);border-color:#2a5a58}
   .puf-how{margin-top:12px}
+  .puf-cols{display:flex;gap:20px;margin-top:12px;align-items:flex-start;flex-wrap:wrap}
+  .puf-cols .puf-how{flex:1 1 380px;margin-top:0}
+  .puf-shop{flex:0 1 280px;background:rgba(0,0,0,.18);border:1px solid #3a2e26;border-radius:8px;padding:12px 14px}
+  .puf-shop-tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+  .puf-shop-tbl td{padding:5px 4px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:top}
+  .puf-shop-item{color:#e6d8c8;font-weight:500}
+  .puf-shop-qty{color:var(--ash);text-align:right;white-space:nowrap;padding-left:10px;font-family:'JetBrains Mono',monospace;font-size:11.5px}
+  .puf-shop-total td{border-top:1px solid #4a3a2e;border-bottom:none;padding-top:8px;color:var(--verisium-bright);font-weight:600}
+  .puf-shop-total .puf-shop-qty{color:var(--verisium-bright)}
   .puf-how-title{font-size:12px;color:var(--ash);letter-spacing:.04em;margin-bottom:6px;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
   .puf-how ol{margin:0;padding-left:20px}
   .puf-how li{font-size:12.5px;color:var(--parchment);line-height:1.6;margin-bottom:6px}
@@ -1111,7 +1120,7 @@ async function solve(){
 // render the putrefaction "recommended method" panel if present
 function putrefactionHTML(j){
   const p=j.putrefaction; if(!p||!p.applies) return '';
-  let h=`<div class="puf-panel"><div class="puf-head">🦴 Recommended method: Putrefaction</div>`;
+  let h=`<div class="puf-panel"><div class="puf-head">🦴 Recommended method: Putrefaction${p.base_label?` · <span style="color:var(--verisium-bright)">${p.base_label}</span>`:''}</div>`;
   p.recs.forEach(r=>{
     h+=`<div class="puf-rec">
       <div class="puf-rec-head">${r.side} target${r.targets.length>1?'s':''}: <span class="puf-targets">${r.targets.join(' · ')}</span></div>
@@ -1122,9 +1131,21 @@ function putrefactionHTML(j){
         <span class="puf-tag cost">~${fmt(r.expected_cost)} ex total · ${fmt(r.attempt_cost)} ex/try</span>
       </div></div>`;
   });
-  h+=`<div class="puf-how"><div class="puf-how-title">How to craft it:</div><ol>`;
+  // two-column: steps (left) + shopping list (right)
+  h+=`<div class="puf-cols">`;
+  h+=`<div class="puf-how"><div class="puf-how-title">How to craft it</div><ol>`;
   p.how.forEach(step=>{ h+=`<li>${step}</li>`; });
-  h+=`</ol></div><div class="puf-flag">${p.estimate_flag}</div></div>`;
+  h+=`</ol></div>`;
+  if(p.shopping&&p.shopping.length){
+    h+=`<div class="puf-shop"><div class="puf-how-title">🛒 What you'll need</div><table class="puf-shop-tbl">`;
+    p.shopping.forEach(s=>{
+      const tot = /total budget/i.test(s.item);
+      h+=`<tr class="${tot?'puf-shop-total':''}"><td class="puf-shop-item">${s.item}</td><td class="puf-shop-qty">${s.qty}</td></tr>`;
+    });
+    h+=`</table></div>`;
+  }
+  h+=`</div>`;
+  h+=`<div class="puf-flag">${p.estimate_flag}</div></div>`;
   return h;
 }
 

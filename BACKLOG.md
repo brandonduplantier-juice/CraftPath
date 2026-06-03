@@ -88,3 +88,13 @@ Newest items near the top of each section. Status: ☐ todo · ◐ in progress �
   3 seeds: ZERO real violations. Optimality spot-checks confirm smart path selection
   (essence when cheapest, slam when no essence reaches the tier, omens when enabled,
   graceful fallback under method constraints). Re-run anytime: python test_crafts.py [N].
+
+## Putrefaction guide (tailored)
+- ☑ **Craft-specific desecration guide + shopping list.** The putrefaction how-to is now
+  tailored to the actual craft instead of generic boilerplate: names YOUR base ("use your
+  Quarterstaff", correct bone = Jawbone/Rib/Collarbone by category), the SPECIFIC essence for
+  your chosen non-desecrated mod (e.g. "apply Essence of Flames to guarantee your Adds Fire
+  Damage"), the SPECIFIC necromancy omen for the target's side (Sinistral=prefix/Dextral=suffix)
+  with reasoning, and the SPECIFIC lord omen (Sovereign/Liege/Blackblooded) with why it narrows
+  the pool. New two-column UI: tailored steps on the left, a shopping list (items + approx
+  quantities + ~total budget) on the right.

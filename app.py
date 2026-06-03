@@ -841,7 +841,47 @@ def api_solve():
                 if not wd:
                     return None
                 import putrefaction as PF
+                bt_local = base.split("_")[0]
+                # bone + label for THIS base category
+                if bt_local in {"amulet", "ring", "belt", "talisman"}:
+                    bone, bone_kind, base_kind = "Collarbone", "jewellery", "jewellery"
+                elif bt_local in {"quiver", "focus", "shield"}:
+                    bone, bone_kind, base_kind = ("Jawbone" if bt_local == "quiver" else "Rib",
+                                                  "off-hand", "off-hand")
+                elif "body" in base or "boots" in base or "gloves" in base or "helmet" in base:
+                    bone, bone_kind, base_kind = "Rib", "armour", "armour"
+                else:
+                    bone, bone_kind, base_kind = "Jawbone", "weapon", "weapon"
+                try:
+                    _idx = json.load(open(os.path.join(DATA, "bases_index.json")))
+                    base_label = next((b["label"] for b in _idx if b["token"] == base),
+                                      base.replace("_", " ").title())
+                except Exception:
+                    base_label = base.replace("_", " ").title()
+
+                # specific essence for a NON-desecrated wanted mod (so step names the
+                # exact essence, not an example). Pick the cheapest essence whose
+                # forced mod is one of the wanted regular mods.
+                desec_ids = {d["mod_id"] for d in wd}
+                regular_wanted = [w for w in wanted if w not in desec_ids]
+                essence_step = None
+                if essences:
+                    best = None  # (price, essence_name, mod_text)
+                    for e in essences:
+                        if e._mod in regular_wanted:
+                            price = ess_prices.get(e.name, 1e9)
+                            txt = by_id[e._mod].text[0] if e._mod in by_id else e._mod
+                            if best is None or price < best[0]:
+                                best = (price, e.name, txt)
+                    if best:
+                        essence_step = (f"ESSENCE (one only): apply <b>{best[1]}</b> to guarantee "
+                                        f"your <b>{best[2]}</b>. Under 0.5 you get ONE essence — "
+                                        f"this is the mod to lock in, since desecration can't target it.")
+
                 recs = []
+                shopping = {}   # item -> approx qty (string)
+                shopping["Putrefaction Omen"] = "1 per attempt"
+                shopping[f"Abyssal {bone} (bone)"] = "1 per attempt"
                 for side in ("Prefix", "Suffix"):
                     st = [d for d in wd if d["affix_type"] == side]
                     if not st:
@@ -854,27 +894,80 @@ def api_solve():
                     if plan:
                         lo = {"amanamu": "Omen of the Liege", "ulaman": "Omen of the Sovereign",
                               "kurgal": "Omen of the Blackblooded"}.get(lord)
+                        tgt_texts = [by_id[d["mod_id"]].text[0] if d["mod_id"] in by_id
+                                     else d.get("text", d["mod_id"]) for d in st]
+                        necro = "Sinistral Necromancy" if side == "Prefix" else "Dextral Necromancy"
                         recs.append({"side": side,
-                                     "targets": [by_id[d["mod_id"]].text[0] if d["mod_id"] in by_id else d.get("text", d["mod_id"]) for d in st],
+                                     "targets": tgt_texts,
                                      "lord": lord, "lord_omen": lo,
+                                     "necro_omen": f"Omen of {necro}",
                                      "pool_size": plan.pool_size, "p_hit": round(plan.p_hit, 3),
                                      "expected_attempts": round(plan.expected_attempts, 1),
                                      "expected_cost": round(plan.expected_cost, 1),
-                                     "attempt_cost": round(ac, 1), "note": plan.note})
+                                     "attempt_cost": round(ac, 1), "note": plan.note,
+                                     "why_omen": (f"narrows the reveal pool to {plan.pool_size} "
+                                                  f"{'(one lord only) ' if lo else ''}mod"
+                                                  f"{'s' if plan.pool_size!=1 else ''}, "
+                                                  f"making your target ~{round(plan.p_hit*100)}% per reveal")})
+                        shopping[f"Omen of {necro}"] = f"~{plan.expected_attempts:.0f} (forces {side.lower()} side)"
+                        if lo:
+                            shopping[lo] = f"~{plan.expected_attempts:.0f} (lord-forcing, narrows pool)"
                 if not recs:
                     return None
-                return {"applies": True, "recs": recs,
-                        "how": [
-                            "BASE: buy a high-item-level MAGIC base with ONE good stat (hold Alt in-game to see item level — higher ilvl = better possible tiers). One clean stat leaves room to craft.",
-                            "ESSENCE (one only): apply a single Greater Essence for a guaranteed strong mod (e.g. Greater Essence of Abrasion = % physical for a phys weapon). Under 0.5 rules you get ONE essence — make it count.",
-                            "⚠️ ACTIVATE THE OMEN: right-click the Omen of Sinistral Necromancy in your inventory to set it ACTIVE — it does nothing unless activated. (Dextral Necromancy forces a suffix instead.) People forget this step constantly.",
-                            "DESECRATE: with the omen active, use a Bone (Preserved Jawbone = weapon, Rib = armour, Collarbone = jewellery). Sinistral forces the new unrevealed mod to be a PREFIX — prefixes carry the big damage rolls, so this is usually what you want.",
-                            "REVEAL at the Well of Souls: travel there and reveal the desecrated mod to see what you got.",
-                            "⭐ ABYSSAL ECHOES (situational, ~99 ex): if the rest of the weapon already rolled high/perfect and this reveal is make-or-break, hold an Omen of Abyssal Echoes for a SECOND chance at the reveal. It's expensive — only worth it on an item already worth saving. Otherwise just reveal and accept the result.",
-                            "FILL REMAINING SLOTS after a good reveal: use Exalted Orbs to add random mods. To skip weak low tiers, use a Greater Exalted (min mod lvl ~35) or Perfect Exalted (~50). Pair a single Perfect Exalted with an Omen of Greater Exaltation to add TWO mods at once — doubling the value of one rare orb.",
-                            "FINISH LAST: quality to 20%, add sockets + runes only at the end.",
-                        ],
-                        "estimate_flag": "Reveal odds are unpublished by GGG — modeled flat (uniform), so attempt counts are ballpark. The METHOD/sequence is verified from current 0.5 crafting guides; the per-step odds are estimates."}
+
+                # craft-specific step list
+                if set(wanted) <= desec_ids:
+                    base_open = (f"BASE: you already have your <b>{base_label}</b> set up. Putrefaction "
+                                 f"REPLACES all mods, so any kept mods will be wiped — only keep them if "
+                                 f"you're slotting them back AFTER. Make sure it's a RARE, not corrupted.")
+                else:
+                    base_open = (f"BASE: use your <b>{base_label}</b>. Get it to RARE with your "
+                                 f"non-desecrated mod(s) secured FIRST (desecration adds the rest). "
+                                 f"It must not be corrupted before you desecrate.")
+                # which side(s) we're forcing, named specifically
+                sides_used = [r["side"] for r in recs]
+                necro_named = recs[0]["necro_omen"]
+                desec_line = (f"DESECRATE: with the omen active, use an <b>Abyssal {bone}</b> "
+                              f"({bone_kind} bone). {necro_named} forces the new unrevealed mod onto the "
+                              f"<b>{sides_used[0].lower()}</b> side — that's where your target "
+                              f"(<i>{recs[0]['targets'][0]}</i>) lives.")
+                lord_line = None
+                lord_recs = [r for r in recs if r.get("lord_omen")]
+                if lord_recs:
+                    lr = lord_recs[0]
+                    lord_line = (f"⭐ LORD-FORCING (the key to targeting): hold <b>{lr['lord_omen']}</b> "
+                                 f"when you desecrate — it {lr['why_omen']}. Without it the pool is larger "
+                                 f"and your odds drop.")
+                how = [base_open]
+                if essence_step:
+                    how.append(essence_step)
+                how.append(f"⚠️ ACTIVATE THE OMEN: right-click <b>{necro_named}</b> in your inventory to set "
+                           f"it ACTIVE (red border). It does nothing until activated — people forget this constantly.")
+                how.append(desec_line)
+                if lord_line:
+                    how.append(lord_line)
+                how.append("REVEAL at the Well of Souls: reveal the desecrated mod(s) one slot at a time. "
+                            "Save your highest-value target for the LAST reveal of that side — taking a mod "
+                            "blocks its group on later reveals.")
+                how.append("⭐ ABYSSAL ECHOES (situational, ~99 ex): if the rest of the item already rolled "
+                            "high and this reveal is make-or-break, hold an Omen of Abyssal Echoes for a SECOND "
+                            "chance at the reveal. Only worth it on an item already worth saving.")
+                if not (set(wanted) <= desec_ids):
+                    how.append("FILL REMAINING SLOTS after a good reveal: use Exalted Orbs for the rest. "
+                               "Greater Exalted (min mod lvl 44) or Perfect Exalted (~50) skip weak tiers; "
+                               "pair a Perfect Exalted with an Omen of Greater Exaltation to add TWO mods at once.")
+                how.append("FINISH LAST: quality to 20%, add sockets + runes only at the very end "
+                           "(Putrefaction corrupts the item — you can't quality/socket a corrupted item after).")
+
+                # shopping list extras
+                shopping["Exalted Orbs"] = "a few (fill non-target slots)" if not (set(wanted) <= desec_ids) else "0 (all slots desecrated)"
+                total_attempt = sum(r["expected_cost"] for r in recs)
+                shopping["≈ total budget"] = f"~{round(total_attempt)} ex (estimate — reveal odds unpublished)"
+
+                return {"applies": True, "recs": recs, "how": how,
+                        "base_label": base_label, "bone": f"Abyssal {bone}",
+                        "shopping": [{"item": k, "qty": v} for k, v in shopping.items()],
+                        "estimate_flag": "Reveal odds are unpublished by GGG — modeled flat (uniform), so attempt counts and totals are ballpark. The METHOD/sequence is verified from current 0.5 crafting guides; the per-step odds are estimates."}
             except Exception:
                 return None
         puf = _puf_early()
