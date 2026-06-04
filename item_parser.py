@@ -18,7 +18,7 @@ import re
 
 # normalize a mod line: lowercase, strip rolled numbers/ranges to a placeholder
 _NUM = re.compile(r'[+\-]?\d+(?:\.\d+)?')
-_RANGE = re.compile(r'\((\d+)-(\d+)\)')
+_RANGE = re.compile(r'\((\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)\)')
 # advanced copy format glues the rolled value to its range: "163(155-169)",
 # "97(73-97)", "8.62(8-8.9)". Collapse the whole token to one placeholder.
 _VAL_RANGE = re.compile(r'\d+(?:\.\d+)?\((\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)\)')
@@ -115,18 +115,25 @@ def detect_base(raw, valid_tokens):
     return None
 
 
-def parse_item(raw: str, pool_mods):
+def parse_item(raw: str, pool_mods, base_token=None):
     """
     raw: the pasted item text.
     pool_mods: list of mod objects/dicts with .text (list), .affix_type, .mod_id, .group
+    base_token: optional CraftPath base token (used to identify jewellery, which
+                always carries an implicit).
     returns dict: {rarity, item_level, matched:[{mod_id,affix_type,text,line}],
-                   unmatched:[lines], sections_seen:int, ok:bool, note}
+                   implicits:[...], unmatched:[lines], sections_seen:int, ok:bool, note}
     """
     if not raw or not raw.strip():
         return {"ok": False, "note": "empty paste"}
 
     # build a normalized lookup from the pool: norm_text -> list of (mod_id, affix_type, canonical_text)
     lookup = {}
+    # Multi-line (hybrid) mods occupy ONE affix slot but display as 2+ lines
+    # (e.g. increased Physical Damage + Accuracy Rating). Index them by the
+    # tuple of their normalized lines so we can match them as a single affix
+    # instead of counting each line as its own mod.
+    multi_sigs = {}  # sig tuple -> list of (mid, aff, [canon texts], [(lo,hi)|None per line])
     for m in pool_mods:
         texts = m["text"] if isinstance(m, dict) else getattr(m, "text", None)
         if not texts:
@@ -135,6 +142,13 @@ def parse_item(raw: str, pool_mods):
         aff = m["affix_type"] if isinstance(m, dict) else m.affix_type
         for t in texts:
             lookup.setdefault(_norm(t), []).append((mid, aff, t))
+        if len(texts) > 1:
+            sig = tuple(_norm(t) for t in texts)
+            ranges = []
+            for t in texts:
+                rng = _RANGE.search(t)
+                ranges.append((float(rng.group(1)), float(rng.group(2))) if rng else None)
+            multi_sigs.setdefault(sig, []).append((mid, aff, list(texts), ranges))
 
     lines = [ln.rstrip() for ln in raw.replace('\r', '').split('\n')]
     rarity = None
@@ -142,6 +156,8 @@ def parse_item(raw: str, pool_mods):
     # both formats use "--------" divider lines between sections
     # explicit mods are generally after the last divider that follows requirements
     matched, unmatched = [], []
+    mod_lines = []   # candidate mod lines, matched after the loop (see below)
+    mod_blocks = []  # divider-block index for each mod line (implicit vs explicit)
     seen_divider = 0
     for ln in lines:
         if not ln.strip():
@@ -201,46 +217,118 @@ def parse_item(raw: str, pool_mods):
             continue
         if 'dps' in low and re.search(r'dps[:\s]*[\d.]+', low) and len(low) < 30:
             continue
-        # try to match this line as a mod
-        key = _norm(ln)
+        # collect this as a candidate mod line; matching happens after the loop
+        # so multi-line (hybrid) mods can be matched as a single affix instead
+        # of once per displayed line.
+        mod_lines.append(ln.strip())
+        mod_blocks.append(seen_divider)
+
+    # --- match collected mod lines (multi-line hybrids first) ---
+    norm_lines = [_norm(x) for x in mod_lines]
+    vals = [_first_number(x) for x in mod_lines]
+    i = 0
+    while i < len(mod_lines):
+        hit = False
+        # try to consume consecutive lines as ONE hybrid affix. Only collapse
+        # when every line's rolled value fits the SAME hybrid tier, so two
+        # genuinely separate mods on a Rare are not merged by accident.
+        for L in (3, 2):
+            if i + L > len(mod_lines):
+                continue
+            sig = tuple(norm_lines[i:i + L])
+            for mid, aff, canon, ranges in multi_sigs.get(sig, []):
+                ok = True
+                for k in range(L):
+                    rng, v = ranges[k], vals[i + k]
+                    if rng is not None and (v is None or not (rng[0] <= v <= rng[1])):
+                        ok = False
+                        break
+                if ok:
+                    matched.append({"mod_id": mid, "affix_type": aff,
+                                    "text": " / ".join(canon),
+                                    "line": " / ".join(mod_lines[i:i + L]),
+                                    "ambiguous": False, "hybrid": True,
+                                    "block": mod_blocks[i]})
+                    i += L
+                    hit = True
+                    break
+            if hit:
+                break
+        if hit:
+            continue
+        # single-line match
+        ln = mod_lines[i]
+        key = norm_lines[i]
         if key in lookup:
             cands = lookup[key]
             # disambiguate tier by the rolled value when possible: pick the tier
             # whose (lo-hi) range contains the pasted number.
-            rolled = _first_number(ln)
+            rolled = vals[i]
             chosen = None
             if rolled is not None and len(cands) > 1:
                 for mid, aff, canon in cands:
                     rng = _RANGE.search(canon)
-                    if rng:
-                        lo, hi = int(rng.group(1)), int(rng.group(2))
-                        if lo <= rolled <= hi:
-                            chosen = (mid, aff, canon); break
+                    if rng and float(rng.group(1)) <= rolled <= float(rng.group(2)):
+                        chosen = (mid, aff, canon)
+                        break
             if chosen is None:
                 chosen = cands[0]
             mid, aff, canon = chosen
             ambiguous = len({c[1] for c in cands}) > 1  # spans both affix types
             matched.append({"mod_id": mid, "affix_type": aff, "text": canon,
-                            "line": ln.strip(), "ambiguous": ambiguous})
+                            "line": ln, "ambiguous": ambiguous,
+                            "block": mod_blocks[i]})
         else:
             # only treat plausible mod lines as unmatched (has a number or %),
             # to avoid flagging flavor text / names
             if _NUM.search(ln) or '%' in ln:
-                unmatched.append(ln.strip())
+                unmatched.append(ln)
+        i += 1
+
+    # --- separate implicit (intrinsic base) mods from explicit affixes ---
+    # PoE2 rules: implicits sit ABOVE the explicit mods (separated by a divider),
+    # they are intrinsic to the base, and a Normal item has NO explicit mods. So:
+    #   (a) if rarity is stated Normal, every matched line is an implicit;
+    #   (b) any matched mod in an earlier divider block than the last mod block is
+    #       an implicit (the explicit affixes are the last mod block);
+    #   (c) jewellery always has an implicit, so a single lone matched mod on a
+    #       jewellery base of unknown rarity (with nothing unmatched) is that
+    #       implicit, not an affix.
+    implicits = []
+    if matched:
+        for m in matched:
+            m.setdefault("block", 0)
+        last_block = max(m["block"] for m in matched)
+        bt = (base_token or "").split("_")[0]
+        is_jewellery = bt in ("amulet", "ring", "belt")
+        explicit = []
+        for m in matched:
+            if rarity == "Normal" or m["block"] < last_block:
+                implicits.append(m)
+            else:
+                explicit.append(m)
+        if (rarity is None and is_jewellery and len(explicit) == 1
+                and not implicits and not unmatched):
+            implicits, explicit = explicit, []
+        matched = explicit
+        for m in matched + implicits:
+            m.pop("block", None)
 
     # If the format had no explicit Rarity line (common in trade copies), infer
-    # it from the matched mod counts. More than 1 prefix or 1 suffix => Rare;
-    # otherwise default to Rare anyway (multi-mod pasted items are ~always rare,
-    # and Rare is the safe superset - the user can correct it in the dropdown).
+    # the MINIMUM rarity that fits the matched mods: 0 mods => Normal, fits
+    # 1 prefix + 1 suffix => Magic, otherwise Rare. (app.py still auto-promotes
+    # from kept/junk counts, so this is only the starting dropdown value.) If any
+    # mod line failed to match, stay conservative with Rare, since the item may
+    # carry more affixes than we resolved.
     if rarity is None:
         n_pre = sum(1 for m in matched if m["affix_type"] == "Prefix")
         n_suf = sum(1 for m in matched if m["affix_type"] == "Suffix")
-        if n_pre > 1 or n_suf > 1 or (n_pre + n_suf) > 2:
-            rarity = "Rare"
-        elif (n_pre + n_suf) >= 1:
-            rarity = "Rare"   # safe default; user can switch to Magic if needed
-        else:
+        if n_pre == 0 and n_suf == 0 and not unmatched:
             rarity = "Normal"  # no mods at all => white base
+        elif n_pre <= 1 and n_suf <= 1 and not unmatched:
+            rarity = "Magic"   # one prefix + one suffix fits Magic
+        else:
+            rarity = "Rare"
         rarity_inferred = True
     else:
         rarity_inferred = False
@@ -251,8 +339,10 @@ def parse_item(raw: str, pool_mods):
         "rarity_inferred": rarity_inferred,
         "item_level": item_level,
         "matched": matched,
+        "implicits": implicits,
         "unmatched": unmatched,
         "n_matched": len(matched),
+        "n_implicit": len(implicits),
         "n_unmatched": len(unmatched),
         "note": "Prefix/suffix inferred from CraftPath's mod pool via text match. "
                 "Unmatched lines need manual entry (implicits, crafted, unique, or "

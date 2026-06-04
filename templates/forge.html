@@ -606,6 +606,7 @@ let chosenPre = [], chosenSuf = [];
 let HAVE = new Set();   // target mod ids the user already has on their item
 let ITEM_MODS = [];     // parsed item mods: {mod_id, text, affix, state: keep|remove}
 let ITEM_UNMATCHED = []; // unmatched lines (shown, not modeled)
+let ITEM_IMPLICITS = []; // implicit (intrinsic base) mod texts, read-only
 let ITEM_META = {name:'', base:'', rarity:'Normal', ilvl:81};
 let WIZ_STEP = 1;
 
@@ -631,6 +632,7 @@ function renderItemCard(targetMode){
     <div class="item-body">
       <div class="item-art">${itemArt(baseToken, baseLabel)}</div>
       <div class="item-prop"><b style="color:${rarity==='Rare'?'#e6c87a':rarity==='Magic'?'#8a9bd8':'#c8c8c8'}">${rarity}</b></div>
+      ${(!targetMode && ITEM_IMPLICITS.length)?`<div class="item-prop" style="color:var(--ash-dim);font-style:italic">${ITEM_IMPLICITS.map(t=>`<span class="pmod" style="color:#7fae9b">${t} <span style="opacity:.6">(implicit)</span></span>`).join('')}</div><div class="item-sep"></div>`:''}
       <div class="item-sep"></div>
       <div class="item-prop">${mods.length?mods.map(m=>`<span class="pmod ${m.suf?'suf':''}" style="${m.state==='remove'?'text-decoration:line-through;opacity:.5':m.state==='skip'?'opacity:.4':''}">${m.text}</span>`).join(''):'<span style="opacity:.5">no mods yet</span>'}</div>
       <div class="item-sep"></div>
@@ -986,7 +988,7 @@ function wireControls(){
     // selected in the dropdown. No paste should be required just to design a
     // target from scratch; pasting is only needed to carry existing mods.
     if($('#itemCard').style.display==='none'){
-      ITEM_MODS = []; ITEM_UNMATCHED = [];
+      ITEM_MODS = []; ITEM_UNMATCHED = []; ITEM_IMPLICITS = [];
       ITEM_META.rarity = $('#startRarity') ? ($('#startRarity').value||'Normal') : 'Normal';
       const bl=($('#baseVisible').selectedOptions[0]||{}).text||'';
       ITEM_META.name = bl || 'Fresh Base';
@@ -1010,7 +1012,7 @@ function wireControls(){
   };
   $('#backTo2').onclick = ()=> gotoStep(2);
   const doStartOver = ()=>{
-    chosenPre=[]; chosenSuf=[]; ITEM_MODS=[]; ITEM_UNMATCHED=[];
+    chosenPre=[]; chosenSuf=[]; ITEM_MODS=[]; ITEM_UNMATCHED=[]; ITEM_IMPLICITS=[];
     $('#pasteBox').value=''; $('#parseResult').innerHTML='';
     $('#itemCard').style.display='none'; $('#pasteZone').style.display='block';
     $('#startRarity').value='Normal'; renderChips(); renderLists(); renderOwnMods();
@@ -1042,6 +1044,7 @@ function wireControls(){
         ITEM_MODS = j.matched.map(m=>({ mod_id:m.mod_id, text:m.text, affix:m.affix_type,
           state: 'keep' }));   // default to KEEP; strike out the ones you don't want
         ITEM_UNMATCHED = j.unmatched.slice();
+        ITEM_IMPLICITS = (j.implicits||[]).map(m=>m.text);
         ITEM_META.name = j.name || 'Crafted Item';
         // reveal the card + flanking mods (animated), hide the paste zone
         $('#pasteZone').style.display='none';

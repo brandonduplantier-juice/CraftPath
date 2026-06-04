@@ -620,7 +620,7 @@ def api_parse_item():
     pool = [{"mod_id": m.mod_id, "affix_type": m.affix_type,
              "group": getattr(m, "group", None),
              "text": m.text} for m in mods]
-    result = item_parser.parse_item(raw, pool)
+    result = item_parser.parse_item(raw, pool, base_token=used_base)
     result["detected_base"] = detected          # token or None
     result["used_base"] = used_base
     # Log unmatched mod lines to Sentry (if configured) so the dev sees real
