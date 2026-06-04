@@ -796,5 +796,31 @@
    "source": "0.5.0: Maxroll chance list; Game8 / Fextralife Headhunter Heavy Belt; Orb of Chance mechanics from community 0.5 guides"
   }
  ],
- "meta_warning": "Patch 0.5 Runes of Aldur launched May 29, 2026. The endgame meta is only days old and unsettled: community build guides are still being optimized and several new interactions are unconfirmed. The entries below are common target mods plus a reasonable crafting route, inferred from current guides and stable slot priorities. They are NOT verified best-in-slot. Verify on a current build guide before committing large currency."
+ "meta_warning": "Patch 0.5 Runes of Aldur launched May 29, 2026. The endgame meta is only days old and unsettled: community build guides are still being optimized and several new interactions are unconfirmed. The entries below are common target mods plus a reasonable crafting route, inferred from current guides and stable slot priorities. They are NOT verified best-in-slot. Verify on a current build guide before committing large currency.",
+ "fracturing": {
+  "title": "Fracturing Orb (lock a mod, or isolate a removal)",
+  "intro": "A Fracturing Orb permanently LOCKS one explicit modifier on a Rare item so later crafting cannot touch it. It does not remove mods directly, it protects one. A fractured mod cannot be removed or changed by Chaos, Divine, Annulment, or Vaal Orbs (it shows in gold text).",
+  "requirements": [
+   "Rare item only. It cannot be used on Normal or Magic items.",
+   "Needs 4 or more EXPLICIT modifiers. Implicit mods (the base implicit) do NOT count toward the 4.",
+   "The locked mod is chosen at RANDOM. Use it on an item with EXACTLY 4 explicit mods for the best odds: ~25% to hit the one you want on a 4-mod item, and worse with more mods."
+  ],
+  "basic_use": [
+   "Goal: lock in one outstanding or rare modifier on a good base.",
+   "After a good fracture, reroll the other mods with Chaos Orbs (the fractured mod stays safe), then finish with Exalted Orbs.",
+   "Risk: about 75% of the time on a 4-mod item it locks a mod you did NOT want, which can brick the item for this purpose. Only fracture items you are willing to lose."
+  ],
+  "isolation": [
+   "Advanced, and this is your removal use case: a fracture plus an Orb of Annulment can guarantee removal of a specific UNWANTED mod.",
+   "An Orb of Annulment deletes a random mod. An Omen of Sinistral Annulment limits it to PREFIXES; an Omen of Dextral Annulment limits it to SUFFIXES. A fracture makes the locked mod un-annullable.",
+   "Example: two prefixes (one good, one junk) plus suffixes. Fracture the GOOD prefix, then annul with Omen of Sinistral Annulment. The omen bans the suffixes, the fracture bans the good prefix, so the junk prefix is the only legal target and is removed for certain.",
+   "This is the 'isolation principle': ban every annul outcome except the one you want. It only fully isolates when the fracture plus the side omen leave exactly one annullable mod."
+  ],
+  "caveats": [
+   "Annul omens (Sinistral / Dextral Annulment) are extremely rare; treat the isolation combo as trade-league endgame, not an everyday craft.",
+   "The isolation detail comes from a pre-0.2.0 GGG preview, so treat the exact omen interaction as the source's reasoning, not bench-tested 0.5 numbers. The core fracturing mechanic above is confirmed current.",
+   "Fracturing does not pair with recombinators in this league: recombinators were removed for Runes of Aldur."
+  ],
+  "source": "Fracturing Orb mechanics confirmed across current PoE2 guides (0.2.0 onward, still current in 0.5); isolation principle from sirgog's Mobalytics 'Fracturing Orbs' guide (pre-0.2.0 preview)."
+ }
 }

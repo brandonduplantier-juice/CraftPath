@@ -880,6 +880,17 @@ function renderGuideReference(){
       (D.source?'<div class="recipe-src">Source: '+D.source+'</div>':'')+
       '</div></details>';
   }
+  const F=GUIDES.fracturing;
+  if(F){
+    html+='<details class="guide-ref"><summary>🔒 '+(F.title||'Fracturing Orb')+'</summary><div class="gr-body">'+
+      (F.intro?'<p>'+F.intro+'</p>':'')+
+      (F.requirements?'<div class="gr-h">Requirements</div>'+ul(F.requirements):'')+
+      (F.basic_use?'<div class="gr-h">Basic use: lock a good mod</div>'+ul(F.basic_use):'')+
+      (F.isolation?'<div class="gr-h">Removing an unwanted mod (isolation principle)</div>'+ul(F.isolation):'')+
+      (F.caveats?'<div class="gr-h">Caveats</div>'+ul(F.caveats):'')+
+      (F.source?'<div class="recipe-src">Source: '+F.source+'</div>':'')+
+      '</div></details>';
+  }
   html+=M.map(m=>'<details class="guide-ref"><summary>🛠 '+(m.title||'Method')+'</summary><div class="gr-body">'+
     (m.when?'<p><b>When:</b> '+m.when+'</p>':'')+
     (m.base?'<div class="recipe-base"><b>Base:</b> '+m.base+'</div>':'')+
