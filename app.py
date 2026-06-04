@@ -382,6 +382,9 @@ def api_config():
         "market_available": not is_hosted,
         "market_live": (not is_hosted) and __import__("trade_client").has_session(),
         "download_url": "https://github.com/brandonduplantier-juice/CraftPath/releases",
+        # league used to build official trade2 prefilled-search links. Leagues
+        # rotate, so this is env-overridable without a code change.
+        "trade_league": os.environ.get("TRADE_LEAGUE", "Runes of Aldur"),
     })
 
 
@@ -730,8 +733,8 @@ def api_solve():
             "not_viable_by_slamming": True,
             "msg": "Targeting this many new specific mods by orb-slamming isn't "
                    "cost-viable (expected cost is astronomical). This is why "
-                   "putrefaction exists - check the Putrefaction odds for this "
-                   "base, which roll multiple desecrated mods at once."})
+                   "desecration exists - check the desecration plan for this "
+                   "base, which adds desecrated mods from the Well of Souls."})
 
     try:
         mods, wsource = _load_mod_pool(base)
@@ -873,6 +876,8 @@ def api_solve():
                 if not wd:
                     return None
                 import putrefaction as PF
+                import desecrated as D
+                lord_ok = D.lord_omen_valid(base)  # lord omens: weapon/jewellery only
                 bt_local = base.split("_")[0]
                 # bone + label for THIS base category
                 if bt_local in {"amulet", "ring", "belt", "talisman"}:
@@ -912,7 +917,6 @@ def api_solve():
 
                 recs = []
                 shopping = {}   # item -> approx qty (string)
-                shopping["Putrefaction Omen"] = "1 per attempt"
                 shopping[f"Abyssal {bone} (bone)"] = "1 per attempt"
                 for side in ("Prefix", "Suffix"):
                     st = [d for d in wd if d["affix_type"] == side]
@@ -920,15 +924,20 @@ def api_solve():
                         continue
                     lords = {d.get("lord") for d in st}
                     lord = next(iter(lords)) if len(lords) == 1 else None
-                    ac = (bone_cost or 8) + (prices.get("Omen of Putrefaction", 20))
+                    if not lord_ok:
+                        lord = None   # armour/off-hand can't use lord-forcing omens
+                    necro = "Sinistral Necromancy" if side == "Prefix" else "Dextral Necromancy"
+                    lo = {"amanamu": "Omen of the Liege", "ulaman": "Omen of the Sovereign",
+                          "kurgal": "Omen of the Blackblooded"}.get(lord)
+                    # per-attempt cost: one bone plus the omens consumed by that
+                    # desecration (the side omen, and the lord omen if we force one).
+                    # NO Omen of Putrefaction: that replaces every mod and corrupts.
+                    ac = (bone_cost or 8) + prices.get(f"Omen of {necro}", 5) + (prices.get(lo, 5) if lo else 0)
                     plan = PF.plan_putrefaction(base, side, target_count=len(st),
                                                 lord=lord, attempt_cost=ac)
                     if plan:
-                        lo = {"amanamu": "Omen of the Liege", "ulaman": "Omen of the Sovereign",
-                              "kurgal": "Omen of the Blackblooded"}.get(lord)
                         tgt_texts = [by_id[d["mod_id"]].text[0] if d["mod_id"] in by_id
                                      else d.get("text", d["mod_id"]) for d in st]
-                        necro = "Sinistral Necromancy" if side == "Prefix" else "Dextral Necromancy"
                         recs.append({"side": side,
                                      "targets": tgt_texts,
                                      "lord": lord, "lord_omen": lo,
@@ -949,35 +958,50 @@ def api_solve():
 
                 # craft-specific step list
                 if set(wanted) <= desec_ids:
-                    base_open = (f"BASE: you already have your <b>{base_label}</b> set up. Putrefaction "
-                                 f"REPLACES all mods, so any kept mods will be wiped. Only keep them if "
-                                 f"you're slotting them back AFTER. Make sure it's a RARE, not corrupted.")
+                    base_open = (f"BASE: start with a Rare <b>{base_label}</b> that has OPEN affix slots on "
+                                 f"the side(s) you're desecrating. Each desecration ADDS one unrevealed mod, "
+                                 f"so you desecrate + reveal once per desecrated mod you want. Do NOT use Omen "
+                                 f"of Putrefaction here: it replaces every mod and CORRUPTS the item. Keep it "
+                                 f"un-corrupted.")
                 else:
-                    base_open = (f"BASE: use your <b>{base_label}</b>. Get it to RARE with your "
-                                 f"non-desecrated mod(s) secured FIRST (desecration adds the rest). "
-                                 f"It must not be corrupted before you desecrate.")
+                    base_open = (f"BASE: get your <b>{base_label}</b> to RARE with your non-desecrated mod(s) "
+                                 f"secured FIRST and an OPEN slot on the target side. Desecration ADDS to the "
+                                 f"item, it does not replace, and it must not be corrupted beforehand.")
                 # which side(s) we're forcing, named specifically
                 sides_used = [r["side"] for r in recs]
                 necro_named = recs[0]["necro_omen"]
-                desec_line = (f"DESECRATE: with the omen active, use an <b>Abyssal {bone}</b> "
+                lord_recs = [r for r in recs if r.get("lord_omen")]
+                lord_named = lord_recs[0]["lord_omen"] if lord_recs else None
+                targets_have_lord = any(d.get("lord") for d in wd)
+                lord_note = None
+                if targets_have_lord and not lord_ok:
+                    lord_note = ("NOTE: lord-forcing omens (Liege / Sovereign / Blackblooded) only work on "
+                                 "Weapon and Jewellery desecrations, so on this armour or off-hand piece you "
+                                 "cannot narrow to a single lord. The reveal pool is the full side pool, which "
+                                 "lowers your per-reveal odds.")
+                desec_line = (f"DESECRATE: with the omen(s) active, use an <b>Abyssal {bone}</b> "
                               f"({bone_kind} bone). {necro_named} forces the new unrevealed mod onto the "
                               f"<b>{sides_used[0].lower()}</b> side. That's where your target "
                               f"(<i>{recs[0]['targets'][0]}</i>) lives.")
                 lord_line = None
-                lord_recs = [r for r in recs if r.get("lord_omen")]
                 if lord_recs:
                     lr = lord_recs[0]
-                    lord_line = (f"⭐ LORD-FORCING (the key to targeting): hold <b>{lr['lord_omen']}</b> "
-                                 f"when you desecrate. It {lr['why_omen']}. Without it the pool is larger "
-                                 f"and your odds drop.")
+                    lord_line = (f"⭐ WHY THE LORD OMEN: {lr['lord_omen']} {lr['why_omen']}. Without it the "
+                                 f"pool is larger and your odds drop.")
                 how = [base_open]
+                if lord_note:
+                    how.append(lord_note)
                 if essence_step:
                     how.append(essence_step)
-                how.append(f"⚠️ ACTIVATE THE OMEN: right-click <b>{necro_named}</b> in your inventory to set "
-                           f"it ACTIVE (red border). It does nothing until activated.")
-                how.append(desec_line)
+                how.append("⚠️ ACTIVATE YOUR OMENS FIRST, before you touch the bone: right-click "
+                           f"<b>{necro_named}</b>"
+                           + (f" and <b>{lord_named}</b>" if lord_named else "")
+                           + " in your inventory so each shows the ACTIVE (red) border. Omens apply to your "
+                             "NEXT desecration and are consumed by it, so they must already be active when you "
+                             "use the bone.")
                 if lord_line:
                     how.append(lord_line)
+                how.append(desec_line)
                 how.append("REVEAL at the Well of Souls: reveal the desecrated mod(s) one slot at a time. "
                             "Save your highest-value target for the LAST reveal of that side, since taking a mod "
                             "blocks its group on later reveals.")
@@ -988,8 +1012,8 @@ def api_solve():
                     how.append("FILL REMAINING SLOTS after a good reveal: use Exalted Orbs for the rest. "
                                "Greater Exalted (min mod lvl 44) or Perfect Exalted (~50) skip weak tiers; "
                                "pair a Perfect Exalted with an Omen of Greater Exaltation to add TWO mods at once.")
-                how.append("FINISH LAST: quality to 20%, add sockets + runes only at the very end "
-                           "(Putrefaction corrupts the item, so you can't quality/socket it afterward).")
+                how.append("FINISH LAST: quality to 20%, add sockets + runes at the end. Plain desecration "
+                           "does NOT corrupt the item, so you can finish it normally and Exalt any open slots.")
 
                 # shopping list extras
                 shopping["Exalted Orbs"] = "a few (fill non-target slots)" if not (set(wanted) <= desec_ids) else "0 (all slots desecrated)"
@@ -1009,15 +1033,15 @@ def api_solve():
             if puf:
                 result["bricked"] = False
                 result["msg"] = ("This mod set can't be reached by orb-slamming, so it "
-                                 "needs desecrated mods. Use Putrefaction (below).")
+                                 "needs desecrated mods. Use desecration (below).")
             else:
                 result["msg"] = "No path to this mod set under modeled methods."
         else:  # not_viable
             base_msg = ("Targeting this many specific mods by orb-slamming isn't "
                         "cost-viable (expected cost is astronomical).")
-            result["msg"] = (base_msg + " Use Putrefaction (below); it rolls multiple "
-                             "desecrated mods at once." if puf else
-                             base_msg + " This is why putrefaction exists.")
+            result["msg"] = (base_msg + " Use desecration (below); it adds desecrated "
+                             "mods from the Well of Souls." if puf else
+                             base_msg + " This is why desecration exists.")
         return jsonify(result)
 
     # walk policy along most-likely outcomes

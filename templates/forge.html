@@ -90,6 +90,11 @@
   .flip-piece .fp-tag.suf{color:#d8a86a}
   .flip-piece .fp-tag.combo{color:var(--verisium-bright)}
   .flip-piece .fp-note{font-size:11.5px;color:var(--ash-dim);margin-top:5px;font-style:italic}
+  .shop-bases{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 6px}
+  .shop-chip{font-family:inherit;font-size:12px;color:var(--verisium-bright);background:rgba(46,197,192,.08);
+    border:1px solid var(--edge);border-radius:6px;padding:6px 11px;cursor:pointer;transition:all .15s}
+  .shop-chip:hover{border-color:var(--verisium-bright);background:rgba(46,197,192,.16)}
+  .shop-chip .sc-ilvl{font-size:10px;color:var(--ash-dim)}
   .budget-tabs{display:flex;gap:8px;margin-bottom:16px}
   .budget-tab{padding:7px 16px;border:1px solid var(--edge);border-radius:5px;cursor:pointer;
     font-size:12px;letter-spacing:.06em;color:var(--ash);background:rgba(40,50,70,.2);transition:all .14s}
@@ -840,6 +845,25 @@ async function loadGuides(){
   renderGuideReference();
 }
 
+function tradeUrl(type, ilvlMin){
+  // Build an official PoE2 trade2 prefilled search: Normal rarity, item-level
+  // floor, cheapest first. League comes from server config (rotates per league).
+  const league=(window.CFG&&window.CFG.trade_league)||'Standard';
+  const q={query:{status:{option:'online'}, type:type,
+    filters:{ type_filters:{filters:{rarity:{option:'normal'}}},
+              misc_filters:{filters:{ilvl:{min:(ilvlMin||1)}}}}},
+    sort:{price:'asc'}};
+  return 'https://www.pathofexile.com/trade2/search/poe2/'+encodeURIComponent(league)+
+         '?q='+encodeURIComponent(JSON.stringify(q));
+}
+function openTrade(type, ilvlMin){ try{ window.open(tradeUrl(type, ilvlMin),'_blank','noopener'); }catch(e){} }
+window.openTrade=openTrade;
+function _tradeBtn(type, ilvl, label){
+  const t=String(type).replace(/'/g,"\\'");
+  return '<button class="shop-chip" onclick="openTrade(\''+t+'\','+(ilvl||1)+')">🔎 '+
+    (label||('Find white '+type))+(ilvl?' <span class="sc-ilvl">ilvl '+ilvl+'+</span>':'')+'</button>';
+}
+
 function renderGuideReference(){
   const host=$('#guideReference'); if(!host || !GUIDES) return;
   const D=GUIDES.desecration, M=GUIDES.methods||[];
@@ -870,10 +894,14 @@ function renderGuideReference(){
         (p.top_combos?'<div class="fp-row"><span class="fp-tag combo">best combos</span> '+p.top_combos+'</div>':'')+
         (p.note?'<div class="fp-note">'+p.note+'</div>':'')+
       '</div>').join(''):'')+
+    (m.shoppable_bases?'<div class="gr-h">Shop white bases on trade</div><div class="shop-bases">'+
+      m.shoppable_bases.map(b=>_tradeBtn(b.type, b.ilvl, b.name)).join('')+'</div>'+
+      (m.shop_note?'<div class="fp-note">'+m.shop_note+'</div>':''):'')+
     (m.targets?'<div class="gr-h">Chance targets</div>'+
       m.targets.map(t=>'<div class="flip-piece"><div class="fp-slot">'+t.base+
         (t.unique?' <span class="fp-ilvl">to '+t.unique+(t.tier?' ('+t.tier+')':'')+'</span>':'')+'</div>'+
         (t.note?'<div class="fp-note">'+t.note+'</div>':'')+
+        (t.trade?'<div class="fp-row">'+_tradeBtn(t.trade.type, t.trade.ilvl, 'Find white '+t.trade.type+' on trade')+'</div>':'')+
       '</div>').join(''):'')+
     (m.profit_note?'<p style="color:var(--ash)"><b>Profit:</b> '+m.profit_note+'</p>':'')+
     (m.est_cost?'<div class="recipe-cost"><b>Rough cost:</b> '+m.est_cost+'</div>':'')+
@@ -1363,7 +1391,7 @@ async function solve(){
   if(j.error){ results.innerHTML=`<div class="verdict warn"><div class="big">Something went wrong</div><div class="sub">${j.report?('If this keeps happening, please <a href="https://github.com/brandonduplantier-juice/CraftPath/issues" target="_blank" rel="noopener" style="color:var(--verisium-bright)">report it</a>.'):j.error}</div></div>`; return; }
   if(j.status==='invalid'){ results.innerHTML=`<div class="verdict warn"><div class="big">Invalid</div><div class="sub">${j.msg}</div></div>`; return; }
   if(j.bricked){ results.innerHTML=`<div class="verdict warn"><div class="big">Bricked / Unreachable</div><div class="sub">${j.msg||'No path under modeled methods.'}</div></div>`+putrefactionHTML(j); results.scrollIntoView({behavior:'smooth',block:'start'}); return; }
-  if(j.not_viable_by_slamming){ results.innerHTML=`<div class="verdict warn"><div class="big">Not viable by orb-slamming</div><div class="sub">${j.msg||'Use putrefaction for multi-mod targets.'}</div></div>`+putrefactionHTML(j); results.scrollIntoView({behavior:'smooth',block:'start'}); return; }
+  if(j.not_viable_by_slamming){ results.innerHTML=`<div class="verdict warn"><div class="big">Not viable by orb-slamming</div><div class="sub">${j.msg||'Use desecration for multi-mod targets.'}</div></div>`+putrefactionHTML(j); results.scrollIntoView({behavior:'smooth',block:'start'}); return; }
   let html=`<div class="verdict ${j.over_budget?'warn':''}">
     <div class="big">${fmt(j.expected_cost)} ex</div>
     <div class="sub">${j.over_budget? 'exceeds your '+j.budget+' ex budget; buying the finished item is likely cheaper'
@@ -1415,7 +1443,7 @@ async function solve(){
 // render the putrefaction "recommended method" panel if present
 function putrefactionHTML(j){
   const p=j.putrefaction; if(!p||!p.applies) return '';
-  let h=`<div class="puf-panel"><div class="puf-head">🦴 Recommended method: Putrefaction${p.base_label?` · <span style="color:var(--verisium-bright)">${p.base_label}</span>`:''}</div>`;
+  let h=`<div class="puf-panel"><div class="puf-head">🦴 Recommended method: Desecration${p.base_label?` · <span style="color:var(--verisium-bright)">${p.base_label}</span>`:''}</div>`;
   p.recs.forEach(r=>{
     h+=`<div class="puf-rec">
       <div class="puf-rec-head">${r.side} target${r.targets.length>1?'s':''}: <span class="puf-targets">${r.targets.join(' · ')}</span></div>

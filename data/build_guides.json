@@ -712,7 +712,46 @@
      "note": "Pure attack-stat slot for bow builds: flat added damage prefix + an attack-speed or crit suffix."
     }
    ],
-   "source": "Method from public 0.5 base-flipping transcript; orb levels from poe2wiki + a 0.5.0 currency guide; per-piece mod availability/levels from CraftPath's own pools"
+   "source": "Method from public 0.5 base-flipping transcript; orb levels from poe2wiki + a 0.5.0 currency guide; per-piece mod availability/levels from CraftPath's own pools",
+   "shoppable_bases": [
+    {
+     "name": "Gold Amulet",
+     "type": "Gold Amulet",
+     "ilvl": 82,
+     "why": "Increased Rarity implicit; the transcript flip pick."
+    },
+    {
+     "name": "Stellar Amulet",
+     "type": "Stellar Amulet",
+     "ilvl": 82,
+     "why": "+all-attributes implicit; strong craft base and the Astramentis chance base."
+    },
+    {
+     "name": "Unset Ring",
+     "type": "Unset Ring",
+     "ilvl": 82,
+     "why": "Gem-socket implicit; broadly useful."
+    },
+    {
+     "name": "Iron Ring",
+     "type": "Iron Ring",
+     "ilvl": 82,
+     "why": "Flat physical implicit for attack builds."
+    },
+    {
+     "name": "Sinister Quarterstaff",
+     "type": "Sinister Quarterstaff",
+     "ilvl": 82,
+     "why": "High base critical chance for crit melee."
+    },
+    {
+     "name": "Gemini Crossbow",
+     "type": "Gemini Crossbow",
+     "ilvl": 82,
+     "why": "Fires an extra bolt; the mercenary base."
+    }
+   ],
+   "shop_note": "Buttons open the official trade site prefilled to Normal (white) rarity at the listed item level, cheapest first. Base type strings must match the exact in-game base; verify each opens correctly. The league is set server-side (TRADE_LEAGUE)."
   },
   {
    "title": "White-base chancing flip (sell bases to Orb-of-Chance gamblers)",
@@ -730,13 +769,21 @@
      "base": "Stellar Amulet (white, high item level)",
      "unique": "Astramentis",
      "tier": "Tier 0 longshot",
-     "note": "The +all-attributes implicit base. No consolation uniques, so this is a true mega-gamble. The white base is also valuable to craft or resell, so weigh the opportunity cost before deleting it."
+     "note": "The +all-attributes implicit base. No consolation uniques, so this is a true mega-gamble. The white base is also valuable to craft or resell, so weigh the opportunity cost before deleting it.",
+     "trade": {
+      "type": "Stellar Amulet",
+      "ilvl": 82
+     }
     },
     {
      "base": "Heavy Belt (white, item level 50+)",
      "unique": "Headhunter",
      "tier": "Tier 0",
-     "note": "Roughly 0.3% per attempt by community estimate. Consolation heavy-belt uniques include Waistgate and Zerphi's Genesis. Bricks on failure, so each try needs a fresh white base, which is why these bases sell well."
+     "note": "Roughly 0.3% per attempt by community estimate. Consolation heavy-belt uniques include Waistgate and Zerphi's Genesis. Bricks on failure, so each try needs a fresh white base, which is why these bases sell well.",
+     "trade": {
+      "type": "Heavy Belt",
+      "ilvl": 50
+     }
     },
     {
      "base": "Lower-tier targets (various bows, belts, resistance rings)",
