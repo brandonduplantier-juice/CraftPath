@@ -9,3 +9,6 @@ venv/
 RUN_DESKTOP.bat
 *.session
 poesessid*.txt
+
+build/
+dist/
