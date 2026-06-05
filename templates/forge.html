@@ -891,6 +891,17 @@ function renderGuideReference(){
       (F.source?'<div class="recipe-src">Source: '+F.source+'</div>':'')+
       '</div></details>';
   }
+  const P=GUIDES.plus_skills_tech;
+  if(P){
+    html+='<details class="guide-ref"><summary>⚔️ '+(P.title||'+4 Skills tech')+'</summary><div class="gr-body">'+
+      (P.intro?'<p>'+P.intro+'</p>':'')+
+      (P.mechanic?'<div class="gr-h">How the +4 works (verified)</div>'+ul(P.mechanic):'')+
+      (P.slot?'<div class="gr-h">Freeing the slot with Whittle (test first)</div>'+ul(P.slot):'')+
+      (P.fracture?'<div class="gr-h">Fracture odds interaction</div>'+ul(P.fracture):'')+
+      (P.confidence?'<div class="gr-h">Confidence and caveats</div>'+ul(P.confidence):'')+
+      (P.source?'<div class="recipe-src">Source: '+P.source+'</div>':'')+
+      '</div></details>';
+  }
   html+=M.map(m=>'<details class="guide-ref"><summary>🛠 '+(m.title||'Method')+'</summary><div class="gr-body">'+
     (m.when?'<p><b>When:</b> '+m.when+'</p>':'')+
     (m.base?'<div class="recipe-base"><b>Base:</b> '+m.base+'</div>':'')+

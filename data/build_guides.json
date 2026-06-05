@@ -822,5 +822,30 @@
    "Fracturing does not pair with recombinators in this league: recombinators were removed for Runes of Aldur."
   ],
   "source": "Fracturing Orb mechanics confirmed across current PoE2 guides (0.2.0 onward, still current in 0.5); isolation principle from sirgog's Mobalytics 'Fracturing Orbs' guide (pre-0.2.0 preview)."
+ },
+ "plus_skills_tech": {
+  "title": "+4 to all Skills amulet (advanced quality tech)",
+  "intro": "A catalyst-quality trick that turns a +3 to Level of all Melee or Spell Skills amulet mod into +4. It works ONLY for Melee skills (+all Melee Skills carries the Attack tag) and Spell skills (+all Spell Skills carries the Caster tag). It does NOT work for Minion or Projectile skills, which lack those tags. The +4 comes from pushing catalyst quality to 34% or higher, which needs more than the normal 20% cap.",
+  "mechanic": [
+   "Quality scales a matching mod's magnitude and the game floors the result: +3 x 1.34 = 4.02, which floors to +4. So 34% quality is the breakpoint. At the normal 20% cap, +3 x 1.20 = 3.6 floors to +3, so 20% is not enough.",
+   "Raise the cap with Essence of the Breach: it removes a random mod and adds a crafted '+20% to Maximum Quality' mod to the jewellery, raising the catalyst cap from 20% to 40%. (Confirmed by the PoE2 wiki.)",
+   "Use the matching catalyst to reach 34%+: Reaver (Attack) for +Melee Skills, Sibilant (Caster) for +Spell Skills. Carapace (Defence) quality can be stacked first to bias defensive prefix Exalts, per the source."
+  ],
+  "slot": [
+   "The breach quality mod has item level 1, so Omen of Whittling (removes the lowest-level mod) is guaranteed to strip it, freeing the affix slot for a real mod.",
+   "The +4 should REMAIN after removal: jewellery quality is a stored value and the cap mod only gates ADDING quality, so lowering the cap does not appear to clamp the 40% you already have. There is direct precedent that jewellery quality is not removed by crafting.",
+   "This persistence is demonstrated by the source but is NOT in official GGG notes. Test it on a cheap amulet before committing expensive currency.",
+   "Reveal any unrevealed desecrated mod first: it also has a very low item level, so Whittle could target it instead of the breach mod."
+  ],
+  "fracture": [
+   "Desecrated mods cannot be fractured. Converting one prefix to a desecrated mod drops the Fracturing Orb pool from 4 candidates to 3.",
+   "That raises the chance to lock your +3 from 1/4 (25%) to 1/3 (about 33%), a +8.3% improvement, since fracturing picks a random non-desecrated explicit mod."
+  ],
+  "confidence": [
+   "VERIFIED: the Essence of the Breach +20% max-quality cap step, the 34% breakpoint, and the tag rule (Melee=Reaver, Spell=Sibilant, not minion/projectile).",
+   "LIKELY, TEST FIRST: that whittling the cap mod keeps the +4. Consistent with how quality works and demonstrated in practice, but not in official patch notes.",
+   "This is an expensive trade-league craft: Essence of the Breach, Omen of Whittling, crystallization and light omens, catalysts, and a Fracturing Orb. It is not a budget method."
+  ],
+  "source": "Community technique (user-provided video) cross-checked against the PoE2 wiki (Quality, Essence of the Breach) and current 0.5 catalyst/quality guides. The whittle-keeps-+4 step is demonstrated but not officially documented."
  }
 }
