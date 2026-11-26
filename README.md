@@ -1,5 +1,9 @@
 # poe2craft; PoE2 crafting cost & step optimizer
 
+## Project navigation
+
+- [Engineering guide](ENGINEERING.md): directory map, development workflow and review standards.
+
 ## Quick start (what's free vs what needs setup)
 
 **Free for everyone, works instantly**; the crafting optimizer. Run it and you
