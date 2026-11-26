@@ -3,6 +3,7 @@
 ## Project navigation
 
 - [Engineering guide](ENGINEERING.md): directory map, development workflow and review standards.
+- [Documentation index](DOCUMENTATION.md): technical documents and existing project resources.
 
 ## Quick start (what's free vs what needs setup)
 
