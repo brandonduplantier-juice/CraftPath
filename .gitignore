@@ -12,3 +12,6 @@ poesessid*.txt
 
 build/
 dist/
+
+# Local development artifacts
+.pytest_cache/
