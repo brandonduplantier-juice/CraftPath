@@ -28,3 +28,7 @@ The following map points to existing resources; their contents and authority are
 - [WEIGHTS_HOWTO.md](WEIGHTS_HOWTO.md)
 - [data/](data/)
 - [test_crafts.py](test_crafts.py)
+
+## Release management
+
+- [Release and versioning policy](RELEASE_POLICY.md): verification, version naming, release evidence and rollback requirements.
