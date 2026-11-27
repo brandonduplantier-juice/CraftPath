@@ -1,0 +1,32 @@
+name: Python validation
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      MARKET_ACCESS_MODE: closed
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile tracked Python source
+        run: |
+          python - <<'PY'
+          import pathlib, subprocess
+          files = [pathlib.Path(p) for p in subprocess.check_output(["git","ls-files","-z","*.py"]).decode().split("\0") if p]
+          assert files, "No Python source found"
+          for path in files:
+              compile(path.read_bytes(), str(path), "exec")
+          print(f"Compiled {len(files)} Python files")
+          PY
+      - run: python -m pip install -r requirements.txt
+      - run: python -m pip check
+      - name: Bounded crafting solver regression
+        run: python test_crafts.py 1
