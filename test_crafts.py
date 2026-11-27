@@ -288,4 +288,5 @@ if __name__ == "__main__":
     print("\n=== METHOD CENSUS (how often each action appeared in plans) ===")
     for cat, n in census.most_common():
         print(f"  {n:>5}  {cat}")
-    method_reachability()
+    reachable = method_reachability()
+    sys.exit(1 if failures or not reachable else 0)
